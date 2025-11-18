@@ -1,0 +1,23 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "f:\\onlinefps\\onlinefps\\source\\onlinefps\\variant_shooter\\weapons\\shooterpickup.cpp",
+        "ProvidedModule": "",
+        "PCH": "f:\\onlinefps\\onlinefps\\intermediate\\build\\win64\\x64\\onlinefpseditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.valexpapi.cpp20.h.pch",
+        "Includes": [
+            "f:\\onlinefps\\onlinefps\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\onlinefps\\definitions.onlinefps.h",
+            "f:\\onlinefps\\onlinefps\\source\\onlinefps\\variant_shooter\\weapons\\shooterpickup.h",
+            "f:\\onlinefps\\onlinefps\\intermediate\\build\\win64\\unrealeditor\\inc\\onlinefps\\uht\\shooterpickup.generated.h",
+            "c:\\unreal\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\components\\spherecomponent.h",
+            "c:\\unreal\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\components\\shapecomponent.h",
+            "c:\\unreal\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\shapecomponent.generated.h",
+            "c:\\unreal\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\spherecomponent.generated.h",
+            "f:\\onlinefps\\onlinefps\\source\\onlinefps\\variant_shooter\\weapons\\shooterweaponholder.h",
+            "f:\\onlinefps\\onlinefps\\intermediate\\build\\win64\\unrealeditor\\inc\\onlinefps\\uht\\shooterweaponholder.generated.h",
+            "f:\\onlinefps\\onlinefps\\source\\onlinefps\\variant_shooter\\weapons\\shooterweapon.h",
+            "f:\\onlinefps\\onlinefps\\intermediate\\build\\win64\\unrealeditor\\inc\\onlinefps\\uht\\shooterweapon.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

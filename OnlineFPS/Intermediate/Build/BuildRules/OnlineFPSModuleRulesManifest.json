@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"F:\\OnlineFPS\\OnlineFPS\\Source\\OnlineFPS\\OnlineFPS.Build.cs",
+		"F:\\OnlineFPS\\OnlineFPS\\Source\\OnlineFPS.Target.cs",
+		"F:\\OnlineFPS\\OnlineFPS\\Source\\OnlineFPSEditor.Target.cs"
+	],
+	"EngineVersion": "5.6.1"
+}

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\OnlineFPS.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{F31BBDD1-B3E8-3BCC-9652-680E16935819}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\OnlineFPS.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\OnlineFPSEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\.vsconfig" />
+    <Filter Include="Config">
+      <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\OnlineFPS">
+      <UniqueIdentifier>{0114DED3-9A8C-3805-9679-7389D3E0B6E4}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\OnlineFPS\OnlineFPS.Build.cs">
+      <Filter>Source\OnlineFPS</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\OnlineFPS\OnlineFPS.cpp">
+      <Filter>Source\OnlineFPS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OnlineFPS\OnlineFPS.h">
+      <Filter>Source\OnlineFPS</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OnlineFPS\OnlineFPSCameraManager.cpp">
+      <Filter>Source\OnlineFPS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OnlineFPS\OnlineFPSCameraManager.h">
+      <Filter>Source\OnlineFPS</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OnlineFPS\OnlineFPSCharacter.cpp">
+      <Filter>Source\OnlineFPS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OnlineFPS\OnlineFPSCharacter.h">
+      <Filter>Source\OnlineFPS</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OnlineFPS\OnlineFPSGameMode.cpp">
+      <Filter>Source\OnlineFPS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OnlineFPS\OnlineFPSGameMode.h">
+      <Filter>Source\OnlineFPS</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OnlineFPS\OnlineFPSPlayerController.cpp">
+      <Filter>Source\OnlineFPS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OnlineFPS\OnlineFPSPlayerController.h">
+      <Filter>Source\OnlineFPS</Filter>
+    </ClInclude>
+    <Filter Include="Source\OnlineFPS\Private">
+      <UniqueIdentifier>{0300294D-09DC-3F94-B44C-0E3F46683185}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\OnlineFPS\Private\FPSCharacter.cpp">
+      <Filter>Source\OnlineFPS\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OnlineFPS\Private\FPSGameModeBase.cpp">
+      <Filter>Source\OnlineFPS\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OnlineFPS\Private\FPSPlayerController.cpp">
+      <Filter>Source\OnlineFPS\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OnlineFPS\Private\FPSWeapon.cpp">
+      <Filter>Source\OnlineFPS\Private</Filter>
+    </ClCompile>
+    <Filter Include="Source\OnlineFPS\Public">
+      <UniqueIdentifier>{AE9EA22B-A990-31EB-B318-78BFF72901DB}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\OnlineFPS\Public\FPSCharacter.h">
+      <Filter>Source\OnlineFPS\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\OnlineFPS\Public\FPSGameModeBase.h">
+      <Filter>Source\OnlineFPS\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\OnlineFPS\Public\FPSPlayerController.h">
+      <Filter>Source\OnlineFPS\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\OnlineFPS\Public\FPSWeapon.h">
+      <Filter>Source\OnlineFPS\Public</Filter>
+    </ClInclude>
+    <Filter Include="Source\OnlineFPS\Variant_Horror">
+      <UniqueIdentifier>{A46ADE6E-9DC2-3DAD-BC4D-A09368C49470}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\OnlineFPS\Variant_Horror\HorrorCharacter.cpp">
+      <Filter>Source\OnlineFPS\Variant_Horror</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OnlineFPS\Variant_Horror\HorrorCharacter.h">
+      <Filter>Source\OnlineFPS\Variant_Horror</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OnlineFPS\Variant_Horror\HorrorGameMode.cpp">
+      <Filter>Source\OnlineFPS\Variant_Horror</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OnlineFPS\Variant_Horror\HorrorGameMode.h">
+      <Filter>Source\OnlineFPS\Variant_Horror</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OnlineFPS\Variant_Horror\HorrorPlayerController.cpp">
+      <Filter>Source\OnlineFPS\Variant_Horror</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OnlineFPS\Variant_Horror\HorrorPlayerController.h">
+      <Filter>Source\OnlineFPS\Variant_Horror</Filter>
+    </ClInclude>
+    <Filter Include="Source\OnlineFPS\Variant_Horror\UI">
+      <UniqueIdentifier>{05723E9A-6F51-37B5-AAB3-5C764D512E7B}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\OnlineFPS\Variant_Horror\UI\HorrorUI.cpp">
+      <Filter>Source\OnlineFPS\Variant_Horror\UI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OnlineFPS\Variant_Horror\UI\HorrorUI.h">
+      <Filter>Source\OnlineFPS\Variant_Horror\UI</Filter>
+    </ClInclude>
+    <Filter Include="Source\OnlineFPS\Variant_Shooter">
+      <UniqueIdentifier>{B06CF091-0418-3870-BE5A-A37EECC462BB}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\OnlineFPS\Variant_Shooter\ShooterCharacter.cpp">
+      <Filter>Source\OnlineFPS\Variant_Shooter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OnlineFPS\Variant_Shooter\ShooterCharacter.h">
+      <Filter>Source\OnlineFPS\Variant_Shooter</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OnlineFPS\Variant_Shooter\ShooterGameMode.cpp">
+      <Filter>Source\OnlineFPS\Variant_Shooter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OnlineFPS\Variant_Shooter\ShooterGameMode.h">
+      <Filter>Source\OnlineFPS\Variant_Shooter</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OnlineFPS\Variant_Shooter\ShooterPlayerController.cpp">
+      <Filter>Source\OnlineFPS\Variant_Shooter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OnlineFPS\Variant_Shooter\ShooterPlayerController.h">
+      <Filter>Source\OnlineFPS\Variant_Shooter</Filter>
+    </ClInclude>
+    <Filter Include="Source\OnlineFPS\Variant_Shooter\AI">
+      <UniqueIdentifier>{4B822D84-F77C-3D1B-8735-3F909FA620B7}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\OnlineFPS\Variant_Shooter\AI\EnvQueryContext_Target.cpp">
+      <Filter>Source\OnlineFPS\Variant_Shooter\AI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OnlineFPS\Variant_Shooter\AI\EnvQueryContext_Target.h">
+      <Filter>Source\OnlineFPS\Variant_Shooter\AI</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OnlineFPS\Variant_Shooter\AI\ShooterAIController.cpp">
+      <Filter>Source\OnlineFPS\Variant_Shooter\AI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OnlineFPS\Variant_Shooter\AI\ShooterAIController.h">
+      <Filter>Source\OnlineFPS\Variant_Shooter\AI</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OnlineFPS\Variant_Shooter\AI\ShooterNPC.cpp">
+      <Filter>Source\OnlineFPS\Variant_Shooter\AI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OnlineFPS\Variant_Shooter\AI\ShooterNPC.h">
+      <Filter>Source\OnlineFPS\Variant_Shooter\AI</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OnlineFPS\Variant_Shooter\AI\ShooterStateTreeUtility.cpp">
+      <Filter>Source\OnlineFPS\Variant_Shooter\AI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OnlineFPS\Variant_Shooter\AI\ShooterStateTreeUtility.h">
+      <Filter>Source\OnlineFPS\Variant_Shooter\AI</Filter>
+    </ClInclude>
+    <Filter Include="Source\OnlineFPS\Variant_Shooter\UI">
+      <UniqueIdentifier>{81408783-3F77-30B7-A48F-C8D365E47B28}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\OnlineFPS\Variant_Shooter\UI\ShooterBulletCounterUI.cpp">
+      <Filter>Source\OnlineFPS\Variant_Shooter\UI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OnlineFPS\Variant_Shooter\UI\ShooterBulletCounterUI.h">
+      <Filter>Source\OnlineFPS\Variant_Shooter\UI</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OnlineFPS\Variant_Shooter\UI\ShooterUI.cpp">
+      <Filter>Source\OnlineFPS\Variant_Shooter\UI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OnlineFPS\Variant_Shooter\UI\ShooterUI.h">
+      <Filter>Source\OnlineFPS\Variant_Shooter\UI</Filter>
+    </ClInclude>
+    <Filter Include="Source\OnlineFPS\Variant_Shooter\Weapons">
+      <UniqueIdentifier>{B70B64E5-CD8F-3376-B24B-302742CB08E9}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\OnlineFPS\Variant_Shooter\Weapons\ShooterPickup.cpp">
+      <Filter>Source\OnlineFPS\Variant_Shooter\Weapons</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OnlineFPS\Variant_Shooter\Weapons\ShooterPickup.h">
+      <Filter>Source\OnlineFPS\Variant_Shooter\Weapons</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OnlineFPS\Variant_Shooter\Weapons\ShooterProjectile.cpp">
+      <Filter>Source\OnlineFPS\Variant_Shooter\Weapons</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OnlineFPS\Variant_Shooter\Weapons\ShooterProjectile.h">
+      <Filter>Source\OnlineFPS\Variant_Shooter\Weapons</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OnlineFPS\Variant_Shooter\Weapons\ShooterWeapon.cpp">
+      <Filter>Source\OnlineFPS\Variant_Shooter\Weapons</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OnlineFPS\Variant_Shooter\Weapons\ShooterWeapon.h">
+      <Filter>Source\OnlineFPS\Variant_Shooter\Weapons</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OnlineFPS\Variant_Shooter\Weapons\ShooterWeaponHolder.cpp">
+      <Filter>Source\OnlineFPS\Variant_Shooter\Weapons</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OnlineFPS\Variant_Shooter\Weapons\ShooterWeaponHolder.h">
+      <Filter>Source\OnlineFPS\Variant_Shooter\Weapons</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

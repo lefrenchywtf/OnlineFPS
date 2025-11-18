@@ -1,0 +1,22 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "f:\\onlinefps\\onlinefps\\source\\onlinefps\\variant_shooter\\weapons\\shooterweapon.cpp",
+        "ProvidedModule": "",
+        "PCH": "f:\\onlinefps\\onlinefps\\intermediate\\build\\win64\\x64\\onlinefpseditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.valexpapi.cpp20.h.pch",
+        "Includes": [
+            "f:\\onlinefps\\onlinefps\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\onlinefps\\definitions.onlinefps.h",
+            "f:\\onlinefps\\onlinefps\\source\\onlinefps\\variant_shooter\\weapons\\shooterweapon.h",
+            "f:\\onlinefps\\onlinefps\\source\\onlinefps\\variant_shooter\\weapons\\shooterweaponholder.h",
+            "f:\\onlinefps\\onlinefps\\intermediate\\build\\win64\\unrealeditor\\inc\\onlinefps\\uht\\shooterweaponholder.generated.h",
+            "f:\\onlinefps\\onlinefps\\intermediate\\build\\win64\\unrealeditor\\inc\\onlinefps\\uht\\shooterweapon.generated.h",
+            "c:\\unreal\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\kismet\\kismetmathlibrary.h",
+            "c:\\unreal\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\kismetmathlibrary.generated.h",
+            "c:\\unreal\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\kismet\\kismetmathlibrary.inl",
+            "f:\\onlinefps\\onlinefps\\source\\onlinefps\\variant_shooter\\weapons\\shooterprojectile.h",
+            "f:\\onlinefps\\onlinefps\\intermediate\\build\\win64\\unrealeditor\\inc\\onlinefps\\uht\\shooterprojectile.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "f:\\onlinefps\\onlinefps\\intermediate\\build\\win64\\unrealeditor\\inc\\onlinefps\\uht\\onlinefpsplayercontroller.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "f:\\onlinefps\\onlinefps\\intermediate\\build\\win64\\x64\\onlinefpseditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.valexpapi.cpp20.h.pch",
+        "Includes": [
+            "f:\\onlinefps\\onlinefps\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\onlinefps\\definitions.onlinefps.h",
+            "f:\\onlinefps\\onlinefps\\source\\onlinefps\\onlinefpsplayercontroller.h",
+            "f:\\onlinefps\\onlinefps\\intermediate\\build\\win64\\unrealeditor\\inc\\onlinefps\\uht\\onlinefpsplayercontroller.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

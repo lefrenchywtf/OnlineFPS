@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "OnlineFPS",
+			"Path": "..\\Source\\OnlineFPS.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "OnlineFPSEditor",
+			"Path": "..\\Source\\OnlineFPSEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}
