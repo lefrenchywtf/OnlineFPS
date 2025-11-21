@@ -17,6 +17,12 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 // ********** Begin Class AFPSWeapon ***************************************************************
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execStopFiring); \
+	DECLARE_FUNCTION(execFire); \
+	DECLARE_FUNCTION(execStartFiring);
+
+
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSWeapon_NoRegister();
 
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_20_INCLASS_NO_PURE_DECLS \
@@ -44,6 +50,7 @@ public: \
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_20_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
 	FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_20_INCLASS_NO_PURE_DECLS \
 	FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_20_ENHANCED_CONSTRUCTORS \
 private: \
@@ -60,7 +67,7 @@ class AFPSWeapon;
 // ********** Begin Enum EWeaponType ***************************************************************
 #define FOREACH_ENUM_EWEAPONTYPE(op) \
 	op(EWeaponType::PRIMARY) \
-	op(EWeaponType::Secondary) 
+	op(EWeaponType::SECONDARY) 
 
 enum class EWeaponType : uint8;
 template<> struct TIsUEnumClass<EWeaponType> { enum { Value = true }; };

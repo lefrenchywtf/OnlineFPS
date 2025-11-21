@@ -1,0 +1,16 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-OnlineFPS.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"F:/OnlineFPS/OnlineFPS/Intermediate/Build/Win64/x64/OnlineFPSEditor/Development/UnrealEd/SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.h.obj"
+"F:/OnlineFPS/OnlineFPS/Intermediate/Build/Win64/x64/UnrealEditor/Development/OnlineFPS/Module.OnlineFPS.cpp.obj"
+"F:/OnlineFPS/OnlineFPS/Intermediate/Build/Win64/x64/UnrealEditor/Development/OnlineFPS/FPSCharacter.cpp.obj"
+"F:/OnlineFPS/OnlineFPS/Intermediate/Build/Win64/x64/UnrealEditor/Development/OnlineFPS/FPSWeapon.cpp.obj"
+"F:/OnlineFPS/OnlineFPS/Intermediate/Build/Win64/x64/UnrealEditor/Development/OnlineFPS/FPSCharacter.gen.cpp.obj"
+"F:/OnlineFPS/OnlineFPS/Intermediate/Build/Win64/x64/UnrealEditor/Development/OnlineFPS/OnlineFPS.init.gen.cpp.obj"
+"F:/OnlineFPS/OnlineFPS/Intermediate/Build/Win64/x64/UnrealEditor/Development/OnlineFPS/Default.rc2.res"
+/OUT:"F:/OnlineFPS/OnlineFPS/Intermediate/Build/Win64/x64/UnrealEditor/Development/OnlineFPS/UnrealEditor-OnlineFPS.lib"

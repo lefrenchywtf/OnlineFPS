@@ -10,7 +10,7 @@ UENUM(BlueprintType)
 enum class EWeaponType : uint8
 {
 	PRIMARY,
-	Secondary,
+	SECONDARY,
 };
 
 
@@ -34,7 +34,7 @@ protected:
 	EWeaponType Type = EWeaponType::PRIMARY;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int maxAmmo = 0;
+	int maxAmmo = 20;
 
 	UPROPERTY(BlueprintReadWrite)
 	int ammoCount = 0;
@@ -45,10 +45,26 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float HsMultiplier = 1.5f;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float RPM = 600;
+
 	UPROPERTY(BlueprintReadWrite)
 	class AFPSCharacter* weaponOwner;
+
+	FTimerHandle fireTimerHandle;
+
+	UPROPERTY(BlueprintReadWrite)
+	bool bIsFiring = false;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UFUNCTION(BlueprintCallable)
+	void StartFiring();
+
+	UFUNCTION(BlueprintCallable)
+	void Fire();
+
+	UFUNCTION(BlueprintCallable)
+	void StopFiring();
 };

@@ -85,6 +85,8 @@
 				"F:/OnlineFPS/OnlineFPS/Content/MilitaryMercenaryBandit/Meshes/SK_Bandit_Skeleton.uasset",
 				"F:/OnlineFPS/OnlineFPS/Content/Core/Animation/AnimSequences/FPP/FPPBandit_Idle_Rifle_Ironsights.uasset",
 				"F:/OnlineFPS/OnlineFPS/Content/Core/Animation/ABP_FPPSoldier.uasset",
+				"F:/OnlineFPS/OnlineFPS/Content/Core/Inputs/InputActions/IA_Sprint.uasset",
+				"F:/OnlineFPS/OnlineFPS/Content/Core/Inputs/InputActions/IA_ShootGun.uasset",
 				"F:/OnlineFPS/OnlineFPS/Content/Core/Animation/ABP_FPPTemplate.uasset",
 				"F:/OnlineFPS/OnlineFPS/Content/Core/Animation/ABP_TPPTemplate.uasset",
 				"F:/OnlineFPS/OnlineFPS/Content/Weapons/Rifle/M_Weapon.uasset",

@@ -16,7 +16,7 @@ AFPSWeapon::AFPSWeapon()
 void AFPSWeapon::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	ammoCount = maxAmmo;
 }
 
 // Called every frame
@@ -26,3 +26,30 @@ void AFPSWeapon::Tick(float DeltaTime)
 
 }
 
+void AFPSWeapon::Fire()
+{
+	ammoCount--;
+	if (ammoCount < 0)
+	{
+		ammoCount = 0;
+	}
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("ammo: %d"), ammoCount));
+}
+
+void AFPSWeapon::StartFiring()
+{
+	if (!bIsFiring)
+	{
+		bIsFiring = true;
+		Fire();
+		FTimerManager fireTimer;
+		float timerRate = 1.f/(RPM / 60.f);
+		GetWorldTimerManager().SetTimer(fireTimerHandle, this, &AFPSWeapon::Fire, timerRate, true);
+	}
+}
+
+void AFPSWeapon::StopFiring()
+{
+	bIsFiring = false;
+	GetWorldTimerManager().ClearTimer(fireTimerHandle);
+}

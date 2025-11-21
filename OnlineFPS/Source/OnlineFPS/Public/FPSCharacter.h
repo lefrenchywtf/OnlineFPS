@@ -6,6 +6,9 @@
 #include "GameFramework/Character.h"
 #include "FPSCharacter.generated.h"
 
+
+enum class EWeaponType : uint8;
+
 USTRUCT(BlueprintType)
 struct FPlayerWeapons
 {
@@ -36,6 +39,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class AFPSWeapon* secondaryWeapon;
 
+	UPROPERTY(BlueprintReadWrite)
+	EWeaponType equipedWeapon;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float currentHealth = 0;
 
@@ -45,6 +51,14 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FName playerName = "Player";
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	float walkSpeedMax = 600.f;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	float SprintSpeedMax = 1200.f;
+
+	UPROPERTY(BlueprintReadWrite)
+	bool bIsSprinting = false;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -66,7 +80,16 @@ public:
 	void CrouchChara(bool _state);
 
 	UFUNCTION(BlueprintCallable)
+	void SprintChara(bool _state);
+
+	UFUNCTION(BlueprintCallable)
 	void MoveCamera(FVector2D _inputs);
+
+	UFUNCTION(BlueprintCallable)
+	void ShootGun();
+
+	UFUNCTION(BlueprintCallable)
+	void StopShooting();
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void SpawnCharaWeapons(AFPSCharacter* _chara);

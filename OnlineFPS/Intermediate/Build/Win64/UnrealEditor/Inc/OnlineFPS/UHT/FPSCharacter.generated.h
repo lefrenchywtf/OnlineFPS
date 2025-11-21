@@ -19,7 +19,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class AFPSCharacter;
 
 // ********** Begin ScriptStruct FPlayerWeapons ****************************************************
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_12_GENERATED_BODY \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_15_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FPlayerWeapons_Statics; \
 	ONLINEFPS_API static class UScriptStruct* StaticStruct();
 
@@ -28,19 +28,22 @@ struct FPlayerWeapons;
 // ********** End ScriptStruct FPlayerWeapons ******************************************************
 
 // ********** Begin Class AFPSCharacter ************************************************************
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_24_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_27_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual void Client_SpawnOtherWeapons_Implementation(AFPSCharacter* _chara); \
 	DECLARE_FUNCTION(execClient_SpawnOtherWeapons); \
+	DECLARE_FUNCTION(execStopShooting); \
+	DECLARE_FUNCTION(execShootGun); \
 	DECLARE_FUNCTION(execMoveCamera); \
+	DECLARE_FUNCTION(execSprintChara); \
 	DECLARE_FUNCTION(execCrouchChara); \
 	DECLARE_FUNCTION(execJumpChara); \
 	DECLARE_FUNCTION(execMove);
 
 
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_24_CALLBACK_WRAPPERS
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_27_CALLBACK_WRAPPERS
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSCharacter_NoRegister();
 
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_24_INCLASS_NO_PURE_DECLS \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_27_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAFPSCharacter(); \
 	friend struct Z_Construct_UClass_AFPSCharacter_Statics; \
@@ -51,7 +54,7 @@ public: \
 	DECLARE_SERIALIZER(AFPSCharacter)
 
 
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_24_ENHANCED_CONSTRUCTORS \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_27_ENHANCED_CONSTRUCTORS \
 	/** Deleted move- and copy-constructors, should never be used */ \
 	AFPSCharacter(AFPSCharacter&&) = delete; \
 	AFPSCharacter(const AFPSCharacter&) = delete; \
@@ -61,14 +64,14 @@ public: \
 	NO_API virtual ~AFPSCharacter();
 
 
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_21_PROLOG
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_24_GENERATED_BODY \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_24_PROLOG
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_27_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_24_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_24_CALLBACK_WRAPPERS \
-	FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_24_INCLASS_NO_PURE_DECLS \
-	FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_24_ENHANCED_CONSTRUCTORS \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_27_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_27_CALLBACK_WRAPPERS \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_27_INCLASS_NO_PURE_DECLS \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_27_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

@@ -3,12 +3,14 @@
 
 #include "FPSCharacter.h"
 #include "FPSWeapon.h"
+#include "GameFramework/CharacterMovementComponent.h"
 
 // Sets default values
 AFPSCharacter::AFPSCharacter()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+	equipedWeapon = EWeaponType::PRIMARY;
 }
 
 // Called when the game starts or when spawned
@@ -48,11 +50,59 @@ void AFPSCharacter::CrouchChara(bool _state)
 {
 	if (_state)
 	{
+		if (bIsSprinting)
+		{
+			SprintChara(false);
+		}
 		Crouch();
 	}
 	else
 	{
 		UnCrouch();
+	}
+}
+
+void AFPSCharacter::SprintChara(bool _state)
+{
+	if (_state && !bIsCrouched)
+	{
+		bIsSprinting = _state;
+		GetCharacterMovement()->MaxWalkSpeed = SprintSpeedMax;
+	}
+	else
+	{
+		bIsSprinting = _state;
+		GetCharacterMovement()->MaxWalkSpeed = walkSpeedMax;
+	}
+}
+
+void AFPSCharacter::ShootGun()
+{
+	switch (equipedWeapon)
+	{
+	case EWeaponType::PRIMARY:
+		primaryWeapon->StartFiring();
+		break;
+	case EWeaponType::SECONDARY:
+		secondaryWeapon->StartFiring();
+		break;
+	default:
+		break;
+	}
+}
+
+void AFPSCharacter::StopShooting()
+{
+	switch (equipedWeapon)
+	{
+	case EWeaponType::PRIMARY:
+		primaryWeapon->StopFiring();
+		break;
+	case EWeaponType::SECONDARY:
+		secondaryWeapon->StopFiring();
+		break;
+	default:
+		break;
 	}
 }
 
