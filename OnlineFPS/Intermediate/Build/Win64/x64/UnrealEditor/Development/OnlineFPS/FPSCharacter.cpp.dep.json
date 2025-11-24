@@ -38,7 +38,9 @@
             "c:\\unreal\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\networkpredictioninterface.generated.h",
             "c:\\unreal\\ue_5.6\\engine\\source\\runtime\\engine\\public\\charactermovementcomponentasync.h",
             "c:\\unreal\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\charactermovementcomponentasync.generated.h",
-            "c:\\unreal\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\charactermovementcomponent.generated.h"
+            "c:\\unreal\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\charactermovementcomponent.generated.h",
+            "c:\\unreal\\ue_5.6\\engine\\source\\runtime\\engine\\public\\net\\unrealnetwork.h",
+            "c:\\unreal\\ue_5.6\\engine\\source\\runtime\\net\\core\\public\\net\\core\\propertyconditions\\propertyconditions.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

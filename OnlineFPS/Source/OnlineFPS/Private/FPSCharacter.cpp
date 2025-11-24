@@ -4,6 +4,7 @@
 #include "FPSCharacter.h"
 #include "FPSWeapon.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Net/UnrealNetwork.h"
 
 // Sets default values
 AFPSCharacter::AFPSCharacter()
@@ -17,7 +18,8 @@ AFPSCharacter::AFPSCharacter()
 void AFPSCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	currentHealth = maxHealth;
+	OnTakeAnyDamage.AddDynamic(this, &AFPSCharacter::HandleTakeDamage);
 }
 
 // Called every frame
@@ -115,4 +117,24 @@ void AFPSCharacter::MoveCamera(FVector2D _inputs)
 void AFPSCharacter::Client_SpawnOtherWeapons_Implementation(AFPSCharacter* _chara)
 {
 	SpawnCharaWeapons(_chara);
+}
+
+void AFPSCharacter::HandleTakeDamage(AActor* DamagedActor, float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser)
+{
+	if (currentHealth > 0)
+	{
+		currentHealth -= Damage;
+	}
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("health: %d"), currentHealth));
+}
+
+void AFPSCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+	DOREPLIFETIME(AFPSCharacter, currentHealth);
+}
+
+void AFPSCharacter::OnRepHealth()
+{
+
 }

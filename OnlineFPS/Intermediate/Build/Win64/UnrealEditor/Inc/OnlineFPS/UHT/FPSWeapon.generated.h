@@ -18,11 +18,14 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 // ********** Begin Class AFPSWeapon ***************************************************************
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void TraceBullet_Implementation(); \
+	DECLARE_FUNCTION(execTraceBullet); \
 	DECLARE_FUNCTION(execStopFiring); \
 	DECLARE_FUNCTION(execFire); \
 	DECLARE_FUNCTION(execStartFiring);
 
 
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_20_CALLBACK_WRAPPERS
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSWeapon_NoRegister();
 
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_20_INCLASS_NO_PURE_DECLS \
@@ -51,6 +54,7 @@ public: \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_20_CALLBACK_WRAPPERS \
 	FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_20_INCLASS_NO_PURE_DECLS \
 	FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_20_ENHANCED_CONSTRUCTORS \
 private: \

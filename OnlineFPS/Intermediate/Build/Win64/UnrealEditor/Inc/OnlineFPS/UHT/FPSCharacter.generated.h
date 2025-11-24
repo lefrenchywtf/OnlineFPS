@@ -16,7 +16,10 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
+class AActor;
+class AController;
 class AFPSCharacter;
+class UDamageType;
 
 // ********** Begin ScriptStruct FPlayerWeapons ****************************************************
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_15_GENERATED_BODY \
@@ -30,6 +33,8 @@ struct FPlayerWeapons;
 // ********** Begin Class AFPSCharacter ************************************************************
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_27_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual void Client_SpawnOtherWeapons_Implementation(AFPSCharacter* _chara); \
+	DECLARE_FUNCTION(execOnRepHealth); \
+	DECLARE_FUNCTION(execHandleTakeDamage); \
 	DECLARE_FUNCTION(execClient_SpawnOtherWeapons); \
 	DECLARE_FUNCTION(execStopShooting); \
 	DECLARE_FUNCTION(execShootGun); \
@@ -51,7 +56,13 @@ private: \
 	friend ONLINEFPS_API UClass* Z_Construct_UClass_AFPSCharacter_NoRegister(); \
 public: \
 	DECLARE_CLASS2(AFPSCharacter, ACharacter, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/OnlineFPS"), Z_Construct_UClass_AFPSCharacter_NoRegister) \
-	DECLARE_SERIALIZER(AFPSCharacter)
+	DECLARE_SERIALIZER(AFPSCharacter) \
+	enum class ENetFields_Private : uint16 \
+	{ \
+		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
+		currentHealth=NETFIELD_REP_START, \
+		NETFIELD_REP_END=currentHealth	}; \
+	DECLARE_VALIDATE_GENERATED_REP_ENUMS(NO_API)
 
 
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_27_ENHANCED_CONSTRUCTORS \

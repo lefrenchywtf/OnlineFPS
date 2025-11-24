@@ -13,6 +13,7 @@ void EmptyLinkFunctionForGeneratedCodeFPSWeapon() {}
 
 // ********** Begin Cross Module References ********************************************************
 ENGINE_API UClass* Z_Construct_UClass_AActor();
+ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSCharacter_NoRegister();
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSWeapon();
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSWeapon_NoRegister();
@@ -159,6 +160,41 @@ DEFINE_FUNCTION(AFPSWeapon::execStopFiring)
 }
 // ********** End Class AFPSWeapon Function StopFiring *********************************************
 
+// ********** Begin Class AFPSWeapon Function TraceBullet ******************************************
+static FName NAME_AFPSWeapon_TraceBullet = FName(TEXT("TraceBullet"));
+void AFPSWeapon::TraceBullet()
+{
+	UFunction* Func = FindFunctionChecked(NAME_AFPSWeapon_TraceBullet);
+	ProcessEvent(Func,NULL);
+}
+struct Z_Construct_UFunction_AFPSWeapon_TraceBullet_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FPSWeapon.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSWeapon_TraceBullet_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSWeapon, nullptr, "TraceBullet", nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00220CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSWeapon_TraceBullet_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSWeapon_TraceBullet_Statics::Function_MetaDataParams)},  };
+UFunction* Z_Construct_UFunction_AFPSWeapon_TraceBullet()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSWeapon_TraceBullet_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AFPSWeapon::execTraceBullet)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->TraceBullet_Implementation();
+	P_NATIVE_END;
+}
+// ********** End Class AFPSWeapon Function TraceBullet ********************************************
+
 // ********** Begin Class AFPSWeapon ***************************************************************
 void AFPSWeapon::StaticRegisterNativesAFPSWeapon()
 {
@@ -167,6 +203,7 @@ void AFPSWeapon::StaticRegisterNativesAFPSWeapon()
 		{ "Fire", &AFPSWeapon::execFire },
 		{ "StartFiring", &AFPSWeapon::execStartFiring },
 		{ "StopFiring", &AFPSWeapon::execStopFiring },
+		{ "TraceBullet", &AFPSWeapon::execTraceBullet },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -242,6 +279,11 @@ struct Z_Construct_UClass_AFPSWeapon_Statics
 		{ "Category", "FPSWeapon" },
 		{ "ModuleRelativePath", "Public/FPSWeapon.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_playerCamera_MetaData[] = {
+		{ "Category", "FPSWeapon" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/FPSWeapon.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FStrPropertyParams NewProp_weaponName;
 	static const UECodeGen_Private::FBytePropertyParams NewProp_Type_Underlying;
@@ -254,12 +296,14 @@ struct Z_Construct_UClass_AFPSWeapon_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_weaponOwner;
 	static void NewProp_bIsFiring_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsFiring;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_playerCamera;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_AFPSWeapon_Fire, "Fire" }, // 359106387
 		{ &Z_Construct_UFunction_AFPSWeapon_StartFiring, "StartFiring" }, // 1483084652
 		{ &Z_Construct_UFunction_AFPSWeapon_StopFiring, "StopFiring" }, // 3209095793
+		{ &Z_Construct_UFunction_AFPSWeapon_TraceBullet, "TraceBullet" }, // 2633920753
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -281,6 +325,7 @@ void Z_Construct_UClass_AFPSWeapon_Statics::NewProp_bIsFiring_SetBit(void* Obj)
 	((AFPSWeapon*)Obj)->bIsFiring = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AFPSWeapon_Statics::NewProp_bIsFiring = { "bIsFiring", nullptr, (EPropertyFlags)0x0020080000000004, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AFPSWeapon), &Z_Construct_UClass_AFPSWeapon_Statics::NewProp_bIsFiring_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsFiring_MetaData), NewProp_bIsFiring_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFPSWeapon_Statics::NewProp_playerCamera = { "playerCamera", nullptr, (EPropertyFlags)0x002008000008000c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSWeapon, playerCamera), Z_Construct_UClass_UCameraComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_playerCamera_MetaData), NewProp_playerCamera_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFPSWeapon_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_weaponName,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_Type_Underlying,
@@ -292,6 +337,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFPSWeapo
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_RPM,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_weaponOwner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_bIsFiring,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_playerCamera,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AFPSWeapon_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AFPSWeapon_Statics::DependentSingletons[])() = {
@@ -333,10 +379,10 @@ struct Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__
 		{ EWeaponType_StaticEnum, TEXT("EWeaponType"), &Z_Registration_Info_UEnum_EWeaponType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3700248627U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AFPSWeapon, AFPSWeapon::StaticClass, TEXT("AFPSWeapon"), &Z_Registration_Info_UClass_AFPSWeapon, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSWeapon), 2717421079U) },
+		{ Z_Construct_UClass_AFPSWeapon, AFPSWeapon::StaticClass, TEXT("AFPSWeapon"), &Z_Registration_Info_UClass_AFPSWeapon, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSWeapon), 3740605386U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_496702665(TEXT("/Script/OnlineFPS"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_3465033609(TEXT("/Script/OnlineFPS"),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_Statics::ClassInfo),
 	nullptr, 0,
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_Statics::EnumInfo));

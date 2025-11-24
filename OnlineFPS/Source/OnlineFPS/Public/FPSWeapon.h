@@ -55,6 +55,9 @@ protected:
 
 	UPROPERTY(BlueprintReadWrite)
 	bool bIsFiring = false;
+
+	UPROPERTY(BlueprintReadWrite)
+	class UCameraComponent* playerCamera;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -67,4 +70,7 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void StopFiring();
+
+	UFUNCTION(Server, Reliable)
+	void TraceBullet();
 };

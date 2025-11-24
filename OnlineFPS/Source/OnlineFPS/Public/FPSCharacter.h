@@ -42,11 +42,11 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	EWeaponType equipedWeapon;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float currentHealth = 0;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, ReplicatedUsing = OnRepHealth)
+	int currentHealth = 0;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float maxHealth = 100;
+	int maxHealth = 100;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FName playerName = "Player";
@@ -69,6 +69,8 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
 	UFUNCTION(BlueprintCallable)
 	void Move(FVector2D _inputs);
@@ -96,4 +98,10 @@ public:
 
 	UFUNCTION(Client, Reliable)
 	void Client_SpawnOtherWeapons(AFPSCharacter* _chara);
+
+	UFUNCTION()
+	void HandleTakeDamage(AActor* DamagedActor, float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser);
+
+	UFUNCTION()
+	void OnRepHealth();
 };
