@@ -104,4 +104,7 @@ public:
 
 	UFUNCTION()
 	void OnRepHealth();
+
+	UFUNCTION(BlueprintCallable)
+	class AFPSWeapon* GetEquipedWeapon();
 };

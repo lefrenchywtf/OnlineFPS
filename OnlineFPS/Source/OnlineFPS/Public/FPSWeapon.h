@@ -28,6 +28,9 @@ protected:
 	virtual void BeginPlay() override;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	USkeletalMeshComponent* GunModel;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FString weaponName = "Gun";
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)

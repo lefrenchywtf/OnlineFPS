@@ -19,6 +19,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class AActor;
 class AController;
 class AFPSCharacter;
+class AFPSWeapon;
 class UDamageType;
 
 // ********** Begin ScriptStruct FPlayerWeapons ****************************************************
@@ -33,6 +34,7 @@ struct FPlayerWeapons;
 // ********** Begin Class AFPSCharacter ************************************************************
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_27_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual void Client_SpawnOtherWeapons_Implementation(AFPSCharacter* _chara); \
+	DECLARE_FUNCTION(execGetEquipedWeapon); \
 	DECLARE_FUNCTION(execOnRepHealth); \
 	DECLARE_FUNCTION(execHandleTakeDamage); \
 	DECLARE_FUNCTION(execClient_SpawnOtherWeapons); \

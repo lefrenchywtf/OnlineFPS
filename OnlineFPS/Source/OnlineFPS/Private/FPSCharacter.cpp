@@ -138,3 +138,19 @@ void AFPSCharacter::OnRepHealth()
 {
 
 }
+
+AFPSWeapon* AFPSCharacter::GetEquipedWeapon()
+{
+	switch (equipedWeapon)
+	{
+	case EWeaponType::PRIMARY:
+		return primaryWeapon;
+		break;
+	case EWeaponType::SECONDARY:
+		return secondaryWeapon;
+		break;
+	default:
+		return nullptr;
+		break;
+	}
+}
