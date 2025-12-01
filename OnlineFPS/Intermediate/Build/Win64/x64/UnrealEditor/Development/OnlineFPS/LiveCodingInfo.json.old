@@ -5,7 +5,6 @@
 			"EnvQueryContext_Target.gen.cpp.obj",
 			"FPSGameModeBase.gen.cpp.obj",
 			"FPSPlayerController.gen.cpp.obj",
-			"FPSWeapon.gen.cpp.obj",
 			"HorrorCharacter.gen.cpp.obj",
 			"HorrorGameMode.gen.cpp.obj",
 			"HorrorPlayerController.gen.cpp.obj",
@@ -52,6 +51,7 @@
 			"ShooterWeapon.cpp.obj",
 			"ShooterWeaponHolder.cpp.obj",
 			"FPSCharacter.gen.cpp.obj",
+			"FPSWeapon.gen.cpp.obj",
 			"OnlineFPS.init.gen.cpp.obj",
 			"FPSCharacter.cpp.obj",
 			"FPSWeapon.cpp.obj"
