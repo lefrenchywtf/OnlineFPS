@@ -21,6 +21,7 @@ class AController;
 class AFPSCharacter;
 class AFPSWeapon;
 class UDamageType;
+enum class EWeaponType : uint8;
 
 // ********** Begin ScriptStruct FPlayerWeapons ****************************************************
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_15_GENERATED_BODY \
@@ -33,8 +34,12 @@ struct FPlayerWeapons;
 
 // ********** Begin Class AFPSCharacter ************************************************************
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_27_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void EquipGun_Implementation(EWeaponType _type); \
 	virtual void Client_SpawnOtherWeapons_Implementation(AFPSCharacter* _chara); \
+	DECLARE_FUNCTION(execEquipGun); \
+	DECLARE_FUNCTION(execGetWeapon); \
 	DECLARE_FUNCTION(execGetEquipedWeapon); \
+	DECLARE_FUNCTION(execOnRepEquiped); \
 	DECLARE_FUNCTION(execOnRepHealth); \
 	DECLARE_FUNCTION(execHandleTakeDamage); \
 	DECLARE_FUNCTION(execClient_SpawnOtherWeapons); \
@@ -62,7 +67,8 @@ public: \
 	enum class ENetFields_Private : uint16 \
 	{ \
 		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
-		currentHealth=NETFIELD_REP_START, \
+		equipedWeapon=NETFIELD_REP_START, \
+		currentHealth, \
 		NETFIELD_REP_END=currentHealth	}; \
 	DECLARE_VALIDATE_GENERATED_REP_ENUMS(NO_API)
 

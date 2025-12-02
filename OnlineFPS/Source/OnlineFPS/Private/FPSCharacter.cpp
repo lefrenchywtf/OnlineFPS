@@ -45,7 +45,10 @@ void AFPSCharacter::Move(FVector2D _inputs)
 
 void AFPSCharacter::JumpChara()
 {
-	Jump();
+	if (CanJump())
+	{
+		Jump();
+	}
 }
 
 void AFPSCharacter::CrouchChara(bool _state)
@@ -132,9 +135,15 @@ void AFPSCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLif
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 	DOREPLIFETIME(AFPSCharacter, currentHealth);
+	DOREPLIFETIME(AFPSCharacter, equipedWeapon);
 }
 
 void AFPSCharacter::OnRepHealth()
+{
+
+}
+
+void AFPSCharacter::OnRepEquiped()
 {
 
 }
@@ -152,5 +161,31 @@ AFPSWeapon* AFPSCharacter::GetEquipedWeapon()
 	default:
 		return nullptr;
 		break;
+	}
+}
+
+AFPSWeapon* AFPSCharacter::GetWeapon(EWeaponType _type)
+{
+	switch (_type)
+	{
+	case EWeaponType::PRIMARY:
+		return primaryWeapon;
+		break;
+	case EWeaponType::SECONDARY:
+		return secondaryWeapon;
+		break;
+	default:
+		return nullptr;
+		break;
+	}
+}
+
+void AFPSCharacter::EquipGun_Implementation(EWeaponType _type)
+{
+	if (_type != equipedWeapon)
+	{
+		ChangeGunVisibility(this ,equipedWeapon ,false);
+		equipedWeapon = _type;
+		ChangeGunVisibility(this,_type ,true);
 	}
 }

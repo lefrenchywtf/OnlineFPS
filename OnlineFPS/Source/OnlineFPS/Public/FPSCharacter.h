@@ -39,7 +39,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class AFPSWeapon* secondaryWeapon;
 
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, ReplicatedUsing = OnRepEquiped)
 	EWeaponType equipedWeapon;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, ReplicatedUsing = OnRepHealth)
@@ -105,6 +105,18 @@ public:
 	UFUNCTION()
 	void OnRepHealth();
 
+	UFUNCTION()
+	void OnRepEquiped();
+
 	UFUNCTION(BlueprintCallable)
 	class AFPSWeapon* GetEquipedWeapon();
+
+	UFUNCTION(BlueprintCallable)
+	class AFPSWeapon* GetWeapon(EWeaponType _type);
+
+	UFUNCTION(BlueprintCallable, Server, Reliable)
+	void EquipGun(EWeaponType _type);
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void ChangeGunVisibility(AFPSCharacter* chara, EWeaponType _type, bool _visible);
 };
