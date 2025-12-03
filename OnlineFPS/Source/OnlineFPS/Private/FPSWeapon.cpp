@@ -81,3 +81,8 @@ void AFPSWeapon::TraceBullet_Implementation()
 	}
 	DrawDebugLine(GetWorld(), traceStart, traceEnd, FColor::Red, false, 5);
 }
+
+float AFPSWeapon::GetADSFovScale()
+{
+	return ADSFovScale;
+}

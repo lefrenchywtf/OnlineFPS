@@ -36,6 +36,9 @@ struct FPlayerWeapons;
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_27_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual void EquipGun_Implementation(EWeaponType _type); \
 	virtual void Client_SpawnOtherWeapons_Implementation(AFPSCharacter* _chara); \
+	DECLARE_FUNCTION(execGetCurrentWeaponFovScale); \
+	DECLARE_FUNCTION(execEndADS); \
+	DECLARE_FUNCTION(execStartADS); \
 	DECLARE_FUNCTION(execEquipGun); \
 	DECLARE_FUNCTION(execGetWeapon); \
 	DECLARE_FUNCTION(execGetEquipedWeapon); \

@@ -59,6 +59,9 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 	bool bIsSprinting = false;
+
+	UPROPERTY(BlueprintReadWrite)
+	float FOV = 90.f;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -119,4 +122,19 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void ChangeGunVisibility(AFPSCharacter* chara, EWeaponType _type, bool _visible);
+
+	UFUNCTION(BlueprintCallable)
+	void StartADS();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void EnterADSAnim();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void ExitADSAnim();
+
+	UFUNCTION(BlueprintCallable)
+	void EndADS();
+
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+	float GetCurrentWeaponFovScale();
 };

@@ -36,7 +36,6 @@
 			"OnlineFPSPlayerController.cpp.obj",
 			"FPSGameModeBase.cpp.obj",
 			"FPSPlayerController.cpp.obj",
-			"FPSWeapon.cpp.obj",
 			"HorrorCharacter.cpp.obj",
 			"HorrorGameMode.cpp.obj",
 			"HorrorPlayerController.cpp.obj",
@@ -54,7 +53,8 @@
 			"ShooterProjectile.cpp.obj",
 			"ShooterWeapon.cpp.obj",
 			"ShooterWeaponHolder.cpp.obj",
-			"FPSCharacter.cpp.obj"
+			"FPSCharacter.cpp.obj",
+			"FPSWeapon.cpp.obj"
 		]
 	}
 }

@@ -189,3 +189,23 @@ void AFPSCharacter::EquipGun_Implementation(EWeaponType _type)
 		ChangeGunVisibility(this,_type ,true);
 	}
 }
+
+void AFPSCharacter::StartADS()
+{
+	EnterADSAnim();
+}
+
+void AFPSCharacter::EndADS()
+{
+	ExitADSAnim();
+}
+
+float AFPSCharacter::GetCurrentWeaponFovScale()
+{
+	AFPSWeapon* weapon = GetEquipedWeapon();
+	if (weapon)
+	{
+		return weapon->GetADSFovScale();
+	}
+	return 1.f;
+}

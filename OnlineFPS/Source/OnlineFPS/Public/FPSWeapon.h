@@ -51,6 +51,12 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float RPM = 600;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float ADSTime = .5f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float ADSFovScale = 1.5f;
+
 	UPROPERTY(BlueprintReadWrite)
 	class AFPSCharacter* weaponOwner;
 
@@ -76,4 +82,6 @@ public:
 
 	UFUNCTION(Server, Reliable)
 	void TraceBullet();
+
+	float GetADSFovScale();
 };
