@@ -163,7 +163,7 @@ public:
 	void CancelReload();
 
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-	void PlayAnim(bool _firstPerson, UAnimMontage* _animMontage);
+	void PlayAnim(UAnimMontage* _animMontage);
 
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void PlayFPPFireAnim(FRecoilAnimValues _recoil);

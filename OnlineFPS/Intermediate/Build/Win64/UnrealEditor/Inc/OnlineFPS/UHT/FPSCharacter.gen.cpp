@@ -817,14 +817,12 @@ DEFINE_FUNCTION(AFPSCharacter::execOnRepReload)
 // ********** Begin Class AFPSCharacter Function PlayAnim ******************************************
 struct FPSCharacter_eventPlayAnim_Parms
 {
-	bool _firstPerson;
 	UAnimMontage* _animMontage;
 };
 static FName NAME_AFPSCharacter_PlayAnim = FName(TEXT("PlayAnim"));
-void AFPSCharacter::PlayAnim(bool _firstPerson, UAnimMontage* _animMontage)
+void AFPSCharacter::PlayAnim(UAnimMontage* _animMontage)
 {
 	FPSCharacter_eventPlayAnim_Parms Parms;
-	Parms._firstPerson=_firstPerson ? true : false;
 	Parms._animMontage=_animMontage;
 	UFunction* Func = FindFunctionChecked(NAME_AFPSCharacter_PlayAnim);
 	ProcessEvent(Func,&Parms);
@@ -836,20 +834,12 @@ struct Z_Construct_UFunction_AFPSCharacter_PlayAnim_Statics
 		{ "ModuleRelativePath", "Public/FPSCharacter.h" },
 	};
 #endif // WITH_METADATA
-	static void NewProp__firstPerson_SetBit(void* Obj);
-	static const UECodeGen_Private::FBoolPropertyParams NewProp__firstPerson;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp__animMontage;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
-void Z_Construct_UFunction_AFPSCharacter_PlayAnim_Statics::NewProp__firstPerson_SetBit(void* Obj)
-{
-	((FPSCharacter_eventPlayAnim_Parms*)Obj)->_firstPerson = 1;
-}
-const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AFPSCharacter_PlayAnim_Statics::NewProp__firstPerson = { "_firstPerson", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(FPSCharacter_eventPlayAnim_Parms), &Z_Construct_UFunction_AFPSCharacter_PlayAnim_Statics::NewProp__firstPerson_SetBit, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AFPSCharacter_PlayAnim_Statics::NewProp__animMontage = { "_animMontage", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSCharacter_eventPlayAnim_Parms, _animMontage), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFPSCharacter_PlayAnim_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSCharacter_PlayAnim_Statics::NewProp__firstPerson,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSCharacter_PlayAnim_Statics::NewProp__animMontage,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_PlayAnim_Statics::PropPointers) < 2048);
@@ -1285,7 +1275,7 @@ struct Z_Construct_UClass_AFPSCharacter_Statics
 		{ &Z_Construct_UFunction_AFPSCharacter_OnRepEquiped, "OnRepEquiped" }, // 3204835420
 		{ &Z_Construct_UFunction_AFPSCharacter_OnRepHealth, "OnRepHealth" }, // 2107147057
 		{ &Z_Construct_UFunction_AFPSCharacter_OnRepReload, "OnRepReload" }, // 4198297096
-		{ &Z_Construct_UFunction_AFPSCharacter_PlayAnim, "PlayAnim" }, // 3272960419
+		{ &Z_Construct_UFunction_AFPSCharacter_PlayAnim, "PlayAnim" }, // 161402387
 		{ &Z_Construct_UFunction_AFPSCharacter_PlayFPPFireAnim, "PlayFPPFireAnim" }, // 3608326157
 		{ &Z_Construct_UFunction_AFPSCharacter_ShootGun, "ShootGun" }, // 2298979356
 		{ &Z_Construct_UFunction_AFPSCharacter_SpawnCharaWeapons, "SpawnCharaWeapons" }, // 2048071705
@@ -1411,10 +1401,10 @@ struct Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_
 		{ FPlayerWeapons::StaticStruct, Z_Construct_UScriptStruct_FPlayerWeapons_Statics::NewStructOps, TEXT("PlayerWeapons"), &Z_Registration_Info_UScriptStruct_FPlayerWeapons, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FPlayerWeapons), 1467568506U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AFPSCharacter, AFPSCharacter::StaticClass, TEXT("AFPSCharacter"), &Z_Registration_Info_UClass_AFPSCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSCharacter), 1417764736U) },
+		{ Z_Construct_UClass_AFPSCharacter, AFPSCharacter::StaticClass, TEXT("AFPSCharacter"), &Z_Registration_Info_UClass_AFPSCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSCharacter), 1909401427U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h__Script_OnlineFPS_2262271889(TEXT("/Script/OnlineFPS"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h__Script_OnlineFPS_726607298(TEXT("/Script/OnlineFPS"),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h__Script_OnlineFPS_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h__Script_OnlineFPS_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h__Script_OnlineFPS_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h__Script_OnlineFPS_Statics::ScriptStructInfo),
 	nullptr, 0);

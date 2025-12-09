@@ -233,9 +233,10 @@ void AFPSCharacter::CancelReload()
 
 void AFPSCharacter::PlayFireAnimations(EWeaponType _type, FRecoilAnimValues _weaponRecoil)
 {
-	//UAnimMontage* FPPAnim = *FPP_FireAnims.Find(_type);
 	UAnimMontage* TPPAnim = *TPP_FireAnims.Find(_type);
-
 	PlayFPPFireAnim(_weaponRecoil);
-	//PlayAnim(true, FPPAnim);
+	if (TPPAnim)
+	{
+		PlayAnim(TPPAnim);
+	}
 }
