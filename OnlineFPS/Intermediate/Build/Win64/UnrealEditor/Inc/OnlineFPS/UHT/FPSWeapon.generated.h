@@ -19,6 +19,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 // ********** Begin Class AFPSWeapon ***************************************************************
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual void TraceBullet_Implementation(); \
+	DECLARE_FUNCTION(execGetReloadPlayRate); \
+	DECLARE_FUNCTION(execIsAutomatic); \
 	DECLARE_FUNCTION(execTraceBullet); \
 	DECLARE_FUNCTION(execStopFiring); \
 	DECLARE_FUNCTION(execFire); \

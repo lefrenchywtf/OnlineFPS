@@ -103,6 +103,93 @@ DEFINE_FUNCTION(AFPSWeapon::execFire)
 }
 // ********** End Class AFPSWeapon Function Fire ***************************************************
 
+// ********** Begin Class AFPSWeapon Function GetReloadPlayRate ************************************
+struct Z_Construct_UFunction_AFPSWeapon_GetReloadPlayRate_Statics
+{
+	struct FPSWeapon_eventGetReloadPlayRate_Parms
+	{
+		float ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FPSWeapon.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AFPSWeapon_GetReloadPlayRate_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSWeapon_eventGetReloadPlayRate_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFPSWeapon_GetReloadPlayRate_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSWeapon_GetReloadPlayRate_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSWeapon_GetReloadPlayRate_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSWeapon_GetReloadPlayRate_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSWeapon, nullptr, "GetReloadPlayRate", Z_Construct_UFunction_AFPSWeapon_GetReloadPlayRate_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSWeapon_GetReloadPlayRate_Statics::PropPointers), sizeof(Z_Construct_UFunction_AFPSWeapon_GetReloadPlayRate_Statics::FPSWeapon_eventGetReloadPlayRate_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSWeapon_GetReloadPlayRate_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSWeapon_GetReloadPlayRate_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(Z_Construct_UFunction_AFPSWeapon_GetReloadPlayRate_Statics::FPSWeapon_eventGetReloadPlayRate_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AFPSWeapon_GetReloadPlayRate()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSWeapon_GetReloadPlayRate_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AFPSWeapon::execGetReloadPlayRate)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(float*)Z_Param__Result=P_THIS->GetReloadPlayRate();
+	P_NATIVE_END;
+}
+// ********** End Class AFPSWeapon Function GetReloadPlayRate **************************************
+
+// ********** Begin Class AFPSWeapon Function IsAutomatic ******************************************
+struct Z_Construct_UFunction_AFPSWeapon_IsAutomatic_Statics
+{
+	struct FPSWeapon_eventIsAutomatic_Parms
+	{
+		bool ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FPSWeapon.h" },
+	};
+#endif // WITH_METADATA
+	static void NewProp_ReturnValue_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+void Z_Construct_UFunction_AFPSWeapon_IsAutomatic_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+{
+	((FPSWeapon_eventIsAutomatic_Parms*)Obj)->ReturnValue = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AFPSWeapon_IsAutomatic_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(FPSWeapon_eventIsAutomatic_Parms), &Z_Construct_UFunction_AFPSWeapon_IsAutomatic_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFPSWeapon_IsAutomatic_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSWeapon_IsAutomatic_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSWeapon_IsAutomatic_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSWeapon_IsAutomatic_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSWeapon, nullptr, "IsAutomatic", Z_Construct_UFunction_AFPSWeapon_IsAutomatic_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSWeapon_IsAutomatic_Statics::PropPointers), sizeof(Z_Construct_UFunction_AFPSWeapon_IsAutomatic_Statics::FPSWeapon_eventIsAutomatic_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSWeapon_IsAutomatic_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSWeapon_IsAutomatic_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(Z_Construct_UFunction_AFPSWeapon_IsAutomatic_Statics::FPSWeapon_eventIsAutomatic_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AFPSWeapon_IsAutomatic()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSWeapon_IsAutomatic_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AFPSWeapon::execIsAutomatic)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(bool*)Z_Param__Result=P_THIS->IsAutomatic();
+	P_NATIVE_END;
+}
+// ********** End Class AFPSWeapon Function IsAutomatic ********************************************
+
 // ********** Begin Class AFPSWeapon Function StartFiring ******************************************
 struct Z_Construct_UFunction_AFPSWeapon_StartFiring_Statics
 {
@@ -202,6 +289,8 @@ void AFPSWeapon::StaticRegisterNativesAFPSWeapon()
 	UClass* Class = AFPSWeapon::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
 		{ "Fire", &AFPSWeapon::execFire },
+		{ "GetReloadPlayRate", &AFPSWeapon::execGetReloadPlayRate },
+		{ "IsAutomatic", &AFPSWeapon::execIsAutomatic },
 		{ "StartFiring", &AFPSWeapon::execStartFiring },
 		{ "StopFiring", &AFPSWeapon::execStopFiring },
 		{ "TraceBullet", &AFPSWeapon::execTraceBullet },
@@ -277,11 +366,19 @@ struct Z_Construct_UClass_AFPSWeapon_Statics
 		{ "Category", "FPSWeapon" },
 		{ "ModuleRelativePath", "Public/FPSWeapon.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsAutomatic_MetaData[] = {
+		{ "Category", "FPSWeapon" },
+		{ "ModuleRelativePath", "Public/FPSWeapon.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ADSTime_MetaData[] = {
 		{ "Category", "FPSWeapon" },
 		{ "ModuleRelativePath", "Public/FPSWeapon.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ADSFovScale_MetaData[] = {
+		{ "Category", "FPSWeapon" },
+		{ "ModuleRelativePath", "Public/FPSWeapon.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_reloadTime_MetaData[] = {
 		{ "Category", "FPSWeapon" },
 		{ "ModuleRelativePath", "Public/FPSWeapon.h" },
 	};
@@ -308,8 +405,11 @@ struct Z_Construct_UClass_AFPSWeapon_Statics
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_damage;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_HsMultiplier;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_RPM;
+	static void NewProp_bIsAutomatic_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsAutomatic;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_ADSTime;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_ADSFovScale;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_reloadTime;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_weaponOwner;
 	static void NewProp_bIsFiring_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsFiring;
@@ -318,6 +418,8 @@ struct Z_Construct_UClass_AFPSWeapon_Statics
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_AFPSWeapon_Fire, "Fire" }, // 359106387
+		{ &Z_Construct_UFunction_AFPSWeapon_GetReloadPlayRate, "GetReloadPlayRate" }, // 2326002912
+		{ &Z_Construct_UFunction_AFPSWeapon_IsAutomatic, "IsAutomatic" }, // 2045936501
 		{ &Z_Construct_UFunction_AFPSWeapon_StartFiring, "StartFiring" }, // 1483084652
 		{ &Z_Construct_UFunction_AFPSWeapon_StopFiring, "StopFiring" }, // 3209095793
 		{ &Z_Construct_UFunction_AFPSWeapon_TraceBullet, "TraceBullet" }, // 2633920753
@@ -337,8 +439,14 @@ const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AFPSWeapon_Static
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AFPSWeapon_Statics::NewProp_damage = { "damage", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSWeapon, damage), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_damage_MetaData), NewProp_damage_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AFPSWeapon_Statics::NewProp_HsMultiplier = { "HsMultiplier", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSWeapon, HsMultiplier), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_HsMultiplier_MetaData), NewProp_HsMultiplier_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AFPSWeapon_Statics::NewProp_RPM = { "RPM", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSWeapon, RPM), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_RPM_MetaData), NewProp_RPM_MetaData) };
+void Z_Construct_UClass_AFPSWeapon_Statics::NewProp_bIsAutomatic_SetBit(void* Obj)
+{
+	((AFPSWeapon*)Obj)->bIsAutomatic = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AFPSWeapon_Statics::NewProp_bIsAutomatic = { "bIsAutomatic", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AFPSWeapon), &Z_Construct_UClass_AFPSWeapon_Statics::NewProp_bIsAutomatic_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsAutomatic_MetaData), NewProp_bIsAutomatic_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AFPSWeapon_Statics::NewProp_ADSTime = { "ADSTime", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSWeapon, ADSTime), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ADSTime_MetaData), NewProp_ADSTime_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AFPSWeapon_Statics::NewProp_ADSFovScale = { "ADSFovScale", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSWeapon, ADSFovScale), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ADSFovScale_MetaData), NewProp_ADSFovScale_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AFPSWeapon_Statics::NewProp_reloadTime = { "reloadTime", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSWeapon, reloadTime), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_reloadTime_MetaData), NewProp_reloadTime_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFPSWeapon_Statics::NewProp_weaponOwner = { "weaponOwner", nullptr, (EPropertyFlags)0x0020080000000004, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSWeapon, weaponOwner), Z_Construct_UClass_AFPSCharacter_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_weaponOwner_MetaData), NewProp_weaponOwner_MetaData) };
 void Z_Construct_UClass_AFPSWeapon_Statics::NewProp_bIsFiring_SetBit(void* Obj)
 {
@@ -356,8 +464,10 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFPSWeapo
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_damage,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_HsMultiplier,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_RPM,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_bIsAutomatic,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_ADSTime,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_ADSFovScale,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_reloadTime,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_weaponOwner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_bIsFiring,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_playerCamera,
@@ -402,10 +512,10 @@ struct Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__
 		{ EWeaponType_StaticEnum, TEXT("EWeaponType"), &Z_Registration_Info_UEnum_EWeaponType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3700248627U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AFPSWeapon, AFPSWeapon::StaticClass, TEXT("AFPSWeapon"), &Z_Registration_Info_UClass_AFPSWeapon, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSWeapon), 3814720599U) },
+		{ Z_Construct_UClass_AFPSWeapon, AFPSWeapon::StaticClass, TEXT("AFPSWeapon"), &Z_Registration_Info_UClass_AFPSWeapon, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSWeapon), 1082148280U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_1926496814(TEXT("/Script/OnlineFPS"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_3056591191(TEXT("/Script/OnlineFPS"),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_Statics::ClassInfo),
 	nullptr, 0,
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_Statics::EnumInfo));

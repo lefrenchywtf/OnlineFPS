@@ -83,31 +83,19 @@ void AFPSCharacter::SprintChara(bool _state)
 
 void AFPSCharacter::ShootGun()
 {
-	switch (equipedWeapon)
+	AFPSWeapon* weapon = GetEquipedWeapon();
+	if (weapon)
 	{
-	case EWeaponType::PRIMARY:
-		primaryWeapon->StartFiring();
-		break;
-	case EWeaponType::SECONDARY:
-		secondaryWeapon->StartFiring();
-		break;
-	default:
-		break;
+		weapon->StartFiring();
 	}
 }
 
 void AFPSCharacter::StopShooting()
 {
-	switch (equipedWeapon)
+	AFPSWeapon* weapon = GetEquipedWeapon();
+	if (weapon && weapon->IsAutomatic())
 	{
-	case EWeaponType::PRIMARY:
-		primaryWeapon->StopFiring();
-		break;
-	case EWeaponType::SECONDARY:
-		secondaryWeapon->StopFiring();
-		break;
-	default:
-		break;
+		weapon->StopFiring();
 	}
 }
 
@@ -136,6 +124,7 @@ void AFPSCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLif
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 	DOREPLIFETIME(AFPSCharacter, currentHealth);
 	DOREPLIFETIME(AFPSCharacter, equipedWeapon);
+	DOREPLIFETIME(AFPSCharacter, bIsReloading);
 }
 
 void AFPSCharacter::OnRepHealth()
@@ -144,6 +133,11 @@ void AFPSCharacter::OnRepHealth()
 }
 
 void AFPSCharacter::OnRepEquiped()
+{
+
+}
+
+void AFPSCharacter::OnRepReload()
 {
 
 }
@@ -208,4 +202,37 @@ float AFPSCharacter::GetCurrentWeaponFovScale()
 		return weapon->GetADSFovScale();
 	}
 	return 1.f;
+}
+
+void AFPSCharacter::StartReloading()
+{
+	AFPSWeapon* weapon = GetEquipedWeapon();
+	if (weapon)
+	{
+		bIsReloading = true;
+		weapon->StartReload();
+	}
+}
+
+void AFPSCharacter::EndReload()
+{
+	bIsReloading = false;
+}
+
+void AFPSCharacter::CancelReload()
+{
+	AFPSWeapon* weapon = GetEquipedWeapon();
+	if (weapon)
+	{
+		bIsReloading = false;
+		weapon->CancelReload();
+	}
+}
+
+void AFPSCharacter::PlayFireAnimations(EWeaponType _type)
+{
+	UAnimMontage* FPPAnim = *FPP_FireAnims.Find(_type);
+	UAnimMontage* TPPAnim = *TPP_FireAnims.Find(_type);
+
+	PlayAnim(true, FPPAnim);
 }

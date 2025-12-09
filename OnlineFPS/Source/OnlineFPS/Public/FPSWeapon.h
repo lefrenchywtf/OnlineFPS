@@ -52,15 +52,23 @@ protected:
 	float RPM = 600;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bIsAutomatic = true;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float ADSTime = .5f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float ADSFovScale = 1.5f;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float reloadTime = 2.f;
+
 	UPROPERTY(BlueprintReadWrite)
 	class AFPSCharacter* weaponOwner;
 
 	FTimerHandle fireTimerHandle;
+
+	FTimerHandle reloadTimerHandle;
 
 	UPROPERTY(BlueprintReadWrite)
 	bool bIsFiring = false;
@@ -84,4 +92,16 @@ public:
 	void TraceBullet();
 
 	float GetADSFovScale();
+
+	void StartReload();
+
+	void CancelReload();
+
+	void ReloadGun();
+
+	UFUNCTION(BlueprintCallable)
+	bool IsAutomatic();
+
+	UFUNCTION(BlueprintCallable)
+	float GetReloadPlayRate();
 };

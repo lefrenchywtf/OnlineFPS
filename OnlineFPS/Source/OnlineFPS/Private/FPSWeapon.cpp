@@ -35,6 +35,7 @@ void AFPSWeapon::Fire()
 	{
 		ammoCount--;
 		TraceBullet();
+		weaponOwner->PlayFireAnimations(Type);
 	}
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("ammo: %d"), ammoCount));
 }
@@ -45,9 +46,15 @@ void AFPSWeapon::StartFiring()
 	{
 		bIsFiring = true;
 		Fire();
-		FTimerManager fireTimer;
 		float timerRate = 1.f/(RPM / 60.f);
-		GetWorldTimerManager().SetTimer(fireTimerHandle, this, &AFPSWeapon::Fire, timerRate, true);
+		if (bIsAutomatic)
+		{
+			GetWorldTimerManager().SetTimer(fireTimerHandle, this, &AFPSWeapon::Fire, timerRate, true);
+		}
+		else
+		{
+			GetWorldTimerManager().SetTimer(fireTimerHandle, this, &AFPSWeapon::StopFiring, timerRate, true);
+		}
 	}
 }
 
@@ -85,4 +92,35 @@ void AFPSWeapon::TraceBullet_Implementation()
 float AFPSWeapon::GetADSFovScale()
 {
 	return ADSFovScale;
+}
+
+void AFPSWeapon::StartReload()
+{
+	if (ammoCount < maxAmmo)
+	{
+		GetWorldTimerManager().SetTimer(reloadTimerHandle, this, &AFPSWeapon::ReloadGun, reloadTime, false);
+	}
+}
+
+void AFPSWeapon::ReloadGun()
+{
+	ammoCount = maxAmmo;
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("%d"), ammoCount));
+	GetWorldTimerManager().ClearTimer(reloadTimerHandle);
+	weaponOwner->EndReload();
+}
+
+bool AFPSWeapon::IsAutomatic()
+{
+	return bIsAutomatic;
+}
+
+void AFPSWeapon::CancelReload()
+{
+	GetWorldTimerManager().ClearTimer(reloadTimerHandle);
+}
+
+float AFPSWeapon::GetReloadPlayRate()
+{
+	return 1.f / reloadTime;
 }

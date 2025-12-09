@@ -34,6 +34,12 @@ public:
 	FPlayerWeapons weaponsToSpawn;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TMap<EWeaponType, TObjectPtr<UAnimMontage>> FPP_FireAnims;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TMap<EWeaponType, TObjectPtr<UAnimMontage>> TPP_FireAnims;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class AFPSWeapon* primaryWeapon;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -44,6 +50,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, ReplicatedUsing = OnRepHealth)
 	int currentHealth = 0;
+
+	UPROPERTY(BlueprintReadWrite, ReplicatedUsing = OnRepReload)
+	bool bIsReloading = false;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int maxHealth = 100;
@@ -111,6 +120,9 @@ public:
 	UFUNCTION()
 	void OnRepEquiped();
 
+	UFUNCTION()
+	void OnRepReload();
+
 	UFUNCTION(BlueprintCallable)
 	class AFPSWeapon* GetEquipedWeapon();
 
@@ -137,4 +149,17 @@ public:
 
 	UFUNCTION(BlueprintCallable, BlueprintPure)
 	float GetCurrentWeaponFovScale();
+
+	UFUNCTION(BlueprintCallable)
+	void StartReloading();
+
+	void EndReload();
+
+	UFUNCTION(BlueprintCallable)
+	void CancelReload();
+
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+	void PlayAnim(bool _firstPerson, UAnimMontage* _animMontage);
+
+	void PlayFireAnimations(EWeaponType _type);
 };

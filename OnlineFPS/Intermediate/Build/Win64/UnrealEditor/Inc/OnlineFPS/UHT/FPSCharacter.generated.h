@@ -20,6 +20,7 @@ class AActor;
 class AController;
 class AFPSCharacter;
 class AFPSWeapon;
+class UAnimMontage;
 class UDamageType;
 enum class EWeaponType : uint8;
 
@@ -36,12 +37,15 @@ struct FPlayerWeapons;
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_27_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual void EquipGun_Implementation(EWeaponType _type); \
 	virtual void Client_SpawnOtherWeapons_Implementation(AFPSCharacter* _chara); \
+	DECLARE_FUNCTION(execCancelReload); \
+	DECLARE_FUNCTION(execStartReloading); \
 	DECLARE_FUNCTION(execGetCurrentWeaponFovScale); \
 	DECLARE_FUNCTION(execEndADS); \
 	DECLARE_FUNCTION(execStartADS); \
 	DECLARE_FUNCTION(execEquipGun); \
 	DECLARE_FUNCTION(execGetWeapon); \
 	DECLARE_FUNCTION(execGetEquipedWeapon); \
+	DECLARE_FUNCTION(execOnRepReload); \
 	DECLARE_FUNCTION(execOnRepEquiped); \
 	DECLARE_FUNCTION(execOnRepHealth); \
 	DECLARE_FUNCTION(execHandleTakeDamage); \
@@ -72,7 +76,8 @@ public: \
 		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
 		equipedWeapon=NETFIELD_REP_START, \
 		currentHealth, \
-		NETFIELD_REP_END=currentHealth	}; \
+		bIsReloading, \
+		NETFIELD_REP_END=bIsReloading	}; \
 	DECLARE_VALIDATE_GENERATED_REP_ENUMS(NO_API)
 
 
