@@ -8,6 +8,7 @@
 
 
 enum class EWeaponType : uint8;
+struct FPlayerWeapons;
 
 USTRUCT(BlueprintType)
 struct FPlayerWeapons
@@ -71,6 +72,9 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 	float FOV = 90.f;
+
+	UPROPERTY(BlueprintReadWrite)
+	bool bIsAiming = false;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -161,5 +165,8 @@ public:
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void PlayAnim(bool _firstPerson, UAnimMontage* _animMontage);
 
-	void PlayFireAnimations(EWeaponType _type);
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+	void PlayFPPFireAnim(FRecoilAnimValues _recoil);
+
+	void PlayFireAnimations(EWeaponType _type, FRecoilAnimValues _recoil);
 };

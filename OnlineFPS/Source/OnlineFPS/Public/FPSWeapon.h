@@ -13,6 +13,27 @@ enum class EWeaponType : uint8
 	SECONDARY,
 };
 
+USTRUCT(BlueprintType)
+struct FRecoilAnimValues
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float recoilMultiplier = 1.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float sideRecoilMultiplier = 1.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float kickbackMultiplier = 1.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float kicksideMultiplier = 1.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float kickupMultiplier = 1.f;
+};
+
 
 UCLASS()
 class ONLINEFPS_API AFPSWeapon : public AActor
@@ -75,6 +96,9 @@ protected:
 
 	UPROPERTY(BlueprintReadWrite)
 	class UCameraComponent* playerCamera;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FRecoilAnimValues recoilAnim;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

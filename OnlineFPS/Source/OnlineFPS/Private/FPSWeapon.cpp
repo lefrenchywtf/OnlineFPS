@@ -35,7 +35,7 @@ void AFPSWeapon::Fire()
 	{
 		ammoCount--;
 		TraceBullet();
-		weaponOwner->PlayFireAnimations(Type);
+		weaponOwner->PlayFireAnimations(Type, recoilAnim);
 	}
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("ammo: %d"), ammoCount));
 }

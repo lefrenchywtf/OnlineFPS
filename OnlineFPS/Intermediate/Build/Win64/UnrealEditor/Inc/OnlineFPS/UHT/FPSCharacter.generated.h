@@ -23,9 +23,10 @@ class AFPSWeapon;
 class UAnimMontage;
 class UDamageType;
 enum class EWeaponType : uint8;
+struct FRecoilAnimValues;
 
 // ********** Begin ScriptStruct FPlayerWeapons ****************************************************
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_15_GENERATED_BODY \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_16_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FPlayerWeapons_Statics; \
 	ONLINEFPS_API static class UScriptStruct* StaticStruct();
 
@@ -34,7 +35,7 @@ struct FPlayerWeapons;
 // ********** End ScriptStruct FPlayerWeapons ******************************************************
 
 // ********** Begin Class AFPSCharacter ************************************************************
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_27_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_28_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual void EquipGun_Implementation(EWeaponType _type); \
 	virtual void Client_SpawnOtherWeapons_Implementation(AFPSCharacter* _chara); \
 	DECLARE_FUNCTION(execCancelReload); \
@@ -59,10 +60,10 @@ struct FPlayerWeapons;
 	DECLARE_FUNCTION(execMove);
 
 
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_27_CALLBACK_WRAPPERS
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_28_CALLBACK_WRAPPERS
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSCharacter_NoRegister();
 
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_27_INCLASS_NO_PURE_DECLS \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_28_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAFPSCharacter(); \
 	friend struct Z_Construct_UClass_AFPSCharacter_Statics; \
@@ -81,7 +82,7 @@ public: \
 	DECLARE_VALIDATE_GENERATED_REP_ENUMS(NO_API)
 
 
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_27_ENHANCED_CONSTRUCTORS \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_28_ENHANCED_CONSTRUCTORS \
 	/** Deleted move- and copy-constructors, should never be used */ \
 	AFPSCharacter(AFPSCharacter&&) = delete; \
 	AFPSCharacter(const AFPSCharacter&) = delete; \
@@ -91,14 +92,14 @@ public: \
 	NO_API virtual ~AFPSCharacter();
 
 
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_24_PROLOG
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_27_GENERATED_BODY \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_25_PROLOG
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_28_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_27_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_27_CALLBACK_WRAPPERS \
-	FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_27_INCLASS_NO_PURE_DECLS \
-	FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_27_ENHANCED_CONSTRUCTORS \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_28_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_28_CALLBACK_WRAPPERS \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_28_INCLASS_NO_PURE_DECLS \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_28_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

@@ -186,11 +186,13 @@ void AFPSCharacter::EquipGun_Implementation(EWeaponType _type)
 
 void AFPSCharacter::StartADS()
 {
+	bIsAiming = true;
 	EnterADSAnim();
 }
 
 void AFPSCharacter::EndADS()
 {
+	bIsAiming = false;
 	ExitADSAnim();
 }
 
@@ -229,10 +231,11 @@ void AFPSCharacter::CancelReload()
 	}
 }
 
-void AFPSCharacter::PlayFireAnimations(EWeaponType _type)
+void AFPSCharacter::PlayFireAnimations(EWeaponType _type, FRecoilAnimValues _weaponRecoil)
 {
-	UAnimMontage* FPPAnim = *FPP_FireAnims.Find(_type);
+	//UAnimMontage* FPPAnim = *FPP_FireAnims.Find(_type);
 	UAnimMontage* TPPAnim = *TPP_FireAnims.Find(_type);
 
-	PlayAnim(true, FPPAnim);
+	PlayFPPFireAnim(_weaponRecoil);
+	//PlayAnim(true, FPPAnim);
 }

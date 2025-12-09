@@ -16,8 +16,17 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
+// ********** Begin ScriptStruct FRecoilAnimValues *************************************************
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_19_GENERATED_BODY \
+	friend struct Z_Construct_UScriptStruct_FRecoilAnimValues_Statics; \
+	ONLINEFPS_API static class UScriptStruct* StaticStruct();
+
+
+struct FRecoilAnimValues;
+// ********** End ScriptStruct FRecoilAnimValues ***************************************************
+
 // ********** Begin Class AFPSWeapon ***************************************************************
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_41_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual void TraceBullet_Implementation(); \
 	DECLARE_FUNCTION(execGetReloadPlayRate); \
 	DECLARE_FUNCTION(execIsAutomatic); \
@@ -27,10 +36,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execStartFiring);
 
 
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_20_CALLBACK_WRAPPERS
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_41_CALLBACK_WRAPPERS
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSWeapon_NoRegister();
 
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_20_INCLASS_NO_PURE_DECLS \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_41_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAFPSWeapon(); \
 	friend struct Z_Construct_UClass_AFPSWeapon_Statics; \
@@ -41,7 +50,7 @@ public: \
 	DECLARE_SERIALIZER(AFPSWeapon)
 
 
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_20_ENHANCED_CONSTRUCTORS \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_41_ENHANCED_CONSTRUCTORS \
 	/** Deleted move- and copy-constructors, should never be used */ \
 	AFPSWeapon(AFPSWeapon&&) = delete; \
 	AFPSWeapon(const AFPSWeapon&) = delete; \
@@ -51,14 +60,14 @@ public: \
 	NO_API virtual ~AFPSWeapon();
 
 
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_17_PROLOG
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_20_GENERATED_BODY \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_38_PROLOG
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_41_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_20_CALLBACK_WRAPPERS \
-	FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_20_INCLASS_NO_PURE_DECLS \
-	FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_20_ENHANCED_CONSTRUCTORS \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_41_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_41_CALLBACK_WRAPPERS \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_41_INCLASS_NO_PURE_DECLS \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_41_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
