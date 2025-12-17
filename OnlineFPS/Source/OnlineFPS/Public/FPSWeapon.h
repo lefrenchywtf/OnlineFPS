@@ -128,4 +128,9 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	float GetReloadPlayRate();
+
+	UFUNCTION(BlueprintCallable)
+	EWeaponType GetWeaponType();
+
+	float GetReloadTime();
 };

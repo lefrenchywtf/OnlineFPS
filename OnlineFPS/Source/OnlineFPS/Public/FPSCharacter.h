@@ -35,7 +35,7 @@ public:
 	FPlayerWeapons weaponsToSpawn;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TMap<EWeaponType, TObjectPtr<UAnimMontage>> FPP_FireAnims;
+	TMap<EWeaponType, TObjectPtr<UAnimMontage>> TPP_ReloadAnims;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TMap<EWeaponType, TObjectPtr<UAnimMontage>> TPP_FireAnims;
@@ -163,10 +163,17 @@ public:
 	void CancelReload();
 
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-	void PlayAnim(UAnimMontage* _animMontage);
+	void PlayAnim(UAnimMontage* _animMontage, float playRate = 1.0f);
+
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+	void StopAnim(UAnimMontage* _animMontage);
 
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void PlayFPPFireAnim(FRecoilAnimValues _recoil);
 
 	void PlayFireAnimations(EWeaponType _type, FRecoilAnimValues _recoil);
+
+	void PlayTPPReloadAnim(EWeaponType _type);
+
+	void StopTPPReloadAnim(EWeaponType _type);
 };

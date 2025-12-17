@@ -124,3 +124,13 @@ float AFPSWeapon::GetReloadPlayRate()
 {
 	return 1.f / reloadTime;
 }
+
+float AFPSWeapon::GetReloadTime()
+{
+	return reloadTime;
+}
+
+EWeaponType AFPSWeapon::GetWeaponType()
+{
+	return Type;
+}

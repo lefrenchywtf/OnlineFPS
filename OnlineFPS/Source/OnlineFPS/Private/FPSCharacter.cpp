@@ -69,14 +69,21 @@ void AFPSCharacter::CrouchChara(bool _state)
 
 void AFPSCharacter::SprintChara(bool _state)
 {
-	if (_state && !bIsCrouched)
+	if (_state)
 	{
-		bIsSprinting = _state;
-		GetCharacterMovement()->MaxWalkSpeed = SprintSpeedMax;
+		if (!bIsCrouched && !bIsAiming)
+		{
+			bIsSprinting = true;
+			if (bIsReloading)
+			{
+				CancelReload();
+			}
+			GetCharacterMovement()->MaxWalkSpeed = SprintSpeedMax;
+		}
 	}
 	else
 	{
-		bIsSprinting = _state;
+		bIsSprinting = false;
 		GetCharacterMovement()->MaxWalkSpeed = walkSpeedMax;
 	}
 }
@@ -178,6 +185,10 @@ void AFPSCharacter::EquipGun_Implementation(EWeaponType _type)
 {
 	if (_type != equipedWeapon)
 	{
+		if (bIsReloading)
+		{
+			CancelReload();
+		}
 		ChangeGunVisibility(this ,equipedWeapon ,false);
 		equipedWeapon = _type;
 		ChangeGunVisibility(this,_type ,true);
@@ -186,8 +197,15 @@ void AFPSCharacter::EquipGun_Implementation(EWeaponType _type)
 
 void AFPSCharacter::StartADS()
 {
-	bIsAiming = true;
-	EnterADSAnim();
+	if (!bIsReloading)
+	{
+		bIsAiming = true;
+		if (bIsSprinting)
+		{
+			SprintChara(false);
+		}
+		EnterADSAnim();
+	}
 }
 
 void AFPSCharacter::EndADS()
@@ -211,8 +229,13 @@ void AFPSCharacter::StartReloading()
 	AFPSWeapon* weapon = GetEquipedWeapon();
 	if (weapon)
 	{
+		if (bIsAiming)
+		{
+			EndADS();
+		}
 		bIsReloading = true;
 		weapon->StartReload();
+		PlayTPPReloadAnim(weapon->GetWeaponType());
 	}
 }
 
@@ -228,6 +251,7 @@ void AFPSCharacter::CancelReload()
 	{
 		bIsReloading = false;
 		weapon->CancelReload();
+		StopTPPReloadAnim(weapon->GetWeaponType());
 	}
 }
 
@@ -238,5 +262,24 @@ void AFPSCharacter::PlayFireAnimations(EWeaponType _type, FRecoilAnimValues _wea
 	if (TPPAnim)
 	{
 		PlayAnim(TPPAnim);
+	}
+}
+
+void AFPSCharacter::PlayTPPReloadAnim(EWeaponType _type)
+{
+	UAnimMontage* TPPAnim = *TPP_ReloadAnims.Find(_type);
+	if (TPPAnim)
+	{
+		float playRate =  TPPAnim->GetPlayLength() / GetEquipedWeapon()->GetReloadTime();
+		PlayAnim(TPPAnim, playRate);
+	}
+}
+
+void AFPSCharacter::StopTPPReloadAnim(EWeaponType _type)
+{
+	UAnimMontage* TPPAnim = *TPP_ReloadAnims.Find(_type);
+	if (TPPAnim)
+	{
+		StopAnim(TPPAnim);
 	}
 }

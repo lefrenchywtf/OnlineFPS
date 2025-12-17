@@ -16,6 +16,8 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
+enum class EWeaponType : uint8;
+
 // ********** Begin ScriptStruct FRecoilAnimValues *************************************************
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_19_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FRecoilAnimValues_Statics; \
@@ -28,6 +30,7 @@ struct FRecoilAnimValues;
 // ********** Begin Class AFPSWeapon ***************************************************************
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_41_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual void TraceBullet_Implementation(); \
+	DECLARE_FUNCTION(execGetWeaponType); \
 	DECLARE_FUNCTION(execGetReloadPlayRate); \
 	DECLARE_FUNCTION(execIsAutomatic); \
 	DECLARE_FUNCTION(execTraceBullet); \
