@@ -109,7 +109,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void StopShooting();
 
-	UFUNCTION(BlueprintImplementableEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void SpawnCharaWeapons(AFPSCharacter* _chara);
 
 	UFUNCTION(Client, Reliable)
@@ -176,4 +176,10 @@ public:
 	void PlayTPPReloadAnim(EWeaponType _type);
 
 	void StopTPPReloadAnim(EWeaponType _type);
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void DieChara();
+
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+	void RespawnChara();
 };

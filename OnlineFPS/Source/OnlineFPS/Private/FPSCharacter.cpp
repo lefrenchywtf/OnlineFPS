@@ -122,6 +122,10 @@ void AFPSCharacter::HandleTakeDamage(AActor* DamagedActor, float Damage, const c
 	if (currentHealth > 0)
 	{
 		currentHealth -= Damage;
+		if (currentHealth <= 0)
+		{
+			DieChara();
+		}
 	}
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("health: %d"), currentHealth));
 }

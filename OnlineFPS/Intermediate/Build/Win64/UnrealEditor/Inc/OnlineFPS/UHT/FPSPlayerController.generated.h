@@ -16,7 +16,16 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
+class AFPSCharacter;
+
 // ********** Begin Class AFPSPlayerController *****************************************************
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void Client_NeedSpawnWeapons_Implementation(); \
+	DECLARE_FUNCTION(execSetChara); \
+	DECLARE_FUNCTION(execClient_NeedSpawnWeapons);
+
+
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h_15_CALLBACK_WRAPPERS
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSPlayerController_NoRegister();
 
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h_15_INCLASS_NO_PURE_DECLS \
@@ -46,6 +55,8 @@ public: \
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h_15_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h_15_CALLBACK_WRAPPERS \
 	FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h_15_INCLASS_NO_PURE_DECLS \
 	FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h_15_ENHANCED_CONSTRUCTORS \
 private: \

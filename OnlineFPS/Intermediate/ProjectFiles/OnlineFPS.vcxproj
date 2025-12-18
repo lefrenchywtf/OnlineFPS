@@ -285,6 +285,9 @@
     <ClCompile Include="..\..\Source\OnlineFPS\Private\FPSGameModeBase.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <ClCompile Include="..\..\Source\OnlineFPS\Private\FPSGameState.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
     <ClCompile Include="..\..\Source\OnlineFPS\Private\FPSPlayerController.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
@@ -293,6 +296,7 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\OnlineFPS\Public\FPSCharacter.h"/>
     <ClInclude Include="..\..\Source\OnlineFPS\Public\FPSGameModeBase.h"/>
+    <ClInclude Include="..\..\Source\OnlineFPS\Public\FPSGameState.h"/>
     <ClInclude Include="..\..\Source\OnlineFPS\Public\FPSPlayerController.h"/>
     <ClInclude Include="..\..\Source\OnlineFPS\Public\FPSWeapon.h"/>
     <ClCompile Include="..\..\Source\OnlineFPS\Variant_Horror\HorrorCharacter.cpp">

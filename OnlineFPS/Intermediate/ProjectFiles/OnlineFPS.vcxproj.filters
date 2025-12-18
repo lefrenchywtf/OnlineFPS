@@ -75,6 +75,9 @@
     <ClCompile Include="..\..\Source\OnlineFPS\Private\FPSGameModeBase.cpp">
       <Filter>Source\OnlineFPS\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\OnlineFPS\Private\FPSGameState.cpp">
+      <Filter>Source\OnlineFPS\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\OnlineFPS\Private\FPSPlayerController.cpp">
       <Filter>Source\OnlineFPS\Private</Filter>
     </ClCompile>
@@ -88,6 +91,9 @@
       <Filter>Source\OnlineFPS\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\OnlineFPS\Public\FPSGameModeBase.h">
+      <Filter>Source\OnlineFPS\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\OnlineFPS\Public\FPSGameState.h">
       <Filter>Source\OnlineFPS\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\OnlineFPS\Public\FPSPlayerController.h">

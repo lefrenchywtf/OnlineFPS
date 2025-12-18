@@ -13,8 +13,21 @@ UCLASS()
 class ONLINEFPS_API AFPSPlayerController : public APlayerController
 {
 	GENERATED_BODY()
-	
+
+protected:
+	bool bNeedToSpawnWeapons = false;
 public:
 	UPROPERTY(BlueprintReadWrite)
 	class AFPSCharacter* Chara;
+
+	UFUNCTION(Client, Reliable)
+	void Client_NeedSpawnWeapons();
+
+	void SpawnOthersWeapons();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void CharaSpawnWeapons(class AFPSCharacter* _otherPlayer);
+
+	UFUNCTION(BlueprintCallable)
+	void SetChara(class AFPSCharacter* _chara);
 };

@@ -18,7 +18,19 @@
             "c:\\unreal\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\gameframework\\rootmotionsource.h",
             "c:\\unreal\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\rootmotionsource.generated.h",
             "c:\\unreal\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\character.generated.h",
-            "f:\\onlinefps\\onlinefps\\intermediate\\build\\win64\\unrealeditor\\inc\\onlinefps\\uht\\fpscharacter.generated.h"
+            "f:\\onlinefps\\onlinefps\\intermediate\\build\\win64\\unrealeditor\\inc\\onlinefps\\uht\\fpscharacter.generated.h",
+            "f:\\onlinefps\\onlinefps\\source\\onlinefps\\public\\fpsgamestate.h",
+            "c:\\unreal\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamestate.h",
+            "c:\\unreal\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamestatebase.h",
+            "c:\\unreal\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamemodebase.h",
+            "c:\\unreal\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\engine\\serverstatreplicator.h",
+            "c:\\unreal\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\serverstatreplicator.generated.h",
+            "c:\\unreal\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gamemodebase.generated.h",
+            "c:\\unreal\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gamestatebase.generated.h",
+            "c:\\unreal\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gamestate.generated.h",
+            "f:\\onlinefps\\onlinefps\\intermediate\\build\\win64\\unrealeditor\\inc\\onlinefps\\uht\\fpsgamestate.generated.h",
+            "c:\\unreal\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\gameframework\\playerstate.h",
+            "c:\\unreal\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\playerstate.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

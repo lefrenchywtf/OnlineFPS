@@ -13,9 +13,9 @@ void EmptyLinkFunctionForGeneratedCodeFPSGameModeBase() {}
 
 // ********** Begin Cross Module References ********************************************************
 ENGINE_API UClass* Z_Construct_UClass_AGameModeBase();
-ONLINEFPS_API UClass* Z_Construct_UClass_AFPSCharacter_NoRegister();
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSGameModeBase();
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSGameModeBase_NoRegister();
+ONLINEFPS_API UClass* Z_Construct_UClass_AFPSPlayerController_NoRegister();
 UPackage* Z_Construct_UPackage__Script_OnlineFPS();
 // ********** End Cross Module References **********************************************************
 
@@ -24,7 +24,7 @@ struct Z_Construct_UFunction_AFPSGameModeBase_AddPlayer_Statics
 {
 	struct FPSGameModeBase_eventAddPlayer_Parms
 	{
-		AFPSCharacter* _character;
+		AFPSPlayerController* _controller;
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
@@ -37,13 +37,13 @@ struct Z_Construct_UFunction_AFPSGameModeBase_AddPlayer_Statics
 #endif
 	};
 #endif // WITH_METADATA
-	static const UECodeGen_Private::FObjectPropertyParams NewProp__character;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp__controller;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AFPSGameModeBase_AddPlayer_Statics::NewProp__character = { "_character", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSGameModeBase_eventAddPlayer_Parms, _character), Z_Construct_UClass_AFPSCharacter_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AFPSGameModeBase_AddPlayer_Statics::NewProp__controller = { "_controller", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSGameModeBase_eventAddPlayer_Parms, _controller), Z_Construct_UClass_AFPSPlayerController_NoRegister, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFPSGameModeBase_AddPlayer_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSGameModeBase_AddPlayer_Statics::NewProp__character,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSGameModeBase_AddPlayer_Statics::NewProp__controller,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSGameModeBase_AddPlayer_Statics::PropPointers) < 2048);
 const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSGameModeBase_AddPlayer_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSGameModeBase, nullptr, "AddPlayer", Z_Construct_UFunction_AFPSGameModeBase_AddPlayer_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSGameModeBase_AddPlayer_Statics::PropPointers), sizeof(Z_Construct_UFunction_AFPSGameModeBase_AddPlayer_Statics::FPSGameModeBase_eventAddPlayer_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSGameModeBase_AddPlayer_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSGameModeBase_AddPlayer_Statics::Function_MetaDataParams)},  };
@@ -59,13 +59,55 @@ UFunction* Z_Construct_UFunction_AFPSGameModeBase_AddPlayer()
 }
 DEFINE_FUNCTION(AFPSGameModeBase::execAddPlayer)
 {
-	P_GET_OBJECT(AFPSCharacter,Z_Param__character);
+	P_GET_OBJECT(AFPSPlayerController,Z_Param__controller);
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	P_THIS->AddPlayer(Z_Param__character);
+	P_THIS->AddPlayer(Z_Param__controller);
 	P_NATIVE_END;
 }
 // ********** End Class AFPSGameModeBase Function AddPlayer ****************************************
+
+// ********** Begin Class AFPSGameModeBase Function RemovePlayer ***********************************
+struct Z_Construct_UFunction_AFPSGameModeBase_RemovePlayer_Statics
+{
+	struct FPSGameModeBase_eventRemovePlayer_Parms
+	{
+		AFPSPlayerController* _controller;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FPSGameModeBase.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FObjectPropertyParams NewProp__controller;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AFPSGameModeBase_RemovePlayer_Statics::NewProp__controller = { "_controller", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSGameModeBase_eventRemovePlayer_Parms, _controller), Z_Construct_UClass_AFPSPlayerController_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFPSGameModeBase_RemovePlayer_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSGameModeBase_RemovePlayer_Statics::NewProp__controller,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSGameModeBase_RemovePlayer_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSGameModeBase_RemovePlayer_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSGameModeBase, nullptr, "RemovePlayer", Z_Construct_UFunction_AFPSGameModeBase_RemovePlayer_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSGameModeBase_RemovePlayer_Statics::PropPointers), sizeof(Z_Construct_UFunction_AFPSGameModeBase_RemovePlayer_Statics::FPSGameModeBase_eventRemovePlayer_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSGameModeBase_RemovePlayer_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSGameModeBase_RemovePlayer_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(Z_Construct_UFunction_AFPSGameModeBase_RemovePlayer_Statics::FPSGameModeBase_eventRemovePlayer_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AFPSGameModeBase_RemovePlayer()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSGameModeBase_RemovePlayer_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AFPSGameModeBase::execRemovePlayer)
+{
+	P_GET_OBJECT(AFPSPlayerController,Z_Param__controller);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->RemovePlayer(Z_Param__controller);
+	P_NATIVE_END;
+}
+// ********** End Class AFPSGameModeBase Function RemovePlayer *************************************
 
 // ********** Begin Class AFPSGameModeBase *********************************************************
 void AFPSGameModeBase::StaticRegisterNativesAFPSGameModeBase()
@@ -73,6 +115,7 @@ void AFPSGameModeBase::StaticRegisterNativesAFPSGameModeBase()
 	UClass* Class = AFPSGameModeBase::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
 		{ "AddPlayer", &AFPSGameModeBase::execAddPlayer },
+		{ "RemovePlayer", &AFPSGameModeBase::execRemovePlayer },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -120,7 +163,8 @@ struct Z_Construct_UClass_AFPSGameModeBase_Statics
 #endif // WITH_METADATA
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_AFPSGameModeBase_AddPlayer, "AddPlayer" }, // 3399643858
+		{ &Z_Construct_UFunction_AFPSGameModeBase_AddPlayer, "AddPlayer" }, // 1733512616
+		{ &Z_Construct_UFunction_AFPSGameModeBase_RemovePlayer, "RemovePlayer" }, // 3148630357
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -165,10 +209,10 @@ AFPSGameModeBase::~AFPSGameModeBase() {}
 struct Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h__Script_OnlineFPS_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AFPSGameModeBase, AFPSGameModeBase::StaticClass, TEXT("AFPSGameModeBase"), &Z_Registration_Info_UClass_AFPSGameModeBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSGameModeBase), 2543694111U) },
+		{ Z_Construct_UClass_AFPSGameModeBase, AFPSGameModeBase::StaticClass, TEXT("AFPSGameModeBase"), &Z_Registration_Info_UClass_AFPSGameModeBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSGameModeBase), 3494492983U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h__Script_OnlineFPS_3201636918(TEXT("/Script/OnlineFPS"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h__Script_OnlineFPS_2551915333(TEXT("/Script/OnlineFPS"),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h__Script_OnlineFPS_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h__Script_OnlineFPS_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

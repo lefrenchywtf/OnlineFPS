@@ -82,7 +82,7 @@ void AFPSWeapon::TraceBullet_Implementation()
 		AFPSCharacter* hitChara = Cast<AFPSCharacter>(hitResult.GetActor());
 		if (hitChara)
 		{
-			UGameplayStatics::ApplyDamage(hitChara, damage, nullptr, this, UDamageType::StaticClass());
+			UGameplayStatics::ApplyPointDamage(hitChara, damage, hitResult.TraceStart, hitResult, nullptr, this, UDamageType::StaticClass());
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("%s"), *hitResult.GetActor()->GetName()));
 		}
 	}

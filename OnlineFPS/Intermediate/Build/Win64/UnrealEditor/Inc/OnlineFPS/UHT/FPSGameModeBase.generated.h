@@ -16,10 +16,11 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
-class AFPSCharacter;
+class AFPSPlayerController;
 
 // ********** Begin Class AFPSGameModeBase *********************************************************
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execRemovePlayer); \
 	DECLARE_FUNCTION(execAddPlayer);
 
 
