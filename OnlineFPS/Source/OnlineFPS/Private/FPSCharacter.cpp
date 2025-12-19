@@ -19,7 +19,10 @@ void AFPSCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	currentHealth = maxHealth;
-	OnTakeAnyDamage.AddDynamic(this, &AFPSCharacter::HandleTakeDamage);
+	if (HasAuthority())
+	{
+		OnTakeAnyDamage.AddDynamic(this, &AFPSCharacter::HandleTakeDamage);
+	}
 }
 
 // Called every frame

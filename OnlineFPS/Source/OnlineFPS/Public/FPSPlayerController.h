@@ -25,9 +25,6 @@ public:
 
 	void SpawnOthersWeapons();
 
-	UFUNCTION(BlueprintImplementableEvent)
-	void CharaSpawnWeapons(class AFPSCharacter* _otherPlayer);
-
 	UFUNCTION(BlueprintCallable)
 	void SetChara(class AFPSCharacter* _chara);
 };

@@ -10,7 +10,7 @@ void AFPSGameModeBase::AddPlayer(AFPSPlayerController* _character)
 {
 	if (_character)
 	{
-		LobbyPlayers.Add(_character->GetPawn());
+		LobbyPlayers.Add(_character);
 		UpdateGameState();
 		if (LobbyPlayers.Num() > 1)
 		{
@@ -24,16 +24,8 @@ void AFPSGameModeBase::RemovePlayer(class AFPSPlayerController* _controller)
 {
 	if (_controller)
 	{
-		LobbyPlayers.Remove(_controller->GetPawn());
+		LobbyPlayers.Remove(_controller);
 		UpdateGameState();
-	}
-}
-
-void AFPSGameModeBase::SpawnOthersWeapons(AFPSCharacter* _client)
-{
-	for (int i = 0; i < connectedPlayers.Num() - 1; i++)
-	{
-		_client->Client_SpawnOtherWeapons(connectedPlayers[i]);
 	}
 }
 

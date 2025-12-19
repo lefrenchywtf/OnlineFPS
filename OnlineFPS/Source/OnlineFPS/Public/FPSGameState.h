@@ -19,7 +19,6 @@ protected:
 
 public:
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-	void UpdatePlayersList();
 
-	TArray<APlayerState*> GetPlayers();
+	void UpdatePlayersList();
 };

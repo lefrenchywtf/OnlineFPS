@@ -19,48 +19,6 @@ ONLINEFPS_API UClass* Z_Construct_UClass_AFPSPlayerController_NoRegister();
 UPackage* Z_Construct_UPackage__Script_OnlineFPS();
 // ********** End Cross Module References **********************************************************
 
-// ********** Begin Class AFPSPlayerController Function CharaSpawnWeapons **************************
-struct FPSPlayerController_eventCharaSpawnWeapons_Parms
-{
-	AFPSCharacter* _otherPlayer;
-};
-static FName NAME_AFPSPlayerController_CharaSpawnWeapons = FName(TEXT("CharaSpawnWeapons"));
-void AFPSPlayerController::CharaSpawnWeapons(AFPSCharacter* _otherPlayer)
-{
-	FPSPlayerController_eventCharaSpawnWeapons_Parms Parms;
-	Parms._otherPlayer=_otherPlayer;
-	UFunction* Func = FindFunctionChecked(NAME_AFPSPlayerController_CharaSpawnWeapons);
-	ProcessEvent(Func,&Parms);
-}
-struct Z_Construct_UFunction_AFPSPlayerController_CharaSpawnWeapons_Statics
-{
-#if WITH_METADATA
-	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/FPSPlayerController.h" },
-	};
-#endif // WITH_METADATA
-	static const UECodeGen_Private::FObjectPropertyParams NewProp__otherPlayer;
-	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-	static const UECodeGen_Private::FFunctionParams FuncParams;
-};
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AFPSPlayerController_CharaSpawnWeapons_Statics::NewProp__otherPlayer = { "_otherPlayer", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSPlayerController_eventCharaSpawnWeapons_Parms, _otherPlayer), Z_Construct_UClass_AFPSCharacter_NoRegister, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFPSPlayerController_CharaSpawnWeapons_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSPlayerController_CharaSpawnWeapons_Statics::NewProp__otherPlayer,
-};
-static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSPlayerController_CharaSpawnWeapons_Statics::PropPointers) < 2048);
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSPlayerController_CharaSpawnWeapons_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSPlayerController, nullptr, "CharaSpawnWeapons", Z_Construct_UFunction_AFPSPlayerController_CharaSpawnWeapons_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSPlayerController_CharaSpawnWeapons_Statics::PropPointers), sizeof(FPSPlayerController_eventCharaSpawnWeapons_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSPlayerController_CharaSpawnWeapons_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSPlayerController_CharaSpawnWeapons_Statics::Function_MetaDataParams)},  };
-static_assert(sizeof(FPSPlayerController_eventCharaSpawnWeapons_Parms) < MAX_uint16);
-UFunction* Z_Construct_UFunction_AFPSPlayerController_CharaSpawnWeapons()
-{
-	static UFunction* ReturnFunction = nullptr;
-	if (!ReturnFunction)
-	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSPlayerController_CharaSpawnWeapons_Statics::FuncParams);
-	}
-	return ReturnFunction;
-}
-// ********** End Class AFPSPlayerController Function CharaSpawnWeapons ****************************
-
 // ********** Begin Class AFPSPlayerController Function Client_NeedSpawnWeapons ********************
 static FName NAME_AFPSPlayerController_Client_NeedSpawnWeapons = FName(TEXT("Client_NeedSpawnWeapons"));
 void AFPSPlayerController::Client_NeedSpawnWeapons()
@@ -197,7 +155,6 @@ struct Z_Construct_UClass_AFPSPlayerController_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_AFPSPlayerController_CharaSpawnWeapons, "CharaSpawnWeapons" }, // 223705767
 		{ &Z_Construct_UFunction_AFPSPlayerController_Client_NeedSpawnWeapons, "Client_NeedSpawnWeapons" }, // 3347532319
 		{ &Z_Construct_UFunction_AFPSPlayerController_SetChara, "SetChara" }, // 1397199780
 	};
@@ -249,10 +206,10 @@ AFPSPlayerController::~AFPSPlayerController() {}
 struct Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h__Script_OnlineFPS_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AFPSPlayerController, AFPSPlayerController::StaticClass, TEXT("AFPSPlayerController"), &Z_Registration_Info_UClass_AFPSPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSPlayerController), 1088133627U) },
+		{ Z_Construct_UClass_AFPSPlayerController, AFPSPlayerController::StaticClass, TEXT("AFPSPlayerController"), &Z_Registration_Info_UClass_AFPSPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSPlayerController), 41279327U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h__Script_OnlineFPS_2505899441(TEXT("/Script/OnlineFPS"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h__Script_OnlineFPS_1836041955(TEXT("/Script/OnlineFPS"),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h__Script_OnlineFPS_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h__Script_OnlineFPS_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

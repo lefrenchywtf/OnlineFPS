@@ -13,8 +13,3 @@ void AFPSGameState::UpdatePlayersList()
 {
 	LobbyPawns = PlayerArray;
 }
-
-TArray<APlayerState*> AFPSGameState::GetPlayers()
-{
-	return LobbyPawns;
-}
