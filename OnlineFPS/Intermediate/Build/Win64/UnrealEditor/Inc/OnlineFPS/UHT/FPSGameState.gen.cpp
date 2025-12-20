@@ -12,16 +12,66 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeFPSGameState() {}
 
 // ********** Begin Cross Module References ********************************************************
-ENGINE_API UClass* Z_Construct_UClass_AGameStateBase();
+COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
+ENGINE_API UClass* Z_Construct_UClass_AGameState();
 ENGINE_API UClass* Z_Construct_UClass_APlayerState_NoRegister();
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSGameState();
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSGameState_NoRegister();
 UPackage* Z_Construct_UPackage__Script_OnlineFPS();
 // ********** End Cross Module References **********************************************************
 
+// ********** Begin Class AFPSGameState Function GetSpawns *****************************************
+struct Z_Construct_UFunction_AFPSGameState_GetSpawns_Statics
+{
+	struct FPSGameState_eventGetSpawns_Parms
+	{
+		TArray<FVector> ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FPSGameState.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue_Inner;
+	static const UECodeGen_Private::FArrayPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AFPSGameState_GetSpawns_Statics::NewProp_ReturnValue_Inner = { "ReturnValue", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_AFPSGameState_GetSpawns_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSGameState_eventGetSpawns_Parms, ReturnValue), EArrayPropertyFlags::None, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFPSGameState_GetSpawns_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSGameState_GetSpawns_Statics::NewProp_ReturnValue_Inner,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSGameState_GetSpawns_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSGameState_GetSpawns_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSGameState_GetSpawns_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSGameState, nullptr, "GetSpawns", Z_Construct_UFunction_AFPSGameState_GetSpawns_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSGameState_GetSpawns_Statics::PropPointers), sizeof(Z_Construct_UFunction_AFPSGameState_GetSpawns_Statics::FPSGameState_eventGetSpawns_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSGameState_GetSpawns_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSGameState_GetSpawns_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(Z_Construct_UFunction_AFPSGameState_GetSpawns_Statics::FPSGameState_eventGetSpawns_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AFPSGameState_GetSpawns()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSGameState_GetSpawns_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AFPSGameState::execGetSpawns)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(TArray<FVector>*)Z_Param__Result=P_THIS->GetSpawns();
+	P_NATIVE_END;
+}
+// ********** End Class AFPSGameState Function GetSpawns *******************************************
+
 // ********** Begin Class AFPSGameState ************************************************************
 void AFPSGameState::StaticRegisterNativesAFPSGameState()
 {
+	UClass* Class = AFPSGameState::StaticClass();
+	static const FNameNativePtrPair Funcs[] = {
+		{ "GetSpawns", &AFPSGameState::execGetSpawns },
+	};
+	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
 FClassRegistrationInfo Z_Registration_Info_UClass_AFPSGameState;
 UClass* AFPSGameState::GetPrivateStaticClass()
@@ -67,11 +117,20 @@ struct Z_Construct_UClass_AFPSGameState_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_LobbyPawns_MetaData[] = {
 		{ "ModuleRelativePath", "Public/FPSGameState.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Spawns_MetaData[] = {
+		{ "ModuleRelativePath", "Public/FPSGameState.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_LobbyPawns_Inner;
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_LobbyPawns;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_Spawns_Inner;
+	static const UECodeGen_Private::FArrayPropertyParams NewProp_Spawns;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
+	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
+		{ &Z_Construct_UFunction_AFPSGameState_GetSpawns, "GetSpawns" }, // 1634850624
+	};
+	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AFPSGameState>::IsAbstract,
 	};
@@ -79,13 +138,17 @@ struct Z_Construct_UClass_AFPSGameState_Statics
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFPSGameState_Statics::NewProp_LobbyPawns_Inner = { "LobbyPawns", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_APlayerState_NoRegister, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AFPSGameState_Statics::NewProp_LobbyPawns = { "LobbyPawns", nullptr, (EPropertyFlags)0x0020080000000020, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSGameState, LobbyPawns), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LobbyPawns_MetaData), NewProp_LobbyPawns_MetaData) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AFPSGameState_Statics::NewProp_Spawns_Inner = { "Spawns", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AFPSGameState_Statics::NewProp_Spawns = { "Spawns", nullptr, (EPropertyFlags)0x0020080000000020, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSGameState, Spawns), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Spawns_MetaData), NewProp_Spawns_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFPSGameState_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSGameState_Statics::NewProp_LobbyPawns_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSGameState_Statics::NewProp_LobbyPawns,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSGameState_Statics::NewProp_Spawns_Inner,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSGameState_Statics::NewProp_Spawns,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AFPSGameState_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AFPSGameState_Statics::DependentSingletons[])() = {
-	(UObject* (*)())Z_Construct_UClass_AGameStateBase,
+	(UObject* (*)())Z_Construct_UClass_AGameState,
 	(UObject* (*)())Z_Construct_UPackage__Script_OnlineFPS,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AFPSGameState_Statics::DependentSingletons) < 16);
@@ -94,11 +157,11 @@ const UECodeGen_Private::FClassParams Z_Construct_UClass_AFPSGameState_Statics::
 	"Game",
 	&StaticCppClassTypeInfo,
 	DependentSingletons,
-	nullptr,
+	FuncInfo,
 	Z_Construct_UClass_AFPSGameState_Statics::PropPointers,
 	nullptr,
 	UE_ARRAY_COUNT(DependentSingletons),
-	0,
+	UE_ARRAY_COUNT(FuncInfo),
 	UE_ARRAY_COUNT(Z_Construct_UClass_AFPSGameState_Statics::PropPointers),
 	0,
 	0x009003A4u,
@@ -116,8 +179,10 @@ UClass* Z_Construct_UClass_AFPSGameState()
 void AFPSGameState::ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const
 {
 	static FName Name_LobbyPawns(TEXT("LobbyPawns"));
+	static FName Name_Spawns(TEXT("Spawns"));
 	const bool bIsValid = true
-		&& Name_LobbyPawns == ClassReps[(int32)ENetFields_Private::LobbyPawns].Property->GetFName();
+		&& Name_LobbyPawns == ClassReps[(int32)ENetFields_Private::LobbyPawns].Property->GetFName()
+		&& Name_Spawns == ClassReps[(int32)ENetFields_Private::Spawns].Property->GetFName();
 	checkf(bIsValid, TEXT("UHT Generated Rep Indices do not match runtime populated Rep Indices for properties in AFPSGameState"));
 }
 #endif
@@ -130,10 +195,10 @@ AFPSGameState::~AFPSGameState() {}
 struct Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h__Script_OnlineFPS_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AFPSGameState, AFPSGameState::StaticClass, TEXT("AFPSGameState"), &Z_Registration_Info_UClass_AFPSGameState, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSGameState), 4141461352U) },
+		{ Z_Construct_UClass_AFPSGameState, AFPSGameState::StaticClass, TEXT("AFPSGameState"), &Z_Registration_Info_UClass_AFPSGameState, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSGameState), 1888792519U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h__Script_OnlineFPS_2549176307(TEXT("/Script/OnlineFPS"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h__Script_OnlineFPS_3073466392(TEXT("/Script/OnlineFPS"),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h__Script_OnlineFPS_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h__Script_OnlineFPS_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

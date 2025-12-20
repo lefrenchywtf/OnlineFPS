@@ -23,6 +23,7 @@ class AFPSWeapon;
 class UAnimMontage;
 class UDamageType;
 enum class EWeaponType : uint8;
+struct FHitResult;
 struct FRecoilAnimValues;
 
 // ********** Begin ScriptStruct FPlayerWeapons ****************************************************
@@ -36,8 +37,10 @@ struct FPlayerWeapons;
 
 // ********** Begin Class AFPSCharacter ************************************************************
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_28_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void Server_DealDamage_Implementation(float _damage, FHitResult _hit); \
 	virtual void EquipGun_Implementation(EWeaponType _type); \
 	virtual void Client_SpawnOtherWeapons_Implementation(AFPSCharacter* _chara); \
+	DECLARE_FUNCTION(execServer_DealDamage); \
 	DECLARE_FUNCTION(execCancelReload); \
 	DECLARE_FUNCTION(execStartReloading); \
 	DECLARE_FUNCTION(execGetCurrentWeaponFovScale); \
@@ -49,6 +52,7 @@ struct FPlayerWeapons;
 	DECLARE_FUNCTION(execOnRepReload); \
 	DECLARE_FUNCTION(execOnRepEquiped); \
 	DECLARE_FUNCTION(execOnRepHealth); \
+	DECLARE_FUNCTION(execTakeDamage); \
 	DECLARE_FUNCTION(execHandleTakeDamage); \
 	DECLARE_FUNCTION(execClient_SpawnOtherWeapons); \
 	DECLARE_FUNCTION(execStopShooting); \

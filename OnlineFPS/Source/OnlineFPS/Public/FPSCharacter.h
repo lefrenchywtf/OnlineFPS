@@ -75,6 +75,9 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 	bool bIsAiming = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	float respawnTime = 3.f;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -117,6 +120,9 @@ public:
 
 	UFUNCTION()
 	void HandleTakeDamage(AActor* DamagedActor, float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser);
+
+	UFUNCTION(BlueprintCallable)
+	void TakeDamage(float _damage);
 
 	UFUNCTION()
 	void OnRepHealth();
@@ -177,9 +183,15 @@ public:
 
 	void StopTPPReloadAnim(EWeaponType _type);
 
-	UFUNCTION(BlueprintImplementableEvent)
 	void DieChara();
 
-	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+	UFUNCTION(BlueprintImplementableEvent)
+	void EnableRagdoll(bool _enable);
+
 	void RespawnChara();
+
+	void TpToSpawnPoint();
+
+	UFUNCTION(Server, Reliable)
+	void Server_DealDamage(float _damage, FHitResult _hit);
 };

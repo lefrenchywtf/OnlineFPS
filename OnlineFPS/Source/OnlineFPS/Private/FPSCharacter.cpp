@@ -5,6 +5,8 @@
 #include "FPSWeapon.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Net/UnrealNetwork.h"
+#include "Kismet/GameplayStatics.h"
+#include "FPSGameState.h"
 
 // Sets default values
 AFPSCharacter::AFPSCharacter()
@@ -19,10 +21,7 @@ void AFPSCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	currentHealth = maxHealth;
-	if (HasAuthority())
-	{
-		OnTakeAnyDamage.AddDynamic(this, &AFPSCharacter::HandleTakeDamage);
-	}
+	OnTakeAnyDamage.AddDynamic(this, &AFPSCharacter::HandleTakeDamage);
 }
 
 // Called every frame
@@ -125,6 +124,19 @@ void AFPSCharacter::HandleTakeDamage(AActor* DamagedActor, float Damage, const c
 	if (currentHealth > 0)
 	{
 		currentHealth -= Damage;
+		if (currentHealth <= 0)
+		{
+			DieChara();
+		}
+	}
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("health: %d"), currentHealth));
+}
+
+void AFPSCharacter::TakeDamage(float _damage)
+{
+	if (currentHealth > 0)
+	{
+		currentHealth -= _damage;
 		if (currentHealth <= 0)
 		{
 			DieChara();
@@ -288,5 +300,43 @@ void AFPSCharacter::StopTPPReloadAnim(EWeaponType _type)
 	if (TPPAnim)
 	{
 		StopAnim(TPPAnim);
+	}
+}
+
+void AFPSCharacter::Server_DealDamage_Implementation(float _damage, FHitResult _hit)
+{
+	UGameplayStatics::ApplyPointDamage(_hit.GetActor(), _damage, _hit.TraceStart, _hit, nullptr, this, UDamageType::StaticClass());
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("%s"), *_hit.GetActor()->GetName()));
+}
+
+void AFPSCharacter::DieChara()
+{
+	FTimerHandle respawnTimer;
+	GetWorldTimerManager().SetTimer(respawnTimer, this, &AFPSCharacter::RespawnChara, respawnTime);
+	EnableRagdoll(true);
+}
+
+void AFPSCharacter::RespawnChara()
+{
+	currentHealth = maxHealth;
+	EnableRagdoll(false);
+	TpToSpawnPoint();
+}
+
+void AFPSCharacter::TpToSpawnPoint()
+{
+	AFPSGameState* gameState = GetWorld()->GetGameState<AFPSGameState>();
+	if (gameState)
+	{
+		TArray<FVector> spawns = gameState->GetSpawns();
+		if (spawns.Num() > 0)
+		{
+			int index = 0;
+			if (spawns.Num() > 1)
+			{
+				index = FMath::RandRange(0, spawns.Num() - 1);
+			}
+			SetActorLocation(spawns[index]);
+		}
 	}
 }

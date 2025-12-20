@@ -29,13 +29,13 @@ void EmptyLinkFunctionForGeneratedCodeOnlineFPS_init() {}
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0xE6FB9F97,
-				0x15EB5413,
+				0x45C61ECF,
+				0xCCA6B669,
 				METADATA_PARAMS(0, nullptr)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_OnlineFPS.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_OnlineFPS.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_OnlineFPS(Z_Construct_UPackage__Script_OnlineFPS, TEXT("/Script/OnlineFPS"), Z_Registration_Info_UPackage__Script_OnlineFPS, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xE6FB9F97, 0x15EB5413));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_OnlineFPS(Z_Construct_UPackage__Script_OnlineFPS, TEXT("/Script/OnlineFPS"), Z_Registration_Info_UPackage__Script_OnlineFPS, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x45C61ECF, 0xCCA6B669));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

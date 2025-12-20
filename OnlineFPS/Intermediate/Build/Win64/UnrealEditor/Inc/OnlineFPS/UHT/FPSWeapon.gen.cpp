@@ -6,6 +6,7 @@
 
 #include "UObject/GeneratedCppIncludes.h"
 #include "FPSWeapon.h"
+#include "Engine/HitResult.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
@@ -15,6 +16,7 @@ void EmptyLinkFunctionForGeneratedCodeFPSWeapon() {}
 ENGINE_API UClass* Z_Construct_UClass_AActor();
 ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
+ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSCharacter_NoRegister();
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSWeapon();
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSWeapon_NoRegister();
@@ -321,6 +323,62 @@ DEFINE_FUNCTION(AFPSWeapon::execIsAutomatic)
 }
 // ********** End Class AFPSWeapon Function IsAutomatic ********************************************
 
+// ********** Begin Class AFPSWeapon Function Server_DealDamage ************************************
+struct FPSWeapon_eventServer_DealDamage_Parms
+{
+	FHitResult _hit;
+	AFPSCharacter* _character;
+};
+static FName NAME_AFPSWeapon_Server_DealDamage = FName(TEXT("Server_DealDamage"));
+void AFPSWeapon::Server_DealDamage(FHitResult _hit, AFPSCharacter* _character)
+{
+	FPSWeapon_eventServer_DealDamage_Parms Parms;
+	Parms._hit=_hit;
+	Parms._character=_character;
+	UFunction* Func = FindFunctionChecked(NAME_AFPSWeapon_Server_DealDamage);
+	ProcessEvent(Func,&Parms);
+}
+struct Z_Construct_UFunction_AFPSWeapon_Server_DealDamage_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FPSWeapon.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp__hit;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp__character;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AFPSWeapon_Server_DealDamage_Statics::NewProp__hit = { "_hit", nullptr, (EPropertyFlags)0x0010008000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSWeapon_eventServer_DealDamage_Parms, _hit), Z_Construct_UScriptStruct_FHitResult, METADATA_PARAMS(0, nullptr) }; // 267591329
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AFPSWeapon_Server_DealDamage_Statics::NewProp__character = { "_character", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSWeapon_eventServer_DealDamage_Parms, _character), Z_Construct_UClass_AFPSCharacter_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFPSWeapon_Server_DealDamage_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSWeapon_Server_DealDamage_Statics::NewProp__hit,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSWeapon_Server_DealDamage_Statics::NewProp__character,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSWeapon_Server_DealDamage_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSWeapon_Server_DealDamage_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSWeapon, nullptr, "Server_DealDamage", Z_Construct_UFunction_AFPSWeapon_Server_DealDamage_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSWeapon_Server_DealDamage_Statics::PropPointers), sizeof(FPSWeapon_eventServer_DealDamage_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00220CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSWeapon_Server_DealDamage_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSWeapon_Server_DealDamage_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(FPSWeapon_eventServer_DealDamage_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AFPSWeapon_Server_DealDamage()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSWeapon_Server_DealDamage_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AFPSWeapon::execServer_DealDamage)
+{
+	P_GET_STRUCT(FHitResult,Z_Param__hit);
+	P_GET_OBJECT(AFPSCharacter,Z_Param__character);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->Server_DealDamage_Implementation(Z_Param__hit,Z_Param__character);
+	P_NATIVE_END;
+}
+// ********** End Class AFPSWeapon Function Server_DealDamage **************************************
+
 // ********** Begin Class AFPSWeapon Function StartFiring ******************************************
 struct Z_Construct_UFunction_AFPSWeapon_StartFiring_Statics
 {
@@ -379,41 +437,6 @@ DEFINE_FUNCTION(AFPSWeapon::execStopFiring)
 }
 // ********** End Class AFPSWeapon Function StopFiring *********************************************
 
-// ********** Begin Class AFPSWeapon Function TraceBullet ******************************************
-static FName NAME_AFPSWeapon_TraceBullet = FName(TEXT("TraceBullet"));
-void AFPSWeapon::TraceBullet()
-{
-	UFunction* Func = FindFunctionChecked(NAME_AFPSWeapon_TraceBullet);
-	ProcessEvent(Func,NULL);
-}
-struct Z_Construct_UFunction_AFPSWeapon_TraceBullet_Statics
-{
-#if WITH_METADATA
-	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/FPSWeapon.h" },
-	};
-#endif // WITH_METADATA
-	static const UECodeGen_Private::FFunctionParams FuncParams;
-};
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSWeapon_TraceBullet_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSWeapon, nullptr, "TraceBullet", nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00220CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSWeapon_TraceBullet_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSWeapon_TraceBullet_Statics::Function_MetaDataParams)},  };
-UFunction* Z_Construct_UFunction_AFPSWeapon_TraceBullet()
-{
-	static UFunction* ReturnFunction = nullptr;
-	if (!ReturnFunction)
-	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSWeapon_TraceBullet_Statics::FuncParams);
-	}
-	return ReturnFunction;
-}
-DEFINE_FUNCTION(AFPSWeapon::execTraceBullet)
-{
-	P_FINISH;
-	P_NATIVE_BEGIN;
-	P_THIS->TraceBullet_Implementation();
-	P_NATIVE_END;
-}
-// ********** End Class AFPSWeapon Function TraceBullet ********************************************
-
 // ********** Begin Class AFPSWeapon ***************************************************************
 void AFPSWeapon::StaticRegisterNativesAFPSWeapon()
 {
@@ -423,9 +446,9 @@ void AFPSWeapon::StaticRegisterNativesAFPSWeapon()
 		{ "GetReloadPlayRate", &AFPSWeapon::execGetReloadPlayRate },
 		{ "GetWeaponType", &AFPSWeapon::execGetWeaponType },
 		{ "IsAutomatic", &AFPSWeapon::execIsAutomatic },
+		{ "Server_DealDamage", &AFPSWeapon::execServer_DealDamage },
 		{ "StartFiring", &AFPSWeapon::execStartFiring },
 		{ "StopFiring", &AFPSWeapon::execStopFiring },
-		{ "TraceBullet", &AFPSWeapon::execTraceBullet },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -558,9 +581,9 @@ struct Z_Construct_UClass_AFPSWeapon_Statics
 		{ &Z_Construct_UFunction_AFPSWeapon_GetReloadPlayRate, "GetReloadPlayRate" }, // 2326002912
 		{ &Z_Construct_UFunction_AFPSWeapon_GetWeaponType, "GetWeaponType" }, // 2118898252
 		{ &Z_Construct_UFunction_AFPSWeapon_IsAutomatic, "IsAutomatic" }, // 2045936501
+		{ &Z_Construct_UFunction_AFPSWeapon_Server_DealDamage, "Server_DealDamage" }, // 3403743354
 		{ &Z_Construct_UFunction_AFPSWeapon_StartFiring, "StartFiring" }, // 1483084652
 		{ &Z_Construct_UFunction_AFPSWeapon_StopFiring, "StopFiring" }, // 3209095793
-		{ &Z_Construct_UFunction_AFPSWeapon_TraceBullet, "TraceBullet" }, // 2633920753
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -655,10 +678,10 @@ struct Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__
 		{ FRecoilAnimValues::StaticStruct, Z_Construct_UScriptStruct_FRecoilAnimValues_Statics::NewStructOps, TEXT("RecoilAnimValues"), &Z_Registration_Info_UScriptStruct_FRecoilAnimValues, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FRecoilAnimValues), 2669564610U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AFPSWeapon, AFPSWeapon::StaticClass, TEXT("AFPSWeapon"), &Z_Registration_Info_UClass_AFPSWeapon, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSWeapon), 735469477U) },
+		{ Z_Construct_UClass_AFPSWeapon, AFPSWeapon::StaticClass, TEXT("AFPSWeapon"), &Z_Registration_Info_UClass_AFPSWeapon, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSWeapon), 196407639U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_1588965024(TEXT("/Script/OnlineFPS"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_1344226066(TEXT("/Script/OnlineFPS"),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_Statics::ScriptStructInfo),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_Statics::EnumInfo));

@@ -33,7 +33,7 @@ private: \
 	static UClass* GetPrivateStaticClass(); \
 	friend ONLINEFPS_API UClass* Z_Construct_UClass_AFPSGameModeBase_NoRegister(); \
 public: \
-	DECLARE_CLASS2(AFPSGameModeBase, AGameModeBase, COMPILED_IN_FLAGS(0 | CLASS_Transient | CLASS_Config), CASTCLASS_None, TEXT("/Script/OnlineFPS"), Z_Construct_UClass_AFPSGameModeBase_NoRegister) \
+	DECLARE_CLASS2(AFPSGameModeBase, AGameMode, COMPILED_IN_FLAGS(0 | CLASS_Transient | CLASS_Config), CASTCLASS_None, TEXT("/Script/OnlineFPS"), Z_Construct_UClass_AFPSGameModeBase_NoRegister) \
 	DECLARE_SERIALIZER(AFPSGameModeBase)
 
 

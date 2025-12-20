@@ -70,6 +70,9 @@ protected:
 	float HsMultiplier = 1.5f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float LegsMultiplier = .75f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float RPM = 600;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -112,8 +115,13 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void StopFiring();
 
-	UFUNCTION(Server, Reliable)
+	//UFUNCTION(Server, Reliable)
 	void TraceBullet();
+
+	float CalculateDamage(FHitResult _hit);
+
+	UFUNCTION(Server, Reliable)
+	void Server_DealDamage(FHitResult _hit, class AFPSCharacter* _character);
 
 	float GetADSFovScale();
 

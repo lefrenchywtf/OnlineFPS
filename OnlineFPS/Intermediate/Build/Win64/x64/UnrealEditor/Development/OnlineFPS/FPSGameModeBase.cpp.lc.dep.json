@@ -30,7 +30,12 @@
             "c:\\unreal\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamestatebase.h",
             "c:\\unreal\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gamestatebase.generated.h",
             "c:\\unreal\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gamestate.generated.h",
-            "f:\\onlinefps\\onlinefps\\intermediate\\build\\win64\\unrealeditor\\inc\\onlinefps\\uht\\fpsgamestate.generated.h"
+            "f:\\onlinefps\\onlinefps\\intermediate\\build\\win64\\unrealeditor\\inc\\onlinefps\\uht\\fpsgamestate.generated.h",
+            "c:\\unreal\\ue_5.6\\engine\\source\\runtime\\engine\\public\\engineutils.h",
+            "c:\\unreal\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\gameframework\\playerstart.h",
+            "c:\\unreal\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\engine\\navigationobjectbase.h",
+            "c:\\unreal\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\navigationobjectbase.generated.h",
+            "c:\\unreal\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\playerstart.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

@@ -12,7 +12,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeFPSGameModeBase() {}
 
 // ********** Begin Cross Module References ********************************************************
-ENGINE_API UClass* Z_Construct_UClass_AGameModeBase();
+ENGINE_API UClass* Z_Construct_UClass_AGameMode();
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSGameModeBase();
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSGameModeBase_NoRegister();
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSPlayerController_NoRegister();
@@ -167,7 +167,7 @@ struct Z_Construct_UClass_AFPSGameModeBase_Statics
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
 UObject* (*const Z_Construct_UClass_AFPSGameModeBase_Statics::DependentSingletons[])() = {
-	(UObject* (*)())Z_Construct_UClass_AGameModeBase,
+	(UObject* (*)())Z_Construct_UClass_AGameMode,
 	(UObject* (*)())Z_Construct_UPackage__Script_OnlineFPS,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AFPSGameModeBase_Statics::DependentSingletons) < 16);
@@ -203,10 +203,10 @@ AFPSGameModeBase::~AFPSGameModeBase() {}
 struct Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h__Script_OnlineFPS_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AFPSGameModeBase, AFPSGameModeBase::StaticClass, TEXT("AFPSGameModeBase"), &Z_Registration_Info_UClass_AFPSGameModeBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSGameModeBase), 2439248907U) },
+		{ Z_Construct_UClass_AFPSGameModeBase, AFPSGameModeBase::StaticClass, TEXT("AFPSGameModeBase"), &Z_Registration_Info_UClass_AFPSGameModeBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSGameModeBase), 474720425U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h__Script_OnlineFPS_810026943(TEXT("/Script/OnlineFPS"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h__Script_OnlineFPS_3225216796(TEXT("/Script/OnlineFPS"),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h__Script_OnlineFPS_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h__Script_OnlineFPS_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

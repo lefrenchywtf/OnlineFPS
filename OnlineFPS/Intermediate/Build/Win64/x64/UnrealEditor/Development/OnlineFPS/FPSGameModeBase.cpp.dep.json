@@ -7,10 +7,12 @@
         "Includes": [
             "f:\\onlinefps\\onlinefps\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\onlinefps\\definitions.onlinefps.h",
             "f:\\onlinefps\\onlinefps\\source\\onlinefps\\public\\fpsgamemodebase.h",
+            "c:\\unreal\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamemode.h",
             "c:\\unreal\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamemodebase.h",
             "c:\\unreal\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\engine\\serverstatreplicator.h",
             "c:\\unreal\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\serverstatreplicator.generated.h",
             "c:\\unreal\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gamemodebase.generated.h",
+            "c:\\unreal\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gamemode.generated.h",
             "f:\\onlinefps\\onlinefps\\intermediate\\build\\win64\\unrealeditor\\inc\\onlinefps\\uht\\fpsgamemodebase.generated.h",
             "f:\\onlinefps\\onlinefps\\source\\onlinefps\\public\\fpscharacter.h",
             "c:\\unreal\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\gameframework\\character.h",
@@ -30,7 +32,12 @@
             "c:\\unreal\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamestatebase.h",
             "c:\\unreal\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gamestatebase.generated.h",
             "c:\\unreal\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gamestate.generated.h",
-            "f:\\onlinefps\\onlinefps\\intermediate\\build\\win64\\unrealeditor\\inc\\onlinefps\\uht\\fpsgamestate.generated.h"
+            "f:\\onlinefps\\onlinefps\\intermediate\\build\\win64\\unrealeditor\\inc\\onlinefps\\uht\\fpsgamestate.generated.h",
+            "c:\\unreal\\ue_5.6\\engine\\source\\runtime\\engine\\public\\engineutils.h",
+            "c:\\unreal\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\gameframework\\playerstart.h",
+            "c:\\unreal\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\engine\\navigationobjectbase.h",
+            "c:\\unreal\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\navigationobjectbase.generated.h",
+            "c:\\unreal\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\playerstart.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

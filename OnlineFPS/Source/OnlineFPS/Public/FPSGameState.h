@@ -10,15 +10,22 @@
  * 
  */
 UCLASS()
-class ONLINEFPS_API AFPSGameState : public AGameStateBase
+class ONLINEFPS_API AFPSGameState : public AGameState
 {
 	GENERATED_BODY()
 protected:
 	UPROPERTY(Replicated)
 	TArray<APlayerState*> LobbyPawns;
 
+	UPROPERTY(Replicated)
+	TArray<FVector> Spawns;
 public:
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
 	void UpdatePlayersList();
+
+	void UpdateSpawns(const TArray<FVector>& _array);
+
+	UFUNCTION(BlueprintCallable)
+	TArray<FVector> GetSpawns();
 };

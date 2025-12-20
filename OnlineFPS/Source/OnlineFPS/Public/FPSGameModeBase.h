@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/GameModeBase.h"
+#include "GameFramework/GameMode.h"
 #include "FPSGameModeBase.generated.h"
 
 /**
@@ -12,14 +12,22 @@
 
 
 UCLASS()
-class ONLINEFPS_API AFPSGameModeBase : public AGameModeBase
+class ONLINEFPS_API AFPSGameModeBase : public AGameMode
 {
 	GENERATED_BODY()
-	
-public:
+
+protected:
+	virtual void BeginPlay() override;
+
 	TArray<class AFPSPlayerController*> LobbyPlayers;
 
+	TArray<FVector> Spawns;
+
+	bool bSpawnsGiven = false;
+
 	class AFPSGameState* gameState;
+	
+public:	
 
 	UFUNCTION(BlueprintCallable)
 	void AddPlayer(class AFPSPlayerController* _controller);
@@ -28,4 +36,6 @@ public:
 	void RemovePlayer(class AFPSPlayerController* _controller);
 
 	void UpdateGameState();
+
+	void RetrieveSpawns();
 };

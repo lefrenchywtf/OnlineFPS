@@ -5,6 +5,30 @@
 #include "FPSCharacter.h"
 #include "FPSPlayerController.h"
 #include "FPSGameState.h"
+#include "EngineUtils.h"
+#include "GameFramework/PlayerStart.h"
+
+void AFPSGameModeBase::BeginPlay()
+{
+	Super::BeginPlay();
+	RetrieveSpawns();
+}
+
+void AFPSGameModeBase::RetrieveSpawns()
+{
+	for (APlayerStart* Actor : TActorRange<APlayerStart>(GetWorld()))
+	{
+		Spawns.Add(Actor->GetActorLocation());
+	}
+	if (!gameState)
+	{
+		gameState = GetGameState<AFPSGameState>();
+	}
+	if (gameState)
+	{
+		gameState->UpdateSpawns(Spawns);
+	}
+}
 
 void AFPSGameModeBase::AddPlayer(AFPSPlayerController* _character)
 {

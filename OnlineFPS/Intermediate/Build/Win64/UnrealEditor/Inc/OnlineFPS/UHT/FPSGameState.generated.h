@@ -17,6 +17,10 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 // ********** Begin Class AFPSGameState ************************************************************
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execGetSpawns);
+
+
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSGameState_NoRegister();
 
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h_15_INCLASS_NO_PURE_DECLS \
@@ -26,13 +30,14 @@ private: \
 	static UClass* GetPrivateStaticClass(); \
 	friend ONLINEFPS_API UClass* Z_Construct_UClass_AFPSGameState_NoRegister(); \
 public: \
-	DECLARE_CLASS2(AFPSGameState, AGameStateBase, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/OnlineFPS"), Z_Construct_UClass_AFPSGameState_NoRegister) \
+	DECLARE_CLASS2(AFPSGameState, AGameState, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/OnlineFPS"), Z_Construct_UClass_AFPSGameState_NoRegister) \
 	DECLARE_SERIALIZER(AFPSGameState) \
 	enum class ENetFields_Private : uint16 \
 	{ \
 		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
 		LobbyPawns=NETFIELD_REP_START, \
-		NETFIELD_REP_END=LobbyPawns	}; \
+		Spawns, \
+		NETFIELD_REP_END=Spawns	}; \
 	DECLARE_VALIDATE_GENERATED_REP_ENUMS(NO_API)
 
 
@@ -52,6 +57,7 @@ public: \
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h_15_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
 	FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h_15_INCLASS_NO_PURE_DECLS \
 	FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h_15_ENHANCED_CONSTRUCTORS \
 private: \

@@ -16,7 +16,9 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
+class AFPSCharacter;
 enum class EWeaponType : uint8;
+struct FHitResult;
 
 // ********** Begin ScriptStruct FRecoilAnimValues *************************************************
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_19_GENERATED_BODY \
@@ -29,11 +31,11 @@ struct FRecoilAnimValues;
 
 // ********** Begin Class AFPSWeapon ***************************************************************
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_41_RPC_WRAPPERS_NO_PURE_DECLS \
-	virtual void TraceBullet_Implementation(); \
+	virtual void Server_DealDamage_Implementation(FHitResult _hit, AFPSCharacter* _character); \
 	DECLARE_FUNCTION(execGetWeaponType); \
 	DECLARE_FUNCTION(execGetReloadPlayRate); \
 	DECLARE_FUNCTION(execIsAutomatic); \
-	DECLARE_FUNCTION(execTraceBullet); \
+	DECLARE_FUNCTION(execServer_DealDamage); \
 	DECLARE_FUNCTION(execStopFiring); \
 	DECLARE_FUNCTION(execFire); \
 	DECLARE_FUNCTION(execStartFiring);

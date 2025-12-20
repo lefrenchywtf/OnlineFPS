@@ -9,7 +9,7 @@
 // Sets default values
 AFPSWeapon::AFPSWeapon()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 	GunModel = CreateDefaultSubobject<USkeletalMeshComponent>("GunModel");
 	RootComponent = GunModel;
@@ -46,7 +46,7 @@ void AFPSWeapon::StartFiring()
 	{
 		bIsFiring = true;
 		Fire();
-		float timerRate = 1.f/(RPM / 60.f);
+		float timerRate = 1.f / (RPM / 60.f);
 		if (bIsAutomatic)
 		{
 			GetWorldTimerManager().SetTimer(fireTimerHandle, this, &AFPSWeapon::Fire, timerRate, true);
@@ -64,7 +64,7 @@ void AFPSWeapon::StopFiring()
 	GetWorldTimerManager().ClearTimer(fireTimerHandle);
 }
 
-void AFPSWeapon::TraceBullet_Implementation()
+void AFPSWeapon::TraceBullet()
 {
 	if (!playerCamera)
 	{
@@ -77,16 +77,45 @@ void AFPSWeapon::TraceBullet_Implementation()
 	FCollisionQueryParams params;
 	params.AddIgnoredActor(this);
 	params.AddIgnoredActor(weaponOwner);
-	if (GetWorld()->LineTraceSingleByChannel(hitResult, traceStart, traceEnd, ECC_Camera, params))
+	params.bReturnPhysicalMaterial = true;
+	if (GetWorld()->LineTraceSingleByChannel(hitResult, traceStart, traceEnd, ECollisionChannel::ECC_GameTraceChannel2, params))
 	{
 		AFPSCharacter* hitChara = Cast<AFPSCharacter>(hitResult.GetActor());
 		if (hitChara)
 		{
-			UGameplayStatics::ApplyPointDamage(hitChara, damage, hitResult.TraceStart, hitResult, nullptr, this, UDamageType::StaticClass());
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("%s"), *hitResult.GetActor()->GetName()));
+			float finalDamage = CalculateDamage(hitResult);
+			weaponOwner->Server_DealDamage(finalDamage, hitResult);
 		}
 	}
 	DrawDebugLine(GetWorld(), traceStart, traceEnd, FColor::Red, false, 5);
+}
+
+float AFPSWeapon::CalculateDamage(FHitResult _hit)
+{
+	if (_hit.PhysMaterial != nullptr)
+	{
+		switch (_hit.PhysMaterial->SurfaceType)
+		{
+		case EPhysicalSurface::SurfaceType1: // Head
+			return damage * HsMultiplier;
+		case EPhysicalSurface::SurfaceType2: // Body
+			return damage;
+		case EPhysicalSurface::SurfaceType3: // Legs
+			return damage * LegsMultiplier;
+		default:
+			return damage;
+		}
+	}
+	return damage;
+}
+
+void AFPSWeapon::Server_DealDamage_Implementation(FHitResult _hit, class AFPSCharacter* _character)
+{
+	if (_character)
+	{
+		UGameplayStatics::ApplyPointDamage(_character, damage, _hit.TraceStart, _hit, nullptr, this, UDamageType::StaticClass());
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("%s"), *_hit.GetActor()->GetName()));
+	}
 }
 
 float AFPSWeapon::GetADSFovScale()
