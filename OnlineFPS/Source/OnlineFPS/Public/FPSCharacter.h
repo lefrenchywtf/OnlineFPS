@@ -209,4 +209,12 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void SendHealthToHud(float _percent);
+
+	UFUNCTION(Server, Reliable)
+	void Server_SpawnFireParticule(UParticleSystem* _particule);
+
+	UFUNCTION(NetMulticast, Reliable)
+	void MC_SpawnFireParticule(UParticleSystem* _particule);
+
+	void SpawnParticule(UParticleSystem* _particule, FVector _location);
 };

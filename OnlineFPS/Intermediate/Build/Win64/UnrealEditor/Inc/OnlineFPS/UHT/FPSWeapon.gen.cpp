@@ -15,11 +15,13 @@ void EmptyLinkFunctionForGeneratedCodeFPSWeapon() {}
 // ********** Begin Cross Module References ********************************************************
 ENGINE_API UClass* Z_Construct_UClass_AActor();
 ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
+ENGINE_API UClass* Z_Construct_UClass_UParticleSystem_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
 ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSCharacter_NoRegister();
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSWeapon();
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSWeapon_NoRegister();
+ONLINEFPS_API UEnum* Z_Construct_UEnum_OnlineFPS_EWeaponParticule();
 ONLINEFPS_API UEnum* Z_Construct_UEnum_OnlineFPS_EWeaponType();
 ONLINEFPS_API UScriptStruct* Z_Construct_UScriptStruct_FRecoilAnimValues();
 UPackage* Z_Construct_UPackage__Script_OnlineFPS();
@@ -76,6 +78,58 @@ UEnum* Z_Construct_UEnum_OnlineFPS_EWeaponType()
 	return Z_Registration_Info_UEnum_EWeaponType.InnerSingleton;
 }
 // ********** End Enum EWeaponType *****************************************************************
+
+// ********** Begin Enum EWeaponParticule **********************************************************
+static FEnumRegistrationInfo Z_Registration_Info_UEnum_EWeaponParticule;
+static UEnum* EWeaponParticule_StaticEnum()
+{
+	if (!Z_Registration_Info_UEnum_EWeaponParticule.OuterSingleton)
+	{
+		Z_Registration_Info_UEnum_EWeaponParticule.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_OnlineFPS_EWeaponParticule, (UObject*)Z_Construct_UPackage__Script_OnlineFPS(), TEXT("EWeaponParticule"));
+	}
+	return Z_Registration_Info_UEnum_EWeaponParticule.OuterSingleton;
+}
+template<> ONLINEFPS_API UEnum* StaticEnum<EWeaponParticule>()
+{
+	return EWeaponParticule_StaticEnum();
+}
+struct Z_Construct_UEnum_OnlineFPS_EWeaponParticule_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
+		{ "FIRE.Name", "EWeaponParticule::FIRE" },
+		{ "IMPACT_WOOD.Name", "EWeaponParticule::IMPACT_WOOD" },
+		{ "ModuleRelativePath", "Public/FPSWeapon.h" },
+	};
+#endif // WITH_METADATA
+	static constexpr UECodeGen_Private::FEnumeratorParam Enumerators[] = {
+		{ "EWeaponParticule::FIRE", (int64)EWeaponParticule::FIRE },
+		{ "EWeaponParticule::IMPACT_WOOD", (int64)EWeaponParticule::IMPACT_WOOD },
+	};
+	static const UECodeGen_Private::FEnumParams EnumParams;
+};
+const UECodeGen_Private::FEnumParams Z_Construct_UEnum_OnlineFPS_EWeaponParticule_Statics::EnumParams = {
+	(UObject*(*)())Z_Construct_UPackage__Script_OnlineFPS,
+	nullptr,
+	"EWeaponParticule",
+	"EWeaponParticule",
+	Z_Construct_UEnum_OnlineFPS_EWeaponParticule_Statics::Enumerators,
+	RF_Public|RF_Transient|RF_MarkAsNative,
+	UE_ARRAY_COUNT(Z_Construct_UEnum_OnlineFPS_EWeaponParticule_Statics::Enumerators),
+	EEnumFlags::None,
+	(uint8)UEnum::ECppForm::EnumClass,
+	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UEnum_OnlineFPS_EWeaponParticule_Statics::Enum_MetaDataParams), Z_Construct_UEnum_OnlineFPS_EWeaponParticule_Statics::Enum_MetaDataParams)
+};
+UEnum* Z_Construct_UEnum_OnlineFPS_EWeaponParticule()
+{
+	if (!Z_Registration_Info_UEnum_EWeaponParticule.InnerSingleton)
+	{
+		UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_EWeaponParticule.InnerSingleton, Z_Construct_UEnum_OnlineFPS_EWeaponParticule_Statics::EnumParams);
+	}
+	return Z_Registration_Info_UEnum_EWeaponParticule.InnerSingleton;
+}
+// ********** End Enum EWeaponParticule ************************************************************
 
 // ********** Begin ScriptStruct FRecoilAnimValues *************************************************
 static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_FRecoilAnimValues;
@@ -558,6 +612,10 @@ struct Z_Construct_UClass_AFPSWeapon_Statics
 		{ "Category", "FPSWeapon" },
 		{ "ModuleRelativePath", "Public/FPSWeapon.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_weaponParticules_MetaData[] = {
+		{ "Category", "FPSWeapon" },
+		{ "ModuleRelativePath", "Public/FPSWeapon.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_GunModel;
 	static const UECodeGen_Private::FStrPropertyParams NewProp_weaponName;
@@ -579,6 +637,10 @@ struct Z_Construct_UClass_AFPSWeapon_Statics
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsFiring;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_playerCamera;
 	static const UECodeGen_Private::FStructPropertyParams NewProp_recoilAnim;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_weaponParticules_ValueProp;
+	static const UECodeGen_Private::FBytePropertyParams NewProp_weaponParticules_Key_KeyProp_Underlying;
+	static const UECodeGen_Private::FEnumPropertyParams NewProp_weaponParticules_Key_KeyProp;
+	static const UECodeGen_Private::FMapPropertyParams NewProp_weaponParticules;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -622,6 +684,10 @@ void Z_Construct_UClass_AFPSWeapon_Statics::NewProp_bIsFiring_SetBit(void* Obj)
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AFPSWeapon_Statics::NewProp_bIsFiring = { "bIsFiring", nullptr, (EPropertyFlags)0x0020080000000004, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AFPSWeapon), &Z_Construct_UClass_AFPSWeapon_Statics::NewProp_bIsFiring_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsFiring_MetaData), NewProp_bIsFiring_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFPSWeapon_Statics::NewProp_playerCamera = { "playerCamera", nullptr, (EPropertyFlags)0x002008000008000c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSWeapon, playerCamera), Z_Construct_UClass_UCameraComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_playerCamera_MetaData), NewProp_playerCamera_MetaData) };
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AFPSWeapon_Statics::NewProp_recoilAnim = { "recoilAnim", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSWeapon, recoilAnim), Z_Construct_UScriptStruct_FRecoilAnimValues, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_recoilAnim_MetaData), NewProp_recoilAnim_MetaData) }; // 2669564610
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFPSWeapon_Statics::NewProp_weaponParticules_ValueProp = { "weaponParticules", nullptr, (EPropertyFlags)0x0104000000000001, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, Z_Construct_UClass_UParticleSystem_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_AFPSWeapon_Statics::NewProp_weaponParticules_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AFPSWeapon_Statics::NewProp_weaponParticules_Key_KeyProp = { "weaponParticules_Key", nullptr, (EPropertyFlags)0x0100000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UEnum_OnlineFPS_EWeaponParticule, METADATA_PARAMS(0, nullptr) }; // 1429196304
+const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_AFPSWeapon_Statics::NewProp_weaponParticules = { "weaponParticules", nullptr, (EPropertyFlags)0x0124080000000005, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSWeapon, weaponParticules), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_weaponParticules_MetaData), NewProp_weaponParticules_MetaData) }; // 1429196304
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFPSWeapon_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_GunModel,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_weaponName,
@@ -641,6 +707,10 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFPSWeapo
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_bIsFiring,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_playerCamera,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_recoilAnim,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_weaponParticules_ValueProp,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_weaponParticules_Key_KeyProp_Underlying,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_weaponParticules_Key_KeyProp,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_weaponParticules,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AFPSWeapon_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AFPSWeapon_Statics::DependentSingletons[])() = {
@@ -680,15 +750,16 @@ struct Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__
 {
 	static constexpr FEnumRegisterCompiledInInfo EnumInfo[] = {
 		{ EWeaponType_StaticEnum, TEXT("EWeaponType"), &Z_Registration_Info_UEnum_EWeaponType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3700248627U) },
+		{ EWeaponParticule_StaticEnum, TEXT("EWeaponParticule"), &Z_Registration_Info_UEnum_EWeaponParticule, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1429196304U) },
 	};
 	static constexpr FStructRegisterCompiledInInfo ScriptStructInfo[] = {
 		{ FRecoilAnimValues::StaticStruct, Z_Construct_UScriptStruct_FRecoilAnimValues_Statics::NewStructOps, TEXT("RecoilAnimValues"), &Z_Registration_Info_UScriptStruct_FRecoilAnimValues, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FRecoilAnimValues), 2669564610U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AFPSWeapon, AFPSWeapon::StaticClass, TEXT("AFPSWeapon"), &Z_Registration_Info_UClass_AFPSWeapon, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSWeapon), 1329531568U) },
+		{ Z_Construct_UClass_AFPSWeapon, AFPSWeapon::StaticClass, TEXT("AFPSWeapon"), &Z_Registration_Info_UClass_AFPSWeapon, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSWeapon), 1006223352U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_451348605(TEXT("/Script/OnlineFPS"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_671169961(TEXT("/Script/OnlineFPS"),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_Statics::ScriptStructInfo),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_Statics::EnumInfo));

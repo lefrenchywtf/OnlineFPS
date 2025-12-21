@@ -37,8 +37,9 @@ void AFPSWeapon::Fire()
 		TraceBullet();
 		weaponOwner->PlayFireAnimations(Type, recoilAnim);
 		weaponOwner->UpdateGunAmmo();
+		SpawnFireParticule();
 	}
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("ammo: %d"), ammoCount));
+	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("ammo: %d"), ammoCount));
 }
 
 void AFPSWeapon::StartFiring()
@@ -167,4 +168,21 @@ float AFPSWeapon::GetReloadTime()
 EWeaponType AFPSWeapon::GetWeaponType()
 {
 	return Type;
+}
+
+FTransform AFPSWeapon::GetMuzzleTransform()
+{
+	return GunModel->GetSocketTransform("Muzzle");
+}
+
+void AFPSWeapon::SpawnFireParticule()
+{
+	UParticleSystem* particle = *weaponParticules.Find(EWeaponParticule::FIRE);
+
+	weaponOwner->Server_SpawnFireParticule(particle);
+}
+
+USkeletalMeshComponent* AFPSWeapon::GetWeaponModel()
+{
+	return GunModel;
 }

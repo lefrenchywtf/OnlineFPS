@@ -13,6 +13,13 @@ enum class EWeaponType : uint8
 	SECONDARY,
 };
 
+UENUM(BlueprintType)
+enum class EWeaponParticule : uint8
+{
+	FIRE,
+	IMPACT_WOOD
+};
+
 USTRUCT(BlueprintType)
 struct FRecoilAnimValues
 {
@@ -102,6 +109,9 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FRecoilAnimValues recoilAnim;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TMap<EWeaponParticule, TObjectPtr<UParticleSystem>> weaponParticules;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -141,4 +151,10 @@ public:
 	EWeaponType GetWeaponType();
 
 	float GetReloadTime();
+
+	FTransform GetMuzzleTransform();
+
+	void SpawnFireParticule();
+
+	USkeletalMeshComponent* GetWeaponModel();
 };

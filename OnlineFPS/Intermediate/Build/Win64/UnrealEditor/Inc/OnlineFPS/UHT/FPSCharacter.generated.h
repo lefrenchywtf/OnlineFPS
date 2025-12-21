@@ -22,6 +22,7 @@ class AFPSCharacter;
 class AFPSWeapon;
 class UAnimMontage;
 class UDamageType;
+class UParticleSystem;
 enum class EWeaponType : uint8;
 struct FHitResult;
 struct FRecoilAnimValues;
@@ -37,10 +38,14 @@ struct FPlayerWeapons;
 
 // ********** Begin Class AFPSCharacter ************************************************************
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_28_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void MC_SpawnFireParticule_Implementation(UParticleSystem* _particule); \
+	virtual void Server_SpawnFireParticule_Implementation(UParticleSystem* _particule); \
 	virtual void Server_DealDamage_Implementation(float _damage, FHitResult _hit); \
 	virtual void EquipGun_Implementation(EWeaponType _type); \
 	virtual void ReduceHealth_Implementation(float _damage); \
 	virtual void Client_SpawnOtherWeapons_Implementation(AFPSCharacter* _chara); \
+	DECLARE_FUNCTION(execMC_SpawnFireParticule); \
+	DECLARE_FUNCTION(execServer_SpawnFireParticule); \
 	DECLARE_FUNCTION(execServer_DealDamage); \
 	DECLARE_FUNCTION(execCancelReload); \
 	DECLARE_FUNCTION(execStartReloading); \

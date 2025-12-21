@@ -253,16 +253,19 @@ float AFPSCharacter::GetCurrentWeaponFovScale()
 
 void AFPSCharacter::StartReloading()
 {
-	AFPSWeapon* weapon = GetEquipedWeapon();
-	if (weapon)
+	if (!bIsReloading)
 	{
-		if (bIsAiming)
+		AFPSWeapon* weapon = GetEquipedWeapon();
+		if (weapon)
 		{
-			EndADS();
+			if (bIsAiming)
+			{
+				EndADS();
+			}
+			bIsReloading = true;
+			weapon->StartReload();
+			PlayTPPReloadAnim(weapon->GetWeaponType());
 		}
-		bIsReloading = true;
-		weapon->StartReload();
-		PlayTPPReloadAnim(weapon->GetWeaponType());
 	}
 }
 
@@ -355,4 +358,26 @@ void AFPSCharacter::UpdateHealthBar()
 {
 	float percent = currentHealth / (float)maxHealth;
 	SendHealthToHud(percent);
+}
+
+
+void AFPSCharacter::Server_SpawnFireParticule_Implementation(UParticleSystem* _particule)
+{
+	MC_SpawnFireParticule(_particule);
+}
+
+void AFPSCharacter::MC_SpawnFireParticule_Implementation(UParticleSystem* _particule)
+{
+	AFPSWeapon* gun = GetEquipedWeapon();
+	if (gun && _particule)
+	{
+		FTransform spawnTransform = gun->GetMuzzleTransform();
+		UGameplayStatics::SpawnEmitterAttached(_particule, gun->GetWeaponModel(), "Muzzle");
+		//UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), _particule, spawnTransform);
+	}
+}
+
+void AFPSCharacter::SpawnParticule(UParticleSystem* _particule, FVector _location)
+{
+
 }
