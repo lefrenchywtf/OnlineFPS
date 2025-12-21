@@ -36,6 +36,7 @@ void AFPSWeapon::Fire()
 		ammoCount--;
 		TraceBullet();
 		weaponOwner->PlayFireAnimations(Type, recoilAnim);
+		weaponOwner->UpdateGunAmmo();
 	}
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("ammo: %d"), ammoCount));
 }
@@ -62,6 +63,10 @@ void AFPSWeapon::StopFiring()
 {
 	bIsFiring = false;
 	GetWorldTimerManager().ClearTimer(fireTimerHandle);
+	if (ammoCount <= 0)
+	{
+		weaponOwner->StartReloading();
+	}
 }
 
 void AFPSWeapon::TraceBullet()
@@ -114,7 +119,7 @@ void AFPSWeapon::Server_DealDamage_Implementation(FHitResult _hit, class AFPSCha
 	if (_character)
 	{
 		UGameplayStatics::ApplyPointDamage(_character, damage, _hit.TraceStart, _hit, nullptr, this, UDamageType::StaticClass());
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("%s"), *_hit.GetActor()->GetName()));
+		//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("%s"), *_hit.GetActor()->GetName()));
 	}
 }
 
@@ -134,7 +139,7 @@ void AFPSWeapon::StartReload()
 void AFPSWeapon::ReloadGun()
 {
 	ammoCount = maxAmmo;
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("%d"), ammoCount));
+	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("%d"), ammoCount));
 	GetWorldTimerManager().ClearTimer(reloadTimerHandle);
 	weaponOwner->EndReload();
 }

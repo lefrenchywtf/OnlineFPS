@@ -121,6 +121,9 @@ public:
 	UFUNCTION()
 	void HandleTakeDamage(AActor* DamagedActor, float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser);
 
+	UFUNCTION(Client, Reliable)
+	void ReduceHealth(float _damage);
+
 	UFUNCTION(BlueprintCallable)
 	void TakeDamage(float _damage);
 
@@ -144,6 +147,12 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void ChangeGunVisibility(AFPSCharacter* chara, EWeaponType _type, bool _visible);
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void ChangeHUDGunInfo();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void UpdateGunAmmo();
 
 	UFUNCTION(BlueprintCallable)
 	void StartADS();
@@ -194,4 +203,10 @@ public:
 
 	UFUNCTION(Server, Reliable)
 	void Server_DealDamage(float _damage, FHitResult _hit);
+
+	//UFUNCTION(Client, Reliable)
+	void UpdateHealthBar();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void SendHealthToHud(float _percent);
 };

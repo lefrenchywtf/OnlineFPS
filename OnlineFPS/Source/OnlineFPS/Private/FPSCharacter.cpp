@@ -121,15 +121,22 @@ void AFPSCharacter::Client_SpawnOtherWeapons_Implementation(AFPSCharacter* _char
 
 void AFPSCharacter::HandleTakeDamage(AActor* DamagedActor, float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser)
 {
+	ReduceHealth(Damage);
+	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("health: %d"), currentHealth));
+}
+
+void AFPSCharacter::ReduceHealth_Implementation(float _damage)
+{
 	if (currentHealth > 0)
 	{
-		currentHealth -= Damage;
+		currentHealth -= _damage;
 		if (currentHealth <= 0)
 		{
+			currentHealth = 0;
 			DieChara();
 		}
+		UpdateHealthBar();
 	}
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("health: %d"), currentHealth));
 }
 
 void AFPSCharacter::TakeDamage(float _damage)
@@ -142,7 +149,7 @@ void AFPSCharacter::TakeDamage(float _damage)
 			DieChara();
 		}
 	}
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("health: %d"), currentHealth));
+	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("health: %d"), currentHealth));
 }
 
 void AFPSCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
@@ -155,7 +162,7 @@ void AFPSCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLif
 
 void AFPSCharacter::OnRepHealth()
 {
-
+	
 }
 
 void AFPSCharacter::OnRepEquiped()
@@ -202,7 +209,7 @@ AFPSWeapon* AFPSCharacter::GetWeapon(EWeaponType _type)
 
 void AFPSCharacter::EquipGun_Implementation(EWeaponType _type)
 {
-	if (_type != equipedWeapon)
+	if (_type != equipedWeapon && !bIsAiming)
 	{
 		if (bIsReloading)
 		{
@@ -210,6 +217,7 @@ void AFPSCharacter::EquipGun_Implementation(EWeaponType _type)
 		}
 		ChangeGunVisibility(this ,equipedWeapon ,false);
 		equipedWeapon = _type;
+		ChangeHUDGunInfo();
 		ChangeGunVisibility(this,_type ,true);
 	}
 }
@@ -261,6 +269,7 @@ void AFPSCharacter::StartReloading()
 void AFPSCharacter::EndReload()
 {
 	bIsReloading = false;
+	UpdateGunAmmo();
 }
 
 void AFPSCharacter::CancelReload()
@@ -306,7 +315,7 @@ void AFPSCharacter::StopTPPReloadAnim(EWeaponType _type)
 void AFPSCharacter::Server_DealDamage_Implementation(float _damage, FHitResult _hit)
 {
 	UGameplayStatics::ApplyPointDamage(_hit.GetActor(), _damage, _hit.TraceStart, _hit, nullptr, this, UDamageType::StaticClass());
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("%s"), *_hit.GetActor()->GetName()));
+	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("%s"), *_hit.GetActor()->GetName()));
 }
 
 void AFPSCharacter::DieChara()
@@ -319,6 +328,7 @@ void AFPSCharacter::DieChara()
 void AFPSCharacter::RespawnChara()
 {
 	currentHealth = maxHealth;
+	UpdateHealthBar();
 	EnableRagdoll(false);
 	TpToSpawnPoint();
 }
@@ -339,4 +349,10 @@ void AFPSCharacter::TpToSpawnPoint()
 			SetActorLocation(spawns[index]);
 		}
 	}
+}
+
+void AFPSCharacter::UpdateHealthBar()
+{
+	float percent = currentHealth / (float)maxHealth;
+	SendHealthToHud(percent);
 }
