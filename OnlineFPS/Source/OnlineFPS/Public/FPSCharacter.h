@@ -41,6 +41,9 @@ public:
 	TMap<EWeaponType, TObjectPtr<UAnimMontage>> TPP_FireAnims;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<TObjectPtr<UAnimMontage>> TPP_HitAnims;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class AFPSWeapon* primaryWeapon;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -191,6 +194,8 @@ public:
 	void PlayTPPReloadAnim(EWeaponType _type);
 
 	void StopTPPReloadAnim(EWeaponType _type);
+
+	void PlayTPPHitAnim();
 
 	void DieChara();
 

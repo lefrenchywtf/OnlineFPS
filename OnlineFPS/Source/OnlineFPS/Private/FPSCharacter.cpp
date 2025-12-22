@@ -28,7 +28,6 @@ void AFPSCharacter::BeginPlay()
 void AFPSCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 // Called to bind functionality to input
@@ -136,6 +135,7 @@ void AFPSCharacter::ReduceHealth_Implementation(float _damage)
 			DieChara();
 		}
 		UpdateHealthBar();
+		PlayTPPHitAnim();
 	}
 }
 
@@ -312,6 +312,23 @@ void AFPSCharacter::StopTPPReloadAnim(EWeaponType _type)
 	if (TPPAnim)
 	{
 		StopAnim(TPPAnim);
+	}
+}
+
+void AFPSCharacter::PlayTPPHitAnim()
+{
+	if (TPP_HitAnims.Num() > 0)
+	{
+		int index = 0;
+		if (TPP_HitAnims.Num() > 1)
+		{
+			index = FMath::RandRange(0, TPP_HitAnims.Num() - 1);
+		}
+		UAnimMontage* anim = TPP_HitAnims[index];
+		if (anim)
+		{
+			PlayAnim(anim);
+		}
 	}
 }
 

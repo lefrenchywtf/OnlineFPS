@@ -19,7 +19,7 @@
                                     "uri": "file:///F:/OnlineFPS/OnlineFPS/Source/OnlineFPS/Public/FPSCharacter.h"
                                 },
                                 "region": {
-                                    "startLine": 128,
+                                    "startLine": 131,
                                     "startColumn": 7,
                                     "snippet": {
                                         "text": "\tvoid TakeDamage(float _damage);"
@@ -44,7 +44,7 @@
                                     "uri": "file:///F:/OnlineFPS/OnlineFPS/Source/OnlineFPS/Public/FPSCharacter.h"
                                 },
                                 "region": {
-                                    "startLine": 220,
+                                    "startLine": 225,
                                     "startColumn": 1,
                                     "snippet": {
                                         "text": "};"
