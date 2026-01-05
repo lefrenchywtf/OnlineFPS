@@ -5,6 +5,7 @@
 #include "FPSCharacter.h"
 #include "Camera/CameraComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "Kismet/KismetMathLibrary.h"
 
 // Sets default values
 AFPSWeapon::AFPSWeapon()
@@ -20,6 +21,7 @@ void AFPSWeapon::BeginPlay()
 {
 	Super::BeginPlay();
 	ammoCount = maxAmmo;
+	currentSpread = minSpread;
 }
 
 // Called every frame
@@ -35,11 +37,24 @@ void AFPSWeapon::Fire()
 	{
 		ammoCount--;
 		TraceBullet();
+		IncreaseSpread();
 		weaponOwner->PlayFireAnimations(Type, recoilAnim);
 		weaponOwner->UpdateGunAmmo();
+		ApplyRecoil();
 		SpawnFireParticule();
+		weaponOwner->UpdateSpreadHUD(currentSpread);
 	}
 	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("ammo: %d"), ammoCount));
+}
+
+void AFPSWeapon::IncreaseSpread()
+{
+	if (currentSpread != maxSpread)
+	{
+		currentSpread += spreadIncrement;
+		currentSpread = FMath::Clamp(currentSpread, minSpread, maxSpread);
+		weaponOwner->UpdateSpreadHUD(currentSpread);
+	}
 }
 
 void AFPSWeapon::StartFiring()
@@ -63,6 +78,7 @@ void AFPSWeapon::StartFiring()
 void AFPSWeapon::StopFiring()
 {
 	bIsFiring = false;
+	ResetSpread();
 	GetWorldTimerManager().ClearTimer(fireTimerHandle);
 	if (ammoCount <= 0)
 	{
@@ -79,7 +95,7 @@ void AFPSWeapon::TraceBullet()
 
 	FHitResult hitResult;
 	FVector traceStart = playerCamera->GetComponentLocation();
-	FVector traceEnd = traceStart + playerCamera->GetForwardVector() * 100000;
+	FVector traceEnd = CalculateEndTrace();
 	FCollisionQueryParams params;
 	params.AddIgnoredActor(this);
 	params.AddIgnoredActor(weaponOwner);
@@ -94,6 +110,17 @@ void AFPSWeapon::TraceBullet()
 		}
 	}
 	DrawDebugLine(GetWorld(), traceStart, traceEnd, FColor::Red, false, 5);
+}
+
+FVector AFPSWeapon::CalculateEndTrace()
+{
+	FVector camPos = playerCamera->GetComponentLocation();
+	if (weaponOwner->bIsAiming)
+	{
+		return camPos + playerCamera->GetForwardVector() * 100000;
+	}
+	FVector spread = UKismetMathLibrary::RandomUnitVectorInConeInDegrees(playerCamera->GetForwardVector(), currentSpread / 2.f);
+	return camPos + spread * 100000;
 }
 
 float AFPSWeapon::CalculateDamage(FHitResult _hit)
@@ -185,4 +212,21 @@ void AFPSWeapon::SpawnFireParticule()
 USkeletalMeshComponent* AFPSWeapon::GetWeaponModel()
 {
 	return GunModel;
+}
+
+void AFPSWeapon::ApplyRecoil()
+{
+	float horizontal = FMath::RandRange(recoil.minHorizontal, recoil.maxHorizontal);
+	float vertical = FMath::RandRange(recoil.minVertical, recoil.maxVertical);
+
+	if (weaponOwner)
+	{
+		weaponOwner->AddControllerYawInput(horizontal);
+		weaponOwner->AddControllerPitchInput(-vertical);
+	}
+}
+
+float AFPSWeapon::GetCurrentSpread()
+{
+	return currentSpread;
 }

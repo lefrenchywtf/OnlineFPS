@@ -1547,6 +1547,48 @@ UFunction* Z_Construct_UFunction_AFPSCharacter_UpdateGunAmmo()
 }
 // ********** End Class AFPSCharacter Function UpdateGunAmmo ***************************************
 
+// ********** Begin Class AFPSCharacter Function UpdateSpreadHUD ***********************************
+struct FPSCharacter_eventUpdateSpreadHUD_Parms
+{
+	float _spreadValue;
+};
+static FName NAME_AFPSCharacter_UpdateSpreadHUD = FName(TEXT("UpdateSpreadHUD"));
+void AFPSCharacter::UpdateSpreadHUD(float _spreadValue)
+{
+	FPSCharacter_eventUpdateSpreadHUD_Parms Parms;
+	Parms._spreadValue=_spreadValue;
+	UFunction* Func = FindFunctionChecked(NAME_AFPSCharacter_UpdateSpreadHUD);
+	ProcessEvent(Func,&Parms);
+}
+struct Z_Construct_UFunction_AFPSCharacter_UpdateSpreadHUD_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FPSCharacter.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFloatPropertyParams NewProp__spreadValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AFPSCharacter_UpdateSpreadHUD_Statics::NewProp__spreadValue = { "_spreadValue", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSCharacter_eventUpdateSpreadHUD_Parms, _spreadValue), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFPSCharacter_UpdateSpreadHUD_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSCharacter_UpdateSpreadHUD_Statics::NewProp__spreadValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_UpdateSpreadHUD_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSCharacter_UpdateSpreadHUD_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSCharacter, nullptr, "UpdateSpreadHUD", Z_Construct_UFunction_AFPSCharacter_UpdateSpreadHUD_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_UpdateSpreadHUD_Statics::PropPointers), sizeof(FPSCharacter_eventUpdateSpreadHUD_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020800, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_UpdateSpreadHUD_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSCharacter_UpdateSpreadHUD_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(FPSCharacter_eventUpdateSpreadHUD_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AFPSCharacter_UpdateSpreadHUD()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSCharacter_UpdateSpreadHUD_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+// ********** End Class AFPSCharacter Function UpdateSpreadHUD *************************************
+
 // ********** Begin Class AFPSCharacter ************************************************************
 void AFPSCharacter::StaticRegisterNativesAFPSCharacter()
 {
@@ -1753,6 +1795,7 @@ struct Z_Construct_UClass_AFPSCharacter_Statics
 		{ &Z_Construct_UFunction_AFPSCharacter_StopShooting, "StopShooting" }, // 1716966931
 		{ &Z_Construct_UFunction_AFPSCharacter_TakeDamage, "TakeDamage" }, // 3680357053
 		{ &Z_Construct_UFunction_AFPSCharacter_UpdateGunAmmo, "UpdateGunAmmo" }, // 2458167350
+		{ &Z_Construct_UFunction_AFPSCharacter_UpdateSpreadHUD, "UpdateSpreadHUD" }, // 3538727278
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -1877,10 +1920,10 @@ struct Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_
 		{ FPlayerWeapons::StaticStruct, Z_Construct_UScriptStruct_FPlayerWeapons_Statics::NewStructOps, TEXT("PlayerWeapons"), &Z_Registration_Info_UScriptStruct_FPlayerWeapons, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FPlayerWeapons), 1467568506U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AFPSCharacter, AFPSCharacter::StaticClass, TEXT("AFPSCharacter"), &Z_Registration_Info_UClass_AFPSCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSCharacter), 2868139308U) },
+		{ Z_Construct_UClass_AFPSCharacter, AFPSCharacter::StaticClass, TEXT("AFPSCharacter"), &Z_Registration_Info_UClass_AFPSCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSCharacter), 797563810U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h__Script_OnlineFPS_1973490387(TEXT("/Script/OnlineFPS"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h__Script_OnlineFPS_4204065627(TEXT("/Script/OnlineFPS"),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h__Script_OnlineFPS_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h__Script_OnlineFPS_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h__Script_OnlineFPS_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h__Script_OnlineFPS_Statics::ScriptStructInfo),
 	nullptr, 0);

@@ -24,6 +24,7 @@ ONLINEFPS_API UClass* Z_Construct_UClass_AFPSWeapon_NoRegister();
 ONLINEFPS_API UEnum* Z_Construct_UEnum_OnlineFPS_EWeaponParticule();
 ONLINEFPS_API UEnum* Z_Construct_UEnum_OnlineFPS_EWeaponType();
 ONLINEFPS_API UScriptStruct* Z_Construct_UScriptStruct_FRecoilAnimValues();
+ONLINEFPS_API UScriptStruct* Z_Construct_UScriptStruct_FWeaponRecoil();
 UPackage* Z_Construct_UPackage__Script_OnlineFPS();
 // ********** End Cross Module References **********************************************************
 
@@ -217,6 +218,114 @@ UScriptStruct* Z_Construct_UScriptStruct_FRecoilAnimValues()
 }
 // ********** End ScriptStruct FRecoilAnimValues ***************************************************
 
+// ********** Begin ScriptStruct FWeaponRecoil *****************************************************
+static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_FWeaponRecoil;
+class UScriptStruct* FWeaponRecoil::StaticStruct()
+{
+	if (!Z_Registration_Info_UScriptStruct_FWeaponRecoil.OuterSingleton)
+	{
+		Z_Registration_Info_UScriptStruct_FWeaponRecoil.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FWeaponRecoil, (UObject*)Z_Construct_UPackage__Script_OnlineFPS(), TEXT("WeaponRecoil"));
+	}
+	return Z_Registration_Info_UScriptStruct_FWeaponRecoil.OuterSingleton;
+}
+struct Z_Construct_UScriptStruct_FWeaponRecoil_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
+		{ "ModuleRelativePath", "Public/FPSWeapon.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_minHorizontal_MetaData[] = {
+		{ "Category", "WeaponRecoil" },
+		{ "ModuleRelativePath", "Public/FPSWeapon.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_maxHorizontal_MetaData[] = {
+		{ "Category", "WeaponRecoil" },
+		{ "ModuleRelativePath", "Public/FPSWeapon.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_minVertical_MetaData[] = {
+		{ "Category", "WeaponRecoil" },
+		{ "ModuleRelativePath", "Public/FPSWeapon.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_maxVertical_MetaData[] = {
+		{ "Category", "WeaponRecoil" },
+		{ "ModuleRelativePath", "Public/FPSWeapon.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_minHorizontal;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_maxHorizontal;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_minVertical;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_maxVertical;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static void* NewStructOps()
+	{
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FWeaponRecoil>();
+	}
+	static const UECodeGen_Private::FStructParams StructParams;
+};
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FWeaponRecoil_Statics::NewProp_minHorizontal = { "minHorizontal", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FWeaponRecoil, minHorizontal), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_minHorizontal_MetaData), NewProp_minHorizontal_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FWeaponRecoil_Statics::NewProp_maxHorizontal = { "maxHorizontal", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FWeaponRecoil, maxHorizontal), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_maxHorizontal_MetaData), NewProp_maxHorizontal_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FWeaponRecoil_Statics::NewProp_minVertical = { "minVertical", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FWeaponRecoil, minVertical), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_minVertical_MetaData), NewProp_minVertical_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FWeaponRecoil_Statics::NewProp_maxVertical = { "maxVertical", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FWeaponRecoil, maxVertical), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_maxVertical_MetaData), NewProp_maxVertical_MetaData) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FWeaponRecoil_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FWeaponRecoil_Statics::NewProp_minHorizontal,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FWeaponRecoil_Statics::NewProp_maxHorizontal,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FWeaponRecoil_Statics::NewProp_minVertical,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FWeaponRecoil_Statics::NewProp_maxVertical,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FWeaponRecoil_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FWeaponRecoil_Statics::StructParams = {
+	(UObject* (*)())Z_Construct_UPackage__Script_OnlineFPS,
+	nullptr,
+	&NewStructOps,
+	"WeaponRecoil",
+	Z_Construct_UScriptStruct_FWeaponRecoil_Statics::PropPointers,
+	UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FWeaponRecoil_Statics::PropPointers),
+	sizeof(FWeaponRecoil),
+	alignof(FWeaponRecoil),
+	RF_Public|RF_Transient|RF_MarkAsNative,
+	EStructFlags(0x00000001),
+	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FWeaponRecoil_Statics::Struct_MetaDataParams), Z_Construct_UScriptStruct_FWeaponRecoil_Statics::Struct_MetaDataParams)
+};
+UScriptStruct* Z_Construct_UScriptStruct_FWeaponRecoil()
+{
+	if (!Z_Registration_Info_UScriptStruct_FWeaponRecoil.InnerSingleton)
+	{
+		UECodeGen_Private::ConstructUScriptStruct(Z_Registration_Info_UScriptStruct_FWeaponRecoil.InnerSingleton, Z_Construct_UScriptStruct_FWeaponRecoil_Statics::StructParams);
+	}
+	return Z_Registration_Info_UScriptStruct_FWeaponRecoil.InnerSingleton;
+}
+// ********** End ScriptStruct FWeaponRecoil *******************************************************
+
+// ********** Begin Class AFPSWeapon Function ApplyRecoil ******************************************
+struct Z_Construct_UFunction_AFPSWeapon_ApplyRecoil_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FPSWeapon.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSWeapon_ApplyRecoil_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSWeapon, nullptr, "ApplyRecoil", nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSWeapon_ApplyRecoil_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSWeapon_ApplyRecoil_Statics::Function_MetaDataParams)},  };
+UFunction* Z_Construct_UFunction_AFPSWeapon_ApplyRecoil()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSWeapon_ApplyRecoil_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AFPSWeapon::execApplyRecoil)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->ApplyRecoil();
+	P_NATIVE_END;
+}
+// ********** End Class AFPSWeapon Function ApplyRecoil ********************************************
+
 // ********** Begin Class AFPSWeapon Function Fire *************************************************
 struct Z_Construct_UFunction_AFPSWeapon_Fire_Statics
 {
@@ -377,6 +486,34 @@ DEFINE_FUNCTION(AFPSWeapon::execIsAutomatic)
 }
 // ********** End Class AFPSWeapon Function IsAutomatic ********************************************
 
+// ********** Begin Class AFPSWeapon Function ResetSpread ******************************************
+static FName NAME_AFPSWeapon_ResetSpread = FName(TEXT("ResetSpread"));
+void AFPSWeapon::ResetSpread()
+{
+	UFunction* Func = FindFunctionChecked(NAME_AFPSWeapon_ResetSpread);
+	ProcessEvent(Func,NULL);
+}
+struct Z_Construct_UFunction_AFPSWeapon_ResetSpread_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FPSWeapon.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSWeapon_ResetSpread_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSWeapon, nullptr, "ResetSpread", nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSWeapon_ResetSpread_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSWeapon_ResetSpread_Statics::Function_MetaDataParams)},  };
+UFunction* Z_Construct_UFunction_AFPSWeapon_ResetSpread()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSWeapon_ResetSpread_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+// ********** End Class AFPSWeapon Function ResetSpread ********************************************
+
 // ********** Begin Class AFPSWeapon Function Server_DealDamage ************************************
 struct FPSWeapon_eventServer_DealDamage_Parms
 {
@@ -496,6 +633,7 @@ void AFPSWeapon::StaticRegisterNativesAFPSWeapon()
 {
 	UClass* Class = AFPSWeapon::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
+		{ "ApplyRecoil", &AFPSWeapon::execApplyRecoil },
 		{ "Fire", &AFPSWeapon::execFire },
 		{ "GetReloadPlayRate", &AFPSWeapon::execGetReloadPlayRate },
 		{ "GetWeaponType", &AFPSWeapon::execGetWeaponType },
@@ -616,6 +754,48 @@ struct Z_Construct_UClass_AFPSWeapon_Statics
 		{ "Category", "FPSWeapon" },
 		{ "ModuleRelativePath", "Public/FPSWeapon.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_recoil_MetaData[] = {
+		{ "Category", "FPSWeapon" },
+		{ "ModuleRelativePath", "Public/FPSWeapon.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_minSpread_MetaData[] = {
+		{ "Category", "FPSWeapon" },
+		{ "ModuleRelativePath", "Public/FPSWeapon.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_maxSpread_MetaData[] = {
+		{ "Category", "FPSWeapon" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//smallest circle radius\n" },
+#endif
+		{ "ModuleRelativePath", "Public/FPSWeapon.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "smallest circle radius" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_currentSpread_MetaData[] = {
+		{ "Category", "FPSWeapon" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// biggest circle radius\n" },
+#endif
+		{ "ModuleRelativePath", "Public/FPSWeapon.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "biggest circle radius" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_spreadIncrement_MetaData[] = {
+		{ "Category", "FPSWeapon" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//current circle radius\n" },
+#endif
+		{ "ModuleRelativePath", "Public/FPSWeapon.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "current circle radius" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_spreadRecoverySpeed_MetaData[] = {
+		{ "Category", "FPSWeapon" },
+		{ "ModuleRelativePath", "Public/FPSWeapon.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_GunModel;
 	static const UECodeGen_Private::FStrPropertyParams NewProp_weaponName;
@@ -641,13 +821,21 @@ struct Z_Construct_UClass_AFPSWeapon_Statics
 	static const UECodeGen_Private::FBytePropertyParams NewProp_weaponParticules_Key_KeyProp_Underlying;
 	static const UECodeGen_Private::FEnumPropertyParams NewProp_weaponParticules_Key_KeyProp;
 	static const UECodeGen_Private::FMapPropertyParams NewProp_weaponParticules;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_recoil;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_minSpread;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_maxSpread;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_currentSpread;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_spreadIncrement;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_spreadRecoverySpeed;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
+		{ &Z_Construct_UFunction_AFPSWeapon_ApplyRecoil, "ApplyRecoil" }, // 3422614942
 		{ &Z_Construct_UFunction_AFPSWeapon_Fire, "Fire" }, // 359106387
 		{ &Z_Construct_UFunction_AFPSWeapon_GetReloadPlayRate, "GetReloadPlayRate" }, // 2326002912
 		{ &Z_Construct_UFunction_AFPSWeapon_GetWeaponType, "GetWeaponType" }, // 2118898252
 		{ &Z_Construct_UFunction_AFPSWeapon_IsAutomatic, "IsAutomatic" }, // 2045936501
+		{ &Z_Construct_UFunction_AFPSWeapon_ResetSpread, "ResetSpread" }, // 3707814103
 		{ &Z_Construct_UFunction_AFPSWeapon_Server_DealDamage, "Server_DealDamage" }, // 3403743354
 		{ &Z_Construct_UFunction_AFPSWeapon_StartFiring, "StartFiring" }, // 1483084652
 		{ &Z_Construct_UFunction_AFPSWeapon_StopFiring, "StopFiring" }, // 3209095793
@@ -688,6 +876,12 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFPSWeapon_Sta
 const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_AFPSWeapon_Statics::NewProp_weaponParticules_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AFPSWeapon_Statics::NewProp_weaponParticules_Key_KeyProp = { "weaponParticules_Key", nullptr, (EPropertyFlags)0x0100000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UEnum_OnlineFPS_EWeaponParticule, METADATA_PARAMS(0, nullptr) }; // 1429196304
 const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_AFPSWeapon_Statics::NewProp_weaponParticules = { "weaponParticules", nullptr, (EPropertyFlags)0x0124080000000005, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSWeapon, weaponParticules), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_weaponParticules_MetaData), NewProp_weaponParticules_MetaData) }; // 1429196304
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AFPSWeapon_Statics::NewProp_recoil = { "recoil", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSWeapon, recoil), Z_Construct_UScriptStruct_FWeaponRecoil, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_recoil_MetaData), NewProp_recoil_MetaData) }; // 314787576
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AFPSWeapon_Statics::NewProp_minSpread = { "minSpread", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSWeapon, minSpread), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_minSpread_MetaData), NewProp_minSpread_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AFPSWeapon_Statics::NewProp_maxSpread = { "maxSpread", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSWeapon, maxSpread), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_maxSpread_MetaData), NewProp_maxSpread_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AFPSWeapon_Statics::NewProp_currentSpread = { "currentSpread", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSWeapon, currentSpread), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_currentSpread_MetaData), NewProp_currentSpread_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AFPSWeapon_Statics::NewProp_spreadIncrement = { "spreadIncrement", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSWeapon, spreadIncrement), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_spreadIncrement_MetaData), NewProp_spreadIncrement_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AFPSWeapon_Statics::NewProp_spreadRecoverySpeed = { "spreadRecoverySpeed", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSWeapon, spreadRecoverySpeed), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_spreadRecoverySpeed_MetaData), NewProp_spreadRecoverySpeed_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFPSWeapon_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_GunModel,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_weaponName,
@@ -711,6 +905,12 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFPSWeapo
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_weaponParticules_Key_KeyProp_Underlying,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_weaponParticules_Key_KeyProp,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_weaponParticules,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_recoil,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_minSpread,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_maxSpread,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_currentSpread,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_spreadIncrement,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSWeapon_Statics::NewProp_spreadRecoverySpeed,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AFPSWeapon_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AFPSWeapon_Statics::DependentSingletons[])() = {
@@ -754,12 +954,13 @@ struct Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__
 	};
 	static constexpr FStructRegisterCompiledInInfo ScriptStructInfo[] = {
 		{ FRecoilAnimValues::StaticStruct, Z_Construct_UScriptStruct_FRecoilAnimValues_Statics::NewStructOps, TEXT("RecoilAnimValues"), &Z_Registration_Info_UScriptStruct_FRecoilAnimValues, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FRecoilAnimValues), 2669564610U) },
+		{ FWeaponRecoil::StaticStruct, Z_Construct_UScriptStruct_FWeaponRecoil_Statics::NewStructOps, TEXT("WeaponRecoil"), &Z_Registration_Info_UScriptStruct_FWeaponRecoil, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FWeaponRecoil), 314787576U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AFPSWeapon, AFPSWeapon::StaticClass, TEXT("AFPSWeapon"), &Z_Registration_Info_UClass_AFPSWeapon, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSWeapon), 1006223352U) },
+		{ Z_Construct_UClass_AFPSWeapon, AFPSWeapon::StaticClass, TEXT("AFPSWeapon"), &Z_Registration_Info_UClass_AFPSWeapon, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSWeapon), 4268077586U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_671169961(TEXT("/Script/OnlineFPS"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_2844808079(TEXT("/Script/OnlineFPS"),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_Statics::ScriptStructInfo),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h__Script_OnlineFPS_Statics::EnumInfo));

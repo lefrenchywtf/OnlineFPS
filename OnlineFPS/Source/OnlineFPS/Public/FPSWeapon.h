@@ -41,6 +41,24 @@ struct FRecoilAnimValues
 	float kickupMultiplier = 1.f;
 };
 
+USTRUCT(BlueprintType)
+struct FWeaponRecoil
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float minHorizontal = 0.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float maxHorizontal = 0.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float minVertical = 0.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float maxVertical = 0.f;
+};
+
 
 UCLASS()
 class ONLINEFPS_API AFPSWeapon : public AActor
@@ -112,6 +130,23 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TMap<EWeaponParticule, TObjectPtr<UParticleSystem>> weaponParticules;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FWeaponRecoil recoil;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float minSpread = .1f; //smallest circle radius
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float maxSpread = .5f; // biggest circle radius
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float currentSpread = 0.f; //current circle radius
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float spreadIncrement = .2f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float spreadRecoverySpeed = 1.f;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -123,10 +158,18 @@ public:
 	void Fire();
 
 	UFUNCTION(BlueprintCallable)
+	void ApplyRecoil();
+
+	void IncreaseSpread();
+
+	UFUNCTION(BlueprintCallable)
 	void StopFiring();
 
 	//UFUNCTION(Server, Reliable)
 	void TraceBullet();
+
+	// includes spread
+	FVector CalculateEndTrace();
 
 	float CalculateDamage(FHitResult _hit);
 
@@ -157,4 +200,9 @@ public:
 	void SpawnFireParticule();
 
 	USkeletalMeshComponent* GetWeaponModel();
+
+	float GetCurrentSpread();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void ResetSpread();
 };

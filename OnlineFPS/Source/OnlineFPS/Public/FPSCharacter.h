@@ -222,4 +222,7 @@ public:
 	void MC_SpawnFireParticule(UParticleSystem* _particule);
 
 	void SpawnParticule(UParticleSystem* _particule, FVector _location);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void UpdateSpreadHUD(float _spreadValue);
 };

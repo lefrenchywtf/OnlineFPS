@@ -388,8 +388,13 @@ void AFPSCharacter::MC_SpawnFireParticule_Implementation(UParticleSystem* _parti
 	AFPSWeapon* gun = GetEquipedWeapon();
 	if (gun && _particule)
 	{
+		FVector scale = FVector(1, 1, 1);
+		if (IsLocallyControlled() && bIsAiming)
+		{
+			scale /= 2.f;
+		}
 		FTransform spawnTransform = gun->GetMuzzleTransform();
-		UGameplayStatics::SpawnEmitterAttached(_particule, gun->GetWeaponModel(), "Muzzle");
+		UGameplayStatics::SpawnEmitterAttached(_particule, gun->GetWeaponModel(), "Muzzle", ((FVector)(ForceInit)), FRotator::ZeroRotator,scale);
 		//UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), _particule, spawnTransform);
 	}
 }

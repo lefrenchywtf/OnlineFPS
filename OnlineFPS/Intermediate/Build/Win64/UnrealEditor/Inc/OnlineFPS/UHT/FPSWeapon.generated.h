@@ -29,22 +29,32 @@ struct FHitResult;
 struct FRecoilAnimValues;
 // ********** End ScriptStruct FRecoilAnimValues ***************************************************
 
+// ********** Begin ScriptStruct FWeaponRecoil *****************************************************
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_47_GENERATED_BODY \
+	friend struct Z_Construct_UScriptStruct_FWeaponRecoil_Statics; \
+	ONLINEFPS_API static class UScriptStruct* StaticStruct();
+
+
+struct FWeaponRecoil;
+// ********** End ScriptStruct FWeaponRecoil *******************************************************
+
 // ********** Begin Class AFPSWeapon ***************************************************************
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_48_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_66_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual void Server_DealDamage_Implementation(FHitResult _hit, AFPSCharacter* _character); \
 	DECLARE_FUNCTION(execGetWeaponType); \
 	DECLARE_FUNCTION(execGetReloadPlayRate); \
 	DECLARE_FUNCTION(execIsAutomatic); \
 	DECLARE_FUNCTION(execServer_DealDamage); \
 	DECLARE_FUNCTION(execStopFiring); \
+	DECLARE_FUNCTION(execApplyRecoil); \
 	DECLARE_FUNCTION(execFire); \
 	DECLARE_FUNCTION(execStartFiring);
 
 
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_48_CALLBACK_WRAPPERS
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_66_CALLBACK_WRAPPERS
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSWeapon_NoRegister();
 
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_48_INCLASS_NO_PURE_DECLS \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_66_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAFPSWeapon(); \
 	friend struct Z_Construct_UClass_AFPSWeapon_Statics; \
@@ -55,7 +65,7 @@ public: \
 	DECLARE_SERIALIZER(AFPSWeapon)
 
 
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_48_ENHANCED_CONSTRUCTORS \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_66_ENHANCED_CONSTRUCTORS \
 	/** Deleted move- and copy-constructors, should never be used */ \
 	AFPSWeapon(AFPSWeapon&&) = delete; \
 	AFPSWeapon(const AFPSWeapon&) = delete; \
@@ -65,14 +75,14 @@ public: \
 	NO_API virtual ~AFPSWeapon();
 
 
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_45_PROLOG
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_48_GENERATED_BODY \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_63_PROLOG
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_66_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_48_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_48_CALLBACK_WRAPPERS \
-	FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_48_INCLASS_NO_PURE_DECLS \
-	FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_48_ENHANCED_CONSTRUCTORS \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_66_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_66_CALLBACK_WRAPPERS \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_66_INCLASS_NO_PURE_DECLS \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_66_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
