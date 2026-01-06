@@ -23,6 +23,7 @@ class AFPSWeapon;
 class UAnimMontage;
 class UDamageType;
 class UParticleSystem;
+class USoundBase;
 enum class EWeaponType : uint8;
 struct FHitResult;
 struct FRecoilAnimValues;
@@ -38,12 +39,17 @@ struct FPlayerWeapons;
 
 // ********** Begin Class AFPSCharacter ************************************************************
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_28_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void MC_PlaySound_Implementation(USoundBase* _sound, FVector _location); \
+	virtual void Server_PlaySound_Implementation(USoundBase* _sound, FVector _location); \
 	virtual void MC_SpawnFireParticule_Implementation(UParticleSystem* _particule); \
 	virtual void Server_SpawnFireParticule_Implementation(UParticleSystem* _particule); \
 	virtual void Server_DealDamage_Implementation(float _damage, FHitResult _hit); \
 	virtual void EquipGun_Implementation(EWeaponType _type); \
 	virtual void ReduceHealth_Implementation(float _damage); \
 	virtual void Client_SpawnOtherWeapons_Implementation(AFPSCharacter* _chara); \
+	virtual void Server_ChangeWalkSpeed_Implementation(float _newSpeed); \
+	DECLARE_FUNCTION(execMC_PlaySound); \
+	DECLARE_FUNCTION(execServer_PlaySound); \
 	DECLARE_FUNCTION(execMC_SpawnFireParticule); \
 	DECLARE_FUNCTION(execServer_SpawnFireParticule); \
 	DECLARE_FUNCTION(execServer_DealDamage); \
@@ -65,6 +71,7 @@ struct FPlayerWeapons;
 	DECLARE_FUNCTION(execStopShooting); \
 	DECLARE_FUNCTION(execShootGun); \
 	DECLARE_FUNCTION(execMoveCamera); \
+	DECLARE_FUNCTION(execServer_ChangeWalkSpeed); \
 	DECLARE_FUNCTION(execSprintChara); \
 	DECLARE_FUNCTION(execCrouchChara); \
 	DECLARE_FUNCTION(execJumpChara); \

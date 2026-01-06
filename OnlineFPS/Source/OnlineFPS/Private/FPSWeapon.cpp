@@ -42,6 +42,7 @@ void AFPSWeapon::Fire()
 		weaponOwner->UpdateGunAmmo();
 		ApplyRecoil();
 		SpawnFireParticule();
+		PlayFireSound();
 		weaponOwner->UpdateSpreadHUD(currentSpread);
 	}
 	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("ammo: %d"), ammoCount));
@@ -161,6 +162,7 @@ void AFPSWeapon::StartReload()
 	if (ammoCount < maxAmmo)
 	{
 		GetWorldTimerManager().SetTimer(reloadTimerHandle, this, &AFPSWeapon::ReloadGun, reloadTime, false);
+		PlayReloadSound(true);
 	}
 }
 
@@ -170,6 +172,7 @@ void AFPSWeapon::ReloadGun()
 	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("%d"), ammoCount));
 	GetWorldTimerManager().ClearTimer(reloadTimerHandle);
 	weaponOwner->EndReload();
+	PlayReloadSound(false);
 }
 
 bool AFPSWeapon::IsAutomatic()
@@ -229,4 +232,29 @@ void AFPSWeapon::ApplyRecoil()
 float AFPSWeapon::GetCurrentSpread()
 {
 	return currentSpread;
+}
+
+void AFPSWeapon::PlayFireSound()
+{
+	if (!weaponSounds.IsEmpty())
+	{
+		USoundBase* sound = *weaponSounds.Find(EWeaponSounds::FIRE);
+		if (sound)
+		{
+			weaponOwner->Server_PlaySound(sound, GetActorLocation());
+		}
+	}
+}
+
+void AFPSWeapon::PlayReloadSound(bool _start)
+{
+	if (!weaponSounds.IsEmpty())
+	{
+		USoundBase* sound = *weaponSounds.Find(_start ? EWeaponSounds::RELOAD_START : EWeaponSounds::RELOAD_END);
+
+		if (sound)
+		{
+			weaponOwner->Server_PlaySound(sound, GetActorLocation());
+		}
+	}
 }

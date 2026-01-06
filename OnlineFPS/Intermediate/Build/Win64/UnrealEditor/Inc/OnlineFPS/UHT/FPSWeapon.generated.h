@@ -21,7 +21,7 @@ enum class EWeaponType : uint8;
 struct FHitResult;
 
 // ********** Begin ScriptStruct FRecoilAnimValues *************************************************
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_26_GENERATED_BODY \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_34_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FRecoilAnimValues_Statics; \
 	ONLINEFPS_API static class UScriptStruct* StaticStruct();
 
@@ -30,7 +30,7 @@ struct FRecoilAnimValues;
 // ********** End ScriptStruct FRecoilAnimValues ***************************************************
 
 // ********** Begin ScriptStruct FWeaponRecoil *****************************************************
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_47_GENERATED_BODY \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_55_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FWeaponRecoil_Statics; \
 	ONLINEFPS_API static class UScriptStruct* StaticStruct();
 
@@ -39,7 +39,7 @@ struct FWeaponRecoil;
 // ********** End ScriptStruct FWeaponRecoil *******************************************************
 
 // ********** Begin Class AFPSWeapon ***************************************************************
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_66_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_74_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual void Server_DealDamage_Implementation(FHitResult _hit, AFPSCharacter* _character); \
 	DECLARE_FUNCTION(execGetWeaponType); \
 	DECLARE_FUNCTION(execGetReloadPlayRate); \
@@ -51,10 +51,10 @@ struct FWeaponRecoil;
 	DECLARE_FUNCTION(execStartFiring);
 
 
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_66_CALLBACK_WRAPPERS
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_74_CALLBACK_WRAPPERS
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSWeapon_NoRegister();
 
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_66_INCLASS_NO_PURE_DECLS \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_74_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAFPSWeapon(); \
 	friend struct Z_Construct_UClass_AFPSWeapon_Statics; \
@@ -65,7 +65,7 @@ public: \
 	DECLARE_SERIALIZER(AFPSWeapon)
 
 
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_66_ENHANCED_CONSTRUCTORS \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_74_ENHANCED_CONSTRUCTORS \
 	/** Deleted move- and copy-constructors, should never be used */ \
 	AFPSWeapon(AFPSWeapon&&) = delete; \
 	AFPSWeapon(const AFPSWeapon&) = delete; \
@@ -75,14 +75,14 @@ public: \
 	NO_API virtual ~AFPSWeapon();
 
 
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_63_PROLOG
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_66_GENERATED_BODY \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_71_PROLOG
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_74_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_66_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_66_CALLBACK_WRAPPERS \
-	FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_66_INCLASS_NO_PURE_DECLS \
-	FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_66_ENHANCED_CONSTRUCTORS \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_74_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_74_CALLBACK_WRAPPERS \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_74_INCLASS_NO_PURE_DECLS \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSWeapon_h_74_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -113,5 +113,16 @@ enum class EWeaponParticule : uint8;
 template<> struct TIsUEnumClass<EWeaponParticule> { enum { Value = true }; };
 template<> ONLINEFPS_API UEnum* StaticEnum<EWeaponParticule>();
 // ********** End Enum EWeaponParticule ************************************************************
+
+// ********** Begin Enum EWeaponSounds *************************************************************
+#define FOREACH_ENUM_EWEAPONSOUNDS(op) \
+	op(EWeaponSounds::FIRE) \
+	op(EWeaponSounds::RELOAD_START) \
+	op(EWeaponSounds::RELOAD_END) 
+
+enum class EWeaponSounds : uint8;
+template<> struct TIsUEnumClass<EWeaponSounds> { enum { Value = true }; };
+template<> ONLINEFPS_API UEnum* StaticEnum<EWeaponSounds>();
+// ********** End Enum EWeaponSounds ***************************************************************
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

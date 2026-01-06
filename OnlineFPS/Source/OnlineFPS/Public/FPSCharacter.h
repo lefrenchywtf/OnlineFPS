@@ -106,6 +106,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SprintChara(bool _state);
 
+	UFUNCTION(Server, Reliable)
+	void Server_ChangeWalkSpeed(float _newSpeed);
+
 	UFUNCTION(BlueprintCallable)
 	void MoveCamera(FVector2D _inputs);
 
@@ -225,4 +228,10 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void UpdateSpreadHUD(float _spreadValue);
+
+	UFUNCTION(Server, Reliable)
+	void Server_PlaySound(USoundBase* _sound, FVector _location);
+
+	UFUNCTION(NetMulticast, Reliable)
+	void MC_PlaySound(USoundBase* _sound, FVector _location);
 };

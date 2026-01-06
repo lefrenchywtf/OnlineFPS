@@ -20,6 +20,14 @@ enum class EWeaponParticule : uint8
 	IMPACT_WOOD
 };
 
+UENUM(BlueprintType)
+enum class EWeaponSounds : uint8
+{
+	FIRE,
+	RELOAD_START,
+	RELOAD_END
+};
+
 USTRUCT(BlueprintType)
 struct FRecoilAnimValues
 {
@@ -132,6 +140,9 @@ protected:
 	TMap<EWeaponParticule, TObjectPtr<UParticleSystem>> weaponParticules;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TMap<EWeaponSounds, TObjectPtr<USoundBase>> weaponSounds;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FWeaponRecoil recoil;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -205,4 +216,8 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void ResetSpread();
+
+	void PlayFireSound();
+
+	void PlayReloadSound(bool _start);
 };

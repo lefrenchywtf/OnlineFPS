@@ -79,14 +79,19 @@ void AFPSCharacter::SprintChara(bool _state)
 			{
 				CancelReload();
 			}
-			GetCharacterMovement()->MaxWalkSpeed = SprintSpeedMax;
+			Server_ChangeWalkSpeed(SprintSpeedMax);
 		}
 	}
 	else
 	{
 		bIsSprinting = false;
-		GetCharacterMovement()->MaxWalkSpeed = walkSpeedMax;
+		Server_ChangeWalkSpeed(walkSpeedMax);
 	}
+}
+
+void AFPSCharacter::Server_ChangeWalkSpeed_Implementation(float _newSpeed)
+{
+	GetCharacterMovement()->MaxWalkSpeed = _newSpeed;
 }
 
 void AFPSCharacter::ShootGun()
@@ -402,4 +407,14 @@ void AFPSCharacter::MC_SpawnFireParticule_Implementation(UParticleSystem* _parti
 void AFPSCharacter::SpawnParticule(UParticleSystem* _particule, FVector _location)
 {
 
+}
+
+void AFPSCharacter::Server_PlaySound_Implementation(USoundBase* _sound, FVector _location)
+{
+	MC_PlaySound(_sound, _location);
+}
+
+void AFPSCharacter::MC_PlaySound_Implementation(USoundBase* _sound, FVector _location)
+{
+	UGameplayStatics::PlaySoundAtLocation(GetWorld(), _sound, _location);
 }
