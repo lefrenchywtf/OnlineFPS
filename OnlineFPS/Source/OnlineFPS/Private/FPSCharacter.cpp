@@ -7,6 +7,7 @@
 #include "Net/UnrealNetwork.h"
 #include "Kismet/GameplayStatics.h"
 #include "FPSGameState.h"
+#include "FPSPlayerController.h"
 
 // Sets default values
 AFPSCharacter::AFPSCharacter()
@@ -348,6 +349,7 @@ void AFPSCharacter::DieChara()
 	FTimerHandle respawnTimer;
 	GetWorldTimerManager().SetTimer(respawnTimer, this, &AFPSCharacter::RespawnChara, respawnTime);
 	EnableRagdoll(true);
+	FPSController->DisableInputs();
 }
 
 void AFPSCharacter::RespawnChara()
@@ -355,6 +357,7 @@ void AFPSCharacter::RespawnChara()
 	currentHealth = maxHealth;
 	UpdateHealthBar();
 	EnableRagdoll(false);
+	FPSController->EnableInputs();
 	TpToSpawnPoint();
 }
 
@@ -417,4 +420,18 @@ void AFPSCharacter::Server_PlaySound_Implementation(USoundBase* _sound, FVector 
 void AFPSCharacter::MC_PlaySound_Implementation(USoundBase* _sound, FVector _location)
 {
 	UGameplayStatics::PlaySoundAtLocation(GetWorld(), _sound, _location);
+}
+
+void AFPSCharacter::PlayFootstep()
+{
+	if (!footstepSounds.IsEmpty())
+	{
+		USoundBase* sound;
+		int index = FMath::RandRange(0, footstepSounds.Num() - 1);
+		sound = footstepSounds[index];
+		if (sound)
+		{
+			Server_PlaySound(sound, GetActorLocation());
+		}
+	}
 }

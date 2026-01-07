@@ -27,4 +27,8 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void SetChara(class AFPSCharacter* _chara);
+
+	void EnableInputs();
+
+	void DisableInputs();
 };

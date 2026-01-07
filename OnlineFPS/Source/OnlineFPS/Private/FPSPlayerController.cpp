@@ -38,3 +38,13 @@ void AFPSPlayerController::SetChara(class AFPSCharacter* _chara)
 		bNeedToSpawnWeapons = false;
 	}
 }
+
+void AFPSPlayerController::EnableInputs()
+{
+	EnableInput(this);
+}
+
+void AFPSPlayerController::DisableInputs()
+{
+	DisableInput(this);
+}

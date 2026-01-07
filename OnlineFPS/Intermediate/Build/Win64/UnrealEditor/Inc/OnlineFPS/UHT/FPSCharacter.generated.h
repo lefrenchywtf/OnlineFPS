@@ -48,6 +48,7 @@ struct FPlayerWeapons;
 	virtual void ReduceHealth_Implementation(float _damage); \
 	virtual void Client_SpawnOtherWeapons_Implementation(AFPSCharacter* _chara); \
 	virtual void Server_ChangeWalkSpeed_Implementation(float _newSpeed); \
+	DECLARE_FUNCTION(execPlayFootstep); \
 	DECLARE_FUNCTION(execMC_PlaySound); \
 	DECLARE_FUNCTION(execServer_PlaySound); \
 	DECLARE_FUNCTION(execMC_SpawnFireParticule); \

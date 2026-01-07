@@ -31,6 +31,9 @@ public:
 	// Sets default values for this character's properties
 	AFPSCharacter();
 
+	UPROPERTY(BlueprintReadWrite)
+	class AFPSPlayerController* FPSController;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FPlayerWeapons weaponsToSpawn;
 
@@ -81,6 +84,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	float respawnTime = 3.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	TArray<USoundBase*> footstepSounds;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -234,4 +240,7 @@ public:
 
 	UFUNCTION(NetMulticast, Reliable)
 	void MC_PlaySound(USoundBase* _sound, FVector _location);
+
+	UFUNCTION(BlueprintCallable)
+	void PlayFootstep();
 };
