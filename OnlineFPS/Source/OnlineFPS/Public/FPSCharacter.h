@@ -230,7 +230,11 @@ public:
 	UFUNCTION(NetMulticast, Reliable)
 	void MC_SpawnFireParticule(UParticleSystem* _particule);
 
-	void SpawnParticule(UParticleSystem* _particule, FVector _location);
+	UFUNCTION(Server, Reliable)
+	void Server_SpawnParticule(UParticleSystem* _particule, FVector _location, FRotator _rotation = FRotator::ZeroRotator);
+
+	UFUNCTION(NetMulticast, Reliable)
+	void MC_SpawnParticule(UParticleSystem* _particule, FVector _location, FRotator _rotation = FRotator::ZeroRotator);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void UpdateSpreadHUD(float _spreadValue);
@@ -243,4 +247,12 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void PlayFootstep();
+
+	void ResetChara();
+	
+	UFUNCTION(Server, Reliable)
+	void Server_SpawnDecal(UMaterial* _decalMat, FVector _location, FRotator _rotation);
+
+	UFUNCTION(NetMulticast, Reliable)
+	void MC_SpawnDecal(UMaterial* _decalMat, FVector _location, FRotator _rotation);
 };

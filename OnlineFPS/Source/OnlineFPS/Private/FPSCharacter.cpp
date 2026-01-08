@@ -8,6 +8,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "FPSGameState.h"
 #include "FPSPlayerController.h"
+#include "Components/DecalComponent.h"
 
 // Sets default values
 AFPSCharacter::AFPSCharacter()
@@ -101,6 +102,10 @@ void AFPSCharacter::ShootGun()
 	if (weapon)
 	{
 		weapon->StartFiring();
+		if (bIsSprinting)
+		{
+			SprintChara(false);
+		}
 	}
 }
 
@@ -354,8 +359,7 @@ void AFPSCharacter::DieChara()
 
 void AFPSCharacter::RespawnChara()
 {
-	currentHealth = maxHealth;
-	UpdateHealthBar();
+	ResetChara();
 	EnableRagdoll(false);
 	FPSController->EnableInputs();
 	TpToSpawnPoint();
@@ -407,9 +411,17 @@ void AFPSCharacter::MC_SpawnFireParticule_Implementation(UParticleSystem* _parti
 	}
 }
 
-void AFPSCharacter::SpawnParticule(UParticleSystem* _particule, FVector _location)
+void AFPSCharacter::Server_SpawnParticule_Implementation(UParticleSystem* _particule, FVector _location, FRotator _rotation = FRotator::ZeroRotator)
 {
+	MC_SpawnParticule(_particule, _location, _rotation);
+}
 
+void AFPSCharacter::MC_SpawnParticule_Implementation(UParticleSystem* _particule, FVector _location, FRotator _rotation = FRotator::ZeroRotator)
+{
+	if (_particule)
+	{
+		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), _particule, _location, _rotation);
+	}
 }
 
 void AFPSCharacter::Server_PlaySound_Implementation(USoundBase* _sound, FVector _location)
@@ -433,5 +445,30 @@ void AFPSCharacter::PlayFootstep()
 		{
 			Server_PlaySound(sound, GetActorLocation());
 		}
+	}
+}
+
+void AFPSCharacter::ResetChara()
+{
+	SprintChara(false);
+	CrouchChara(false);
+	currentHealth = maxHealth;
+	UpdateHealthBar();
+	primaryWeapon->ResetGun();
+	secondaryWeapon->ResetGun();
+	EquipGun(EWeaponType::PRIMARY);
+}
+
+void AFPSCharacter::Server_SpawnDecal_Implementation(UMaterial* _decalMat, FVector _location, FRotator _rotation)
+{
+	MC_SpawnDecal(_decalMat, _location, _rotation);
+}
+
+void AFPSCharacter::MC_SpawnDecal_Implementation(UMaterial* _decalMat, FVector _location, FRotator _rotation)
+{
+	if (_decalMat)
+	{
+		UDecalComponent* decal = UGameplayStatics::SpawnDecalAtLocation(GetWorld(), _decalMat, FVector(3, 3, 3), _location, _rotation, 30.f);
+		decal->SetFadeScreenSize(.001f);
 	}
 }

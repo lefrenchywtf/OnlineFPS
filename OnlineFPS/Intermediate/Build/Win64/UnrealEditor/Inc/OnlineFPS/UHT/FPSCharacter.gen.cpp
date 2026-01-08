@@ -15,6 +15,7 @@ void EmptyLinkFunctionForGeneratedCodeFPSCharacter() {}
 
 // ********** Begin Cross Module References ********************************************************
 COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
+COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FRotator();
 COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector2D();
 ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
@@ -22,6 +23,7 @@ ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 ENGINE_API UClass* Z_Construct_UClass_AController_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UAnimMontage_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UDamageType_NoRegister();
+ENGINE_API UClass* Z_Construct_UClass_UMaterial_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UParticleSystem_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_USoundBase_NoRegister();
 ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
@@ -780,6 +782,68 @@ DEFINE_FUNCTION(AFPSCharacter::execMC_PlaySound)
 }
 // ********** End Class AFPSCharacter Function MC_PlaySound ****************************************
 
+// ********** Begin Class AFPSCharacter Function MC_SpawnDecal *************************************
+struct FPSCharacter_eventMC_SpawnDecal_Parms
+{
+	UMaterial* _decalMat;
+	FVector _location;
+	FRotator _rotation;
+};
+static FName NAME_AFPSCharacter_MC_SpawnDecal = FName(TEXT("MC_SpawnDecal"));
+void AFPSCharacter::MC_SpawnDecal(UMaterial* _decalMat, FVector _location, FRotator _rotation)
+{
+	FPSCharacter_eventMC_SpawnDecal_Parms Parms;
+	Parms._decalMat=_decalMat;
+	Parms._location=_location;
+	Parms._rotation=_rotation;
+	UFunction* Func = FindFunctionChecked(NAME_AFPSCharacter_MC_SpawnDecal);
+	ProcessEvent(Func,&Parms);
+}
+struct Z_Construct_UFunction_AFPSCharacter_MC_SpawnDecal_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FPSCharacter.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FObjectPropertyParams NewProp__decalMat;
+	static const UECodeGen_Private::FStructPropertyParams NewProp__location;
+	static const UECodeGen_Private::FStructPropertyParams NewProp__rotation;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AFPSCharacter_MC_SpawnDecal_Statics::NewProp__decalMat = { "_decalMat", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSCharacter_eventMC_SpawnDecal_Parms, _decalMat), Z_Construct_UClass_UMaterial_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AFPSCharacter_MC_SpawnDecal_Statics::NewProp__location = { "_location", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSCharacter_eventMC_SpawnDecal_Parms, _location), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AFPSCharacter_MC_SpawnDecal_Statics::NewProp__rotation = { "_rotation", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSCharacter_eventMC_SpawnDecal_Parms, _rotation), Z_Construct_UScriptStruct_FRotator, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFPSCharacter_MC_SpawnDecal_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSCharacter_MC_SpawnDecal_Statics::NewProp__decalMat,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSCharacter_MC_SpawnDecal_Statics::NewProp__location,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSCharacter_MC_SpawnDecal_Statics::NewProp__rotation,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_MC_SpawnDecal_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSCharacter_MC_SpawnDecal_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSCharacter, nullptr, "MC_SpawnDecal", Z_Construct_UFunction_AFPSCharacter_MC_SpawnDecal_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_MC_SpawnDecal_Statics::PropPointers), sizeof(FPSCharacter_eventMC_SpawnDecal_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00824CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_MC_SpawnDecal_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSCharacter_MC_SpawnDecal_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(FPSCharacter_eventMC_SpawnDecal_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AFPSCharacter_MC_SpawnDecal()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSCharacter_MC_SpawnDecal_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AFPSCharacter::execMC_SpawnDecal)
+{
+	P_GET_OBJECT(UMaterial,Z_Param__decalMat);
+	P_GET_STRUCT(FVector,Z_Param__location);
+	P_GET_STRUCT(FRotator,Z_Param__rotation);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->MC_SpawnDecal_Implementation(Z_Param__decalMat,Z_Param__location,Z_Param__rotation);
+	P_NATIVE_END;
+}
+// ********** End Class AFPSCharacter Function MC_SpawnDecal ***************************************
+
 // ********** Begin Class AFPSCharacter Function MC_SpawnFireParticule *****************************
 struct FPSCharacter_eventMC_SpawnFireParticule_Parms
 {
@@ -829,6 +893,68 @@ DEFINE_FUNCTION(AFPSCharacter::execMC_SpawnFireParticule)
 	P_NATIVE_END;
 }
 // ********** End Class AFPSCharacter Function MC_SpawnFireParticule *******************************
+
+// ********** Begin Class AFPSCharacter Function MC_SpawnParticule *********************************
+struct FPSCharacter_eventMC_SpawnParticule_Parms
+{
+	UParticleSystem* _particule;
+	FVector _location;
+	FRotator _rotation;
+};
+static FName NAME_AFPSCharacter_MC_SpawnParticule = FName(TEXT("MC_SpawnParticule"));
+void AFPSCharacter::MC_SpawnParticule(UParticleSystem* _particule, FVector _location, FRotator _rotation)
+{
+	FPSCharacter_eventMC_SpawnParticule_Parms Parms;
+	Parms._particule=_particule;
+	Parms._location=_location;
+	Parms._rotation=_rotation;
+	UFunction* Func = FindFunctionChecked(NAME_AFPSCharacter_MC_SpawnParticule);
+	ProcessEvent(Func,&Parms);
+}
+struct Z_Construct_UFunction_AFPSCharacter_MC_SpawnParticule_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FPSCharacter.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FObjectPropertyParams NewProp__particule;
+	static const UECodeGen_Private::FStructPropertyParams NewProp__location;
+	static const UECodeGen_Private::FStructPropertyParams NewProp__rotation;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AFPSCharacter_MC_SpawnParticule_Statics::NewProp__particule = { "_particule", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSCharacter_eventMC_SpawnParticule_Parms, _particule), Z_Construct_UClass_UParticleSystem_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AFPSCharacter_MC_SpawnParticule_Statics::NewProp__location = { "_location", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSCharacter_eventMC_SpawnParticule_Parms, _location), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AFPSCharacter_MC_SpawnParticule_Statics::NewProp__rotation = { "_rotation", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSCharacter_eventMC_SpawnParticule_Parms, _rotation), Z_Construct_UScriptStruct_FRotator, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFPSCharacter_MC_SpawnParticule_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSCharacter_MC_SpawnParticule_Statics::NewProp__particule,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSCharacter_MC_SpawnParticule_Statics::NewProp__location,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSCharacter_MC_SpawnParticule_Statics::NewProp__rotation,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_MC_SpawnParticule_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSCharacter_MC_SpawnParticule_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSCharacter, nullptr, "MC_SpawnParticule", Z_Construct_UFunction_AFPSCharacter_MC_SpawnParticule_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_MC_SpawnParticule_Statics::PropPointers), sizeof(FPSCharacter_eventMC_SpawnParticule_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00824CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_MC_SpawnParticule_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSCharacter_MC_SpawnParticule_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(FPSCharacter_eventMC_SpawnParticule_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AFPSCharacter_MC_SpawnParticule()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSCharacter_MC_SpawnParticule_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AFPSCharacter::execMC_SpawnParticule)
+{
+	P_GET_OBJECT(UParticleSystem,Z_Param__particule);
+	P_GET_STRUCT(FVector,Z_Param__location);
+	P_GET_STRUCT(FRotator,Z_Param__rotation);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->MC_SpawnParticule_Implementation(Z_Param__particule,Z_Param__location,Z_Param__rotation);
+	P_NATIVE_END;
+}
+// ********** End Class AFPSCharacter Function MC_SpawnParticule ***********************************
 
 // ********** Begin Class AFPSCharacter Function Move **********************************************
 struct Z_Construct_UFunction_AFPSCharacter_Move_Statics
@@ -1374,6 +1500,68 @@ DEFINE_FUNCTION(AFPSCharacter::execServer_PlaySound)
 }
 // ********** End Class AFPSCharacter Function Server_PlaySound ************************************
 
+// ********** Begin Class AFPSCharacter Function Server_SpawnDecal *********************************
+struct FPSCharacter_eventServer_SpawnDecal_Parms
+{
+	UMaterial* _decalMat;
+	FVector _location;
+	FRotator _rotation;
+};
+static FName NAME_AFPSCharacter_Server_SpawnDecal = FName(TEXT("Server_SpawnDecal"));
+void AFPSCharacter::Server_SpawnDecal(UMaterial* _decalMat, FVector _location, FRotator _rotation)
+{
+	FPSCharacter_eventServer_SpawnDecal_Parms Parms;
+	Parms._decalMat=_decalMat;
+	Parms._location=_location;
+	Parms._rotation=_rotation;
+	UFunction* Func = FindFunctionChecked(NAME_AFPSCharacter_Server_SpawnDecal);
+	ProcessEvent(Func,&Parms);
+}
+struct Z_Construct_UFunction_AFPSCharacter_Server_SpawnDecal_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FPSCharacter.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FObjectPropertyParams NewProp__decalMat;
+	static const UECodeGen_Private::FStructPropertyParams NewProp__location;
+	static const UECodeGen_Private::FStructPropertyParams NewProp__rotation;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AFPSCharacter_Server_SpawnDecal_Statics::NewProp__decalMat = { "_decalMat", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSCharacter_eventServer_SpawnDecal_Parms, _decalMat), Z_Construct_UClass_UMaterial_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AFPSCharacter_Server_SpawnDecal_Statics::NewProp__location = { "_location", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSCharacter_eventServer_SpawnDecal_Parms, _location), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AFPSCharacter_Server_SpawnDecal_Statics::NewProp__rotation = { "_rotation", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSCharacter_eventServer_SpawnDecal_Parms, _rotation), Z_Construct_UScriptStruct_FRotator, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFPSCharacter_Server_SpawnDecal_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSCharacter_Server_SpawnDecal_Statics::NewProp__decalMat,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSCharacter_Server_SpawnDecal_Statics::NewProp__location,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSCharacter_Server_SpawnDecal_Statics::NewProp__rotation,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_Server_SpawnDecal_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSCharacter_Server_SpawnDecal_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSCharacter, nullptr, "Server_SpawnDecal", Z_Construct_UFunction_AFPSCharacter_Server_SpawnDecal_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_Server_SpawnDecal_Statics::PropPointers), sizeof(FPSCharacter_eventServer_SpawnDecal_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00A20CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_Server_SpawnDecal_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSCharacter_Server_SpawnDecal_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(FPSCharacter_eventServer_SpawnDecal_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AFPSCharacter_Server_SpawnDecal()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSCharacter_Server_SpawnDecal_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AFPSCharacter::execServer_SpawnDecal)
+{
+	P_GET_OBJECT(UMaterial,Z_Param__decalMat);
+	P_GET_STRUCT(FVector,Z_Param__location);
+	P_GET_STRUCT(FRotator,Z_Param__rotation);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->Server_SpawnDecal_Implementation(Z_Param__decalMat,Z_Param__location,Z_Param__rotation);
+	P_NATIVE_END;
+}
+// ********** End Class AFPSCharacter Function Server_SpawnDecal ***********************************
+
 // ********** Begin Class AFPSCharacter Function Server_SpawnFireParticule *************************
 struct FPSCharacter_eventServer_SpawnFireParticule_Parms
 {
@@ -1423,6 +1611,68 @@ DEFINE_FUNCTION(AFPSCharacter::execServer_SpawnFireParticule)
 	P_NATIVE_END;
 }
 // ********** End Class AFPSCharacter Function Server_SpawnFireParticule ***************************
+
+// ********** Begin Class AFPSCharacter Function Server_SpawnParticule *****************************
+struct FPSCharacter_eventServer_SpawnParticule_Parms
+{
+	UParticleSystem* _particule;
+	FVector _location;
+	FRotator _rotation;
+};
+static FName NAME_AFPSCharacter_Server_SpawnParticule = FName(TEXT("Server_SpawnParticule"));
+void AFPSCharacter::Server_SpawnParticule(UParticleSystem* _particule, FVector _location, FRotator _rotation)
+{
+	FPSCharacter_eventServer_SpawnParticule_Parms Parms;
+	Parms._particule=_particule;
+	Parms._location=_location;
+	Parms._rotation=_rotation;
+	UFunction* Func = FindFunctionChecked(NAME_AFPSCharacter_Server_SpawnParticule);
+	ProcessEvent(Func,&Parms);
+}
+struct Z_Construct_UFunction_AFPSCharacter_Server_SpawnParticule_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FPSCharacter.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FObjectPropertyParams NewProp__particule;
+	static const UECodeGen_Private::FStructPropertyParams NewProp__location;
+	static const UECodeGen_Private::FStructPropertyParams NewProp__rotation;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AFPSCharacter_Server_SpawnParticule_Statics::NewProp__particule = { "_particule", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSCharacter_eventServer_SpawnParticule_Parms, _particule), Z_Construct_UClass_UParticleSystem_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AFPSCharacter_Server_SpawnParticule_Statics::NewProp__location = { "_location", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSCharacter_eventServer_SpawnParticule_Parms, _location), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AFPSCharacter_Server_SpawnParticule_Statics::NewProp__rotation = { "_rotation", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSCharacter_eventServer_SpawnParticule_Parms, _rotation), Z_Construct_UScriptStruct_FRotator, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFPSCharacter_Server_SpawnParticule_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSCharacter_Server_SpawnParticule_Statics::NewProp__particule,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSCharacter_Server_SpawnParticule_Statics::NewProp__location,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSCharacter_Server_SpawnParticule_Statics::NewProp__rotation,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_Server_SpawnParticule_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSCharacter_Server_SpawnParticule_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSCharacter, nullptr, "Server_SpawnParticule", Z_Construct_UFunction_AFPSCharacter_Server_SpawnParticule_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_Server_SpawnParticule_Statics::PropPointers), sizeof(FPSCharacter_eventServer_SpawnParticule_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00A20CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_Server_SpawnParticule_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSCharacter_Server_SpawnParticule_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(FPSCharacter_eventServer_SpawnParticule_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AFPSCharacter_Server_SpawnParticule()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSCharacter_Server_SpawnParticule_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AFPSCharacter::execServer_SpawnParticule)
+{
+	P_GET_OBJECT(UParticleSystem,Z_Param__particule);
+	P_GET_STRUCT(FVector,Z_Param__location);
+	P_GET_STRUCT(FRotator,Z_Param__rotation);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->Server_SpawnParticule_Implementation(Z_Param__particule,Z_Param__location,Z_Param__rotation);
+	P_NATIVE_END;
+}
+// ********** End Class AFPSCharacter Function Server_SpawnParticule *******************************
 
 // ********** Begin Class AFPSCharacter Function ShootGun ******************************************
 struct Z_Construct_UFunction_AFPSCharacter_ShootGun_Statics
@@ -1799,7 +2049,9 @@ void AFPSCharacter::StaticRegisterNativesAFPSCharacter()
 		{ "HandleTakeDamage", &AFPSCharacter::execHandleTakeDamage },
 		{ "JumpChara", &AFPSCharacter::execJumpChara },
 		{ "MC_PlaySound", &AFPSCharacter::execMC_PlaySound },
+		{ "MC_SpawnDecal", &AFPSCharacter::execMC_SpawnDecal },
 		{ "MC_SpawnFireParticule", &AFPSCharacter::execMC_SpawnFireParticule },
+		{ "MC_SpawnParticule", &AFPSCharacter::execMC_SpawnParticule },
 		{ "Move", &AFPSCharacter::execMove },
 		{ "MoveCamera", &AFPSCharacter::execMoveCamera },
 		{ "OnRepEquiped", &AFPSCharacter::execOnRepEquiped },
@@ -1810,7 +2062,9 @@ void AFPSCharacter::StaticRegisterNativesAFPSCharacter()
 		{ "Server_ChangeWalkSpeed", &AFPSCharacter::execServer_ChangeWalkSpeed },
 		{ "Server_DealDamage", &AFPSCharacter::execServer_DealDamage },
 		{ "Server_PlaySound", &AFPSCharacter::execServer_PlaySound },
+		{ "Server_SpawnDecal", &AFPSCharacter::execServer_SpawnDecal },
 		{ "Server_SpawnFireParticule", &AFPSCharacter::execServer_SpawnFireParticule },
+		{ "Server_SpawnParticule", &AFPSCharacter::execServer_SpawnParticule },
 		{ "ShootGun", &AFPSCharacter::execShootGun },
 		{ "SprintChara", &AFPSCharacter::execSprintChara },
 		{ "StartADS", &AFPSCharacter::execStartADS },
@@ -1984,7 +2238,9 @@ struct Z_Construct_UClass_AFPSCharacter_Statics
 		{ &Z_Construct_UFunction_AFPSCharacter_HandleTakeDamage, "HandleTakeDamage" }, // 2629927805
 		{ &Z_Construct_UFunction_AFPSCharacter_JumpChara, "JumpChara" }, // 4149562585
 		{ &Z_Construct_UFunction_AFPSCharacter_MC_PlaySound, "MC_PlaySound" }, // 830299932
+		{ &Z_Construct_UFunction_AFPSCharacter_MC_SpawnDecal, "MC_SpawnDecal" }, // 1607787785
 		{ &Z_Construct_UFunction_AFPSCharacter_MC_SpawnFireParticule, "MC_SpawnFireParticule" }, // 1437917633
+		{ &Z_Construct_UFunction_AFPSCharacter_MC_SpawnParticule, "MC_SpawnParticule" }, // 3634400822
 		{ &Z_Construct_UFunction_AFPSCharacter_Move, "Move" }, // 3742239479
 		{ &Z_Construct_UFunction_AFPSCharacter_MoveCamera, "MoveCamera" }, // 4161976889
 		{ &Z_Construct_UFunction_AFPSCharacter_OnRepEquiped, "OnRepEquiped" }, // 3204835420
@@ -1998,7 +2254,9 @@ struct Z_Construct_UClass_AFPSCharacter_Statics
 		{ &Z_Construct_UFunction_AFPSCharacter_Server_ChangeWalkSpeed, "Server_ChangeWalkSpeed" }, // 118263672
 		{ &Z_Construct_UFunction_AFPSCharacter_Server_DealDamage, "Server_DealDamage" }, // 680099646
 		{ &Z_Construct_UFunction_AFPSCharacter_Server_PlaySound, "Server_PlaySound" }, // 2064683011
+		{ &Z_Construct_UFunction_AFPSCharacter_Server_SpawnDecal, "Server_SpawnDecal" }, // 2826580642
 		{ &Z_Construct_UFunction_AFPSCharacter_Server_SpawnFireParticule, "Server_SpawnFireParticule" }, // 3592095325
+		{ &Z_Construct_UFunction_AFPSCharacter_Server_SpawnParticule, "Server_SpawnParticule" }, // 1573394455
 		{ &Z_Construct_UFunction_AFPSCharacter_ShootGun, "ShootGun" }, // 2298979356
 		{ &Z_Construct_UFunction_AFPSCharacter_SpawnCharaWeapons, "SpawnCharaWeapons" }, // 2376710997
 		{ &Z_Construct_UFunction_AFPSCharacter_SprintChara, "SprintChara" }, // 3351018664
@@ -2139,10 +2397,10 @@ struct Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_
 		{ FPlayerWeapons::StaticStruct, Z_Construct_UScriptStruct_FPlayerWeapons_Statics::NewStructOps, TEXT("PlayerWeapons"), &Z_Registration_Info_UScriptStruct_FPlayerWeapons, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FPlayerWeapons), 1467568506U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AFPSCharacter, AFPSCharacter::StaticClass, TEXT("AFPSCharacter"), &Z_Registration_Info_UClass_AFPSCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSCharacter), 407633994U) },
+		{ Z_Construct_UClass_AFPSCharacter, AFPSCharacter::StaticClass, TEXT("AFPSCharacter"), &Z_Registration_Info_UClass_AFPSCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSCharacter), 1171027133U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h__Script_OnlineFPS_2476778965(TEXT("/Script/OnlineFPS"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h__Script_OnlineFPS_4176401891(TEXT("/Script/OnlineFPS"),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h__Script_OnlineFPS_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h__Script_OnlineFPS_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h__Script_OnlineFPS_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h__Script_OnlineFPS_Statics::ScriptStructInfo),
 	nullptr, 0);

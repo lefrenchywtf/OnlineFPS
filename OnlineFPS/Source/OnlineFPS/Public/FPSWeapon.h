@@ -17,7 +17,8 @@ UENUM(BlueprintType)
 enum class EWeaponParticule : uint8
 {
 	FIRE,
-	IMPACT_WOOD
+	IMPACT_FLESH,
+	IMPACT_STONE
 };
 
 UENUM(BlueprintType)
@@ -158,6 +159,9 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float spreadRecoverySpeed = 1.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UMaterial* bulletHoleMat;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -220,4 +224,8 @@ public:
 	void PlayFireSound();
 
 	void PlayReloadSound(bool _start);
+
+	void ResetGun();
+
+	void SpawnImpactParticule(FHitResult _hitresult);
 };

@@ -60,7 +60,7 @@ void AFPSWeapon::IncreaseSpread()
 
 void AFPSWeapon::StartFiring()
 {
-	if (!bIsFiring)
+	if (!bIsFiring && !weaponOwner->bIsReloading)
 	{
 		bIsFiring = true;
 		Fire();
@@ -109,6 +109,11 @@ void AFPSWeapon::TraceBullet()
 			float finalDamage = CalculateDamage(hitResult);
 			weaponOwner->Server_DealDamage(finalDamage, hitResult);
 		}
+		else
+		{
+			weaponOwner->Server_SpawnDecal(bulletHoleMat, hitResult.Location, UKismetMathLibrary::MakeRotFromX(hitResult.Normal));
+		}
+		SpawnImpactParticule(hitResult);
 	}
 	DrawDebugLine(GetWorld(), traceStart, traceEnd, FColor::Red, false, 5);
 }
@@ -161,6 +166,10 @@ void AFPSWeapon::StartReload()
 {
 	if (ammoCount < maxAmmo)
 	{
+		if (bIsFiring)
+		{
+			StopFiring();
+		}
 		GetWorldTimerManager().SetTimer(reloadTimerHandle, this, &AFPSWeapon::ReloadGun, reloadTime, false);
 		PlayReloadSound(true);
 	}
@@ -256,5 +265,45 @@ void AFPSWeapon::PlayReloadSound(bool _start)
 		{
 			weaponOwner->Server_PlaySound(sound, GetActorLocation());
 		}
+	}
+}
+
+void AFPSWeapon::ResetGun()
+{
+	ammoCount = maxAmmo;
+	currentSpread = minSpread;
+}
+
+void AFPSWeapon::SpawnImpactParticule(FHitResult _hitresult)
+{
+	UParticleSystem* particle = nullptr;
+	if (_hitresult.PhysMaterial != nullptr)
+	{
+		switch (_hitresult.PhysMaterial->SurfaceType)
+		{
+		case SurfaceType_Default:
+			particle = *weaponParticules.Find(EWeaponParticule::IMPACT_STONE);
+			break;
+		case SurfaceType1:
+		case SurfaceType2:
+		case SurfaceType3:
+			particle = *weaponParticules.Find(EWeaponParticule::IMPACT_FLESH);
+			break;
+		case SurfaceType4:
+			break;
+		default:
+			break;
+		}
+	}
+	else
+	{
+		particle = *weaponParticules.Find(EWeaponParticule::IMPACT_STONE);
+	}
+
+	if (particle)
+	{
+		FRotator rotation = UKismetMathLibrary::FindLookAtRotation(_hitresult.Location, _hitresult.TraceStart);
+		//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("%s"), *rotation.ToString()));
+		weaponOwner->Server_SpawnParticule(particle, _hitresult.Location, rotation);
 	}
 }

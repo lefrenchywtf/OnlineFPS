@@ -16,6 +16,9 @@ class ONLINEFPS_API AFPSPlayerController : public APlayerController
 
 protected:
 	bool bNeedToSpawnWeapons = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bIsSprintToggle = false;
 public:
 	UPROPERTY(BlueprintReadWrite)
 	class AFPSCharacter* Chara;
