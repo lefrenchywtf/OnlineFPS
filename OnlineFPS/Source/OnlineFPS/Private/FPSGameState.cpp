@@ -6,6 +6,7 @@
 
 void AFPSGameState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 	DOREPLIFETIME(AFPSGameState, LobbyPawns);
 	DOREPLIFETIME(AFPSGameState, Spawns);
 }

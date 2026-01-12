@@ -16,8 +16,87 @@ ENGINE_API UClass* Z_Construct_UClass_AGameMode();
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSGameModeBase();
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSGameModeBase_NoRegister();
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSPlayerController_NoRegister();
+ONLINEFPS_API UScriptStruct* Z_Construct_UScriptStruct_FTeamBasedInfos();
 UPackage* Z_Construct_UPackage__Script_OnlineFPS();
 // ********** End Cross Module References **********************************************************
+
+// ********** Begin ScriptStruct FTeamBasedInfos ***************************************************
+static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_FTeamBasedInfos;
+class UScriptStruct* FTeamBasedInfos::StaticStruct()
+{
+	if (!Z_Registration_Info_UScriptStruct_FTeamBasedInfos.OuterSingleton)
+	{
+		Z_Registration_Info_UScriptStruct_FTeamBasedInfos.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FTeamBasedInfos, (UObject*)Z_Construct_UPackage__Script_OnlineFPS(), TEXT("TeamBasedInfos"));
+	}
+	return Z_Registration_Info_UScriptStruct_FTeamBasedInfos.OuterSingleton;
+}
+struct Z_Construct_UScriptStruct_FTeamBasedInfos_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/**\n * \n */" },
+#endif
+		{ "ModuleRelativePath", "Public/FPSGameModeBase.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_numberOfTeams_MetaData[] = {
+		{ "Category", "TeamBasedInfos" },
+		{ "ModuleRelativePath", "Public/FPSGameModeBase.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_objectiveToReach_MetaData[] = {
+		{ "Category", "TeamBasedInfos" },
+		{ "ModuleRelativePath", "Public/FPSGameModeBase.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_currentObjectives_MetaData[] = {
+		{ "Category", "TeamBasedInfos" },
+		{ "ModuleRelativePath", "Public/FPSGameModeBase.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FIntPropertyParams NewProp_numberOfTeams;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_objectiveToReach;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_currentObjectives_Inner;
+	static const UECodeGen_Private::FArrayPropertyParams NewProp_currentObjectives;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static void* NewStructOps()
+	{
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FTeamBasedInfos>();
+	}
+	static const UECodeGen_Private::FStructParams StructParams;
+};
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FTeamBasedInfos_Statics::NewProp_numberOfTeams = { "numberOfTeams", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FTeamBasedInfos, numberOfTeams), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_numberOfTeams_MetaData), NewProp_numberOfTeams_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FTeamBasedInfos_Statics::NewProp_objectiveToReach = { "objectiveToReach", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FTeamBasedInfos, objectiveToReach), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_objectiveToReach_MetaData), NewProp_objectiveToReach_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FTeamBasedInfos_Statics::NewProp_currentObjectives_Inner = { "currentObjectives", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UScriptStruct_FTeamBasedInfos_Statics::NewProp_currentObjectives = { "currentObjectives", nullptr, (EPropertyFlags)0x0010000000010005, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FTeamBasedInfos, currentObjectives), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_currentObjectives_MetaData), NewProp_currentObjectives_MetaData) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FTeamBasedInfos_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FTeamBasedInfos_Statics::NewProp_numberOfTeams,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FTeamBasedInfos_Statics::NewProp_objectiveToReach,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FTeamBasedInfos_Statics::NewProp_currentObjectives_Inner,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FTeamBasedInfos_Statics::NewProp_currentObjectives,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FTeamBasedInfos_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FTeamBasedInfos_Statics::StructParams = {
+	(UObject* (*)())Z_Construct_UPackage__Script_OnlineFPS,
+	nullptr,
+	&NewStructOps,
+	"TeamBasedInfos",
+	Z_Construct_UScriptStruct_FTeamBasedInfos_Statics::PropPointers,
+	UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FTeamBasedInfos_Statics::PropPointers),
+	sizeof(FTeamBasedInfos),
+	alignof(FTeamBasedInfos),
+	RF_Public|RF_Transient|RF_MarkAsNative,
+	EStructFlags(0x00000001),
+	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FTeamBasedInfos_Statics::Struct_MetaDataParams), Z_Construct_UScriptStruct_FTeamBasedInfos_Statics::Struct_MetaDataParams)
+};
+UScriptStruct* Z_Construct_UScriptStruct_FTeamBasedInfos()
+{
+	if (!Z_Registration_Info_UScriptStruct_FTeamBasedInfos.InnerSingleton)
+	{
+		UECodeGen_Private::ConstructUScriptStruct(Z_Registration_Info_UScriptStruct_FTeamBasedInfos.InnerSingleton, Z_Construct_UScriptStruct_FTeamBasedInfos_Statics::StructParams);
+	}
+	return Z_Registration_Info_UScriptStruct_FTeamBasedInfos.InnerSingleton;
+}
+// ********** End ScriptStruct FTeamBasedInfos *****************************************************
 
 // ********** Begin Class AFPSGameModeBase Function AddPlayer **************************************
 struct Z_Construct_UFunction_AFPSGameModeBase_AddPlayer_Statics
@@ -146,15 +225,24 @@ struct Z_Construct_UClass_AFPSGameModeBase_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[] = {
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "/**\n * \n */" },
-#endif
 		{ "HideCategories", "Info Rendering MovementReplication Replication Actor Input Movement Collision Rendering HLOD WorldPartition DataLayers Transformation" },
 		{ "IncludePath", "FPSGameModeBase.h" },
 		{ "ModuleRelativePath", "Public/FPSGameModeBase.h" },
 		{ "ShowCategories", "Input|MouseInput Input|TouchInput" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bTeamBasedMode_MetaData[] = {
+		{ "Category", "FPSGameModeBase" },
+		{ "ModuleRelativePath", "Public/FPSGameModeBase.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_teamModeInfo_MetaData[] = {
+		{ "Category", "FPSGameModeBase" },
+		{ "ModuleRelativePath", "Public/FPSGameModeBase.h" },
+	};
 #endif // WITH_METADATA
+	static void NewProp_bTeamBasedMode_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bTeamBasedMode;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_teamModeInfo;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_AFPSGameModeBase_AddPlayer, "AddPlayer" }, // 4141198723
@@ -166,6 +254,17 @@ struct Z_Construct_UClass_AFPSGameModeBase_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
+void Z_Construct_UClass_AFPSGameModeBase_Statics::NewProp_bTeamBasedMode_SetBit(void* Obj)
+{
+	((AFPSGameModeBase*)Obj)->bTeamBasedMode = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AFPSGameModeBase_Statics::NewProp_bTeamBasedMode = { "bTeamBasedMode", nullptr, (EPropertyFlags)0x0020080000010005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AFPSGameModeBase), &Z_Construct_UClass_AFPSGameModeBase_Statics::NewProp_bTeamBasedMode_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bTeamBasedMode_MetaData), NewProp_bTeamBasedMode_MetaData) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AFPSGameModeBase_Statics::NewProp_teamModeInfo = { "teamModeInfo", nullptr, (EPropertyFlags)0x0020080000010005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSGameModeBase, teamModeInfo), Z_Construct_UScriptStruct_FTeamBasedInfos, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_teamModeInfo_MetaData), NewProp_teamModeInfo_MetaData) }; // 2724012698
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFPSGameModeBase_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSGameModeBase_Statics::NewProp_bTeamBasedMode,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSGameModeBase_Statics::NewProp_teamModeInfo,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AFPSGameModeBase_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AFPSGameModeBase_Statics::DependentSingletons[])() = {
 	(UObject* (*)())Z_Construct_UClass_AGameMode,
 	(UObject* (*)())Z_Construct_UPackage__Script_OnlineFPS,
@@ -177,11 +276,11 @@ const UECodeGen_Private::FClassParams Z_Construct_UClass_AFPSGameModeBase_Static
 	&StaticCppClassTypeInfo,
 	DependentSingletons,
 	FuncInfo,
-	nullptr,
+	Z_Construct_UClass_AFPSGameModeBase_Statics::PropPointers,
 	nullptr,
 	UE_ARRAY_COUNT(DependentSingletons),
 	UE_ARRAY_COUNT(FuncInfo),
-	0,
+	UE_ARRAY_COUNT(Z_Construct_UClass_AFPSGameModeBase_Statics::PropPointers),
 	0,
 	0x009003ACu,
 	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFPSGameModeBase_Statics::Class_MetaDataParams), Z_Construct_UClass_AFPSGameModeBase_Statics::Class_MetaDataParams)
@@ -202,13 +301,16 @@ AFPSGameModeBase::~AFPSGameModeBase() {}
 // ********** Begin Registration *******************************************************************
 struct Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h__Script_OnlineFPS_Statics
 {
+	static constexpr FStructRegisterCompiledInInfo ScriptStructInfo[] = {
+		{ FTeamBasedInfos::StaticStruct, Z_Construct_UScriptStruct_FTeamBasedInfos_Statics::NewStructOps, TEXT("TeamBasedInfos"), &Z_Registration_Info_UScriptStruct_FTeamBasedInfos, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FTeamBasedInfos), 2724012698U) },
+	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AFPSGameModeBase, AFPSGameModeBase::StaticClass, TEXT("AFPSGameModeBase"), &Z_Registration_Info_UClass_AFPSGameModeBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSGameModeBase), 474720425U) },
+		{ Z_Construct_UClass_AFPSGameModeBase, AFPSGameModeBase::StaticClass, TEXT("AFPSGameModeBase"), &Z_Registration_Info_UClass_AFPSGameModeBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSGameModeBase), 3840392322U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h__Script_OnlineFPS_3225216796(TEXT("/Script/OnlineFPS"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h__Script_OnlineFPS_2509378330(TEXT("/Script/OnlineFPS"),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h__Script_OnlineFPS_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h__Script_OnlineFPS_Statics::ClassInfo),
-	nullptr, 0,
+	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h__Script_OnlineFPS_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h__Script_OnlineFPS_Statics::ScriptStructInfo),
 	nullptr, 0);
 // ********** End Registration *********************************************************************
 

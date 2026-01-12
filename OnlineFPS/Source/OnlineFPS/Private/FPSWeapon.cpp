@@ -6,6 +6,8 @@
 #include "Camera/CameraComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Kismet/KismetMathLibrary.h"
+#include "FPS_PlayerState.h"
+#include "FPSGameState.h"
 
 // Sets default values
 AFPSWeapon::AFPSWeapon()
@@ -106,8 +108,11 @@ void AFPSWeapon::TraceBullet()
 		AFPSCharacter* hitChara = Cast<AFPSCharacter>(hitResult.GetActor());
 		if (hitChara)
 		{
-			float finalDamage = CalculateDamage(hitResult);
-			weaponOwner->Server_DealDamage(finalDamage, hitResult);
+			if (CanDamagePlayer(hitChara))
+			{
+				float finalDamage = CalculateDamage(hitResult);
+				weaponOwner->Server_DealDamage(finalDamage, hitResult);
+			}
 		}
 		else
 		{
@@ -146,6 +151,28 @@ float AFPSWeapon::CalculateDamage(FHitResult _hit)
 		}
 	}
 	return damage;
+}
+
+bool AFPSWeapon::CanDamagePlayer(AFPSCharacter* _hitChara)
+{
+	AFPSGameState* gs = GetWorld()->GetGameState<AFPSGameState>();
+	if (gs->bTeamBased)
+	{
+		if (_hitChara)
+		{
+			AFPS_PlayerState* ownerPs = weaponOwner->GetPlayerState<AFPS_PlayerState>();
+			AFPS_PlayerState* hitPs = _hitChara->GetPlayerState<AFPS_PlayerState>();
+
+			if (hitPs && ownerPs)
+			{
+				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("%d"), hitPs->teamID));
+				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("%d"), ownerPs->teamID));
+				return hitPs->teamID != ownerPs->teamID;
+			}
+			return false;
+		}
+	}
+	return true;
 }
 
 void AFPSWeapon::Server_DealDamage_Implementation(FHitResult _hit, class AFPSCharacter* _character)

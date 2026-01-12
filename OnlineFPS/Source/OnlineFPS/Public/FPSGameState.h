@@ -20,6 +20,8 @@ protected:
 	UPROPERTY(Replicated)
 	TArray<FVector> Spawns;
 public:
+	bool bTeamBased = false;
+
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
 	void UpdatePlayersList();

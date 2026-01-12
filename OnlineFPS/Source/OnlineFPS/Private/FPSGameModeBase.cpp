@@ -7,10 +7,16 @@
 #include "FPSGameState.h"
 #include "EngineUtils.h"
 #include "GameFramework/PlayerStart.h"
+#include "FPS_PlayerState.h"
 
 void AFPSGameModeBase::BeginPlay()
 {
 	Super::BeginPlay();
+	gameState = GetGameState<AFPSGameState>();
+	if (gameState)
+	{
+		gameState->bTeamBased = bTeamBasedMode;
+	}
 	RetrieveSpawns();
 }
 
@@ -36,6 +42,19 @@ void AFPSGameModeBase::AddPlayer(AFPSPlayerController* _character)
 	{
 		LobbyPlayers.Add(_character);
 		UpdateGameState();
+		if (bTeamBasedMode)
+		{
+			AFPS_PlayerState* playerState = _character->GetPlayerState<AFPS_PlayerState>();
+			if (playerState)
+			{
+				playerState->teamID = nextTeamIdToGive;
+				nextTeamIdToGive++;
+				if (nextTeamIdToGive >= teamModeInfo.numberOfTeams)
+				{
+					nextTeamIdToGive = 0;
+				}
+			}
+		}
 		if (LobbyPlayers.Num() > 1)
 		{
 			_character->Client_NeedSpawnWeapons();

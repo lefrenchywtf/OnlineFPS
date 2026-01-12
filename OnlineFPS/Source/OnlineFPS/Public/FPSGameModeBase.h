@@ -10,6 +10,20 @@
  * 
  */
 
+USTRUCT(BlueprintType)
+struct FTeamBasedInfos
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	int numberOfTeams = 2;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	int objectiveToReach = 10;
+	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+	TArray<int> currentObjectives;
+};
 
 UCLASS()
 class ONLINEFPS_API AFPSGameModeBase : public AGameMode
@@ -26,7 +40,14 @@ protected:
 	bool bSpawnsGiven = false;
 
 	class AFPSGameState* gameState;
-	
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+	bool bTeamBasedMode = false;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+	FTeamBasedInfos teamModeInfo;
+
+	int nextTeamIdToGive = 0;
 public:	
 
 	UFUNCTION(BlueprintCallable)

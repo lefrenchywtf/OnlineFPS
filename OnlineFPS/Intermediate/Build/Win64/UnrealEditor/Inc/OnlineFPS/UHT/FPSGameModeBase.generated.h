@@ -18,15 +18,24 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 class AFPSPlayerController;
 
+// ********** Begin ScriptStruct FTeamBasedInfos ***************************************************
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_16_GENERATED_BODY \
+	friend struct Z_Construct_UScriptStruct_FTeamBasedInfos_Statics; \
+	ONLINEFPS_API static class UScriptStruct* StaticStruct();
+
+
+struct FTeamBasedInfos;
+// ********** End ScriptStruct FTeamBasedInfos *****************************************************
+
 // ********** Begin Class AFPSGameModeBase *********************************************************
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_31_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execRemovePlayer); \
 	DECLARE_FUNCTION(execAddPlayer);
 
 
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSGameModeBase_NoRegister();
 
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_17_INCLASS_NO_PURE_DECLS \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_31_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAFPSGameModeBase(); \
 	friend struct Z_Construct_UClass_AFPSGameModeBase_Statics; \
@@ -37,7 +46,7 @@ public: \
 	DECLARE_SERIALIZER(AFPSGameModeBase)
 
 
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_17_ENHANCED_CONSTRUCTORS \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_31_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AFPSGameModeBase(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	/** Deleted move- and copy-constructors, should never be used */ \
@@ -49,13 +58,13 @@ public: \
 	NO_API virtual ~AFPSGameModeBase();
 
 
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_14_PROLOG
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_17_GENERATED_BODY \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_28_PROLOG
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_31_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_17_INCLASS_NO_PURE_DECLS \
-	FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_17_ENHANCED_CONSTRUCTORS \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_31_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_31_INCLASS_NO_PURE_DECLS \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_31_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

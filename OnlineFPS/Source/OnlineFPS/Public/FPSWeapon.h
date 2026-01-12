@@ -228,4 +228,6 @@ public:
 	void ResetGun();
 
 	void SpawnImpactParticule(FHitResult _hitresult);
+
+	bool CanDamagePlayer(class AFPSCharacter* _hitChara);
 };
