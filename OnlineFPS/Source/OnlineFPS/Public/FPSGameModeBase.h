@@ -4,36 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameMode.h"
+#include "FPSStructs.h"
 #include "FPSGameModeBase.generated.h"
 
 /**
  * 
  */
-
-UENUM(BlueprintType)
-enum class EObjectiveType : uint8
-{
-	KILLS,
-	ZONES,
-};
-
-USTRUCT(BlueprintType)
-struct FTeamBasedInfos
-{
-	GENERATED_BODY()
-
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	int numberOfTeams = 2;
-
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	int objectiveToReach = 10;
-	
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
-	TArray<int> currentObjectives;
-
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	EObjectiveType objectiveType;
-};
 
 UCLASS()
 class ONLINEFPS_API AFPSGameModeBase : public AGameMode
@@ -58,6 +34,9 @@ protected:
 	FTeamBasedInfos teamModeInfo;
 
 	int nextTeamIdToGive = 0;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	TSubclassOf<UUserWidget> gameModeWidget;
 public:	
 
 	UFUNCTION(BlueprintCallable)
@@ -71,4 +50,10 @@ public:
 	void RetrieveSpawns();
 
 	void RegisterKill(class AFPSCharacter* _killer, class AFPSCharacter* _victim);
+
+	void UpdateTeamObjective(int _teamId, int _increment);
+
+	void UpdatePlayersHud();
+
+	void CheckWin();
 };

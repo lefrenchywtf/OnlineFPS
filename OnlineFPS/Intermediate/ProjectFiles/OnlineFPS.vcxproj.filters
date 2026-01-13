@@ -75,13 +75,13 @@
     <ClCompile Include="..\..\Source\OnlineFPS\Private\FPSGameModeBase.cpp">
       <Filter>Source\OnlineFPS\Private</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\OnlineFPS\Private\FPSGameMode_TDM.cpp">
-      <Filter>Source\OnlineFPS\Private</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\OnlineFPS\Private\FPSGameState.cpp">
       <Filter>Source\OnlineFPS\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\OnlineFPS\Private\FPSPlayerController.cpp">
+      <Filter>Source\OnlineFPS\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OnlineFPS\Private\FPSStructs.cpp">
       <Filter>Source\OnlineFPS\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\OnlineFPS\Private\FPSWeapon.cpp">
@@ -99,13 +99,13 @@
     <ClInclude Include="..\..\Source\OnlineFPS\Public\FPSGameModeBase.h">
       <Filter>Source\OnlineFPS\Public</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\OnlineFPS\Public\FPSGameMode_TDM.h">
-      <Filter>Source\OnlineFPS\Public</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\OnlineFPS\Public\FPSGameState.h">
       <Filter>Source\OnlineFPS\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\OnlineFPS\Public\FPSPlayerController.h">
+      <Filter>Source\OnlineFPS\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\OnlineFPS\Public\FPSStructs.h">
       <Filter>Source\OnlineFPS\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\OnlineFPS\Public\FPSWeapon.h">

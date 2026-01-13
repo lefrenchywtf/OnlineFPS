@@ -17,10 +17,15 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 class AFPSCharacter;
+class UUserWidget;
 
 // ********** Begin Class AFPSPlayerController *****************************************************
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void Client_UpdateGamemodeHud_Implementation(); \
+	virtual void Client_CreateGamemodeWidget_Implementation(TSubclassOf<UUserWidget> _widget); \
 	virtual void Client_NeedSpawnWeapons_Implementation(); \
+	DECLARE_FUNCTION(execClient_UpdateGamemodeHud); \
+	DECLARE_FUNCTION(execClient_CreateGamemodeWidget); \
 	DECLARE_FUNCTION(execSetChara); \
 	DECLARE_FUNCTION(execClient_NeedSpawnWeapons);
 

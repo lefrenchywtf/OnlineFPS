@@ -12,12 +12,64 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeFPSPlayerController() {}
 
 // ********** Begin Cross Module References ********************************************************
+COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 ENGINE_API UClass* Z_Construct_UClass_APlayerController();
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSCharacter_NoRegister();
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSPlayerController();
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSPlayerController_NoRegister();
+UMG_API UClass* Z_Construct_UClass_UUserWidget_NoRegister();
 UPackage* Z_Construct_UPackage__Script_OnlineFPS();
 // ********** End Cross Module References **********************************************************
+
+// ********** Begin Class AFPSPlayerController Function Client_CreateGamemodeWidget ****************
+struct FPSPlayerController_eventClient_CreateGamemodeWidget_Parms
+{
+	TSubclassOf<UUserWidget> _widget;
+};
+static FName NAME_AFPSPlayerController_Client_CreateGamemodeWidget = FName(TEXT("Client_CreateGamemodeWidget"));
+void AFPSPlayerController::Client_CreateGamemodeWidget(TSubclassOf<UUserWidget> _widget)
+{
+	FPSPlayerController_eventClient_CreateGamemodeWidget_Parms Parms;
+	Parms._widget=_widget;
+	UFunction* Func = FindFunctionChecked(NAME_AFPSPlayerController_Client_CreateGamemodeWidget);
+	ProcessEvent(Func,&Parms);
+}
+struct Z_Construct_UFunction_AFPSPlayerController_Client_CreateGamemodeWidget_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FPSPlayerController.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FClassPropertyParams NewProp__widget;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FClassPropertyParams Z_Construct_UFunction_AFPSPlayerController_Client_CreateGamemodeWidget_Statics::NewProp__widget = { "_widget", nullptr, (EPropertyFlags)0x0014000000000080, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSPlayerController_eventClient_CreateGamemodeWidget_Parms, _widget), Z_Construct_UClass_UClass, Z_Construct_UClass_UUserWidget_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFPSPlayerController_Client_CreateGamemodeWidget_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSPlayerController_Client_CreateGamemodeWidget_Statics::NewProp__widget,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSPlayerController_Client_CreateGamemodeWidget_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSPlayerController_Client_CreateGamemodeWidget_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSPlayerController, nullptr, "Client_CreateGamemodeWidget", Z_Construct_UFunction_AFPSPlayerController_Client_CreateGamemodeWidget_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSPlayerController_Client_CreateGamemodeWidget_Statics::PropPointers), sizeof(FPSPlayerController_eventClient_CreateGamemodeWidget_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x01020CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSPlayerController_Client_CreateGamemodeWidget_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSPlayerController_Client_CreateGamemodeWidget_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(FPSPlayerController_eventClient_CreateGamemodeWidget_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AFPSPlayerController_Client_CreateGamemodeWidget()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSPlayerController_Client_CreateGamemodeWidget_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AFPSPlayerController::execClient_CreateGamemodeWidget)
+{
+	P_GET_OBJECT(UClass,Z_Param__widget);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->Client_CreateGamemodeWidget_Implementation(Z_Param__widget);
+	P_NATIVE_END;
+}
+// ********** End Class AFPSPlayerController Function Client_CreateGamemodeWidget ******************
 
 // ********** Begin Class AFPSPlayerController Function Client_NeedSpawnWeapons ********************
 static FName NAME_AFPSPlayerController_Client_NeedSpawnWeapons = FName(TEXT("Client_NeedSpawnWeapons"));
@@ -53,6 +105,83 @@ DEFINE_FUNCTION(AFPSPlayerController::execClient_NeedSpawnWeapons)
 	P_NATIVE_END;
 }
 // ********** End Class AFPSPlayerController Function Client_NeedSpawnWeapons **********************
+
+// ********** Begin Class AFPSPlayerController Function Client_UpdateGamemodeHud *******************
+static FName NAME_AFPSPlayerController_Client_UpdateGamemodeHud = FName(TEXT("Client_UpdateGamemodeHud"));
+void AFPSPlayerController::Client_UpdateGamemodeHud()
+{
+	UFunction* Func = FindFunctionChecked(NAME_AFPSPlayerController_Client_UpdateGamemodeHud);
+	ProcessEvent(Func,NULL);
+}
+struct Z_Construct_UFunction_AFPSPlayerController_Client_UpdateGamemodeHud_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FPSPlayerController.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSPlayerController_Client_UpdateGamemodeHud_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSPlayerController, nullptr, "Client_UpdateGamemodeHud", nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x01020CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSPlayerController_Client_UpdateGamemodeHud_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSPlayerController_Client_UpdateGamemodeHud_Statics::Function_MetaDataParams)},  };
+UFunction* Z_Construct_UFunction_AFPSPlayerController_Client_UpdateGamemodeHud()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSPlayerController_Client_UpdateGamemodeHud_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AFPSPlayerController::execClient_UpdateGamemodeHud)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->Client_UpdateGamemodeHud_Implementation();
+	P_NATIVE_END;
+}
+// ********** End Class AFPSPlayerController Function Client_UpdateGamemodeHud *********************
+
+// ********** Begin Class AFPSPlayerController Function CreateGamemodeWidget ***********************
+struct FPSPlayerController_eventCreateGamemodeWidget_Parms
+{
+	TSubclassOf<UUserWidget> _widget;
+};
+static FName NAME_AFPSPlayerController_CreateGamemodeWidget = FName(TEXT("CreateGamemodeWidget"));
+void AFPSPlayerController::CreateGamemodeWidget(TSubclassOf<UUserWidget> _widget)
+{
+	FPSPlayerController_eventCreateGamemodeWidget_Parms Parms;
+	Parms._widget=_widget;
+	UFunction* Func = FindFunctionChecked(NAME_AFPSPlayerController_CreateGamemodeWidget);
+	ProcessEvent(Func,&Parms);
+}
+struct Z_Construct_UFunction_AFPSPlayerController_CreateGamemodeWidget_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FPSPlayerController.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FClassPropertyParams NewProp__widget;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FClassPropertyParams Z_Construct_UFunction_AFPSPlayerController_CreateGamemodeWidget_Statics::NewProp__widget = { "_widget", nullptr, (EPropertyFlags)0x0014000000000080, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSPlayerController_eventCreateGamemodeWidget_Parms, _widget), Z_Construct_UClass_UClass, Z_Construct_UClass_UUserWidget_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFPSPlayerController_CreateGamemodeWidget_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSPlayerController_CreateGamemodeWidget_Statics::NewProp__widget,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSPlayerController_CreateGamemodeWidget_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSPlayerController_CreateGamemodeWidget_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSPlayerController, nullptr, "CreateGamemodeWidget", Z_Construct_UFunction_AFPSPlayerController_CreateGamemodeWidget_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSPlayerController_CreateGamemodeWidget_Statics::PropPointers), sizeof(FPSPlayerController_eventCreateGamemodeWidget_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSPlayerController_CreateGamemodeWidget_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSPlayerController_CreateGamemodeWidget_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(FPSPlayerController_eventCreateGamemodeWidget_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AFPSPlayerController_CreateGamemodeWidget()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSPlayerController_CreateGamemodeWidget_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+// ********** End Class AFPSPlayerController Function CreateGamemodeWidget *************************
 
 // ********** Begin Class AFPSPlayerController Function SetChara ***********************************
 struct Z_Construct_UFunction_AFPSPlayerController_SetChara_Statics
@@ -96,12 +225,42 @@ DEFINE_FUNCTION(AFPSPlayerController::execSetChara)
 }
 // ********** End Class AFPSPlayerController Function SetChara *************************************
 
+// ********** Begin Class AFPSPlayerController Function UpdateGamemodeHud **************************
+static FName NAME_AFPSPlayerController_UpdateGamemodeHud = FName(TEXT("UpdateGamemodeHud"));
+void AFPSPlayerController::UpdateGamemodeHud()
+{
+	UFunction* Func = FindFunctionChecked(NAME_AFPSPlayerController_UpdateGamemodeHud);
+	ProcessEvent(Func,NULL);
+}
+struct Z_Construct_UFunction_AFPSPlayerController_UpdateGamemodeHud_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FPSPlayerController.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSPlayerController_UpdateGamemodeHud_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSPlayerController, nullptr, "UpdateGamemodeHud", nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSPlayerController_UpdateGamemodeHud_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSPlayerController_UpdateGamemodeHud_Statics::Function_MetaDataParams)},  };
+UFunction* Z_Construct_UFunction_AFPSPlayerController_UpdateGamemodeHud()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSPlayerController_UpdateGamemodeHud_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+// ********** End Class AFPSPlayerController Function UpdateGamemodeHud ****************************
+
 // ********** Begin Class AFPSPlayerController *****************************************************
 void AFPSPlayerController::StaticRegisterNativesAFPSPlayerController()
 {
 	UClass* Class = AFPSPlayerController::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
+		{ "Client_CreateGamemodeWidget", &AFPSPlayerController::execClient_CreateGamemodeWidget },
 		{ "Client_NeedSpawnWeapons", &AFPSPlayerController::execClient_NeedSpawnWeapons },
+		{ "Client_UpdateGamemodeHud", &AFPSPlayerController::execClient_UpdateGamemodeHud },
 		{ "SetChara", &AFPSPlayerController::execSetChara },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -161,8 +320,12 @@ struct Z_Construct_UClass_AFPSPlayerController_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
+		{ &Z_Construct_UFunction_AFPSPlayerController_Client_CreateGamemodeWidget, "Client_CreateGamemodeWidget" }, // 3583803181
 		{ &Z_Construct_UFunction_AFPSPlayerController_Client_NeedSpawnWeapons, "Client_NeedSpawnWeapons" }, // 3347532319
+		{ &Z_Construct_UFunction_AFPSPlayerController_Client_UpdateGamemodeHud, "Client_UpdateGamemodeHud" }, // 2117352617
+		{ &Z_Construct_UFunction_AFPSPlayerController_CreateGamemodeWidget, "CreateGamemodeWidget" }, // 1149282693
 		{ &Z_Construct_UFunction_AFPSPlayerController_SetChara, "SetChara" }, // 1397199780
+		{ &Z_Construct_UFunction_AFPSPlayerController_UpdateGamemodeHud, "UpdateGamemodeHud" }, // 2014591570
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -218,10 +381,10 @@ AFPSPlayerController::~AFPSPlayerController() {}
 struct Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h__Script_OnlineFPS_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AFPSPlayerController, AFPSPlayerController::StaticClass, TEXT("AFPSPlayerController"), &Z_Registration_Info_UClass_AFPSPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSPlayerController), 95299367U) },
+		{ Z_Construct_UClass_AFPSPlayerController, AFPSPlayerController::StaticClass, TEXT("AFPSPlayerController"), &Z_Registration_Info_UClass_AFPSPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSPlayerController), 179076273U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h__Script_OnlineFPS_810334483(TEXT("/Script/OnlineFPS"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h__Script_OnlineFPS_3839873888(TEXT("/Script/OnlineFPS"),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h__Script_OnlineFPS_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h__Script_OnlineFPS_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

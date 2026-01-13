@@ -9,6 +9,7 @@ void AFPSGameState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLif
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 	DOREPLIFETIME(AFPSGameState, LobbyPawns);
 	DOREPLIFETIME(AFPSGameState, Spawns);
+	DOREPLIFETIME(AFPSGameState, modeInfos);
 }
 
 void AFPSGameState::UpdatePlayersList()
@@ -24,4 +25,9 @@ void AFPSGameState::UpdateSpawns(const TArray<FVector>& _array)
 TArray<FVector> AFPSGameState::GetSpawns()
 {
 	return Spawns;
+}
+
+void AFPSGameState::UpdateObjectives(const FTeamBasedInfos& _infos)
+{
+	modeInfos = _infos;
 }

@@ -6,6 +6,7 @@
 
 #include "UObject/GeneratedCppIncludes.h"
 #include "FPSGameState.h"
+#include "FPSStructs.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
@@ -17,6 +18,7 @@ ENGINE_API UClass* Z_Construct_UClass_AGameState();
 ENGINE_API UClass* Z_Construct_UClass_APlayerState_NoRegister();
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSGameState();
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSGameState_NoRegister();
+ONLINEFPS_API UScriptStruct* Z_Construct_UScriptStruct_FTeamBasedInfos();
 UPackage* Z_Construct_UPackage__Script_OnlineFPS();
 // ********** End Cross Module References **********************************************************
 
@@ -120,11 +122,16 @@ struct Z_Construct_UClass_AFPSGameState_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Spawns_MetaData[] = {
 		{ "ModuleRelativePath", "Public/FPSGameState.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_modeInfos_MetaData[] = {
+		{ "Category", "FPSGameState" },
+		{ "ModuleRelativePath", "Public/FPSGameState.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_LobbyPawns_Inner;
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_LobbyPawns;
 	static const UECodeGen_Private::FStructPropertyParams NewProp_Spawns_Inner;
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_Spawns;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_modeInfos;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -140,11 +147,13 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFPSGameState_
 const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AFPSGameState_Statics::NewProp_LobbyPawns = { "LobbyPawns", nullptr, (EPropertyFlags)0x0020080000000020, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSGameState, LobbyPawns), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LobbyPawns_MetaData), NewProp_LobbyPawns_MetaData) };
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AFPSGameState_Statics::NewProp_Spawns_Inner = { "Spawns", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AFPSGameState_Statics::NewProp_Spawns = { "Spawns", nullptr, (EPropertyFlags)0x0020080000000020, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSGameState, Spawns), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Spawns_MetaData), NewProp_Spawns_MetaData) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AFPSGameState_Statics::NewProp_modeInfos = { "modeInfos", nullptr, (EPropertyFlags)0x0020080000000034, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSGameState, modeInfos), Z_Construct_UScriptStruct_FTeamBasedInfos, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_modeInfos_MetaData), NewProp_modeInfos_MetaData) }; // 1820631868
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFPSGameState_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSGameState_Statics::NewProp_LobbyPawns_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSGameState_Statics::NewProp_LobbyPawns,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSGameState_Statics::NewProp_Spawns_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSGameState_Statics::NewProp_Spawns,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSGameState_Statics::NewProp_modeInfos,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AFPSGameState_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AFPSGameState_Statics::DependentSingletons[])() = {
@@ -180,9 +189,11 @@ void AFPSGameState::ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& C
 {
 	static FName Name_LobbyPawns(TEXT("LobbyPawns"));
 	static FName Name_Spawns(TEXT("Spawns"));
+	static FName Name_modeInfos(TEXT("modeInfos"));
 	const bool bIsValid = true
 		&& Name_LobbyPawns == ClassReps[(int32)ENetFields_Private::LobbyPawns].Property->GetFName()
-		&& Name_Spawns == ClassReps[(int32)ENetFields_Private::Spawns].Property->GetFName();
+		&& Name_Spawns == ClassReps[(int32)ENetFields_Private::Spawns].Property->GetFName()
+		&& Name_modeInfos == ClassReps[(int32)ENetFields_Private::modeInfos].Property->GetFName();
 	checkf(bIsValid, TEXT("UHT Generated Rep Indices do not match runtime populated Rep Indices for properties in AFPSGameState"));
 }
 #endif
@@ -195,10 +206,10 @@ AFPSGameState::~AFPSGameState() {}
 struct Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h__Script_OnlineFPS_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AFPSGameState, AFPSGameState::StaticClass, TEXT("AFPSGameState"), &Z_Registration_Info_UClass_AFPSGameState, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSGameState), 1888792519U) },
+		{ Z_Construct_UClass_AFPSGameState, AFPSGameState::StaticClass, TEXT("AFPSGameState"), &Z_Registration_Info_UClass_AFPSGameState, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSGameState), 3803063199U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h__Script_OnlineFPS_3073466392(TEXT("/Script/OnlineFPS"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h__Script_OnlineFPS_1140483968(TEXT("/Script/OnlineFPS"),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h__Script_OnlineFPS_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h__Script_OnlineFPS_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

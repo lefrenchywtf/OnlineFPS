@@ -18,24 +18,15 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 class AFPSPlayerController;
 
-// ********** Begin ScriptStruct FTeamBasedInfos ***************************************************
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_23_GENERATED_BODY \
-	friend struct Z_Construct_UScriptStruct_FTeamBasedInfos_Statics; \
-	ONLINEFPS_API static class UScriptStruct* StaticStruct();
-
-
-struct FTeamBasedInfos;
-// ********** End ScriptStruct FTeamBasedInfos *****************************************************
-
 // ********** Begin Class AFPSGameModeBase *********************************************************
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_41_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execRemovePlayer); \
 	DECLARE_FUNCTION(execAddPlayer);
 
 
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSGameModeBase_NoRegister();
 
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_41_INCLASS_NO_PURE_DECLS \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_17_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAFPSGameModeBase(); \
 	friend struct Z_Construct_UClass_AFPSGameModeBase_Statics; \
@@ -46,7 +37,7 @@ public: \
 	DECLARE_SERIALIZER(AFPSGameModeBase)
 
 
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_41_ENHANCED_CONSTRUCTORS \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_17_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AFPSGameModeBase(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	/** Deleted move- and copy-constructors, should never be used */ \
@@ -58,13 +49,13 @@ public: \
 	NO_API virtual ~AFPSGameModeBase();
 
 
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_38_PROLOG
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_41_GENERATED_BODY \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_14_PROLOG
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_17_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_41_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_41_INCLASS_NO_PURE_DECLS \
-	FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_41_ENHANCED_CONSTRUCTORS \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_17_INCLASS_NO_PURE_DECLS \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -75,15 +66,5 @@ class AFPSGameModeBase;
 
 #undef CURRENT_FILE_ID
 #define CURRENT_FILE_ID FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h
-
-// ********** Begin Enum EObjectiveType ************************************************************
-#define FOREACH_ENUM_EOBJECTIVETYPE(op) \
-	op(EObjectiveType::KILLS) \
-	op(EObjectiveType::ZONES) 
-
-enum class EObjectiveType : uint8;
-template<> struct TIsUEnumClass<EObjectiveType> { enum { Value = true }; };
-template<> ONLINEFPS_API UEnum* StaticEnum<EObjectiveType>();
-// ********** End Enum EObjectiveType **************************************************************
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

@@ -4,11 +4,13 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameState.h"
+#include "FPSStructs.h"
 #include "FPSGameState.generated.h"
 
 /**
  * 
  */
+
 UCLASS()
 class ONLINEFPS_API AFPSGameState : public AGameState
 {
@@ -19,6 +21,9 @@ protected:
 
 	UPROPERTY(Replicated)
 	TArray<FVector> Spawns;
+
+	UPROPERTY(Replicated, BlueprintReadOnly)
+	FTeamBasedInfos modeInfos;
 public:
 	bool bTeamBased = false;
 
@@ -27,6 +32,8 @@ public:
 	void UpdatePlayersList();
 
 	void UpdateSpawns(const TArray<FVector>& _array);
+
+	void UpdateObjectives(const FTeamBasedInfos& _infos);
 
 	UFUNCTION(BlueprintCallable)
 	TArray<FVector> GetSpawns();

@@ -17,11 +17,11 @@ class ONLINEFPS_API AFPS_PlayerState : public APlayerState
 protected:
 
 public:
-	//UPROPERTY(Replicated)
+	UPROPERTY(BlueprintReadOnly)
 	int teamID = 0;
-	UPROPERTY(Replicated)
+	UPROPERTY(Replicated, BlueprintReadOnly)
 	int kills = 0;
-	UPROPERTY(Replicated)
+	UPROPERTY(Replicated, BlueprintReadOnly)
 	int deaths = 0;
 
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;

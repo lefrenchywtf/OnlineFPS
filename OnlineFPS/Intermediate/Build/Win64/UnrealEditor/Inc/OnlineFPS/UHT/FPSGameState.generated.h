@@ -17,13 +17,13 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 // ********** Begin Class AFPSGameState ************************************************************
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execGetSpawns);
 
 
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSGameState_NoRegister();
 
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h_15_INCLASS_NO_PURE_DECLS \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h_17_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAFPSGameState(); \
 	friend struct Z_Construct_UClass_AFPSGameState_Statics; \
@@ -37,11 +37,12 @@ public: \
 		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
 		LobbyPawns=NETFIELD_REP_START, \
 		Spawns, \
-		NETFIELD_REP_END=Spawns	}; \
+		modeInfos, \
+		NETFIELD_REP_END=modeInfos	}; \
 	DECLARE_VALIDATE_GENERATED_REP_ENUMS(NO_API)
 
 
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h_15_ENHANCED_CONSTRUCTORS \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h_17_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AFPSGameState(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	/** Deleted move- and copy-constructors, should never be used */ \
@@ -53,13 +54,13 @@ public: \
 	NO_API virtual ~AFPSGameState();
 
 
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h_12_PROLOG
-#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h_15_GENERATED_BODY \
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h_14_PROLOG
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h_17_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h_15_INCLASS_NO_PURE_DECLS \
-	FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h_15_ENHANCED_CONSTRUCTORS \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h_17_INCLASS_NO_PURE_DECLS \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

@@ -26,7 +26,7 @@ public:
 	UFUNCTION(Client, Reliable)
 	void Client_NeedSpawnWeapons();
 
-	void SpawnOthersWeapons();
+	void SpawnOthersWeapons(); 
 
 	UFUNCTION(BlueprintCallable)
 	void SetChara(class AFPSCharacter* _chara);
@@ -34,4 +34,16 @@ public:
 	void EnableInputs();
 
 	void DisableInputs();
+
+	UFUNCTION(Client, Reliable)
+	void Client_CreateGamemodeWidget(TSubclassOf<UUserWidget> _widget);
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void CreateGamemodeWidget(TSubclassOf<UUserWidget> _widget);
+
+	UFUNCTION(Client, Reliable)
+	void Client_UpdateGamemodeHud();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void UpdateGamemodeHud();
 };

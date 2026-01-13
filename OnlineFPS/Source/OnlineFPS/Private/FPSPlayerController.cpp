@@ -48,3 +48,13 @@ void AFPSPlayerController::DisableInputs()
 {
 	DisableInput(this);
 }
+
+void AFPSPlayerController::Client_CreateGamemodeWidget_Implementation(TSubclassOf<UUserWidget> _widget)
+{
+	CreateGamemodeWidget(_widget);
+}
+
+void AFPSPlayerController::Client_UpdateGamemodeHud_Implementation()
+{
+	UpdateGamemodeHud();
+}

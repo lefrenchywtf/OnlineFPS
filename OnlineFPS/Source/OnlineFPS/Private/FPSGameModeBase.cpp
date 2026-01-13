@@ -46,6 +46,7 @@ void AFPSGameModeBase::AddPlayer(AFPSPlayerController* _character)
 	{
 		LobbyPlayers.Add(_character);
 		UpdateGameState();
+		_character->Client_CreateGamemodeWidget(gameModeWidget);
 		if (bTeamBasedMode)
 		{
 			AFPS_PlayerState* playerState = _character->GetPlayerState<AFPS_PlayerState>();
@@ -101,9 +102,38 @@ void AFPSGameModeBase::RegisterKill(AFPSCharacter* _killer, AFPSCharacter* _vict
 
 			if (teamModeInfo.objectiveType == EObjectiveType::KILLS)
 			{
-				teamModeInfo.currentObjectives[KillerPS->teamID]++;
-				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("%d"), teamModeInfo.currentObjectives[KillerPS->teamID]));
+				UpdateTeamObjective(KillerPS->teamID, 1);
 			}
+		}
+	}
+}
+
+void AFPSGameModeBase::UpdateTeamObjective(int _teamId, int _increment)
+{
+	if (_teamId < teamModeInfo.numberOfTeams && _teamId >= 0)
+	{
+		teamModeInfo.currentObjectives[_teamId] += _increment;
+		CheckWin();
+		gameState->UpdateObjectives(teamModeInfo);
+		UpdatePlayersHud();
+	}
+}
+
+void AFPSGameModeBase::UpdatePlayersHud()
+{
+	for (int i = 0; i < LobbyPlayers.Num(); i++)
+	{
+		LobbyPlayers[i]->Client_UpdateGamemodeHud();
+	}
+}
+
+void AFPSGameModeBase::CheckWin()
+{
+	for (int i = 0; i < teamModeInfo.numberOfTeams; i++)
+	{
+		if (teamModeInfo.currentObjectives[i] >= teamModeInfo.objectiveToReach)
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("ggez")));
 		}
 	}
 }
