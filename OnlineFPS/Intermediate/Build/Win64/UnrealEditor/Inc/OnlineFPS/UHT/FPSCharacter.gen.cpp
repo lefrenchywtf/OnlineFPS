@@ -1250,12 +1250,14 @@ UFunction* Z_Construct_UFunction_AFPSCharacter_PlayFPPFireAnim()
 struct FPSCharacter_eventReduceHealth_Parms
 {
 	float _damage;
+	AActor* _damageCauser;
 };
 static FName NAME_AFPSCharacter_ReduceHealth = FName(TEXT("ReduceHealth"));
-void AFPSCharacter::ReduceHealth(float _damage)
+void AFPSCharacter::ReduceHealth(float _damage, AActor* _damageCauser)
 {
 	FPSCharacter_eventReduceHealth_Parms Parms;
 	Parms._damage=_damage;
+	Parms._damageCauser=_damageCauser;
 	UFunction* Func = FindFunctionChecked(NAME_AFPSCharacter_ReduceHealth);
 	ProcessEvent(Func,&Parms);
 }
@@ -1267,12 +1269,15 @@ struct Z_Construct_UFunction_AFPSCharacter_ReduceHealth_Statics
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFloatPropertyParams NewProp__damage;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp__damageCauser;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AFPSCharacter_ReduceHealth_Statics::NewProp__damage = { "_damage", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSCharacter_eventReduceHealth_Parms, _damage), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AFPSCharacter_ReduceHealth_Statics::NewProp__damageCauser = { "_damageCauser", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSCharacter_eventReduceHealth_Parms, _damageCauser), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFPSCharacter_ReduceHealth_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSCharacter_ReduceHealth_Statics::NewProp__damage,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSCharacter_ReduceHealth_Statics::NewProp__damageCauser,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_ReduceHealth_Statics::PropPointers) < 2048);
 const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSCharacter_ReduceHealth_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSCharacter, nullptr, "ReduceHealth", Z_Construct_UFunction_AFPSCharacter_ReduceHealth_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_ReduceHealth_Statics::PropPointers), sizeof(FPSCharacter_eventReduceHealth_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x01020CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_ReduceHealth_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSCharacter_ReduceHealth_Statics::Function_MetaDataParams)},  };
@@ -1289,9 +1294,10 @@ UFunction* Z_Construct_UFunction_AFPSCharacter_ReduceHealth()
 DEFINE_FUNCTION(AFPSCharacter::execReduceHealth)
 {
 	P_GET_PROPERTY(FFloatProperty,Z_Param__damage);
+	P_GET_OBJECT(AActor,Z_Param__damageCauser);
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	P_THIS->ReduceHealth_Implementation(Z_Param__damage);
+	P_THIS->ReduceHealth_Implementation(Z_Param__damage,Z_Param__damageCauser);
 	P_NATIVE_END;
 }
 // ********** End Class AFPSCharacter Function ReduceHealth ****************************************
@@ -1500,6 +1506,56 @@ DEFINE_FUNCTION(AFPSCharacter::execServer_PlaySound)
 }
 // ********** End Class AFPSCharacter Function Server_PlaySound ************************************
 
+// ********** Begin Class AFPSCharacter Function Server_SendKill ***********************************
+struct FPSCharacter_eventServer_SendKill_Parms
+{
+	AFPSCharacter* _killer;
+};
+static FName NAME_AFPSCharacter_Server_SendKill = FName(TEXT("Server_SendKill"));
+void AFPSCharacter::Server_SendKill(AFPSCharacter* _killer)
+{
+	FPSCharacter_eventServer_SendKill_Parms Parms;
+	Parms._killer=_killer;
+	UFunction* Func = FindFunctionChecked(NAME_AFPSCharacter_Server_SendKill);
+	ProcessEvent(Func,&Parms);
+}
+struct Z_Construct_UFunction_AFPSCharacter_Server_SendKill_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FPSCharacter.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FObjectPropertyParams NewProp__killer;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AFPSCharacter_Server_SendKill_Statics::NewProp__killer = { "_killer", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSCharacter_eventServer_SendKill_Parms, _killer), Z_Construct_UClass_AFPSCharacter_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFPSCharacter_Server_SendKill_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSCharacter_Server_SendKill_Statics::NewProp__killer,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_Server_SendKill_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSCharacter_Server_SendKill_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSCharacter, nullptr, "Server_SendKill", Z_Construct_UFunction_AFPSCharacter_Server_SendKill_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_Server_SendKill_Statics::PropPointers), sizeof(FPSCharacter_eventServer_SendKill_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00220CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_Server_SendKill_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSCharacter_Server_SendKill_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(FPSCharacter_eventServer_SendKill_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AFPSCharacter_Server_SendKill()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSCharacter_Server_SendKill_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AFPSCharacter::execServer_SendKill)
+{
+	P_GET_OBJECT(AFPSCharacter,Z_Param__killer);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->Server_SendKill_Implementation(Z_Param__killer);
+	P_NATIVE_END;
+}
+// ********** End Class AFPSCharacter Function Server_SendKill *************************************
+
 // ********** Begin Class AFPSCharacter Function Server_SpawnDecal *********************************
 struct FPSCharacter_eventServer_SpawnDecal_Parms
 {
@@ -1673,6 +1729,56 @@ DEFINE_FUNCTION(AFPSCharacter::execServer_SpawnParticule)
 	P_NATIVE_END;
 }
 // ********** End Class AFPSCharacter Function Server_SpawnParticule *******************************
+
+// ********** Begin Class AFPSCharacter Function Server_TpToLocation *******************************
+struct FPSCharacter_eventServer_TpToLocation_Parms
+{
+	FVector _location;
+};
+static FName NAME_AFPSCharacter_Server_TpToLocation = FName(TEXT("Server_TpToLocation"));
+void AFPSCharacter::Server_TpToLocation(FVector _location)
+{
+	FPSCharacter_eventServer_TpToLocation_Parms Parms;
+	Parms._location=_location;
+	UFunction* Func = FindFunctionChecked(NAME_AFPSCharacter_Server_TpToLocation);
+	ProcessEvent(Func,&Parms);
+}
+struct Z_Construct_UFunction_AFPSCharacter_Server_TpToLocation_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FPSCharacter.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp__location;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AFPSCharacter_Server_TpToLocation_Statics::NewProp__location = { "_location", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSCharacter_eventServer_TpToLocation_Parms, _location), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFPSCharacter_Server_TpToLocation_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSCharacter_Server_TpToLocation_Statics::NewProp__location,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_Server_TpToLocation_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSCharacter_Server_TpToLocation_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSCharacter, nullptr, "Server_TpToLocation", Z_Construct_UFunction_AFPSCharacter_Server_TpToLocation_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_Server_TpToLocation_Statics::PropPointers), sizeof(FPSCharacter_eventServer_TpToLocation_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00A20CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_Server_TpToLocation_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSCharacter_Server_TpToLocation_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(FPSCharacter_eventServer_TpToLocation_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AFPSCharacter_Server_TpToLocation()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSCharacter_Server_TpToLocation_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AFPSCharacter::execServer_TpToLocation)
+{
+	P_GET_STRUCT(FVector,Z_Param__location);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->Server_TpToLocation_Implementation(Z_Param__location);
+	P_NATIVE_END;
+}
+// ********** End Class AFPSCharacter Function Server_TpToLocation *********************************
 
 // ********** Begin Class AFPSCharacter Function ShootGun ******************************************
 struct Z_Construct_UFunction_AFPSCharacter_ShootGun_Statics
@@ -2062,9 +2168,11 @@ void AFPSCharacter::StaticRegisterNativesAFPSCharacter()
 		{ "Server_ChangeWalkSpeed", &AFPSCharacter::execServer_ChangeWalkSpeed },
 		{ "Server_DealDamage", &AFPSCharacter::execServer_DealDamage },
 		{ "Server_PlaySound", &AFPSCharacter::execServer_PlaySound },
+		{ "Server_SendKill", &AFPSCharacter::execServer_SendKill },
 		{ "Server_SpawnDecal", &AFPSCharacter::execServer_SpawnDecal },
 		{ "Server_SpawnFireParticule", &AFPSCharacter::execServer_SpawnFireParticule },
 		{ "Server_SpawnParticule", &AFPSCharacter::execServer_SpawnParticule },
+		{ "Server_TpToLocation", &AFPSCharacter::execServer_TpToLocation },
 		{ "ShootGun", &AFPSCharacter::execShootGun },
 		{ "SprintChara", &AFPSCharacter::execSprintChara },
 		{ "StartADS", &AFPSCharacter::execStartADS },
@@ -2249,14 +2357,16 @@ struct Z_Construct_UClass_AFPSCharacter_Statics
 		{ &Z_Construct_UFunction_AFPSCharacter_PlayAnim, "PlayAnim" }, // 4018498092
 		{ &Z_Construct_UFunction_AFPSCharacter_PlayFootstep, "PlayFootstep" }, // 894340846
 		{ &Z_Construct_UFunction_AFPSCharacter_PlayFPPFireAnim, "PlayFPPFireAnim" }, // 3608326157
-		{ &Z_Construct_UFunction_AFPSCharacter_ReduceHealth, "ReduceHealth" }, // 2581001555
+		{ &Z_Construct_UFunction_AFPSCharacter_ReduceHealth, "ReduceHealth" }, // 2511808814
 		{ &Z_Construct_UFunction_AFPSCharacter_SendHealthToHud, "SendHealthToHud" }, // 195339159
 		{ &Z_Construct_UFunction_AFPSCharacter_Server_ChangeWalkSpeed, "Server_ChangeWalkSpeed" }, // 118263672
 		{ &Z_Construct_UFunction_AFPSCharacter_Server_DealDamage, "Server_DealDamage" }, // 680099646
 		{ &Z_Construct_UFunction_AFPSCharacter_Server_PlaySound, "Server_PlaySound" }, // 2064683011
+		{ &Z_Construct_UFunction_AFPSCharacter_Server_SendKill, "Server_SendKill" }, // 64054719
 		{ &Z_Construct_UFunction_AFPSCharacter_Server_SpawnDecal, "Server_SpawnDecal" }, // 2826580642
 		{ &Z_Construct_UFunction_AFPSCharacter_Server_SpawnFireParticule, "Server_SpawnFireParticule" }, // 3592095325
 		{ &Z_Construct_UFunction_AFPSCharacter_Server_SpawnParticule, "Server_SpawnParticule" }, // 1573394455
+		{ &Z_Construct_UFunction_AFPSCharacter_Server_TpToLocation, "Server_TpToLocation" }, // 512804656
 		{ &Z_Construct_UFunction_AFPSCharacter_ShootGun, "ShootGun" }, // 2298979356
 		{ &Z_Construct_UFunction_AFPSCharacter_SpawnCharaWeapons, "SpawnCharaWeapons" }, // 2376710997
 		{ &Z_Construct_UFunction_AFPSCharacter_SprintChara, "SprintChara" }, // 3351018664
@@ -2397,10 +2507,10 @@ struct Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_
 		{ FPlayerWeapons::StaticStruct, Z_Construct_UScriptStruct_FPlayerWeapons_Statics::NewStructOps, TEXT("PlayerWeapons"), &Z_Registration_Info_UScriptStruct_FPlayerWeapons, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FPlayerWeapons), 1467568506U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AFPSCharacter, AFPSCharacter::StaticClass, TEXT("AFPSCharacter"), &Z_Registration_Info_UClass_AFPSCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSCharacter), 1171027133U) },
+		{ Z_Construct_UClass_AFPSCharacter, AFPSCharacter::StaticClass, TEXT("AFPSCharacter"), &Z_Registration_Info_UClass_AFPSCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSCharacter), 10695158U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h__Script_OnlineFPS_4176401891(TEXT("/Script/OnlineFPS"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h__Script_OnlineFPS_3800284946(TEXT("/Script/OnlineFPS"),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h__Script_OnlineFPS_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h__Script_OnlineFPS_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h__Script_OnlineFPS_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h__Script_OnlineFPS_Statics::ScriptStructInfo),
 	nullptr, 0);

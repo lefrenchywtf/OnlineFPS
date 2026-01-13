@@ -165,8 +165,6 @@ bool AFPSWeapon::CanDamagePlayer(AFPSCharacter* _hitChara)
 
 			if (hitPs && ownerPs)
 			{
-				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("%d"), hitPs->teamID));
-				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("%d"), ownerPs->teamID));
 				return hitPs->teamID != ownerPs->teamID;
 			}
 			return false;
@@ -179,7 +177,7 @@ void AFPSWeapon::Server_DealDamage_Implementation(FHitResult _hit, class AFPSCha
 {
 	if (_character)
 	{
-		UGameplayStatics::ApplyPointDamage(_character, damage, _hit.TraceStart, _hit, nullptr, this, UDamageType::StaticClass());
+		UGameplayStatics::ApplyPointDamage(_character, damage, _hit.TraceStart, _hit, nullptr, weaponOwner, UDamageType::StaticClass());
 		//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("%s"), *_hit.GetActor()->GetName()));
 	}
 }

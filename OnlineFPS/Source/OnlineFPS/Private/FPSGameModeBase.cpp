@@ -17,6 +17,10 @@ void AFPSGameModeBase::BeginPlay()
 	{
 		gameState->bTeamBased = bTeamBasedMode;
 	}
+	for (int i = 0; i < teamModeInfo.numberOfTeams; i++)
+	{
+		teamModeInfo.currentObjectives.Add(0);
+	}
 	RetrieveSpawns();
 }
 
@@ -81,5 +85,25 @@ void AFPSGameModeBase::UpdateGameState()
 	if (gameState)
 	{
 		gameState->UpdatePlayersList();
+	}
+}
+
+void AFPSGameModeBase::RegisterKill(AFPSCharacter* _killer, AFPSCharacter* _victim)
+{
+	if (_killer && _victim)
+	{
+		AFPS_PlayerState* victimPS = _victim->GetPlayerState<AFPS_PlayerState>();
+		AFPS_PlayerState* KillerPS = _killer->GetPlayerState<AFPS_PlayerState>();
+		if (victimPS && KillerPS)
+		{
+			victimPS->deaths++;
+			KillerPS->kills++;
+
+			if (teamModeInfo.objectiveType == EObjectiveType::KILLS)
+			{
+				teamModeInfo.currentObjectives[KillerPS->teamID]++;
+				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("%d"), teamModeInfo.currentObjectives[KillerPS->teamID]));
+			}
+		}
 	}
 }

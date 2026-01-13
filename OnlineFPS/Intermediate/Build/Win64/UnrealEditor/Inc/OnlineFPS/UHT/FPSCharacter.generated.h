@@ -40,6 +40,8 @@ struct FPlayerWeapons;
 
 // ********** Begin Class AFPSCharacter ************************************************************
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_28_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void Server_TpToLocation_Implementation(FVector _location); \
+	virtual void Server_SendKill_Implementation(AFPSCharacter* _killer); \
 	virtual void MC_SpawnDecal_Implementation(UMaterial* _decalMat, FVector _location, FRotator _rotation); \
 	virtual void Server_SpawnDecal_Implementation(UMaterial* _decalMat, FVector _location, FRotator _rotation); \
 	virtual void MC_PlaySound_Implementation(USoundBase* _sound, FVector _location); \
@@ -50,9 +52,11 @@ struct FPlayerWeapons;
 	virtual void Server_SpawnFireParticule_Implementation(UParticleSystem* _particule); \
 	virtual void Server_DealDamage_Implementation(float _damage, FHitResult _hit); \
 	virtual void EquipGun_Implementation(EWeaponType _type); \
-	virtual void ReduceHealth_Implementation(float _damage); \
+	virtual void ReduceHealth_Implementation(float _damage, AActor* _damageCauser); \
 	virtual void Client_SpawnOtherWeapons_Implementation(AFPSCharacter* _chara); \
 	virtual void Server_ChangeWalkSpeed_Implementation(float _newSpeed); \
+	DECLARE_FUNCTION(execServer_TpToLocation); \
+	DECLARE_FUNCTION(execServer_SendKill); \
 	DECLARE_FUNCTION(execMC_SpawnDecal); \
 	DECLARE_FUNCTION(execServer_SpawnDecal); \
 	DECLARE_FUNCTION(execPlayFootstep); \

@@ -134,7 +134,7 @@ public:
 	void HandleTakeDamage(AActor* DamagedActor, float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser);
 
 	UFUNCTION(Client, Reliable)
-	void ReduceHealth(float _damage);
+	void ReduceHealth(float _damage, AActor* _damageCauser);
 
 	UFUNCTION(BlueprintCallable)
 	void TakeDamage(float _damage);
@@ -255,4 +255,10 @@ public:
 
 	UFUNCTION(NetMulticast, Reliable)
 	void MC_SpawnDecal(UMaterial* _decalMat, FVector _location, FRotator _rotation);
+
+	UFUNCTION(Server, Reliable)
+	void Server_SendKill(AFPSCharacter* _killer);
+
+	UFUNCTION(Server, Reliable)
+	void Server_TpToLocation(FVector _location);
 };

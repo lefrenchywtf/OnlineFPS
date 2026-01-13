@@ -10,6 +10,13 @@
  * 
  */
 
+UENUM(BlueprintType)
+enum class EObjectiveType : uint8
+{
+	KILLS,
+	ZONES,
+};
+
 USTRUCT(BlueprintType)
 struct FTeamBasedInfos
 {
@@ -23,6 +30,9 @@ struct FTeamBasedInfos
 	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
 	TArray<int> currentObjectives;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	EObjectiveType objectiveType;
 };
 
 UCLASS()
@@ -59,4 +69,6 @@ public:
 	void UpdateGameState();
 
 	void RetrieveSpawns();
+
+	void RegisterKill(class AFPSCharacter* _killer, class AFPSCharacter* _victim);
 };

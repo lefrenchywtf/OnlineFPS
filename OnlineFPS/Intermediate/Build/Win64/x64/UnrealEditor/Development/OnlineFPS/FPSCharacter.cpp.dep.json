@@ -63,7 +63,11 @@
             "f:\\onlinefps\\onlinefps\\source\\onlinefps\\public\\fpsplayercontroller.h",
             "f:\\onlinefps\\onlinefps\\intermediate\\build\\win64\\unrealeditor\\inc\\onlinefps\\uht\\fpsplayercontroller.generated.h",
             "c:\\unreal\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\components\\decalcomponent.h",
-            "c:\\unreal\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\decalcomponent.generated.h"
+            "c:\\unreal\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\decalcomponent.generated.h",
+            "f:\\onlinefps\\onlinefps\\source\\onlinefps\\public\\fpsgamemodebase.h",
+            "c:\\unreal\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamemode.h",
+            "c:\\unreal\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gamemode.generated.h",
+            "f:\\onlinefps\\onlinefps\\intermediate\\build\\win64\\unrealeditor\\inc\\onlinefps\\uht\\fpsgamemodebase.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

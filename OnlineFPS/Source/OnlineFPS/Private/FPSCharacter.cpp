@@ -9,6 +9,7 @@
 #include "FPSGameState.h"
 #include "FPSPlayerController.h"
 #include "Components/DecalComponent.h"
+#include "FPSGameModeBase.h"
 
 // Sets default values
 AFPSCharacter::AFPSCharacter()
@@ -131,11 +132,11 @@ void AFPSCharacter::Client_SpawnOtherWeapons_Implementation(AFPSCharacter* _char
 
 void AFPSCharacter::HandleTakeDamage(AActor* DamagedActor, float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser)
 {
-	ReduceHealth(Damage);
+	ReduceHealth(Damage, DamageCauser);
 	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("health: %d"), currentHealth));
 }
 
-void AFPSCharacter::ReduceHealth_Implementation(float _damage)
+void AFPSCharacter::ReduceHealth_Implementation(float _damage, AActor* _damageCauser)
 {
 	if (currentHealth > 0)
 	{
@@ -144,9 +145,23 @@ void AFPSCharacter::ReduceHealth_Implementation(float _damage)
 		{
 			currentHealth = 0;
 			DieChara();
+			AFPSCharacter* killer = Cast<AFPSCharacter>(_damageCauser);
+			if (killer)
+			{
+				Server_SendKill(killer);
+			}
 		}
 		UpdateHealthBar();
 		PlayTPPHitAnim();
+	}
+}
+
+void AFPSCharacter::Server_SendKill_Implementation(AFPSCharacter* _killer)
+{
+	AFPSGameModeBase* gamemode = GetWorld()->GetAuthGameMode<AFPSGameModeBase>();
+	if (gamemode)
+	{
+		gamemode->RegisterKill(_killer, this);
 	}
 }
 
@@ -378,9 +393,14 @@ void AFPSCharacter::TpToSpawnPoint()
 			{
 				index = FMath::RandRange(0, spawns.Num() - 1);
 			}
-			SetActorLocation(spawns[index]);
+			Server_TpToLocation(spawns[index]);
 		}
 	}
+}
+
+void AFPSCharacter::Server_TpToLocation_Implementation(FVector _location)
+{
+	SetActorLocation(_location);
 }
 
 void AFPSCharacter::UpdateHealthBar()
