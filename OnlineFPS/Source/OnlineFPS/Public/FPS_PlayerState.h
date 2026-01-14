@@ -17,7 +17,7 @@ class ONLINEFPS_API AFPS_PlayerState : public APlayerState
 protected:
 
 public:
-	UPROPERTY(BlueprintReadOnly)
+	UPROPERTY(Replicated, BlueprintReadOnly)
 	int teamID = 0;
 	UPROPERTY(Replicated, BlueprintReadOnly)
 	int kills = 0;

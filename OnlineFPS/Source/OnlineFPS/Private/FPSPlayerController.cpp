@@ -4,7 +4,7 @@
 #include "FPSPlayerController.h"
 #include "FPSCharacter.h"
 #include "FPSGameState.h"
-#include "GameFramework/PlayerState.h"
+#include "FPS_PlayerState.h"
 
 void AFPSPlayerController::SpawnOthersWeapons()
 {

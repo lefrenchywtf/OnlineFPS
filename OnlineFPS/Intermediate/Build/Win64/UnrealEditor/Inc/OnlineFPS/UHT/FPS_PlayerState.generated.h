@@ -31,7 +31,8 @@ public: \
 	enum class ENetFields_Private : uint16 \
 	{ \
 		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
-		kills=NETFIELD_REP_START, \
+		teamID=NETFIELD_REP_START, \
+		kills, \
 		deaths, \
 		NETFIELD_REP_END=deaths	}; \
 	DECLARE_VALIDATE_GENERATED_REP_ENUMS(NO_API)

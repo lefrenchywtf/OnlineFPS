@@ -7,7 +7,7 @@
 void AFPS_PlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
-	//DOREPLIFETIME(AFPS_PlayerState, teamID);
+	DOREPLIFETIME(AFPS_PlayerState, teamID);
 	DOREPLIFETIME(AFPS_PlayerState, kills);
 	DOREPLIFETIME(AFPS_PlayerState, deaths);
 }
