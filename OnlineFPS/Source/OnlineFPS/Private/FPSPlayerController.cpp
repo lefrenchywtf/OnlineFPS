@@ -58,3 +58,8 @@ void AFPSPlayerController::Client_UpdateGamemodeHud_Implementation()
 {
 	UpdateGamemodeHud();
 }
+
+void AFPSPlayerController::Client_AddKillToFeed_Implementation(AFPSCharacter* _killer, AFPSCharacter* _victim, const FString& _gunName)
+{
+	AddKillToFeed(_killer, _victim, _gunName);
+}

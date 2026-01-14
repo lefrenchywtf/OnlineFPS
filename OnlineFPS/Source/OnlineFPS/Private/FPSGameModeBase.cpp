@@ -8,6 +8,7 @@
 #include "EngineUtils.h"
 #include "GameFramework/PlayerStart.h"
 #include "FPS_PlayerState.h"
+#include "FPSWeapon.h"
 
 void AFPSGameModeBase::BeginPlay()
 {
@@ -47,9 +48,9 @@ void AFPSGameModeBase::AddPlayer(AFPSPlayerController* _character)
 		LobbyPlayers.Add(_character);
 		UpdateGameState();
 		_character->Client_CreateGamemodeWidget(gameModeWidget);
+		AFPS_PlayerState* playerState = _character->GetPlayerState<AFPS_PlayerState>();
 		if (bTeamBasedMode)
 		{
-			AFPS_PlayerState* playerState = _character->GetPlayerState<AFPS_PlayerState>();
 			if (playerState)
 			{
 				playerState->teamID = nextTeamIdToGive;
@@ -59,6 +60,10 @@ void AFPSGameModeBase::AddPlayer(AFPSPlayerController* _character)
 					nextTeamIdToGive = 0;
 				}
 			}
+		}
+		if (playerState)
+		{
+			playerState->SetPlayerName(FString("Player") + FString::FromInt(LobbyPlayers.Num()));
 		}
 		if (LobbyPlayers.Num() > 1)
 		{
@@ -99,12 +104,21 @@ void AFPSGameModeBase::RegisterKill(AFPSCharacter* _killer, AFPSCharacter* _vict
 		{
 			victimPS->deaths++;
 			KillerPS->kills++;
-
+			AddKillToFeed(_killer, _victim);
 			if (teamModeInfo.objectiveType == EObjectiveType::KILLS)
 			{
 				UpdateTeamObjective(KillerPS->teamID, 1);
 			}
 		}
+	}
+}
+
+void AFPSGameModeBase::AddKillToFeed(class AFPSCharacter* _killer, class AFPSCharacter* _victim)
+{
+	FString gunName = _killer->GetEquipedWeapon()->GetWeaponName();
+	for (int i = 0; i < LobbyPlayers.Num(); i++)
+	{
+		LobbyPlayers[i]->Client_AddKillToFeed(_killer, _victim, gunName);
 	}
 }
 

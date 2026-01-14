@@ -332,3 +332,8 @@ void AFPSWeapon::SpawnImpactParticule(FHitResult _hitresult)
 		weaponOwner->Server_SpawnParticule(particle, _hitresult.Location, rotation);
 	}
 }
+
+FString AFPSWeapon::GetWeaponName()
+{
+	return weaponName;
+}

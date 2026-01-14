@@ -43,7 +43,9 @@
             "f:\\onlinefps\\onlinefps\\source\\onlinefps\\public\\fps_playerstate.h",
             "c:\\unreal\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\gameframework\\playerstate.h",
             "c:\\unreal\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\playerstate.generated.h",
-            "f:\\onlinefps\\onlinefps\\intermediate\\build\\win64\\unrealeditor\\inc\\onlinefps\\uht\\fps_playerstate.generated.h"
+            "f:\\onlinefps\\onlinefps\\intermediate\\build\\win64\\unrealeditor\\inc\\onlinefps\\uht\\fps_playerstate.generated.h",
+            "f:\\onlinefps\\onlinefps\\source\\onlinefps\\public\\fpsweapon.h",
+            "f:\\onlinefps\\onlinefps\\intermediate\\build\\win64\\unrealeditor\\inc\\onlinefps\\uht\\fpsweapon.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

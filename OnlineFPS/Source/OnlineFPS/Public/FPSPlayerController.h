@@ -46,4 +46,10 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void UpdateGamemodeHud();
+
+	UFUNCTION(Client, Reliable)
+	void Client_AddKillToFeed(AFPSCharacter* _killer, AFPSCharacter* _victim, const FString& _gunName);
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void AddKillToFeed(AFPSCharacter* _killer, AFPSCharacter* _victim, const FString& _gunName);
 };

@@ -56,4 +56,6 @@ public:
 	void UpdatePlayersHud();
 
 	void CheckWin();
+
+	void AddKillToFeed(class AFPSCharacter* _killer, class AFPSCharacter* _victim);
 };

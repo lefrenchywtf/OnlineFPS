@@ -21,6 +21,126 @@ UMG_API UClass* Z_Construct_UClass_UUserWidget_NoRegister();
 UPackage* Z_Construct_UPackage__Script_OnlineFPS();
 // ********** End Cross Module References **********************************************************
 
+// ********** Begin Class AFPSPlayerController Function AddKillToFeed ******************************
+struct FPSPlayerController_eventAddKillToFeed_Parms
+{
+	AFPSCharacter* _killer;
+	AFPSCharacter* _victim;
+	FString _gunName;
+};
+static FName NAME_AFPSPlayerController_AddKillToFeed = FName(TEXT("AddKillToFeed"));
+void AFPSPlayerController::AddKillToFeed(AFPSCharacter* _killer, AFPSCharacter* _victim, const FString& _gunName)
+{
+	FPSPlayerController_eventAddKillToFeed_Parms Parms;
+	Parms._killer=_killer;
+	Parms._victim=_victim;
+	Parms._gunName=_gunName;
+	UFunction* Func = FindFunctionChecked(NAME_AFPSPlayerController_AddKillToFeed);
+	ProcessEvent(Func,&Parms);
+}
+struct Z_Construct_UFunction_AFPSPlayerController_AddKillToFeed_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FPSPlayerController.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp__gunName_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FObjectPropertyParams NewProp__killer;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp__victim;
+	static const UECodeGen_Private::FStrPropertyParams NewProp__gunName;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AFPSPlayerController_AddKillToFeed_Statics::NewProp__killer = { "_killer", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSPlayerController_eventAddKillToFeed_Parms, _killer), Z_Construct_UClass_AFPSCharacter_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AFPSPlayerController_AddKillToFeed_Statics::NewProp__victim = { "_victim", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSPlayerController_eventAddKillToFeed_Parms, _victim), Z_Construct_UClass_AFPSCharacter_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_AFPSPlayerController_AddKillToFeed_Statics::NewProp__gunName = { "_gunName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSPlayerController_eventAddKillToFeed_Parms, _gunName), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp__gunName_MetaData), NewProp__gunName_MetaData) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFPSPlayerController_AddKillToFeed_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSPlayerController_AddKillToFeed_Statics::NewProp__killer,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSPlayerController_AddKillToFeed_Statics::NewProp__victim,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSPlayerController_AddKillToFeed_Statics::NewProp__gunName,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSPlayerController_AddKillToFeed_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSPlayerController_AddKillToFeed_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSPlayerController, nullptr, "AddKillToFeed", Z_Construct_UFunction_AFPSPlayerController_AddKillToFeed_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSPlayerController_AddKillToFeed_Statics::PropPointers), sizeof(FPSPlayerController_eventAddKillToFeed_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSPlayerController_AddKillToFeed_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSPlayerController_AddKillToFeed_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(FPSPlayerController_eventAddKillToFeed_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AFPSPlayerController_AddKillToFeed()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSPlayerController_AddKillToFeed_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+// ********** End Class AFPSPlayerController Function AddKillToFeed ********************************
+
+// ********** Begin Class AFPSPlayerController Function Client_AddKillToFeed ***********************
+struct FPSPlayerController_eventClient_AddKillToFeed_Parms
+{
+	AFPSCharacter* _killer;
+	AFPSCharacter* _victim;
+	FString _gunName;
+};
+static FName NAME_AFPSPlayerController_Client_AddKillToFeed = FName(TEXT("Client_AddKillToFeed"));
+void AFPSPlayerController::Client_AddKillToFeed(AFPSCharacter* _killer, AFPSCharacter* _victim, const FString& _gunName)
+{
+	FPSPlayerController_eventClient_AddKillToFeed_Parms Parms;
+	Parms._killer=_killer;
+	Parms._victim=_victim;
+	Parms._gunName=_gunName;
+	UFunction* Func = FindFunctionChecked(NAME_AFPSPlayerController_Client_AddKillToFeed);
+	ProcessEvent(Func,&Parms);
+}
+struct Z_Construct_UFunction_AFPSPlayerController_Client_AddKillToFeed_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FPSPlayerController.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp__gunName_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FObjectPropertyParams NewProp__killer;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp__victim;
+	static const UECodeGen_Private::FStrPropertyParams NewProp__gunName;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AFPSPlayerController_Client_AddKillToFeed_Statics::NewProp__killer = { "_killer", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSPlayerController_eventClient_AddKillToFeed_Parms, _killer), Z_Construct_UClass_AFPSCharacter_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AFPSPlayerController_Client_AddKillToFeed_Statics::NewProp__victim = { "_victim", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSPlayerController_eventClient_AddKillToFeed_Parms, _victim), Z_Construct_UClass_AFPSCharacter_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_AFPSPlayerController_Client_AddKillToFeed_Statics::NewProp__gunName = { "_gunName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSPlayerController_eventClient_AddKillToFeed_Parms, _gunName), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp__gunName_MetaData), NewProp__gunName_MetaData) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFPSPlayerController_Client_AddKillToFeed_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSPlayerController_Client_AddKillToFeed_Statics::NewProp__killer,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSPlayerController_Client_AddKillToFeed_Statics::NewProp__victim,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSPlayerController_Client_AddKillToFeed_Statics::NewProp__gunName,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSPlayerController_Client_AddKillToFeed_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSPlayerController_Client_AddKillToFeed_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSPlayerController, nullptr, "Client_AddKillToFeed", Z_Construct_UFunction_AFPSPlayerController_Client_AddKillToFeed_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSPlayerController_Client_AddKillToFeed_Statics::PropPointers), sizeof(FPSPlayerController_eventClient_AddKillToFeed_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x01020CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSPlayerController_Client_AddKillToFeed_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSPlayerController_Client_AddKillToFeed_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(FPSPlayerController_eventClient_AddKillToFeed_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AFPSPlayerController_Client_AddKillToFeed()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSPlayerController_Client_AddKillToFeed_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AFPSPlayerController::execClient_AddKillToFeed)
+{
+	P_GET_OBJECT(AFPSCharacter,Z_Param__killer);
+	P_GET_OBJECT(AFPSCharacter,Z_Param__victim);
+	P_GET_PROPERTY(FStrProperty,Z_Param__gunName);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->Client_AddKillToFeed_Implementation(Z_Param__killer,Z_Param__victim,Z_Param__gunName);
+	P_NATIVE_END;
+}
+// ********** End Class AFPSPlayerController Function Client_AddKillToFeed *************************
+
 // ********** Begin Class AFPSPlayerController Function Client_CreateGamemodeWidget ****************
 struct FPSPlayerController_eventClient_CreateGamemodeWidget_Parms
 {
@@ -258,6 +378,7 @@ void AFPSPlayerController::StaticRegisterNativesAFPSPlayerController()
 {
 	UClass* Class = AFPSPlayerController::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
+		{ "Client_AddKillToFeed", &AFPSPlayerController::execClient_AddKillToFeed },
 		{ "Client_CreateGamemodeWidget", &AFPSPlayerController::execClient_CreateGamemodeWidget },
 		{ "Client_NeedSpawnWeapons", &AFPSPlayerController::execClient_NeedSpawnWeapons },
 		{ "Client_UpdateGamemodeHud", &AFPSPlayerController::execClient_UpdateGamemodeHud },
@@ -320,6 +441,8 @@ struct Z_Construct_UClass_AFPSPlayerController_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
+		{ &Z_Construct_UFunction_AFPSPlayerController_AddKillToFeed, "AddKillToFeed" }, // 3993397144
+		{ &Z_Construct_UFunction_AFPSPlayerController_Client_AddKillToFeed, "Client_AddKillToFeed" }, // 3301224369
 		{ &Z_Construct_UFunction_AFPSPlayerController_Client_CreateGamemodeWidget, "Client_CreateGamemodeWidget" }, // 3583803181
 		{ &Z_Construct_UFunction_AFPSPlayerController_Client_NeedSpawnWeapons, "Client_NeedSpawnWeapons" }, // 3347532319
 		{ &Z_Construct_UFunction_AFPSPlayerController_Client_UpdateGamemodeHud, "Client_UpdateGamemodeHud" }, // 2117352617
@@ -381,10 +504,10 @@ AFPSPlayerController::~AFPSPlayerController() {}
 struct Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h__Script_OnlineFPS_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AFPSPlayerController, AFPSPlayerController::StaticClass, TEXT("AFPSPlayerController"), &Z_Registration_Info_UClass_AFPSPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSPlayerController), 179076273U) },
+		{ Z_Construct_UClass_AFPSPlayerController, AFPSPlayerController::StaticClass, TEXT("AFPSPlayerController"), &Z_Registration_Info_UClass_AFPSPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSPlayerController), 1666941626U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h__Script_OnlineFPS_3839873888(TEXT("/Script/OnlineFPS"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h__Script_OnlineFPS_2957365117(TEXT("/Script/OnlineFPS"),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h__Script_OnlineFPS_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h__Script_OnlineFPS_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
