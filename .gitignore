@@ -73,3 +73,7 @@ Plugins/**/Intermediate/*
 # Cache files for the editor to use
 DerivedDataCache/*
 /OnlineFPS/Content/Adventures_Pack
+/OnlineFPS/Saved/StagedBuilds
+/OnlineFPS/Saved/Cooked
+/OnlineFPS/Saved/Shaders
+OnlineFPS/Binaries/Win64/OnlineFPS-Win64-Shipping.pdb

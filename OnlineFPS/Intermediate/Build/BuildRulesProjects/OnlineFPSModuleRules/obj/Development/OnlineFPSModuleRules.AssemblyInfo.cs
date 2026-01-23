@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OnlineFPSModuleRules")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Development")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+382813606760348da2dfb6bbb307f7b3d2f7cefc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+46bec3bae6131ec524d0610e5d2b20eedfedd566")]
 [assembly: System.Reflection.AssemblyProductAttribute("OnlineFPSModuleRules")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OnlineFPSModuleRules")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

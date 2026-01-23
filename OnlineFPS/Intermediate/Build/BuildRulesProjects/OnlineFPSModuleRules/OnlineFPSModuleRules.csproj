@@ -14,6 +14,8 @@
     <ProjectReference Include="C:\Unreal\UE_5.6\Engine\Source\Programs\UnrealBuildTool\UnrealBuildTool.csproj"><Private>false</Private></ProjectReference>
   </ItemGroup>
   <ItemGroup>
+  <Compile Include="..\..\..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\AdvancedSessions.Build.cs"><Link>Plugins\AdvancedSessions\Source\AdvancedSessions\AdvancedSessions.Build.cs</Link></Compile>
+  <Compile Include="..\..\..\..\Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\AdvancedSteamSessions.Build.cs"><Link>Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\AdvancedSteamSessions.Build.cs</Link></Compile>
   <Compile Include="..\..\..\..\Source\OnlineFPS.Target.cs"><Link>Source\OnlineFPS.Target.cs</Link></Compile>
   <Compile Include="..\..\..\..\Source\OnlineFPSEditor.Target.cs"><Link>Source\OnlineFPSEditor.Target.cs</Link></Compile>
   <Compile Include="..\..\..\..\Source\OnlineFPS\OnlineFPS.Build.cs"><Link>Source\OnlineFPS\OnlineFPS.Build.cs</Link></Compile>

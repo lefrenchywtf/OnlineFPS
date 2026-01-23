@@ -22,8 +22,10 @@ public class OnlineFPS : ModuleRules
 		});
 
 		PrivateDependencyModuleNames.AddRange(new string[] { });
+        DynamicallyLoadedModuleNames.Add("OnlineSubsystemSteam");
 
-		PublicIncludePaths.AddRange(new string[] {
+
+        PublicIncludePaths.AddRange(new string[] {
 			"OnlineFPS",
 			"OnlineFPS/Variant_Horror",
 			"OnlineFPS/Variant_Horror/UI",
