@@ -76,10 +76,10 @@
                             "id": 1,
                             "physicalLocation": {
                                 "artifactLocation": {
-                                    "uri": "file:///C:/Unreal/UE_5.6/Engine/Intermediate/Build/Win64/UnrealGame/Inc/UMG/UHT/UserWidget.generated.h"
+                                    "uri": "file:///C:/Unreal/UE_5.6/Engine/Source/Runtime/Engine/Classes/GameFramework/PawnMovementComponent.h"
                                 },
                                 "region": {
-                                    "startLine": 19,
+                                    "startLine": 14,
                                     "startColumn": 7,
                                     "snippet": {
                                         "text": "class APawn;"

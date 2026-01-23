@@ -10,13 +10,14 @@
 			"FPSStructs.gen.cpp.obj",
 			"FPSWeapon.gen.cpp.obj",
 			"FPS_PlayerState.gen.cpp.obj",
+			"GMMainMenu.gen.cpp.obj",
 			"HorrorCharacter.gen.cpp.obj",
 			"HorrorGameMode.gen.cpp.obj",
-			"HorrorPlayerController.gen.cpp.obj",
-			"GMMainMenu.gen.cpp.obj"
+			"HorrorPlayerController.gen.cpp.obj"
 		],
 		"Module.OnlineFPS.2.cpp.obj": [
 			"HorrorUI.gen.cpp.obj",
+			"OnlineFPS.init.gen.cpp.obj",
 			"OnlineFPSCameraManager.gen.cpp.obj",
 			"OnlineFPSCharacter.gen.cpp.obj",
 			"OnlineFPSGameMode.gen.cpp.obj",
@@ -44,11 +45,11 @@
 			"FPSGameState.cpp.obj",
 			"FPSPlayerController.cpp.obj",
 			"FPSStructs.cpp.obj",
-			"FPSWeapon.cpp.obj",
-			"OnlineFPS.init.gen.cpp.obj"
+			"FPSWeapon.cpp.obj"
 		],
 		"Module.OnlineFPS.3.cpp.obj": [
 			"FPS_PlayerState.cpp.obj",
+			"GMMainMenu.cpp.obj",
 			"HorrorCharacter.cpp.obj",
 			"HorrorGameMode.cpp.obj",
 			"HorrorPlayerController.cpp.obj",
@@ -65,8 +66,7 @@
 			"ShooterPickup.cpp.obj",
 			"ShooterProjectile.cpp.obj",
 			"ShooterWeapon.cpp.obj",
-			"ShooterWeaponHolder.cpp.obj",
-			"GMMainMenu.cpp.obj"
+			"ShooterWeaponHolder.cpp.obj"
 		]
 	}
 }

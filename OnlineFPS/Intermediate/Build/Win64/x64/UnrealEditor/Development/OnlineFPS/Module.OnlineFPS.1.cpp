@@ -7,6 +7,7 @@
 #include "F:/OnlineFPS/OnlineFPS/Intermediate/Build/Win64/UnrealEditor/Inc/OnlineFPS/UHT/FPSStructs.gen.cpp"
 #include "F:/OnlineFPS/OnlineFPS/Intermediate/Build/Win64/UnrealEditor/Inc/OnlineFPS/UHT/FPSWeapon.gen.cpp"
 #include "F:/OnlineFPS/OnlineFPS/Intermediate/Build/Win64/UnrealEditor/Inc/OnlineFPS/UHT/FPS_PlayerState.gen.cpp"
+#include "F:/OnlineFPS/OnlineFPS/Intermediate/Build/Win64/UnrealEditor/Inc/OnlineFPS/UHT/GMMainMenu.gen.cpp"
 #include "F:/OnlineFPS/OnlineFPS/Intermediate/Build/Win64/UnrealEditor/Inc/OnlineFPS/UHT/HorrorCharacter.gen.cpp"
 #include "F:/OnlineFPS/OnlineFPS/Intermediate/Build/Win64/UnrealEditor/Inc/OnlineFPS/UHT/HorrorGameMode.gen.cpp"
 #include "F:/OnlineFPS/OnlineFPS/Intermediate/Build/Win64/UnrealEditor/Inc/OnlineFPS/UHT/HorrorPlayerController.gen.cpp"

@@ -1052,6 +1052,7 @@
 				"F:/OnlineFPS/OnlineFPS/Content/_Core/HUD/W_MainMenu.uasset",
 				"F:/OnlineFPS/OnlineFPS/Content/_Core/Blueprints/GameModes/BP_GMMainMenu.uasset",
 				"F:/OnlineFPS/OnlineFPS/Content/_Core/Blueprints/BP_FPSGameInstance.uasset",
+				"F:/OnlineFPS/OnlineFPS/Content/_Core/HUD/W_ServerInfo.uasset",
 				"F:/OnlineFPS/OnlineFPS/Content/_Core/HUD/W_KillFeed.uasset",
 				"F:/OnlineFPS/OnlineFPS/Content/_Core/HUD/W_GameHudBase.uasset",
 				"F:/OnlineFPS/OnlineFPS/Content/_Core/HUD/W_GameHudTDM.uasset",
