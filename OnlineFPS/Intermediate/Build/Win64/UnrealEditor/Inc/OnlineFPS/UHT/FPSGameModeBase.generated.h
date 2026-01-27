@@ -16,14 +16,17 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
+class AFPSCharacter;
 class AFPSPlayerController;
 
 // ********** Begin Class AFPSGameModeBase *********************************************************
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execSelectTeam); \
 	DECLARE_FUNCTION(execRemovePlayer); \
 	DECLARE_FUNCTION(execAddPlayer);
 
 
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_17_CALLBACK_WRAPPERS
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPSGameModeBase_NoRegister();
 
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_17_INCLASS_NO_PURE_DECLS \
@@ -54,6 +57,7 @@ public: \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_17_CALLBACK_WRAPPERS \
 	FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_17_INCLASS_NO_PURE_DECLS \
 	FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_17_ENHANCED_CONSTRUCTORS \
 private: \

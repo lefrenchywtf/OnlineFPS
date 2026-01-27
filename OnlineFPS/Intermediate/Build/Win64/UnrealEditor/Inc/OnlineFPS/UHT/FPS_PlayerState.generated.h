@@ -17,6 +17,10 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 // ********** Begin Class AFPS_PlayerState *********************************************************
+#define FID_OnlineFPS_Source_OnlineFPS_Public_FPS_PlayerState_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execSetNewPlayerName);
+
+
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPS_PlayerState_NoRegister();
 
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPS_PlayerState_h_15_INCLASS_NO_PURE_DECLS \
@@ -54,6 +58,7 @@ public: \
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPS_PlayerState_h_15_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
+	FID_OnlineFPS_Source_OnlineFPS_Public_FPS_PlayerState_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
 	FID_OnlineFPS_Source_OnlineFPS_Public_FPS_PlayerState_h_15_INCLASS_NO_PURE_DECLS \
 	FID_OnlineFPS_Source_OnlineFPS_Public_FPS_PlayerState_h_15_ENHANCED_CONSTRUCTORS \
 private: \

@@ -24,6 +24,12 @@ public:
 	UPROPERTY(Replicated, BlueprintReadOnly)
 	int deaths = 0;
 
+	//UPROPERTY(Replicated, BlueprintReadWrite)
+	bool bSpawned = false;
+
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
+	UFUNCTION(BlueprintCallable)
+	void SetNewPlayerName(FString _newName);
 	
 };

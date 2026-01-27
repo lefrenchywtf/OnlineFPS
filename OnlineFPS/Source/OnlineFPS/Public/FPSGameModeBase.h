@@ -58,4 +58,10 @@ public:
 	void CheckWin();
 
 	void AddKillToFeed(class AFPSCharacter* _killer, class AFPSCharacter* _victim);
+
+	UFUNCTION(BlueprintCallable)
+	void SelectTeam(class AFPSPlayerController* _controller, int _teamId, TArray<TSubclassOf<AFPSCharacter>> _charas);
+	
+	UFUNCTION(BlueprintImplementableEvent)
+	void SpawnChara(class AFPSPlayerController* _controller, TSubclassOf<class AFPSCharacter> _chara);
 };

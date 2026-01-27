@@ -11,3 +11,8 @@ void AFPS_PlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out
 	DOREPLIFETIME(AFPS_PlayerState, kills);
 	DOREPLIFETIME(AFPS_PlayerState, deaths);
 }
+
+void AFPS_PlayerState::SetNewPlayerName(FString _newName)
+{
+	SetPlayerName(_newName);
+}

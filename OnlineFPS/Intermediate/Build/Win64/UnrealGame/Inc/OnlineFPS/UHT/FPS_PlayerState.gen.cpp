@@ -18,9 +18,56 @@ ONLINEFPS_API UClass* Z_Construct_UClass_AFPS_PlayerState_NoRegister();
 UPackage* Z_Construct_UPackage__Script_OnlineFPS();
 // ********** End Cross Module References **********************************************************
 
+// ********** Begin Class AFPS_PlayerState Function SetNewPlayerName *******************************
+struct Z_Construct_UFunction_AFPS_PlayerState_SetNewPlayerName_Statics
+{
+	struct FPS_PlayerState_eventSetNewPlayerName_Parms
+	{
+		FString _newName;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FPS_PlayerState.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStrPropertyParams NewProp__newName;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_AFPS_PlayerState_SetNewPlayerName_Statics::NewProp__newName = { "_newName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPS_PlayerState_eventSetNewPlayerName_Parms, _newName), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFPS_PlayerState_SetNewPlayerName_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPS_PlayerState_SetNewPlayerName_Statics::NewProp__newName,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPS_PlayerState_SetNewPlayerName_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPS_PlayerState_SetNewPlayerName_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPS_PlayerState, nullptr, "SetNewPlayerName", Z_Construct_UFunction_AFPS_PlayerState_SetNewPlayerName_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPS_PlayerState_SetNewPlayerName_Statics::PropPointers), sizeof(Z_Construct_UFunction_AFPS_PlayerState_SetNewPlayerName_Statics::FPS_PlayerState_eventSetNewPlayerName_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPS_PlayerState_SetNewPlayerName_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPS_PlayerState_SetNewPlayerName_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(Z_Construct_UFunction_AFPS_PlayerState_SetNewPlayerName_Statics::FPS_PlayerState_eventSetNewPlayerName_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AFPS_PlayerState_SetNewPlayerName()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPS_PlayerState_SetNewPlayerName_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AFPS_PlayerState::execSetNewPlayerName)
+{
+	P_GET_PROPERTY(FStrProperty,Z_Param__newName);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->SetNewPlayerName(Z_Param__newName);
+	P_NATIVE_END;
+}
+// ********** End Class AFPS_PlayerState Function SetNewPlayerName *********************************
+
 // ********** Begin Class AFPS_PlayerState *********************************************************
 void AFPS_PlayerState::StaticRegisterNativesAFPS_PlayerState()
 {
+	UClass* Class = AFPS_PlayerState::StaticClass();
+	static const FNameNativePtrPair Funcs[] = {
+		{ "SetNewPlayerName", &AFPS_PlayerState::execSetNewPlayerName },
+	};
+	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
 FClassRegistrationInfo Z_Registration_Info_UClass_AFPS_PlayerState;
 UClass* AFPS_PlayerState::GetPrivateStaticClass()
@@ -81,6 +128,10 @@ struct Z_Construct_UClass_AFPS_PlayerState_Statics
 	static const UECodeGen_Private::FIntPropertyParams NewProp_deaths;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
+	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
+		{ &Z_Construct_UFunction_AFPS_PlayerState_SetNewPlayerName, "SetNewPlayerName" }, // 4174045245
+	};
+	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AFPS_PlayerState>::IsAbstract,
 	};
@@ -105,11 +156,11 @@ const UECodeGen_Private::FClassParams Z_Construct_UClass_AFPS_PlayerState_Static
 	"Engine",
 	&StaticCppClassTypeInfo,
 	DependentSingletons,
-	nullptr,
+	FuncInfo,
 	Z_Construct_UClass_AFPS_PlayerState_Statics::PropPointers,
 	nullptr,
 	UE_ARRAY_COUNT(DependentSingletons),
-	0,
+	UE_ARRAY_COUNT(FuncInfo),
 	UE_ARRAY_COUNT(Z_Construct_UClass_AFPS_PlayerState_Statics::PropPointers),
 	0,
 	0x009003A4u,
@@ -145,10 +196,10 @@ AFPS_PlayerState::~AFPS_PlayerState() {}
 struct Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPS_PlayerState_h__Script_OnlineFPS_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AFPS_PlayerState, AFPS_PlayerState::StaticClass, TEXT("AFPS_PlayerState"), &Z_Registration_Info_UClass_AFPS_PlayerState, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPS_PlayerState), 398867518U) },
+		{ Z_Construct_UClass_AFPS_PlayerState, AFPS_PlayerState::StaticClass, TEXT("AFPS_PlayerState"), &Z_Registration_Info_UClass_AFPS_PlayerState, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPS_PlayerState), 479331438U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPS_PlayerState_h__Script_OnlineFPS_245791272(TEXT("/Script/OnlineFPS"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPS_PlayerState_h__Script_OnlineFPS_745834665(TEXT("/Script/OnlineFPS"),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPS_PlayerState_h__Script_OnlineFPS_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPS_PlayerState_h__Script_OnlineFPS_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

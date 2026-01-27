@@ -48,23 +48,6 @@ void AFPSGameModeBase::AddPlayer(AFPSPlayerController* _character)
 		LobbyPlayers.Add(_character);
 		UpdateGameState();
 		_character->Client_CreateGamemodeWidget(gameModeWidget);
-		AFPS_PlayerState* playerState = _character->GetPlayerState<AFPS_PlayerState>();
-		if (bTeamBasedMode)
-		{
-			if (playerState)
-			{
-				playerState->teamID = nextTeamIdToGive;
-				nextTeamIdToGive++;
-				if (nextTeamIdToGive >= teamModeInfo.numberOfTeams)
-				{
-					nextTeamIdToGive = 0;
-				}
-			}
-		}
-		if (playerState)
-		{
-			playerState->SetPlayerName(FString("Player") + FString::FromInt(LobbyPlayers.Num()));
-		}
 		if (LobbyPlayers.Num() > 1)
 		{
 			_character->Client_NeedSpawnWeapons();
@@ -148,6 +131,19 @@ void AFPSGameModeBase::CheckWin()
 		if (teamModeInfo.currentObjectives[i] >= teamModeInfo.objectiveToReach)
 		{
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("ggez")));
+		}
+	}
+}
+
+void AFPSGameModeBase::SelectTeam(AFPSPlayerController* _controller, int _teamId, TArray<TSubclassOf<class AFPSCharacter>> _charas)
+{
+	AFPS_PlayerState* playerState = _controller->GetPlayerState<AFPS_PlayerState>();
+	if (playerState)
+	{
+		playerState->teamID = _teamId;
+		if (_teamId < _charas.Num())
+		{
+			SpawnChara(_controller, _charas[_teamId]);
 		}
 	}
 }
