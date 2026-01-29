@@ -3,7 +3,6 @@
 	{
 		"Module.OnlineFPS.1.cpp.obj": [
 			"EnvQueryContext_Target.gen.cpp.obj",
-			"FPSCharacter.gen.cpp.obj",
 			"FPSGameModeBase.gen.cpp.obj",
 			"FPSGameState.gen.cpp.obj",
 			"FPSPlayerController.gen.cpp.obj",
@@ -12,12 +11,12 @@
 			"FPS_PlayerState.gen.cpp.obj",
 			"GMMainMenu.gen.cpp.obj",
 			"HorrorCharacter.gen.cpp.obj",
-			"HorrorGameMode.gen.cpp.obj"
+			"HorrorGameMode.gen.cpp.obj",
+			"FPSCharacter.gen.cpp.obj"
 		],
 		"Module.OnlineFPS.2.cpp.obj": [
 			"HorrorPlayerController.gen.cpp.obj",
 			"HorrorUI.gen.cpp.obj",
-			"OnlineFPS.init.gen.cpp.obj",
 			"OnlineFPSCameraManager.gen.cpp.obj",
 			"OnlineFPSCharacter.gen.cpp.obj",
 			"OnlineFPSGameMode.gen.cpp.obj",
@@ -40,14 +39,15 @@
 			"OnlineFPSCharacter.cpp.obj",
 			"OnlineFPSGameMode.cpp.obj",
 			"OnlineFPSPlayerController.cpp.obj",
+			"OnlineFPS.init.gen.cpp.obj",
 			"FPSCharacter.cpp.obj"
 		],
 		"Module.OnlineFPS.3.cpp.obj": [
 			"FPSGameModeBase.cpp.obj",
 			"FPSGameState.cpp.obj",
-			"FPSPlayerController.cpp.obj",
 			"FPSStructs.cpp.obj",
 			"FPSWeapon.cpp.obj",
+			"FPS_PlayerState.cpp.obj",
 			"GMMainMenu.cpp.obj",
 			"HorrorCharacter.cpp.obj",
 			"HorrorGameMode.cpp.obj",
@@ -66,7 +66,7 @@
 			"ShooterProjectile.cpp.obj",
 			"ShooterWeapon.cpp.obj",
 			"ShooterWeaponHolder.cpp.obj",
-			"FPS_PlayerState.cpp.obj"
+			"FPSPlayerController.cpp.obj"
 		]
 	}
 }

@@ -107,7 +107,8 @@ public: \
 	enum class ENetFields_Private : uint16 \
 	{ \
 		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
-		equipedWeapon=NETFIELD_REP_START, \
+		weaponsToSpawn=NETFIELD_REP_START, \
+		equipedWeapon, \
 		currentHealth, \
 		bIsReloading, \
 		NETFIELD_REP_END=bIsReloading	}; \

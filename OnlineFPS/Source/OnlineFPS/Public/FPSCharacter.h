@@ -34,7 +34,7 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	class AFPSPlayerController* FPSController;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	FPlayerWeapons weaponsToSpawn;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -125,7 +125,7 @@ public:
 	void StopShooting();
 
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-	void SpawnCharaWeapons(AFPSCharacter* _chara);
+	void SpawnCharaWeapons();
 
 	UFUNCTION(Client, Reliable)
 	void Client_SpawnOtherWeapons(AFPSCharacter* _chara);

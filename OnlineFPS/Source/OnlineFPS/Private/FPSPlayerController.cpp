@@ -15,9 +15,9 @@ void AFPSPlayerController::SpawnOthersWeapons()
 		for (int i = 0; i < players.Num(); i++)
 		{
 			AFPSCharacter* player = Cast<AFPSCharacter>(players[i]->GetPawn());
-			if (player && player != Chara)
+			if (player && player != Chara && !player->primaryWeapon)
 			{
-				Chara->SpawnCharaWeapons(player);
+				player->SpawnCharaWeapons();
 			}
 		}
 	}
@@ -25,18 +25,19 @@ void AFPSPlayerController::SpawnOthersWeapons()
 
 void AFPSPlayerController::Client_NeedSpawnWeapons_Implementation()
 {
-	bNeedToSpawnWeapons = true;
+	FTimerHandle SpawnTimer;
+	GetWorldTimerManager().SetTimer(SpawnTimer, this, &AFPSPlayerController::SpawnOthersWeapons, 1.f);
 }
 
 void AFPSPlayerController::SetChara(class AFPSCharacter* _chara)
 {
 	Chara = _chara;
-	if (bNeedToSpawnWeapons)
-	{
-		FTimerHandle SpawnTimer;
-		GetWorldTimerManager().SetTimer(SpawnTimer, this, &AFPSPlayerController::SpawnOthersWeapons, 1.f);
-		bNeedToSpawnWeapons = false;
-	}
+	//if (bNeedToSpawnWeapons)
+	//{
+	//	FTimerHandle SpawnTimer;
+	//	GetWorldTimerManager().SetTimer(SpawnTimer, this, &AFPSPlayerController::SpawnOthersWeapons, 1.f);
+	//	bNeedToSpawnWeapons = false;
+	//}
 }
 
 void AFPSPlayerController::EnableInputs()

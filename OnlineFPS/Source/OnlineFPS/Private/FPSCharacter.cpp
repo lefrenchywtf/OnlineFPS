@@ -127,7 +127,7 @@ void AFPSCharacter::MoveCamera(FVector2D _inputs)
 
 void AFPSCharacter::Client_SpawnOtherWeapons_Implementation(AFPSCharacter* _chara)
 {
-	SpawnCharaWeapons(_chara);
+	SpawnCharaWeapons();
 }
 
 void AFPSCharacter::HandleTakeDamage(AActor* DamagedActor, float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser)
@@ -184,6 +184,7 @@ void AFPSCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLif
 	DOREPLIFETIME(AFPSCharacter, currentHealth);
 	DOREPLIFETIME(AFPSCharacter, equipedWeapon);
 	DOREPLIFETIME(AFPSCharacter, bIsReloading);
+	DOREPLIFETIME(AFPSCharacter, weaponsToSpawn);
 }
 
 void AFPSCharacter::OnRepHealth()
