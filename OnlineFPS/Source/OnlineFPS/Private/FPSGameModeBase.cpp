@@ -23,6 +23,46 @@ void AFPSGameModeBase::BeginPlay()
 		teamModeInfo.currentObjectives.Add(0);
 	}
 	RetrieveSpawns();
+	gameState->timeRemaining = maxTime;
+	GetWorldTimerManager().SetTimerForNextTick(this, &AFPSGameModeBase::StartMatch);
+}
+
+void AFPSGameModeBase::StartGame()
+{
+	
+}
+
+void AFPSGameModeBase::HandleMatchHasStarted()
+{
+	GetWorldTimerManager().SetTimer(gameTimer, this, &AFPSGameModeBase::DecreaseTime, 1.f, true);
+}
+
+void AFPSGameModeBase::HandleMatchHasEnded()
+{
+	if (winnerTeamID == -1) // time limit reached
+	{
+		winnerTeamID = 0;
+		for (int i = 1; i < teamModeInfo.numberOfTeams; i++)
+		{
+			if (teamModeInfo.currentObjectives[i] >= teamModeInfo.currentObjectives[winnerTeamID])
+			{
+				winnerTeamID = i;
+			}
+		}
+	}
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("team %d won"), winnerTeamID));
+}
+
+void AFPSGameModeBase::DecreaseTime()
+{
+	if (gameState)
+	{
+		gameState->timeRemaining--;
+		if (gameState->timeRemaining <= 0)
+		{
+			EndMatch();
+		}
+	}
 }
 
 void AFPSGameModeBase::RetrieveSpawns()
@@ -110,7 +150,7 @@ void AFPSGameModeBase::UpdateTeamObjective(int _teamId, int _increment)
 	if (_teamId < teamModeInfo.numberOfTeams && _teamId >= 0)
 	{
 		teamModeInfo.currentObjectives[_teamId] += _increment;
-		CheckWin();
+		CheckWin(_teamId);
 		gameState->UpdateObjectives(teamModeInfo);
 		UpdatePlayersHud();
 	}
@@ -124,13 +164,13 @@ void AFPSGameModeBase::UpdatePlayersHud()
 	}
 }
 
-void AFPSGameModeBase::CheckWin()
+void AFPSGameModeBase::CheckWin(int _teamId)
 {
-	for (int i = 0; i < teamModeInfo.numberOfTeams; i++)
+	if (_teamId >= 0 && _teamId < teamModeInfo.numberOfTeams)
 	{
-		if (teamModeInfo.currentObjectives[i] >= teamModeInfo.objectiveToReach)
+		if (teamModeInfo.currentObjectives[_teamId] >= teamModeInfo.objectiveToReach)
 		{
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("ggez")));
+			EndMatch();
 		}
 	}
 }

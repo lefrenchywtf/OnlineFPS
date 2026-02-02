@@ -85,6 +85,12 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	float respawnTime = 3.f;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float baseSensitivity = 1.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float currentSensitivity = 1.f;
+
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TArray<USoundBase*> footstepSounds;
 protected:

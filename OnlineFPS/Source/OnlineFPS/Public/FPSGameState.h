@@ -25,7 +25,11 @@ protected:
 	UPROPERTY(Replicated, BlueprintReadOnly)
 	FTeamBasedInfos modeInfos;
 public:
+	UPROPERTY(Replicated)
 	bool bTeamBased = false;
+
+	UPROPERTY(Replicated, BlueprintReadOnly)
+	int timeRemaining = 0;
 
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 

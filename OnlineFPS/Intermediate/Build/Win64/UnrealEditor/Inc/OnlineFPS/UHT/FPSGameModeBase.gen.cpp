@@ -66,6 +66,35 @@ DEFINE_FUNCTION(AFPSGameModeBase::execAddPlayer)
 }
 // ********** End Class AFPSGameModeBase Function AddPlayer ****************************************
 
+// ********** Begin Class AFPSGameModeBase Function DecreaseTime ***********************************
+struct Z_Construct_UFunction_AFPSGameModeBase_DecreaseTime_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FPSGameModeBase.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSGameModeBase_DecreaseTime_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSGameModeBase, nullptr, "DecreaseTime", nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSGameModeBase_DecreaseTime_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSGameModeBase_DecreaseTime_Statics::Function_MetaDataParams)},  };
+UFunction* Z_Construct_UFunction_AFPSGameModeBase_DecreaseTime()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSGameModeBase_DecreaseTime_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AFPSGameModeBase::execDecreaseTime)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->DecreaseTime();
+	P_NATIVE_END;
+}
+// ********** End Class AFPSGameModeBase Function DecreaseTime *************************************
+
 // ********** Begin Class AFPSGameModeBase Function RemovePlayer ***********************************
 struct Z_Construct_UFunction_AFPSGameModeBase_RemovePlayer_Statics
 {
@@ -216,6 +245,7 @@ void AFPSGameModeBase::StaticRegisterNativesAFPSGameModeBase()
 	UClass* Class = AFPSGameModeBase::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
 		{ "AddPlayer", &AFPSGameModeBase::execAddPlayer },
+		{ "DecreaseTime", &AFPSGameModeBase::execDecreaseTime },
 		{ "RemovePlayer", &AFPSGameModeBase::execRemovePlayer },
 		{ "SelectTeam", &AFPSGameModeBase::execSelectTeam },
 	};
@@ -274,15 +304,21 @@ struct Z_Construct_UClass_AFPSGameModeBase_Statics
 		{ "Category", "FPSGameModeBase" },
 		{ "ModuleRelativePath", "Public/FPSGameModeBase.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_maxTime_MetaData[] = {
+		{ "Category", "FPSGameModeBase" },
+		{ "ModuleRelativePath", "Public/FPSGameModeBase.h" },
+	};
 #endif // WITH_METADATA
 	static void NewProp_bTeamBasedMode_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bTeamBasedMode;
 	static const UECodeGen_Private::FStructPropertyParams NewProp_teamModeInfo;
 	static const UECodeGen_Private::FClassPropertyParams NewProp_gameModeWidget;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_maxTime;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_AFPSGameModeBase_AddPlayer, "AddPlayer" }, // 4141198723
+		{ &Z_Construct_UFunction_AFPSGameModeBase_DecreaseTime, "DecreaseTime" }, // 963986985
 		{ &Z_Construct_UFunction_AFPSGameModeBase_RemovePlayer, "RemovePlayer" }, // 3148630357
 		{ &Z_Construct_UFunction_AFPSGameModeBase_SelectTeam, "SelectTeam" }, // 3553505195
 		{ &Z_Construct_UFunction_AFPSGameModeBase_SpawnChara, "SpawnChara" }, // 2788896610
@@ -300,10 +336,12 @@ void Z_Construct_UClass_AFPSGameModeBase_Statics::NewProp_bTeamBasedMode_SetBit(
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AFPSGameModeBase_Statics::NewProp_bTeamBasedMode = { "bTeamBasedMode", nullptr, (EPropertyFlags)0x0020080000010005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AFPSGameModeBase), &Z_Construct_UClass_AFPSGameModeBase_Statics::NewProp_bTeamBasedMode_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bTeamBasedMode_MetaData), NewProp_bTeamBasedMode_MetaData) };
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AFPSGameModeBase_Statics::NewProp_teamModeInfo = { "teamModeInfo", nullptr, (EPropertyFlags)0x0020080000010005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSGameModeBase, teamModeInfo), Z_Construct_UScriptStruct_FTeamBasedInfos, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_teamModeInfo_MetaData), NewProp_teamModeInfo_MetaData) }; // 1820631868
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AFPSGameModeBase_Statics::NewProp_gameModeWidget = { "gameModeWidget", nullptr, (EPropertyFlags)0x0024080000000015, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSGameModeBase, gameModeWidget), Z_Construct_UClass_UClass, Z_Construct_UClass_UUserWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_gameModeWidget_MetaData), NewProp_gameModeWidget_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AFPSGameModeBase_Statics::NewProp_maxTime = { "maxTime", nullptr, (EPropertyFlags)0x0020080000000015, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSGameModeBase, maxTime), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_maxTime_MetaData), NewProp_maxTime_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFPSGameModeBase_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSGameModeBase_Statics::NewProp_bTeamBasedMode,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSGameModeBase_Statics::NewProp_teamModeInfo,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSGameModeBase_Statics::NewProp_gameModeWidget,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSGameModeBase_Statics::NewProp_maxTime,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AFPSGameModeBase_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AFPSGameModeBase_Statics::DependentSingletons[])() = {
@@ -343,10 +381,10 @@ AFPSGameModeBase::~AFPSGameModeBase() {}
 struct Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h__Script_OnlineFPS_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AFPSGameModeBase, AFPSGameModeBase::StaticClass, TEXT("AFPSGameModeBase"), &Z_Registration_Info_UClass_AFPSGameModeBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSGameModeBase), 1757094519U) },
+		{ Z_Construct_UClass_AFPSGameModeBase, AFPSGameModeBase::StaticClass, TEXT("AFPSGameModeBase"), &Z_Registration_Info_UClass_AFPSGameModeBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSGameModeBase), 1632861352U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h__Script_OnlineFPS_1997662717(TEXT("/Script/OnlineFPS"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h__Script_OnlineFPS_3507980065(TEXT("/Script/OnlineFPS"),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h__Script_OnlineFPS_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h__Script_OnlineFPS_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

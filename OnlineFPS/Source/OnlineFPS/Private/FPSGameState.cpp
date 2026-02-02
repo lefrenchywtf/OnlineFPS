@@ -10,6 +10,8 @@ void AFPSGameState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLif
 	DOREPLIFETIME(AFPSGameState, LobbyPawns);
 	DOREPLIFETIME(AFPSGameState, Spawns);
 	DOREPLIFETIME(AFPSGameState, modeInfos);
+	DOREPLIFETIME(AFPSGameState, bTeamBased);
+	DOREPLIFETIME(AFPSGameState, timeRemaining);
 }
 
 void AFPSGameState::UpdatePlayersList()

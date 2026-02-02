@@ -37,6 +37,14 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TSubclassOf<UUserWidget> gameModeWidget;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	int maxTime = 10;
+
+	FTimerHandle gameTimer;
+
+	int winnerTeamID = -1;
+
 public:	
 
 	UFUNCTION(BlueprintCallable)
@@ -55,7 +63,7 @@ public:
 
 	void UpdatePlayersHud();
 
-	void CheckWin();
+	void CheckWin(int _teamID);
 
 	void AddKillToFeed(class AFPSCharacter* _killer, class AFPSCharacter* _victim);
 
@@ -64,4 +72,13 @@ public:
 	
 	UFUNCTION(BlueprintImplementableEvent)
 	void SpawnChara(class AFPSPlayerController* _controller, TSubclassOf<class AFPSCharacter> _chara);
+
+	UFUNCTION()
+	void DecreaseTime();
+
+	void StartGame();
+
+	void HandleMatchHasStarted() override;
+
+	void HandleMatchHasEnded() override;
 };

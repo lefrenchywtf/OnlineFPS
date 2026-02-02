@@ -25,6 +25,7 @@ void AFPSCharacter::BeginPlay()
 	Super::BeginPlay();
 	currentHealth = maxHealth;
 	OnTakeAnyDamage.AddDynamic(this, &AFPSCharacter::HandleTakeDamage);
+	currentSensitivity = baseSensitivity;
 }
 
 // Called every frame
@@ -121,8 +122,8 @@ void AFPSCharacter::StopShooting()
 
 void AFPSCharacter::MoveCamera(FVector2D _inputs)
 {
-	AddControllerYawInput(_inputs.X);
-	AddControllerPitchInput(_inputs.Y);
+	AddControllerYawInput(_inputs.X * currentSensitivity);
+	AddControllerPitchInput(_inputs.Y * currentSensitivity);
 }
 
 void AFPSCharacter::Client_SpawnOtherWeapons_Implementation(AFPSCharacter* _chara)
