@@ -24,12 +24,8 @@ void AFPSGameModeBase::BeginPlay()
 	}
 	RetrieveSpawns();
 	gameState->timeRemaining = maxTime;
+	gameState->UpdateObjectives(teamModeInfo);
 	GetWorldTimerManager().SetTimerForNextTick(this, &AFPSGameModeBase::StartMatch);
-}
-
-void AFPSGameModeBase::StartGame()
-{
-	
 }
 
 void AFPSGameModeBase::HandleMatchHasStarted()
@@ -48,6 +44,15 @@ void AFPSGameModeBase::HandleMatchHasEnded()
 			{
 				winnerTeamID = i;
 			}
+		}
+	}
+
+	for (int i = 0; i < gameState->PlayerArray.Num(); i++)
+	{
+		AFPSCharacter* chara = Cast<AFPSCharacter>(gameState->PlayerArray[i]->GetPawn());
+		if (chara)
+		{
+			chara->Client_GameEnded(winnerTeamID);
 		}
 	}
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("team %d won"), winnerTeamID));

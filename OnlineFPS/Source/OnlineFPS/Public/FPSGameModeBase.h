@@ -76,8 +76,6 @@ public:
 	UFUNCTION()
 	void DecreaseTime();
 
-	void StartGame();
-
 	void HandleMatchHasStarted() override;
 
 	void HandleMatchHasEnded() override;

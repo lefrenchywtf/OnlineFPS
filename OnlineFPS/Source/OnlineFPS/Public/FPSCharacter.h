@@ -93,6 +93,8 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TArray<USoundBase*> footstepSounds;
+
+	class AFPSGameState* gameState;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -267,4 +269,10 @@ public:
 
 	UFUNCTION(Server, Reliable)
 	void Server_TpToLocation(FVector _location);
+
+	UFUNCTION(Client, Reliable)
+	void Client_GameEnded(int _winnerTeamID);
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void MatchEndedDisplay(bool _victory);
 };

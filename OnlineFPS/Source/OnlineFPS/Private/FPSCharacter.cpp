@@ -10,6 +10,7 @@
 #include "FPSPlayerController.h"
 #include "Components/DecalComponent.h"
 #include "FPSGameModeBase.h"
+#include "FPS_PlayerState.h"
 
 // Sets default values
 AFPSCharacter::AFPSCharacter()
@@ -26,6 +27,7 @@ void AFPSCharacter::BeginPlay()
 	currentHealth = maxHealth;
 	OnTakeAnyDamage.AddDynamic(this, &AFPSCharacter::HandleTakeDamage);
 	currentSensitivity = baseSensitivity;
+	gameState = GetWorld()->GetGameState<AFPSGameState>();
 }
 
 // Called every frame
@@ -384,7 +386,6 @@ void AFPSCharacter::RespawnChara()
 
 void AFPSCharacter::TpToSpawnPoint()
 {
-	AFPSGameState* gameState = GetWorld()->GetGameState<AFPSGameState>();
 	if (gameState)
 	{
 		TArray<FVector> spawns = gameState->GetSpawns();
@@ -492,5 +493,16 @@ void AFPSCharacter::MC_SpawnDecal_Implementation(UMaterial* _decalMat, FVector _
 	{
 		UDecalComponent* decal = UGameplayStatics::SpawnDecalAtLocation(GetWorld(), _decalMat, FVector(3, 3, 3), _location, _rotation, 30.f);
 		decal->SetFadeScreenSize(.001f);
+	}
+}
+
+void AFPSCharacter::Client_GameEnded_Implementation(int _winnerTeamID)
+{
+	FPSController->DisableInputs();
+	AFPS_PlayerState* playerState = GetPlayerState<AFPS_PlayerState>();
+	if (playerState)
+	{
+		bool winner = playerState->teamID == _winnerTeamID;
+		MatchEndedDisplay(winner);
 	}
 }

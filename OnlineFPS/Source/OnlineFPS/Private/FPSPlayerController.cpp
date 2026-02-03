@@ -48,6 +48,7 @@ void AFPSPlayerController::EnableInputs()
 void AFPSPlayerController::DisableInputs()
 {
 	DisableInput(this);
+	Chara->StopShooting();
 }
 
 void AFPSPlayerController::Client_CreateGamemodeWidget_Implementation(TSubclassOf<UUserWidget> _widget)

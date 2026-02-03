@@ -40,6 +40,7 @@ struct FPlayerWeapons;
 
 // ********** Begin Class AFPSCharacter ************************************************************
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h_28_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void Client_GameEnded_Implementation(int32 _winnerTeamID); \
 	virtual void Server_TpToLocation_Implementation(FVector _location); \
 	virtual void Server_SendKill_Implementation(AFPSCharacter* _killer); \
 	virtual void MC_SpawnDecal_Implementation(UMaterial* _decalMat, FVector _location, FRotator _rotation); \
@@ -55,6 +56,7 @@ struct FPlayerWeapons;
 	virtual void ReduceHealth_Implementation(float _damage, AActor* _damageCauser); \
 	virtual void Client_SpawnOtherWeapons_Implementation(AFPSCharacter* _chara); \
 	virtual void Server_ChangeWalkSpeed_Implementation(float _newSpeed); \
+	DECLARE_FUNCTION(execClient_GameEnded); \
 	DECLARE_FUNCTION(execServer_TpToLocation); \
 	DECLARE_FUNCTION(execServer_SendKill); \
 	DECLARE_FUNCTION(execMC_SpawnDecal); \
