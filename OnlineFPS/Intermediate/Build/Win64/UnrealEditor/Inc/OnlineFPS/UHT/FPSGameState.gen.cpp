@@ -133,6 +133,10 @@ struct Z_Construct_UClass_AFPSGameState_Statics
 		{ "Category", "FPSGameState" },
 		{ "ModuleRelativePath", "Public/FPSGameState.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_preGameCountdown_MetaData[] = {
+		{ "Category", "FPSGameState" },
+		{ "ModuleRelativePath", "Public/FPSGameState.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_LobbyPawns_Inner;
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_LobbyPawns;
@@ -142,6 +146,7 @@ struct Z_Construct_UClass_AFPSGameState_Statics
 	static void NewProp_bTeamBased_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bTeamBased;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_timeRemaining;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_preGameCountdown;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -164,6 +169,7 @@ void Z_Construct_UClass_AFPSGameState_Statics::NewProp_bTeamBased_SetBit(void* O
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AFPSGameState_Statics::NewProp_bTeamBased = { "bTeamBased", nullptr, (EPropertyFlags)0x0010000000000020, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AFPSGameState), &Z_Construct_UClass_AFPSGameState_Statics::NewProp_bTeamBased_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bTeamBased_MetaData), NewProp_bTeamBased_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AFPSGameState_Statics::NewProp_timeRemaining = { "timeRemaining", nullptr, (EPropertyFlags)0x0010000000000034, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSGameState, timeRemaining), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_timeRemaining_MetaData), NewProp_timeRemaining_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AFPSGameState_Statics::NewProp_preGameCountdown = { "preGameCountdown", nullptr, (EPropertyFlags)0x0010000000000034, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSGameState, preGameCountdown), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_preGameCountdown_MetaData), NewProp_preGameCountdown_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFPSGameState_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSGameState_Statics::NewProp_LobbyPawns_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSGameState_Statics::NewProp_LobbyPawns,
@@ -172,6 +178,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFPSGameS
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSGameState_Statics::NewProp_modeInfos,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSGameState_Statics::NewProp_bTeamBased,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSGameState_Statics::NewProp_timeRemaining,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSGameState_Statics::NewProp_preGameCountdown,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AFPSGameState_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AFPSGameState_Statics::DependentSingletons[])() = {
@@ -210,12 +217,14 @@ void AFPSGameState::ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& C
 	static FName Name_modeInfos(TEXT("modeInfos"));
 	static FName Name_bTeamBased(TEXT("bTeamBased"));
 	static FName Name_timeRemaining(TEXT("timeRemaining"));
+	static FName Name_preGameCountdown(TEXT("preGameCountdown"));
 	const bool bIsValid = true
 		&& Name_LobbyPawns == ClassReps[(int32)ENetFields_Private::LobbyPawns].Property->GetFName()
 		&& Name_Spawns == ClassReps[(int32)ENetFields_Private::Spawns].Property->GetFName()
 		&& Name_modeInfos == ClassReps[(int32)ENetFields_Private::modeInfos].Property->GetFName()
 		&& Name_bTeamBased == ClassReps[(int32)ENetFields_Private::bTeamBased].Property->GetFName()
-		&& Name_timeRemaining == ClassReps[(int32)ENetFields_Private::timeRemaining].Property->GetFName();
+		&& Name_timeRemaining == ClassReps[(int32)ENetFields_Private::timeRemaining].Property->GetFName()
+		&& Name_preGameCountdown == ClassReps[(int32)ENetFields_Private::preGameCountdown].Property->GetFName();
 	checkf(bIsValid, TEXT("UHT Generated Rep Indices do not match runtime populated Rep Indices for properties in AFPSGameState"));
 }
 #endif
@@ -228,10 +237,10 @@ AFPSGameState::~AFPSGameState() {}
 struct Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h__Script_OnlineFPS_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AFPSGameState, AFPSGameState::StaticClass, TEXT("AFPSGameState"), &Z_Registration_Info_UClass_AFPSGameState, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSGameState), 104769725U) },
+		{ Z_Construct_UClass_AFPSGameState, AFPSGameState::StaticClass, TEXT("AFPSGameState"), &Z_Registration_Info_UClass_AFPSGameState, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSGameState), 3062354027U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h__Script_OnlineFPS_2638471967(TEXT("/Script/OnlineFPS"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h__Script_OnlineFPS_4169515698(TEXT("/Script/OnlineFPS"),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h__Script_OnlineFPS_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameState_h__Script_OnlineFPS_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

@@ -43,8 +43,11 @@ protected:
 
 	FTimerHandle gameTimer;
 
+	FTimerHandle preGameTimer;
+
 	int winnerTeamID = -1;
 
+	bool bPreGameStarted = false;
 public:	
 
 	UFUNCTION(BlueprintCallable)
@@ -75,6 +78,8 @@ public:
 
 	UFUNCTION()
 	void DecreaseTime();
+
+	void DecreasePreGame();
 
 	void HandleMatchHasStarted() override;
 

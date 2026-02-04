@@ -303,6 +303,34 @@ UFunction* Z_Construct_UFunction_AFPSPlayerController_CreateGamemodeWidget()
 }
 // ********** End Class AFPSPlayerController Function CreateGamemodeWidget *************************
 
+// ********** Begin Class AFPSPlayerController Function HidePreGameCounter *************************
+static FName NAME_AFPSPlayerController_HidePreGameCounter = FName(TEXT("HidePreGameCounter"));
+void AFPSPlayerController::HidePreGameCounter()
+{
+	UFunction* Func = FindFunctionChecked(NAME_AFPSPlayerController_HidePreGameCounter);
+	ProcessEvent(Func,NULL);
+}
+struct Z_Construct_UFunction_AFPSPlayerController_HidePreGameCounter_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FPSPlayerController.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSPlayerController_HidePreGameCounter_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSPlayerController, nullptr, "HidePreGameCounter", nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020800, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSPlayerController_HidePreGameCounter_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSPlayerController_HidePreGameCounter_Statics::Function_MetaDataParams)},  };
+UFunction* Z_Construct_UFunction_AFPSPlayerController_HidePreGameCounter()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSPlayerController_HidePreGameCounter_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+// ********** End Class AFPSPlayerController Function HidePreGameCounter ***************************
+
 // ********** Begin Class AFPSPlayerController Function SetChara ***********************************
 struct Z_Construct_UFunction_AFPSPlayerController_SetChara_Statics
 {
@@ -344,6 +372,100 @@ DEFINE_FUNCTION(AFPSPlayerController::execSetChara)
 	P_NATIVE_END;
 }
 // ********** End Class AFPSPlayerController Function SetChara *************************************
+
+// ********** Begin Class AFPSPlayerController Function ShowMouseCursor ****************************
+struct FPSPlayerController_eventShowMouseCursor_Parms
+{
+	bool _bShow;
+};
+static FName NAME_AFPSPlayerController_ShowMouseCursor = FName(TEXT("ShowMouseCursor"));
+void AFPSPlayerController::ShowMouseCursor(bool _bShow)
+{
+	FPSPlayerController_eventShowMouseCursor_Parms Parms;
+	Parms._bShow=_bShow ? true : false;
+	UFunction* Func = FindFunctionChecked(NAME_AFPSPlayerController_ShowMouseCursor);
+	ProcessEvent(Func,&Parms);
+}
+struct Z_Construct_UFunction_AFPSPlayerController_ShowMouseCursor_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FPSPlayerController.h" },
+	};
+#endif // WITH_METADATA
+	static void NewProp__bShow_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp__bShow;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+void Z_Construct_UFunction_AFPSPlayerController_ShowMouseCursor_Statics::NewProp__bShow_SetBit(void* Obj)
+{
+	((FPSPlayerController_eventShowMouseCursor_Parms*)Obj)->_bShow = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AFPSPlayerController_ShowMouseCursor_Statics::NewProp__bShow = { "_bShow", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(FPSPlayerController_eventShowMouseCursor_Parms), &Z_Construct_UFunction_AFPSPlayerController_ShowMouseCursor_Statics::NewProp__bShow_SetBit, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFPSPlayerController_ShowMouseCursor_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSPlayerController_ShowMouseCursor_Statics::NewProp__bShow,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSPlayerController_ShowMouseCursor_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSPlayerController_ShowMouseCursor_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSPlayerController, nullptr, "ShowMouseCursor", Z_Construct_UFunction_AFPSPlayerController_ShowMouseCursor_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSPlayerController_ShowMouseCursor_Statics::PropPointers), sizeof(FPSPlayerController_eventShowMouseCursor_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020800, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSPlayerController_ShowMouseCursor_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSPlayerController_ShowMouseCursor_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(FPSPlayerController_eventShowMouseCursor_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AFPSPlayerController_ShowMouseCursor()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSPlayerController_ShowMouseCursor_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+// ********** End Class AFPSPlayerController Function ShowMouseCursor ******************************
+
+// ********** Begin Class AFPSPlayerController Function ShowPlayerHUD ******************************
+struct FPSPlayerController_eventShowPlayerHUD_Parms
+{
+	bool _bShow;
+};
+static FName NAME_AFPSPlayerController_ShowPlayerHUD = FName(TEXT("ShowPlayerHUD"));
+void AFPSPlayerController::ShowPlayerHUD(bool _bShow)
+{
+	FPSPlayerController_eventShowPlayerHUD_Parms Parms;
+	Parms._bShow=_bShow ? true : false;
+	UFunction* Func = FindFunctionChecked(NAME_AFPSPlayerController_ShowPlayerHUD);
+	ProcessEvent(Func,&Parms);
+}
+struct Z_Construct_UFunction_AFPSPlayerController_ShowPlayerHUD_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FPSPlayerController.h" },
+	};
+#endif // WITH_METADATA
+	static void NewProp__bShow_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp__bShow;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+void Z_Construct_UFunction_AFPSPlayerController_ShowPlayerHUD_Statics::NewProp__bShow_SetBit(void* Obj)
+{
+	((FPSPlayerController_eventShowPlayerHUD_Parms*)Obj)->_bShow = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AFPSPlayerController_ShowPlayerHUD_Statics::NewProp__bShow = { "_bShow", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(FPSPlayerController_eventShowPlayerHUD_Parms), &Z_Construct_UFunction_AFPSPlayerController_ShowPlayerHUD_Statics::NewProp__bShow_SetBit, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFPSPlayerController_ShowPlayerHUD_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSPlayerController_ShowPlayerHUD_Statics::NewProp__bShow,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSPlayerController_ShowPlayerHUD_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSPlayerController_ShowPlayerHUD_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSPlayerController, nullptr, "ShowPlayerHUD", Z_Construct_UFunction_AFPSPlayerController_ShowPlayerHUD_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSPlayerController_ShowPlayerHUD_Statics::PropPointers), sizeof(FPSPlayerController_eventShowPlayerHUD_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020800, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSPlayerController_ShowPlayerHUD_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSPlayerController_ShowPlayerHUD_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(FPSPlayerController_eventShowPlayerHUD_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AFPSPlayerController_ShowPlayerHUD()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSPlayerController_ShowPlayerHUD_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+// ********** End Class AFPSPlayerController Function ShowPlayerHUD ********************************
 
 // ********** Begin Class AFPSPlayerController Function UpdateGamemodeHud **************************
 static FName NAME_AFPSPlayerController_UpdateGamemodeHud = FName(TEXT("UpdateGamemodeHud"));
@@ -447,7 +569,10 @@ struct Z_Construct_UClass_AFPSPlayerController_Statics
 		{ &Z_Construct_UFunction_AFPSPlayerController_Client_NeedSpawnWeapons, "Client_NeedSpawnWeapons" }, // 3347532319
 		{ &Z_Construct_UFunction_AFPSPlayerController_Client_UpdateGamemodeHud, "Client_UpdateGamemodeHud" }, // 2117352617
 		{ &Z_Construct_UFunction_AFPSPlayerController_CreateGamemodeWidget, "CreateGamemodeWidget" }, // 1149282693
+		{ &Z_Construct_UFunction_AFPSPlayerController_HidePreGameCounter, "HidePreGameCounter" }, // 111432971
 		{ &Z_Construct_UFunction_AFPSPlayerController_SetChara, "SetChara" }, // 1397199780
+		{ &Z_Construct_UFunction_AFPSPlayerController_ShowMouseCursor, "ShowMouseCursor" }, // 3407306184
+		{ &Z_Construct_UFunction_AFPSPlayerController_ShowPlayerHUD, "ShowPlayerHUD" }, // 3260565253
 		{ &Z_Construct_UFunction_AFPSPlayerController_UpdateGamemodeHud, "UpdateGamemodeHud" }, // 2014591570
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
@@ -504,10 +629,10 @@ AFPSPlayerController::~AFPSPlayerController() {}
 struct Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h__Script_OnlineFPS_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AFPSPlayerController, AFPSPlayerController::StaticClass, TEXT("AFPSPlayerController"), &Z_Registration_Info_UClass_AFPSPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSPlayerController), 1666941626U) },
+		{ Z_Construct_UClass_AFPSPlayerController, AFPSPlayerController::StaticClass, TEXT("AFPSPlayerController"), &Z_Registration_Info_UClass_AFPSPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSPlayerController), 2956825754U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h__Script_OnlineFPS_2957365117(TEXT("/Script/OnlineFPS"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h__Script_OnlineFPS_3731523039(TEXT("/Script/OnlineFPS"),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h__Script_OnlineFPS_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h__Script_OnlineFPS_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

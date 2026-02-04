@@ -31,6 +31,9 @@ public:
 	UPROPERTY(Replicated, BlueprintReadOnly)
 	int timeRemaining = 0;
 
+	UPROPERTY(Replicated, BlueprintReadOnly)
+	int preGameCountdown = 10;
+
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
 	void UpdatePlayersList();

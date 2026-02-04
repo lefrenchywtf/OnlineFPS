@@ -273,6 +273,12 @@ public:
 	UFUNCTION(Client, Reliable)
 	void Client_GameEnded(int _winnerTeamID);
 
+	UFUNCTION(Client, Reliable)
+	void Client_MatchStarted();
+
 	UFUNCTION(BlueprintImplementableEvent)
 	void MatchEndedDisplay(bool _victory);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void EnableMovement(bool _bEnable);
 };

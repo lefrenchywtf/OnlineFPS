@@ -40,7 +40,8 @@ public: \
 		modeInfos, \
 		bTeamBased, \
 		timeRemaining, \
-		NETFIELD_REP_END=timeRemaining	}; \
+		preGameCountdown, \
+		NETFIELD_REP_END=preGameCountdown	}; \
 	DECLARE_VALIDATE_GENERATED_REP_ENUMS(NO_API)
 
 

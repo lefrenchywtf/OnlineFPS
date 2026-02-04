@@ -25,12 +25,19 @@ void AFPSGameModeBase::BeginPlay()
 	RetrieveSpawns();
 	gameState->timeRemaining = maxTime;
 	gameState->UpdateObjectives(teamModeInfo);
-	GetWorldTimerManager().SetTimerForNextTick(this, &AFPSGameModeBase::StartMatch);
 }
 
 void AFPSGameModeBase::HandleMatchHasStarted()
 {
 	GetWorldTimerManager().SetTimer(gameTimer, this, &AFPSGameModeBase::DecreaseTime, 1.f, true);
+	for (int i = 0; i < gameState->PlayerArray.Num(); i++)
+	{
+		AFPSCharacter* chara = Cast<AFPSCharacter>(gameState->PlayerArray[i]->GetPawn());
+		if (chara)
+		{
+			chara->Client_MatchStarted();
+		}
+	}
 }
 
 void AFPSGameModeBase::HandleMatchHasEnded()
@@ -55,7 +62,6 @@ void AFPSGameModeBase::HandleMatchHasEnded()
 			chara->Client_GameEnded(winnerTeamID);
 		}
 	}
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("team %d won"), winnerTeamID));
 }
 
 void AFPSGameModeBase::DecreaseTime()
@@ -191,4 +197,22 @@ void AFPSGameModeBase::SelectTeam(AFPSPlayerController* _controller, int _teamId
 			SpawnChara(_controller, _charas[_teamId]);
 		}
 	}
+	if (!bPreGameStarted)
+	{
+		bPreGameStarted = true;
+		GetWorldTimerManager().SetTimer(preGameTimer, this, &AFPSGameModeBase::DecreasePreGame, 1.f, true);
+	}
+}
+
+void AFPSGameModeBase::DecreasePreGame()
+{
+	if (gameState)
+	{
+		gameState->preGameCountdown--;
+		if (gameState->preGameCountdown <= 0)
+		{
+			GetWorldTimerManager().ClearTimer(preGameTimer);
+			StartMatch();
+		}
+	}	
 }

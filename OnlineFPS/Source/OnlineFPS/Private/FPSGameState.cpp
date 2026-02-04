@@ -12,6 +12,7 @@ void AFPSGameState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLif
 	DOREPLIFETIME(AFPSGameState, modeInfos);
 	DOREPLIFETIME(AFPSGameState, bTeamBased);
 	DOREPLIFETIME(AFPSGameState, timeRemaining);
+	DOREPLIFETIME(AFPSGameState, preGameCountdown);
 }
 
 void AFPSGameState::UpdatePlayersList()

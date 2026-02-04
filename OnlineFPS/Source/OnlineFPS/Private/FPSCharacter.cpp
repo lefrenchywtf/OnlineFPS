@@ -506,3 +506,10 @@ void AFPSCharacter::Client_GameEnded_Implementation(int _winnerTeamID)
 		MatchEndedDisplay(winner);
 	}
 }
+
+void AFPSCharacter::Client_MatchStarted_Implementation()
+{
+	EnableMovement(true);
+	FPSController->ShowPlayerHUD(true);
+	FPSController->HidePreGameCounter();
+}

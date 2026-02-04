@@ -52,4 +52,13 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void AddKillToFeed(AFPSCharacter* _killer, AFPSCharacter* _victim, const FString& _gunName);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void ShowPlayerHUD(bool _bShow);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void HidePreGameCounter();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void ShowMouseCursor(bool _bShow);
 };
