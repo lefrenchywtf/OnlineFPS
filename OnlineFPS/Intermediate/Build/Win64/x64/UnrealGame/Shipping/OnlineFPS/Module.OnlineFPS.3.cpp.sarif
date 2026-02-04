@@ -19,7 +19,7 @@
                                     "uri": "file:///F:/OnlineFPS/OnlineFPS/Source/OnlineFPS/Public/FPSCharacter.h"
                                 },
                                 "region": {
-                                    "startLine": 140,
+                                    "startLine": 148,
                                     "startColumn": 7,
                                     "snippet": {
                                         "text": "\tvoid TakeDamage(float _damage);"
@@ -44,7 +44,7 @@
                                     "uri": "file:///F:/OnlineFPS/OnlineFPS/Source/OnlineFPS/Public/FPSCharacter.h"
                                 },
                                 "region": {
-                                    "startLine": 264,
+                                    "startLine": 288,
                                     "startColumn": 1,
                                     "snippet": {
                                         "text": "};"
@@ -76,10 +76,10 @@
                             "id": 1,
                             "physicalLocation": {
                                 "artifactLocation": {
-                                    "uri": "file:///C:/Unreal/UE_5.6/Engine/Intermediate/Build/Win64/UnrealGame/Inc/Engine/UHT/GameModeBase.generated.h"
+                                    "uri": "file:///C:/Unreal/UE_5.6/Engine/Intermediate/Build/Win64/UnrealGame/Inc/UMG/UHT/UserWidget.generated.h"
                                 },
                                 "region": {
-                                    "startLine": 21,
+                                    "startLine": 19,
                                     "startColumn": 7,
                                     "snippet": {
                                         "text": "class APawn;"

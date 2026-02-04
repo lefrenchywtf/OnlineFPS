@@ -221,6 +221,7 @@ public:
 
 	void RespawnChara();
 
+	UFUNCTION(BlueprintCallable)
 	void TpToSpawnPoint();
 
 	UFUNCTION(Server, Reliable)
@@ -281,4 +282,7 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void EnableMovement(bool _bEnable);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void SendKillerCard(AFPSCharacter* _killer);
 };

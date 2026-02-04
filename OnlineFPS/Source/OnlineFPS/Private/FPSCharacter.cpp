@@ -151,6 +151,7 @@ void AFPSCharacter::ReduceHealth_Implementation(float _damage, AActor* _damageCa
 			AFPSCharacter* killer = Cast<AFPSCharacter>(_damageCauser);
 			if (killer)
 			{
+				SendKillerCard(killer);
 				Server_SendKill(killer);
 			}
 		}

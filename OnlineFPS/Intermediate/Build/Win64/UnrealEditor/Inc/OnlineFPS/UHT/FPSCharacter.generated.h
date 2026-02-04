@@ -71,6 +71,7 @@ struct FPlayerWeapons;
 	DECLARE_FUNCTION(execMC_SpawnFireParticule); \
 	DECLARE_FUNCTION(execServer_SpawnFireParticule); \
 	DECLARE_FUNCTION(execServer_DealDamage); \
+	DECLARE_FUNCTION(execTpToSpawnPoint); \
 	DECLARE_FUNCTION(execCancelReload); \
 	DECLARE_FUNCTION(execStartReloading); \
 	DECLARE_FUNCTION(execGetCurrentWeaponFovScale); \

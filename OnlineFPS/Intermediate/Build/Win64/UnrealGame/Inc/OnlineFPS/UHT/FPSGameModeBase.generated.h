@@ -21,6 +21,7 @@ class AFPSPlayerController;
 
 // ********** Begin Class AFPSGameModeBase *********************************************************
 #define FID_OnlineFPS_Source_OnlineFPS_Public_FPSGameModeBase_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execDecreaseTime); \
 	DECLARE_FUNCTION(execSelectTeam); \
 	DECLARE_FUNCTION(execRemovePlayer); \
 	DECLARE_FUNCTION(execAddPlayer);

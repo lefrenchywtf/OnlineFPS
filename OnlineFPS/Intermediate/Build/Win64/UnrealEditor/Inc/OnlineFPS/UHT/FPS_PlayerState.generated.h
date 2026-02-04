@@ -38,7 +38,8 @@ public: \
 		teamID=NETFIELD_REP_START, \
 		kills, \
 		deaths, \
-		NETFIELD_REP_END=deaths	}; \
+		steamPfp, \
+		NETFIELD_REP_END=steamPfp	}; \
 	DECLARE_VALIDATE_GENERATED_REP_ENUMS(NO_API)
 
 

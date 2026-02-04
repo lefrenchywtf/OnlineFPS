@@ -219,6 +219,91 @@ UFunction* Z_Construct_UFunction_AFPSCharacter_ChangeHUDGunInfo()
 }
 // ********** End Class AFPSCharacter Function ChangeHUDGunInfo ************************************
 
+// ********** Begin Class AFPSCharacter Function Client_GameEnded **********************************
+struct FPSCharacter_eventClient_GameEnded_Parms
+{
+	int32 _winnerTeamID;
+};
+static FName NAME_AFPSCharacter_Client_GameEnded = FName(TEXT("Client_GameEnded"));
+void AFPSCharacter::Client_GameEnded(int32 _winnerTeamID)
+{
+	FPSCharacter_eventClient_GameEnded_Parms Parms;
+	Parms._winnerTeamID=_winnerTeamID;
+	UFunction* Func = FindFunctionChecked(NAME_AFPSCharacter_Client_GameEnded);
+	ProcessEvent(Func,&Parms);
+}
+struct Z_Construct_UFunction_AFPSCharacter_Client_GameEnded_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FPSCharacter.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FIntPropertyParams NewProp__winnerTeamID;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AFPSCharacter_Client_GameEnded_Statics::NewProp__winnerTeamID = { "_winnerTeamID", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSCharacter_eventClient_GameEnded_Parms, _winnerTeamID), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFPSCharacter_Client_GameEnded_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSCharacter_Client_GameEnded_Statics::NewProp__winnerTeamID,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_Client_GameEnded_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSCharacter_Client_GameEnded_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSCharacter, nullptr, "Client_GameEnded", Z_Construct_UFunction_AFPSCharacter_Client_GameEnded_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_Client_GameEnded_Statics::PropPointers), sizeof(FPSCharacter_eventClient_GameEnded_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x01020CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_Client_GameEnded_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSCharacter_Client_GameEnded_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(FPSCharacter_eventClient_GameEnded_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AFPSCharacter_Client_GameEnded()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSCharacter_Client_GameEnded_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AFPSCharacter::execClient_GameEnded)
+{
+	P_GET_PROPERTY(FIntProperty,Z_Param__winnerTeamID);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->Client_GameEnded_Implementation(Z_Param__winnerTeamID);
+	P_NATIVE_END;
+}
+// ********** End Class AFPSCharacter Function Client_GameEnded ************************************
+
+// ********** Begin Class AFPSCharacter Function Client_MatchStarted *******************************
+static FName NAME_AFPSCharacter_Client_MatchStarted = FName(TEXT("Client_MatchStarted"));
+void AFPSCharacter::Client_MatchStarted()
+{
+	UFunction* Func = FindFunctionChecked(NAME_AFPSCharacter_Client_MatchStarted);
+	ProcessEvent(Func,NULL);
+}
+struct Z_Construct_UFunction_AFPSCharacter_Client_MatchStarted_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FPSCharacter.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSCharacter_Client_MatchStarted_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSCharacter, nullptr, "Client_MatchStarted", nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x01020CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_Client_MatchStarted_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSCharacter_Client_MatchStarted_Statics::Function_MetaDataParams)},  };
+UFunction* Z_Construct_UFunction_AFPSCharacter_Client_MatchStarted()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSCharacter_Client_MatchStarted_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AFPSCharacter::execClient_MatchStarted)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->Client_MatchStarted_Implementation();
+	P_NATIVE_END;
+}
+// ********** End Class AFPSCharacter Function Client_MatchStarted *********************************
+
 // ********** Begin Class AFPSCharacter Function Client_SpawnOtherWeapons **************************
 struct FPSCharacter_eventClient_SpawnOtherWeapons_Parms
 {
@@ -315,6 +400,53 @@ DEFINE_FUNCTION(AFPSCharacter::execCrouchChara)
 	P_NATIVE_END;
 }
 // ********** End Class AFPSCharacter Function CrouchChara *****************************************
+
+// ********** Begin Class AFPSCharacter Function EnableMovement ************************************
+struct FPSCharacter_eventEnableMovement_Parms
+{
+	bool _bEnable;
+};
+static FName NAME_AFPSCharacter_EnableMovement = FName(TEXT("EnableMovement"));
+void AFPSCharacter::EnableMovement(bool _bEnable)
+{
+	FPSCharacter_eventEnableMovement_Parms Parms;
+	Parms._bEnable=_bEnable ? true : false;
+	UFunction* Func = FindFunctionChecked(NAME_AFPSCharacter_EnableMovement);
+	ProcessEvent(Func,&Parms);
+}
+struct Z_Construct_UFunction_AFPSCharacter_EnableMovement_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FPSCharacter.h" },
+	};
+#endif // WITH_METADATA
+	static void NewProp__bEnable_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp__bEnable;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+void Z_Construct_UFunction_AFPSCharacter_EnableMovement_Statics::NewProp__bEnable_SetBit(void* Obj)
+{
+	((FPSCharacter_eventEnableMovement_Parms*)Obj)->_bEnable = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AFPSCharacter_EnableMovement_Statics::NewProp__bEnable = { "_bEnable", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(FPSCharacter_eventEnableMovement_Parms), &Z_Construct_UFunction_AFPSCharacter_EnableMovement_Statics::NewProp__bEnable_SetBit, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFPSCharacter_EnableMovement_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSCharacter_EnableMovement_Statics::NewProp__bEnable,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_EnableMovement_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSCharacter_EnableMovement_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSCharacter, nullptr, "EnableMovement", Z_Construct_UFunction_AFPSCharacter_EnableMovement_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_EnableMovement_Statics::PropPointers), sizeof(FPSCharacter_eventEnableMovement_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020800, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_EnableMovement_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSCharacter_EnableMovement_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(FPSCharacter_eventEnableMovement_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AFPSCharacter_EnableMovement()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSCharacter_EnableMovement_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+// ********** End Class AFPSCharacter Function EnableMovement **************************************
 
 // ********** Begin Class AFPSCharacter Function EnableRagdoll *************************************
 struct FPSCharacter_eventEnableRagdoll_Parms
@@ -725,6 +857,53 @@ DEFINE_FUNCTION(AFPSCharacter::execJumpChara)
 	P_NATIVE_END;
 }
 // ********** End Class AFPSCharacter Function JumpChara *******************************************
+
+// ********** Begin Class AFPSCharacter Function MatchEndedDisplay *********************************
+struct FPSCharacter_eventMatchEndedDisplay_Parms
+{
+	bool _victory;
+};
+static FName NAME_AFPSCharacter_MatchEndedDisplay = FName(TEXT("MatchEndedDisplay"));
+void AFPSCharacter::MatchEndedDisplay(bool _victory)
+{
+	FPSCharacter_eventMatchEndedDisplay_Parms Parms;
+	Parms._victory=_victory ? true : false;
+	UFunction* Func = FindFunctionChecked(NAME_AFPSCharacter_MatchEndedDisplay);
+	ProcessEvent(Func,&Parms);
+}
+struct Z_Construct_UFunction_AFPSCharacter_MatchEndedDisplay_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FPSCharacter.h" },
+	};
+#endif // WITH_METADATA
+	static void NewProp__victory_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp__victory;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+void Z_Construct_UFunction_AFPSCharacter_MatchEndedDisplay_Statics::NewProp__victory_SetBit(void* Obj)
+{
+	((FPSCharacter_eventMatchEndedDisplay_Parms*)Obj)->_victory = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AFPSCharacter_MatchEndedDisplay_Statics::NewProp__victory = { "_victory", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(FPSCharacter_eventMatchEndedDisplay_Parms), &Z_Construct_UFunction_AFPSCharacter_MatchEndedDisplay_Statics::NewProp__victory_SetBit, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFPSCharacter_MatchEndedDisplay_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSCharacter_MatchEndedDisplay_Statics::NewProp__victory,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_MatchEndedDisplay_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSCharacter_MatchEndedDisplay_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSCharacter, nullptr, "MatchEndedDisplay", Z_Construct_UFunction_AFPSCharacter_MatchEndedDisplay_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_MatchEndedDisplay_Statics::PropPointers), sizeof(FPSCharacter_eventMatchEndedDisplay_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_MatchEndedDisplay_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSCharacter_MatchEndedDisplay_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(FPSCharacter_eventMatchEndedDisplay_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AFPSCharacter_MatchEndedDisplay()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSCharacter_MatchEndedDisplay_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+// ********** End Class AFPSCharacter Function MatchEndedDisplay ***********************************
 
 // ********** Begin Class AFPSCharacter Function MC_PlaySound **************************************
 struct FPSCharacter_eventMC_PlaySound_Parms
@@ -1344,6 +1523,48 @@ UFunction* Z_Construct_UFunction_AFPSCharacter_SendHealthToHud()
 }
 // ********** End Class AFPSCharacter Function SendHealthToHud *************************************
 
+// ********** Begin Class AFPSCharacter Function SendKillerCard ************************************
+struct FPSCharacter_eventSendKillerCard_Parms
+{
+	AFPSCharacter* _killer;
+};
+static FName NAME_AFPSCharacter_SendKillerCard = FName(TEXT("SendKillerCard"));
+void AFPSCharacter::SendKillerCard(AFPSCharacter* _killer)
+{
+	FPSCharacter_eventSendKillerCard_Parms Parms;
+	Parms._killer=_killer;
+	UFunction* Func = FindFunctionChecked(NAME_AFPSCharacter_SendKillerCard);
+	ProcessEvent(Func,&Parms);
+}
+struct Z_Construct_UFunction_AFPSCharacter_SendKillerCard_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FPSCharacter.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FObjectPropertyParams NewProp__killer;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AFPSCharacter_SendKillerCard_Statics::NewProp__killer = { "_killer", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSCharacter_eventSendKillerCard_Parms, _killer), Z_Construct_UClass_AFPSCharacter_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFPSCharacter_SendKillerCard_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSCharacter_SendKillerCard_Statics::NewProp__killer,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_SendKillerCard_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSCharacter_SendKillerCard_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSCharacter, nullptr, "SendKillerCard", Z_Construct_UFunction_AFPSCharacter_SendKillerCard_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_SendKillerCard_Statics::PropPointers), sizeof(FPSCharacter_eventSendKillerCard_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020800, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_SendKillerCard_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSCharacter_SendKillerCard_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(FPSCharacter_eventSendKillerCard_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AFPSCharacter_SendKillerCard()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSCharacter_SendKillerCard_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+// ********** End Class AFPSCharacter Function SendKillerCard **************************************
+
 // ********** Begin Class AFPSCharacter Function Server_ChangeWalkSpeed ****************************
 struct FPSCharacter_eventServer_ChangeWalkSpeed_Parms
 {
@@ -1810,17 +2031,11 @@ DEFINE_FUNCTION(AFPSCharacter::execShootGun)
 // ********** End Class AFPSCharacter Function ShootGun ********************************************
 
 // ********** Begin Class AFPSCharacter Function SpawnCharaWeapons *********************************
-struct FPSCharacter_eventSpawnCharaWeapons_Parms
-{
-	AFPSCharacter* _chara;
-};
 static FName NAME_AFPSCharacter_SpawnCharaWeapons = FName(TEXT("SpawnCharaWeapons"));
-void AFPSCharacter::SpawnCharaWeapons(AFPSCharacter* _chara)
+void AFPSCharacter::SpawnCharaWeapons()
 {
-	FPSCharacter_eventSpawnCharaWeapons_Parms Parms;
-	Parms._chara=_chara;
 	UFunction* Func = FindFunctionChecked(NAME_AFPSCharacter_SpawnCharaWeapons);
-	ProcessEvent(Func,&Parms);
+	ProcessEvent(Func,NULL);
 }
 struct Z_Construct_UFunction_AFPSCharacter_SpawnCharaWeapons_Statics
 {
@@ -1829,17 +2044,9 @@ struct Z_Construct_UFunction_AFPSCharacter_SpawnCharaWeapons_Statics
 		{ "ModuleRelativePath", "Public/FPSCharacter.h" },
 	};
 #endif // WITH_METADATA
-	static const UECodeGen_Private::FObjectPropertyParams NewProp__chara;
-	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AFPSCharacter_SpawnCharaWeapons_Statics::NewProp__chara = { "_chara", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPSCharacter_eventSpawnCharaWeapons_Parms, _chara), Z_Construct_UClass_AFPSCharacter_NoRegister, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFPSCharacter_SpawnCharaWeapons_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFPSCharacter_SpawnCharaWeapons_Statics::NewProp__chara,
-};
-static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_SpawnCharaWeapons_Statics::PropPointers) < 2048);
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSCharacter_SpawnCharaWeapons_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSCharacter, nullptr, "SpawnCharaWeapons", Z_Construct_UFunction_AFPSCharacter_SpawnCharaWeapons_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_SpawnCharaWeapons_Statics::PropPointers), sizeof(FPSCharacter_eventSpawnCharaWeapons_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020800, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_SpawnCharaWeapons_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSCharacter_SpawnCharaWeapons_Statics::Function_MetaDataParams)},  };
-static_assert(sizeof(FPSCharacter_eventSpawnCharaWeapons_Parms) < MAX_uint16);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSCharacter_SpawnCharaWeapons_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSCharacter, nullptr, "SpawnCharaWeapons", nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020800, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_SpawnCharaWeapons_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSCharacter_SpawnCharaWeapons_Statics::Function_MetaDataParams)},  };
 UFunction* Z_Construct_UFunction_AFPSCharacter_SpawnCharaWeapons()
 {
 	static UFunction* ReturnFunction = nullptr;
@@ -2069,6 +2276,35 @@ DEFINE_FUNCTION(AFPSCharacter::execTakeDamage)
 }
 // ********** End Class AFPSCharacter Function TakeDamage ******************************************
 
+// ********** Begin Class AFPSCharacter Function TpToSpawnPoint ************************************
+struct Z_Construct_UFunction_AFPSCharacter_TpToSpawnPoint_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FPSCharacter.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSCharacter_TpToSpawnPoint_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AFPSCharacter, nullptr, "TpToSpawnPoint", nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFPSCharacter_TpToSpawnPoint_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFPSCharacter_TpToSpawnPoint_Statics::Function_MetaDataParams)},  };
+UFunction* Z_Construct_UFunction_AFPSCharacter_TpToSpawnPoint()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFPSCharacter_TpToSpawnPoint_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AFPSCharacter::execTpToSpawnPoint)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->TpToSpawnPoint();
+	P_NATIVE_END;
+}
+// ********** End Class AFPSCharacter Function TpToSpawnPoint **************************************
+
 // ********** Begin Class AFPSCharacter Function UpdateGunAmmo *************************************
 static FName NAME_AFPSCharacter_UpdateGunAmmo = FName(TEXT("UpdateGunAmmo"));
 void AFPSCharacter::UpdateGunAmmo()
@@ -2145,6 +2381,8 @@ void AFPSCharacter::StaticRegisterNativesAFPSCharacter()
 	UClass* Class = AFPSCharacter::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
 		{ "CancelReload", &AFPSCharacter::execCancelReload },
+		{ "Client_GameEnded", &AFPSCharacter::execClient_GameEnded },
+		{ "Client_MatchStarted", &AFPSCharacter::execClient_MatchStarted },
 		{ "Client_SpawnOtherWeapons", &AFPSCharacter::execClient_SpawnOtherWeapons },
 		{ "CrouchChara", &AFPSCharacter::execCrouchChara },
 		{ "EndADS", &AFPSCharacter::execEndADS },
@@ -2179,6 +2417,7 @@ void AFPSCharacter::StaticRegisterNativesAFPSCharacter()
 		{ "StartReloading", &AFPSCharacter::execStartReloading },
 		{ "StopShooting", &AFPSCharacter::execStopShooting },
 		{ "TakeDamage", &AFPSCharacter::execTakeDamage },
+		{ "TpToSpawnPoint", &AFPSCharacter::execTpToSpawnPoint },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -2291,6 +2530,14 @@ struct Z_Construct_UClass_AFPSCharacter_Statics
 		{ "Category", "FPSCharacter" },
 		{ "ModuleRelativePath", "Public/FPSCharacter.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_baseSensitivity_MetaData[] = {
+		{ "Category", "FPSCharacter" },
+		{ "ModuleRelativePath", "Public/FPSCharacter.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_currentSensitivity_MetaData[] = {
+		{ "Category", "FPSCharacter" },
+		{ "ModuleRelativePath", "Public/FPSCharacter.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_footstepSounds_MetaData[] = {
 		{ "Category", "FPSCharacter" },
 		{ "ModuleRelativePath", "Public/FPSCharacter.h" },
@@ -2325,6 +2572,8 @@ struct Z_Construct_UClass_AFPSCharacter_Statics
 	static void NewProp_bIsAiming_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsAiming;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_respawnTime;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_baseSensitivity;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_currentSensitivity;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_footstepSounds_Inner;
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_footstepSounds;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
@@ -2333,8 +2582,11 @@ struct Z_Construct_UClass_AFPSCharacter_Statics
 		{ &Z_Construct_UFunction_AFPSCharacter_CancelReload, "CancelReload" }, // 1999083201
 		{ &Z_Construct_UFunction_AFPSCharacter_ChangeGunVisibility, "ChangeGunVisibility" }, // 3950503238
 		{ &Z_Construct_UFunction_AFPSCharacter_ChangeHUDGunInfo, "ChangeHUDGunInfo" }, // 1546341984
+		{ &Z_Construct_UFunction_AFPSCharacter_Client_GameEnded, "Client_GameEnded" }, // 822774765
+		{ &Z_Construct_UFunction_AFPSCharacter_Client_MatchStarted, "Client_MatchStarted" }, // 793219094
 		{ &Z_Construct_UFunction_AFPSCharacter_Client_SpawnOtherWeapons, "Client_SpawnOtherWeapons" }, // 3411999588
 		{ &Z_Construct_UFunction_AFPSCharacter_CrouchChara, "CrouchChara" }, // 3090643592
+		{ &Z_Construct_UFunction_AFPSCharacter_EnableMovement, "EnableMovement" }, // 1037810381
 		{ &Z_Construct_UFunction_AFPSCharacter_EnableRagdoll, "EnableRagdoll" }, // 516924553
 		{ &Z_Construct_UFunction_AFPSCharacter_EndADS, "EndADS" }, // 4154453626
 		{ &Z_Construct_UFunction_AFPSCharacter_EnterADSAnim, "EnterADSAnim" }, // 1925936544
@@ -2345,6 +2597,7 @@ struct Z_Construct_UClass_AFPSCharacter_Statics
 		{ &Z_Construct_UFunction_AFPSCharacter_GetWeapon, "GetWeapon" }, // 1369632632
 		{ &Z_Construct_UFunction_AFPSCharacter_HandleTakeDamage, "HandleTakeDamage" }, // 2629927805
 		{ &Z_Construct_UFunction_AFPSCharacter_JumpChara, "JumpChara" }, // 4149562585
+		{ &Z_Construct_UFunction_AFPSCharacter_MatchEndedDisplay, "MatchEndedDisplay" }, // 3354041857
 		{ &Z_Construct_UFunction_AFPSCharacter_MC_PlaySound, "MC_PlaySound" }, // 830299932
 		{ &Z_Construct_UFunction_AFPSCharacter_MC_SpawnDecal, "MC_SpawnDecal" }, // 1607787785
 		{ &Z_Construct_UFunction_AFPSCharacter_MC_SpawnFireParticule, "MC_SpawnFireParticule" }, // 1437917633
@@ -2359,6 +2612,7 @@ struct Z_Construct_UClass_AFPSCharacter_Statics
 		{ &Z_Construct_UFunction_AFPSCharacter_PlayFPPFireAnim, "PlayFPPFireAnim" }, // 3608326157
 		{ &Z_Construct_UFunction_AFPSCharacter_ReduceHealth, "ReduceHealth" }, // 2511808814
 		{ &Z_Construct_UFunction_AFPSCharacter_SendHealthToHud, "SendHealthToHud" }, // 195339159
+		{ &Z_Construct_UFunction_AFPSCharacter_SendKillerCard, "SendKillerCard" }, // 4091498734
 		{ &Z_Construct_UFunction_AFPSCharacter_Server_ChangeWalkSpeed, "Server_ChangeWalkSpeed" }, // 118263672
 		{ &Z_Construct_UFunction_AFPSCharacter_Server_DealDamage, "Server_DealDamage" }, // 680099646
 		{ &Z_Construct_UFunction_AFPSCharacter_Server_PlaySound, "Server_PlaySound" }, // 2064683011
@@ -2368,13 +2622,14 @@ struct Z_Construct_UClass_AFPSCharacter_Statics
 		{ &Z_Construct_UFunction_AFPSCharacter_Server_SpawnParticule, "Server_SpawnParticule" }, // 1573394455
 		{ &Z_Construct_UFunction_AFPSCharacter_Server_TpToLocation, "Server_TpToLocation" }, // 512804656
 		{ &Z_Construct_UFunction_AFPSCharacter_ShootGun, "ShootGun" }, // 2298979356
-		{ &Z_Construct_UFunction_AFPSCharacter_SpawnCharaWeapons, "SpawnCharaWeapons" }, // 2376710997
+		{ &Z_Construct_UFunction_AFPSCharacter_SpawnCharaWeapons, "SpawnCharaWeapons" }, // 79887173
 		{ &Z_Construct_UFunction_AFPSCharacter_SprintChara, "SprintChara" }, // 3351018664
 		{ &Z_Construct_UFunction_AFPSCharacter_StartADS, "StartADS" }, // 1456146248
 		{ &Z_Construct_UFunction_AFPSCharacter_StartReloading, "StartReloading" }, // 102950416
 		{ &Z_Construct_UFunction_AFPSCharacter_StopAnim, "StopAnim" }, // 1014373352
 		{ &Z_Construct_UFunction_AFPSCharacter_StopShooting, "StopShooting" }, // 1716966931
 		{ &Z_Construct_UFunction_AFPSCharacter_TakeDamage, "TakeDamage" }, // 3680357053
+		{ &Z_Construct_UFunction_AFPSCharacter_TpToSpawnPoint, "TpToSpawnPoint" }, // 1230520477
 		{ &Z_Construct_UFunction_AFPSCharacter_UpdateGunAmmo, "UpdateGunAmmo" }, // 2458167350
 		{ &Z_Construct_UFunction_AFPSCharacter_UpdateSpreadHUD, "UpdateSpreadHUD" }, // 3538727278
 	};
@@ -2385,7 +2640,7 @@ struct Z_Construct_UClass_AFPSCharacter_Statics
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFPSCharacter_Statics::NewProp_FPSController = { "FPSController", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSCharacter, FPSController), Z_Construct_UClass_AFPSPlayerController_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_FPSController_MetaData), NewProp_FPSController_MetaData) };
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AFPSCharacter_Statics::NewProp_weaponsToSpawn = { "weaponsToSpawn", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSCharacter, weaponsToSpawn), Z_Construct_UScriptStruct_FPlayerWeapons, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_weaponsToSpawn_MetaData), NewProp_weaponsToSpawn_MetaData) }; // 1467568506
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AFPSCharacter_Statics::NewProp_weaponsToSpawn = { "weaponsToSpawn", nullptr, (EPropertyFlags)0x0010000000000025, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSCharacter, weaponsToSpawn), Z_Construct_UScriptStruct_FPlayerWeapons, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_weaponsToSpawn_MetaData), NewProp_weaponsToSpawn_MetaData) }; // 1467568506
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFPSCharacter_Statics::NewProp_TPP_ReloadAnims_ValueProp = { "TPP_ReloadAnims", nullptr, (EPropertyFlags)0x0104000000000001, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_AFPSCharacter_Statics::NewProp_TPP_ReloadAnims_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AFPSCharacter_Statics::NewProp_TPP_ReloadAnims_Key_KeyProp = { "TPP_ReloadAnims_Key", nullptr, (EPropertyFlags)0x0100000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UEnum_OnlineFPS_EWeaponType, METADATA_PARAMS(0, nullptr) }; // 3700248627
@@ -2422,6 +2677,8 @@ void Z_Construct_UClass_AFPSCharacter_Statics::NewProp_bIsAiming_SetBit(void* Ob
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AFPSCharacter_Statics::NewProp_bIsAiming = { "bIsAiming", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AFPSCharacter), &Z_Construct_UClass_AFPSCharacter_Statics::NewProp_bIsAiming_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsAiming_MetaData), NewProp_bIsAiming_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AFPSCharacter_Statics::NewProp_respawnTime = { "respawnTime", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSCharacter, respawnTime), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_respawnTime_MetaData), NewProp_respawnTime_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AFPSCharacter_Statics::NewProp_baseSensitivity = { "baseSensitivity", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSCharacter, baseSensitivity), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_baseSensitivity_MetaData), NewProp_baseSensitivity_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AFPSCharacter_Statics::NewProp_currentSensitivity = { "currentSensitivity", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSCharacter, currentSensitivity), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_currentSensitivity_MetaData), NewProp_currentSensitivity_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFPSCharacter_Statics::NewProp_footstepSounds_Inner = { "footstepSounds", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_USoundBase_NoRegister, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AFPSCharacter_Statics::NewProp_footstepSounds = { "footstepSounds", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSCharacter, footstepSounds), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_footstepSounds_MetaData), NewProp_footstepSounds_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFPSCharacter_Statics::PropPointers[] = {
@@ -2451,6 +2708,8 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFPSChara
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSCharacter_Statics::NewProp_FOV,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSCharacter_Statics::NewProp_bIsAiming,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSCharacter_Statics::NewProp_respawnTime,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSCharacter_Statics::NewProp_baseSensitivity,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSCharacter_Statics::NewProp_currentSensitivity,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSCharacter_Statics::NewProp_footstepSounds_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSCharacter_Statics::NewProp_footstepSounds,
 };
@@ -2486,10 +2745,12 @@ UClass* Z_Construct_UClass_AFPSCharacter()
 #if VALIDATE_CLASS_REPS
 void AFPSCharacter::ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const
 {
+	static FName Name_weaponsToSpawn(TEXT("weaponsToSpawn"));
 	static FName Name_equipedWeapon(TEXT("equipedWeapon"));
 	static FName Name_currentHealth(TEXT("currentHealth"));
 	static FName Name_bIsReloading(TEXT("bIsReloading"));
 	const bool bIsValid = true
+		&& Name_weaponsToSpawn == ClassReps[(int32)ENetFields_Private::weaponsToSpawn].Property->GetFName()
 		&& Name_equipedWeapon == ClassReps[(int32)ENetFields_Private::equipedWeapon].Property->GetFName()
 		&& Name_currentHealth == ClassReps[(int32)ENetFields_Private::currentHealth].Property->GetFName()
 		&& Name_bIsReloading == ClassReps[(int32)ENetFields_Private::bIsReloading].Property->GetFName();
@@ -2507,10 +2768,10 @@ struct Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_
 		{ FPlayerWeapons::StaticStruct, Z_Construct_UScriptStruct_FPlayerWeapons_Statics::NewStructOps, TEXT("PlayerWeapons"), &Z_Registration_Info_UScriptStruct_FPlayerWeapons, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FPlayerWeapons), 1467568506U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AFPSCharacter, AFPSCharacter::StaticClass, TEXT("AFPSCharacter"), &Z_Registration_Info_UClass_AFPSCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSCharacter), 10695158U) },
+		{ Z_Construct_UClass_AFPSCharacter, AFPSCharacter::StaticClass, TEXT("AFPSCharacter"), &Z_Registration_Info_UClass_AFPSCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSCharacter), 237715820U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h__Script_OnlineFPS_3800284946(TEXT("/Script/OnlineFPS"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h__Script_OnlineFPS_1743580166(TEXT("/Script/OnlineFPS"),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h__Script_OnlineFPS_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h__Script_OnlineFPS_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h__Script_OnlineFPS_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSCharacter_h__Script_OnlineFPS_Statics::ScriptStructInfo),
 	nullptr, 0);

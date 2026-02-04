@@ -13,6 +13,7 @@ void EmptyLinkFunctionForGeneratedCodeFPS_PlayerState() {}
 
 // ********** Begin Cross Module References ********************************************************
 ENGINE_API UClass* Z_Construct_UClass_APlayerState();
+ENGINE_API UClass* Z_Construct_UClass_UTexture2D_NoRegister();
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPS_PlayerState();
 ONLINEFPS_API UClass* Z_Construct_UClass_AFPS_PlayerState_NoRegister();
 UPackage* Z_Construct_UPackage__Script_OnlineFPS();
@@ -122,10 +123,15 @@ struct Z_Construct_UClass_AFPS_PlayerState_Statics
 		{ "Category", "FPS_PlayerState" },
 		{ "ModuleRelativePath", "Public/FPS_PlayerState.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_steamPfp_MetaData[] = {
+		{ "Category", "FPS_PlayerState" },
+		{ "ModuleRelativePath", "Public/FPS_PlayerState.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FIntPropertyParams NewProp_teamID;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_kills;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_deaths;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_steamPfp;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -140,10 +146,12 @@ struct Z_Construct_UClass_AFPS_PlayerState_Statics
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AFPS_PlayerState_Statics::NewProp_teamID = { "teamID", nullptr, (EPropertyFlags)0x0010000000000034, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPS_PlayerState, teamID), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_teamID_MetaData), NewProp_teamID_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AFPS_PlayerState_Statics::NewProp_kills = { "kills", nullptr, (EPropertyFlags)0x0010000000000034, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPS_PlayerState, kills), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_kills_MetaData), NewProp_kills_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AFPS_PlayerState_Statics::NewProp_deaths = { "deaths", nullptr, (EPropertyFlags)0x0010000000000034, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPS_PlayerState, deaths), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_deaths_MetaData), NewProp_deaths_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFPS_PlayerState_Statics::NewProp_steamPfp = { "steamPfp", nullptr, (EPropertyFlags)0x0010000000000024, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPS_PlayerState, steamPfp), Z_Construct_UClass_UTexture2D_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_steamPfp_MetaData), NewProp_steamPfp_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFPS_PlayerState_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPS_PlayerState_Statics::NewProp_teamID,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPS_PlayerState_Statics::NewProp_kills,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPS_PlayerState_Statics::NewProp_deaths,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPS_PlayerState_Statics::NewProp_steamPfp,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AFPS_PlayerState_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AFPS_PlayerState_Statics::DependentSingletons[])() = {
@@ -180,10 +188,12 @@ void AFPS_PlayerState::ValidateGeneratedRepEnums(const TArray<struct FRepRecord>
 	static FName Name_teamID(TEXT("teamID"));
 	static FName Name_kills(TEXT("kills"));
 	static FName Name_deaths(TEXT("deaths"));
+	static FName Name_steamPfp(TEXT("steamPfp"));
 	const bool bIsValid = true
 		&& Name_teamID == ClassReps[(int32)ENetFields_Private::teamID].Property->GetFName()
 		&& Name_kills == ClassReps[(int32)ENetFields_Private::kills].Property->GetFName()
-		&& Name_deaths == ClassReps[(int32)ENetFields_Private::deaths].Property->GetFName();
+		&& Name_deaths == ClassReps[(int32)ENetFields_Private::deaths].Property->GetFName()
+		&& Name_steamPfp == ClassReps[(int32)ENetFields_Private::steamPfp].Property->GetFName();
 	checkf(bIsValid, TEXT("UHT Generated Rep Indices do not match runtime populated Rep Indices for properties in AFPS_PlayerState"));
 }
 #endif
@@ -196,10 +206,10 @@ AFPS_PlayerState::~AFPS_PlayerState() {}
 struct Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPS_PlayerState_h__Script_OnlineFPS_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AFPS_PlayerState, AFPS_PlayerState::StaticClass, TEXT("AFPS_PlayerState"), &Z_Registration_Info_UClass_AFPS_PlayerState, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPS_PlayerState), 479331438U) },
+		{ Z_Construct_UClass_AFPS_PlayerState, AFPS_PlayerState::StaticClass, TEXT("AFPS_PlayerState"), &Z_Registration_Info_UClass_AFPS_PlayerState, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPS_PlayerState), 3090180673U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPS_PlayerState_h__Script_OnlineFPS_745834665(TEXT("/Script/OnlineFPS"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPS_PlayerState_h__Script_OnlineFPS_2407660697(TEXT("/Script/OnlineFPS"),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPS_PlayerState_h__Script_OnlineFPS_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPS_PlayerState_h__Script_OnlineFPS_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

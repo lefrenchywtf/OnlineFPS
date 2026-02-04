@@ -38,7 +38,10 @@ public: \
 		LobbyPawns=NETFIELD_REP_START, \
 		Spawns, \
 		modeInfos, \
-		NETFIELD_REP_END=modeInfos	}; \
+		bTeamBased, \
+		timeRemaining, \
+		preGameCountdown, \
+		NETFIELD_REP_END=preGameCountdown	}; \
 	DECLARE_VALIDATE_GENERATED_REP_ENUMS(NO_API)
 
 

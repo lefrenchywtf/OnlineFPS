@@ -23,6 +23,9 @@ public:
 	int kills = 0;
 	UPROPERTY(Replicated, BlueprintReadOnly)
 	int deaths = 0;
+	
+	UPROPERTY(Replicated, BlueprintReadWrite)
+	UTexture2D* steamPfp;
 
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
