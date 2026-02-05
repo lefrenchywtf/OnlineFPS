@@ -231,7 +231,7 @@ public:
 	void UpdateHealthBar();
 
 	UFUNCTION(BlueprintImplementableEvent)
-	void SendHealthToHud(float _percent);
+	void SendHealthToHud(float _percent, int _currentHP);
 
 	UFUNCTION(Server, Reliable)
 	void Server_SpawnFireParticule(UParticleSystem* _particule);

@@ -375,6 +375,7 @@ void AFPSCharacter::DieChara()
 	GetWorldTimerManager().SetTimer(respawnTimer, this, &AFPSCharacter::RespawnChara, respawnTime);
 	EnableRagdoll(true);
 	FPSController->DisableInputs();
+	FPSController->ShowPlayerHUD(false);
 }
 
 void AFPSCharacter::RespawnChara()
@@ -383,6 +384,7 @@ void AFPSCharacter::RespawnChara()
 	EnableRagdoll(false);
 	FPSController->EnableInputs();
 	TpToSpawnPoint();
+	FPSController->ShowPlayerHUD(true);
 }
 
 void AFPSCharacter::TpToSpawnPoint()
@@ -410,7 +412,7 @@ void AFPSCharacter::Server_TpToLocation_Implementation(FVector _location)
 void AFPSCharacter::UpdateHealthBar()
 {
 	float percent = currentHealth / (float)maxHealth;
-	SendHealthToHud(percent);
+	SendHealthToHud(percent, currentHealth);
 }
 
 

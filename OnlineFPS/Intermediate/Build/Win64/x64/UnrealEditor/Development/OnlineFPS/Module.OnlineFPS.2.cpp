@@ -3,6 +3,7 @@
 #include "F:/OnlineFPS/OnlineFPS/Intermediate/Build/Win64/UnrealEditor/Inc/OnlineFPS/UHT/HorrorGameMode.gen.cpp"
 #include "F:/OnlineFPS/OnlineFPS/Intermediate/Build/Win64/UnrealEditor/Inc/OnlineFPS/UHT/HorrorPlayerController.gen.cpp"
 #include "F:/OnlineFPS/OnlineFPS/Intermediate/Build/Win64/UnrealEditor/Inc/OnlineFPS/UHT/HorrorUI.gen.cpp"
+#include "F:/OnlineFPS/OnlineFPS/Intermediate/Build/Win64/UnrealEditor/Inc/OnlineFPS/UHT/OnlineFPS.init.gen.cpp"
 #include "F:/OnlineFPS/OnlineFPS/Intermediate/Build/Win64/UnrealEditor/Inc/OnlineFPS/UHT/OnlineFPSCameraManager.gen.cpp"
 #include "F:/OnlineFPS/OnlineFPS/Intermediate/Build/Win64/UnrealEditor/Inc/OnlineFPS/UHT/OnlineFPSCharacter.gen.cpp"
 #include "F:/OnlineFPS/OnlineFPS/Intermediate/Build/Win64/UnrealEditor/Inc/OnlineFPS/UHT/OnlineFPSGameMode.gen.cpp"
