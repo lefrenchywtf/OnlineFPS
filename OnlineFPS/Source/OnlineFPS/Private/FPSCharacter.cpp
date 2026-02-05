@@ -516,3 +516,9 @@ void AFPSCharacter::Client_MatchStarted_Implementation()
 	FPSController->ShowPlayerHUD(true);
 	FPSController->HidePreGameCounter();
 }
+
+void AFPSCharacter::UpdateSensitivity(float _newSens)
+{
+	baseSensitivity = _newSens;
+	currentSensitivity = baseSensitivity;
+}

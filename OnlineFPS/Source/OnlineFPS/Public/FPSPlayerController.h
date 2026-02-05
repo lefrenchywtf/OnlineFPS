@@ -19,7 +19,11 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool bIsSprintToggle = false;
+
 public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float Sensitivity = 1.f;
+
 	UPROPERTY(BlueprintReadWrite)
 	class AFPSCharacter* Chara;
 

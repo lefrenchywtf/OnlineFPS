@@ -552,6 +552,10 @@ struct Z_Construct_UClass_AFPSPlayerController_Statics
 		{ "Category", "FPSPlayerController" },
 		{ "ModuleRelativePath", "Public/FPSPlayerController.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Sensitivity_MetaData[] = {
+		{ "Category", "FPSPlayerController" },
+		{ "ModuleRelativePath", "Public/FPSPlayerController.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Chara_MetaData[] = {
 		{ "Category", "FPSPlayerController" },
 		{ "ModuleRelativePath", "Public/FPSPlayerController.h" },
@@ -559,6 +563,7 @@ struct Z_Construct_UClass_AFPSPlayerController_Statics
 #endif // WITH_METADATA
 	static void NewProp_bIsSprintToggle_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsSprintToggle;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_Sensitivity;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Chara;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
@@ -586,9 +591,11 @@ void Z_Construct_UClass_AFPSPlayerController_Statics::NewProp_bIsSprintToggle_Se
 	((AFPSPlayerController*)Obj)->bIsSprintToggle = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AFPSPlayerController_Statics::NewProp_bIsSprintToggle = { "bIsSprintToggle", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AFPSPlayerController), &Z_Construct_UClass_AFPSPlayerController_Statics::NewProp_bIsSprintToggle_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsSprintToggle_MetaData), NewProp_bIsSprintToggle_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AFPSPlayerController_Statics::NewProp_Sensitivity = { "Sensitivity", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSPlayerController, Sensitivity), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Sensitivity_MetaData), NewProp_Sensitivity_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFPSPlayerController_Statics::NewProp_Chara = { "Chara", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFPSPlayerController, Chara), Z_Construct_UClass_AFPSCharacter_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Chara_MetaData), NewProp_Chara_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFPSPlayerController_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSPlayerController_Statics::NewProp_bIsSprintToggle,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSPlayerController_Statics::NewProp_Sensitivity,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFPSPlayerController_Statics::NewProp_Chara,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AFPSPlayerController_Statics::PropPointers) < 2048);
@@ -629,10 +636,10 @@ AFPSPlayerController::~AFPSPlayerController() {}
 struct Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h__Script_OnlineFPS_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AFPSPlayerController, AFPSPlayerController::StaticClass, TEXT("AFPSPlayerController"), &Z_Registration_Info_UClass_AFPSPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSPlayerController), 2956825754U) },
+		{ Z_Construct_UClass_AFPSPlayerController, AFPSPlayerController::StaticClass, TEXT("AFPSPlayerController"), &Z_Registration_Info_UClass_AFPSPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFPSPlayerController), 2479193284U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h__Script_OnlineFPS_3731523039(TEXT("/Script/OnlineFPS"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h__Script_OnlineFPS_2710186266(TEXT("/Script/OnlineFPS"),
 	Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h__Script_OnlineFPS_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OnlineFPS_Source_OnlineFPS_Public_FPSPlayerController_h__Script_OnlineFPS_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

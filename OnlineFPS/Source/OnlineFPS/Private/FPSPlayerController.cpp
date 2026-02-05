@@ -32,6 +32,7 @@ void AFPSPlayerController::Client_NeedSpawnWeapons_Implementation()
 void AFPSPlayerController::SetChara(class AFPSCharacter* _chara)
 {
 	Chara = _chara;
+	Chara->UpdateSensitivity(Sensitivity);
 	//if (bNeedToSpawnWeapons)
 	//{
 	//	FTimerHandle SpawnTimer;

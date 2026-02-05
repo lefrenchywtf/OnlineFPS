@@ -1061,6 +1061,8 @@
 				"F:/OnlineFPS/OnlineFPS/Content/_Core/HUD/W_TeamObjBar.uasset",
 				"F:/OnlineFPS/OnlineFPS/Content/_Core/Blueprints/Player/BP_TeamSpawn.uasset",
 				"F:/OnlineFPS/OnlineFPS/Content/Adventures_Pack/Mesh/Adventure_02/Mesh_UE5/Full/PA_UE5_Adventure_02_Full_01_PhysicsAsset.uasset",
+				"F:/OnlineFPS/OnlineFPS/Content/_Core/Blueprints/Player/BP_MenuController.uasset",
+				"F:/OnlineFPS/OnlineFPS/Content/_Core/HUD/W_KeybindLine.uasset",
 				"F:/OnlineFPS/OnlineFPS/Content/_Core/Blueprints/Player/BP_CapGirl.uasset",
 				"F:/OnlineFPS/OnlineFPS/Content/_Core/Blueprints/Player/BP_MaskGuy.uasset",
 				"F:/OnlineFPS/OnlineFPS/Content/_Core/HUD/W_KillFeed.uasset",

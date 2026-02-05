@@ -285,4 +285,6 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void SendKillerCard(AFPSCharacter* _killer);
+
+	void UpdateSensitivity(float _newSens);
 };
