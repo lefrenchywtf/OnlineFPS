@@ -20,6 +20,8 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool bIsSprintToggle = false;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bIsCrouchToggle = false;
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float Sensitivity = 1.f;
