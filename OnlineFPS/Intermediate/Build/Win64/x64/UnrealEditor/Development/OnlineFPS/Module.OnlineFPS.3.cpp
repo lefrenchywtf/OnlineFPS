@@ -6,6 +6,7 @@
 #include "F:/OnlineFPS/OnlineFPS/Source/OnlineFPS/OnlineFPSCharacter.cpp"
 #include "F:/OnlineFPS/OnlineFPS/Source/OnlineFPS/OnlineFPSGameMode.cpp"
 #include "F:/OnlineFPS/OnlineFPS/Source/OnlineFPS/OnlineFPSPlayerController.cpp"
+#include "F:/OnlineFPS/OnlineFPS/Source/OnlineFPS/Private/FPSCharacter.cpp"
 #include "F:/OnlineFPS/OnlineFPS/Source/OnlineFPS/Private/FPSGameModeBase.cpp"
 #include "F:/OnlineFPS/OnlineFPS/Source/OnlineFPS/Private/FPSGameState.cpp"
 #include "F:/OnlineFPS/OnlineFPS/Source/OnlineFPS/Private/FPSStructs.cpp"

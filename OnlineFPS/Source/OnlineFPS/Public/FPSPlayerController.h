@@ -67,4 +67,7 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void ShowMouseCursor(bool _bShow);
+
+	UFUNCTION(BlueprintCallable)
+	void ChangeSensitivity(float _newSens);
 };

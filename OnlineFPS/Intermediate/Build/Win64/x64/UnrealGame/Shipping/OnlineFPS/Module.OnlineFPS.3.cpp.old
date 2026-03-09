@@ -10,7 +10,6 @@
 #include "F:/OnlineFPS/OnlineFPS/Source/OnlineFPS/Private/FPSPlayerController.cpp"
 #include "F:/OnlineFPS/OnlineFPS/Source/OnlineFPS/Private/FPSStructs.cpp"
 #include "F:/OnlineFPS/OnlineFPS/Source/OnlineFPS/Private/FPSWeapon.cpp"
-#include "F:/OnlineFPS/OnlineFPS/Source/OnlineFPS/Private/FPS_PlayerState.cpp"
 #include "F:/OnlineFPS/OnlineFPS/Source/OnlineFPS/Private/GMMainMenu.cpp"
 #include "F:/OnlineFPS/OnlineFPS/Source/OnlineFPS/Variant_Horror/HorrorCharacter.cpp"
 #include "F:/OnlineFPS/OnlineFPS/Source/OnlineFPS/Variant_Horror/HorrorGameMode.cpp"

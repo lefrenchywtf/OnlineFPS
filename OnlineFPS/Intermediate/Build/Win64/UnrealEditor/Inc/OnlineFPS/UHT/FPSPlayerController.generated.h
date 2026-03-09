@@ -25,6 +25,7 @@ class UUserWidget;
 	virtual void Client_UpdateGamemodeHud_Implementation(); \
 	virtual void Client_CreateGamemodeWidget_Implementation(TSubclassOf<UUserWidget> _widget); \
 	virtual void Client_NeedSpawnWeapons_Implementation(); \
+	DECLARE_FUNCTION(execChangeSensitivity); \
 	DECLARE_FUNCTION(execClient_AddKillToFeed); \
 	DECLARE_FUNCTION(execClient_UpdateGamemodeHud); \
 	DECLARE_FUNCTION(execClient_CreateGamemodeWidget); \

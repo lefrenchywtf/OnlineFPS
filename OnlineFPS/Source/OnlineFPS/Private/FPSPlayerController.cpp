@@ -66,3 +66,12 @@ void AFPSPlayerController::Client_AddKillToFeed_Implementation(AFPSCharacter* _k
 {
 	AddKillToFeed(_killer, _victim, _gunName);
 }
+
+void AFPSPlayerController::ChangeSensitivity(float _newSens)
+{
+	Sensitivity = _newSens;
+	if (Chara)
+	{
+		Chara->UpdateSensitivity(Sensitivity);
+	}
+}
