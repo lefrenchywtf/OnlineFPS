@@ -45,6 +45,7 @@
 			"FPSCharacter.cpp.obj",
 			"FPSGameModeBase.cpp.obj",
 			"FPSGameState.cpp.obj",
+			"FPSPlayerController.cpp.obj",
 			"FPSStructs.cpp.obj",
 			"FPSWeapon.cpp.obj",
 			"FPS_PlayerState.cpp.obj",
@@ -65,8 +66,7 @@
 			"ShooterPickup.cpp.obj",
 			"ShooterProjectile.cpp.obj",
 			"ShooterWeapon.cpp.obj",
-			"ShooterWeaponHolder.cpp.obj",
-			"FPSPlayerController.cpp.obj"
+			"ShooterWeaponHolder.cpp.obj"
 		]
 	}
 }
