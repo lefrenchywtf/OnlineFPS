@@ -26,6 +26,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float Sensitivity = 1.f;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int savedFOV = 90.f;
+
 	UPROPERTY(BlueprintReadWrite)
 	class AFPSCharacter* Chara;
 

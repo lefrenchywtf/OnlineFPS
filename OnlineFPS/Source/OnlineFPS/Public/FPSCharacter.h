@@ -287,4 +287,7 @@ public:
 	void SendKillerCard(AFPSCharacter* _killer);
 
 	void UpdateSensitivity(float _newSens);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void SetFov(int value);
 };

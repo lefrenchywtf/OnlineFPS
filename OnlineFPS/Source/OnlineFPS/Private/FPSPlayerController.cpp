@@ -33,6 +33,7 @@ void AFPSPlayerController::SetChara(class AFPSCharacter* _chara)
 {
 	Chara = _chara;
 	Chara->UpdateSensitivity(Sensitivity);
+	Chara->FOV = savedFOV;
 	//if (bNeedToSpawnWeapons)
 	//{
 	//	FTimerHandle SpawnTimer;
