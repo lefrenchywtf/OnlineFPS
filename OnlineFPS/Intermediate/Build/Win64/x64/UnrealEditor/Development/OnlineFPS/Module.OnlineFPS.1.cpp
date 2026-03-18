@@ -3,6 +3,7 @@
 #include "F:/OnlineFPS/OnlineFPS/Intermediate/Build/Win64/UnrealEditor/Inc/OnlineFPS/UHT/FPSCharacter.gen.cpp"
 #include "F:/OnlineFPS/OnlineFPS/Intermediate/Build/Win64/UnrealEditor/Inc/OnlineFPS/UHT/FPSGameModeBase.gen.cpp"
 #include "F:/OnlineFPS/OnlineFPS/Intermediate/Build/Win64/UnrealEditor/Inc/OnlineFPS/UHT/FPSGameState.gen.cpp"
+#include "F:/OnlineFPS/OnlineFPS/Intermediate/Build/Win64/UnrealEditor/Inc/OnlineFPS/UHT/FPSPlayerController.gen.cpp"
 #include "F:/OnlineFPS/OnlineFPS/Intermediate/Build/Win64/UnrealEditor/Inc/OnlineFPS/UHT/FPSStructs.gen.cpp"
 #include "F:/OnlineFPS/OnlineFPS/Intermediate/Build/Win64/UnrealEditor/Inc/OnlineFPS/UHT/FPSWeapon.gen.cpp"
 #include "F:/OnlineFPS/OnlineFPS/Intermediate/Build/Win64/UnrealEditor/Inc/OnlineFPS/UHT/FPS_PlayerState.gen.cpp"
