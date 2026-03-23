@@ -165,6 +165,9 @@ public:
 	UFUNCTION(BlueprintCallable, Server, Reliable)
 	void EquipGun(EWeaponType _type);
 
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+	void EquipNewGun(EWeaponType _type, TSubclassOf<class AFPSWeapon> _newGun);
+
 	UFUNCTION(BlueprintImplementableEvent)
 	void ChangeGunVisibility(AFPSCharacter* chara, EWeaponType _type, bool _visible);
 
