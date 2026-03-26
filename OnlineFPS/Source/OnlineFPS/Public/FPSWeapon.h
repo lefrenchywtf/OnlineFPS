@@ -91,6 +91,10 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	EWeaponType Type = EWeaponType::PRIMARY;
 
+	// Allows a gun to use the other weapon type anims (for vertical grip for a primary)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bInvertFPPAnim = false;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int maxAmmo = 20;
 

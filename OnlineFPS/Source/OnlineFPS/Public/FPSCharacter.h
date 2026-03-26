@@ -55,6 +55,9 @@ public:
 	UPROPERTY(BlueprintReadWrite, ReplicatedUsing = OnRepEquiped)
 	EWeaponType equipedWeapon;
 
+	UPROPERTY(BlueprintReadWrite)
+	bool bOverrideFPPWeapon = false;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, ReplicatedUsing = OnRepHealth)
 	int currentHealth = 0;
 
