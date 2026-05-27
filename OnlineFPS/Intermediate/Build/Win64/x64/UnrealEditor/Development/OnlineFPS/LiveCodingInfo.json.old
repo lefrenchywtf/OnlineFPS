@@ -8,10 +8,10 @@
 			"FPSGameState.gen.cpp.obj",
 			"FPSPlayerController.gen.cpp.obj",
 			"FPSStructs.gen.cpp.obj",
-			"FPSWeapon.gen.cpp.obj",
-			"FPS_PlayerState.gen.cpp.obj"
+			"FPSWeapon.gen.cpp.obj"
 		],
 		"Module.OnlineFPS.2.cpp.obj": [
+			"FPS_PlayerState.gen.cpp.obj",
 			"GMMainMenu.gen.cpp.obj",
 			"HorrorCharacter.gen.cpp.obj",
 			"HorrorGameMode.gen.cpp.obj",

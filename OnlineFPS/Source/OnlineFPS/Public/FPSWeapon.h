@@ -197,6 +197,8 @@ public:
 
 	float GetADSFovScale();
 
+	bool CanReload();
+
 	void StartReload();
 
 	void CancelReload();

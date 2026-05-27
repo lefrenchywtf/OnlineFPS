@@ -78,13 +78,9 @@ void AFPSCharacter::SprintChara(bool _state)
 {
 	if (_state)
 	{
-		if (!bIsCrouched && !bIsAiming)
+		if (!bIsCrouched && !bIsAiming && !bIsReloading)
 		{
 			bIsSprinting = true;
-			if (bIsReloading)
-			{
-				CancelReload();
-			}
 			Server_ChangeWalkSpeed(SprintSpeedMax);
 		}
 	}
@@ -287,11 +283,15 @@ void AFPSCharacter::StartReloading()
 	if (!bIsReloading)
 	{
 		AFPSWeapon* weapon = GetEquipedWeapon();
-		if (weapon)
+		if (weapon && weapon->CanReload())
 		{
 			if (bIsAiming)
 			{
 				EndADS();
+			}
+			if (bIsSprinting)
+			{
+				SprintChara(false);
 			}
 			bIsReloading = true;
 			weapon->StartReload();

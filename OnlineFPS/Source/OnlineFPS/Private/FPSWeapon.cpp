@@ -187,6 +187,11 @@ float AFPSWeapon::GetADSFovScale()
 	return ADSFovScale;
 }
 
+bool AFPSWeapon::CanReload()
+{
+	return ammoCount < maxAmmo;
+}
+
 void AFPSWeapon::StartReload()
 {
 	if (ammoCount < maxAmmo)
